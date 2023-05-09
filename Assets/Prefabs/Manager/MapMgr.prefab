@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6302542521270487420}
   - component: {fileID: 3173961808767180560}
   m_Layer: 0
-  m_Name: Kitchen
+  m_Name: modKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 8597493994281169756}
   - component: {fileID: 375057036624862289}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: modGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7257845986480156458}
-  - {fileID: 4458078317182649733}
+  - {fileID: 2244724489563101691}
   m_Father: {fileID: 350167778069367910}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -306,7 +306,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &5528149714594127483
+--- !u!1001 &7948701042567479813
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -325,13 +325,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
@@ -375,9 +380,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8abc02db5666c45a116cc4d56d8805, type: 3}
---- !u!4 &4458078317182649733 stripped
+--- !u!4 &2244724489563101691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
     type: 3}
-  m_PrefabInstance: {fileID: 5528149714594127483}
+  m_PrefabInstance: {fileID: 7948701042567479813}
   m_PrefabAsset: {fileID: 0}
