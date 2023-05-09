@@ -8,8 +8,18 @@ public class CookwareBasic : MonoBehaviour
     public CookwareType cookType;
     public int cookID;
 
+    private CookwareExcelItem thisItem;
+
     public void Init(int ID)
     {
         Debug.Log(ID);
+
+        this.cookID = ID;
+        thisItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
+
+        Debug.Log(thisItem.name);
+        Debug.Log(thisItem.desc);
+        Debug.Log(thisItem.ageMax_real);
+
     }
 }

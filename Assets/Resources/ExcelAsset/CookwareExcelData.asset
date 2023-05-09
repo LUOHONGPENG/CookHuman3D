@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3423e50259642254e9e4b3ba34511e57, type: 3}
+  m_Name: CookwareExcelData
+  m_EditorClassIdentifier: 
+  items:
+  - id: 1001
+    name: School
+    desc: Enhance education
+    cookwareType: 0
+    growRate: 4
+    ageMin_real: 4
+    ageMax_real: 60
+    eduMin: 0
+  - id: 1002
+    name: School
+    desc: Enhance education
+    cookwareType: 0
+    growRate: 4
+    ageMin_real: 4
+    ageMax_real: 60
+    eduMin: 0
+  - id: 2001
+    name: Work1
+    desc: Enhance career +
+    cookwareType: 1
+    growRate: 1
+    ageMin_real: 16
+    ageMax_real: 60
+    eduMin: 0
+  - id: 2002
+    name: Work2
+    desc: Enhance career ++
+    cookwareType: 1
+    growRate: 2
+    ageMin_real: 23
+    ageMax_real: 45
+    eduMin: 23
+  - id: 2003
+    name: Work3
+    desc: Enhance career +++
+    cookwareType: 1
+    growRate: 4
+    ageMin_real: 25
+    ageMax_real: 60
+    eduMin: 50
+  - id: 4001
+    name: Retire
+    desc: Finish this human
+    cookwareType: 3
+    growRate: 0
+    ageMin_real: 60
+    ageMax_real: 999
+    eduMin: 0

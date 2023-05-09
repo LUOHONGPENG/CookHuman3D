@@ -13,10 +13,16 @@ public class GameMgr : MonoSingleton<GameMgr>
     public LightMgr lightMgr;
     public SoundMgr soundMgr;
 
+    public DataMgr dataMgr;
     public override void Init()
     {
-        Debug.Log("GameMgrInit");
+        Debug.Log("GameMgrStartInit");
+
+        dataMgr = DataMgr.Instance;
+        dataMgr.Init();
 
         mapMgr.Init();
+
+        Debug.Log("GameMgrEndInit");
     }
 }
