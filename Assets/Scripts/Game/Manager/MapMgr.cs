@@ -10,6 +10,6 @@ public class MapMgr : MonoBehaviour
 
     public void Init()
     {
-
+        cookStudy1.Init(1001);
     }
 }
