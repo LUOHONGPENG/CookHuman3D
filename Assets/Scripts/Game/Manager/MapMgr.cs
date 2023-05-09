@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class MapMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Cookware")]
+    public CookwareBasic cookStudy1;
+    public CookwareBasic cookStudy2;
 
-    // Update is called once per frame
-    void Update()
+    public void Init()
     {
-        
+
     }
 }

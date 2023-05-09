@@ -10,6 +10,6 @@ public class CookwareBasic : MonoBehaviour
 
     public void Init(int ID)
     {
-
+        
     }
 }
