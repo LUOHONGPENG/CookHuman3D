@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d13d91502121a438e49dac329731e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tfItem: {fileID: 0}
+  tfItem: {fileID: 5399694838182308381}
   curCookware:
     id: 0
     name: 
