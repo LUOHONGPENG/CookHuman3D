@@ -12,14 +12,10 @@ public class CookwareBasic : MonoBehaviour
 
     public void Init(int ID)
     {
-        Debug.Log(ID);
-
+        //Load the item data
         this.cookID = ID;
         thisItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
 
-        Debug.Log(thisItem.name);
-        Debug.Log(thisItem.desc);
-        Debug.Log(thisItem.ageMax_real);
 
     }
 }

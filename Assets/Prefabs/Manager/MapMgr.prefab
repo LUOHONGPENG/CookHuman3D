@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 350167778069367910}
+  - {fileID: 8207663355980069525}
   - {fileID: 8003769971751322650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -145,6 +146,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5375151791339446924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8207663355980069525}
+  m_Layer: 0
+  m_Name: Cookware
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8207663355980069525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5375151791339446924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7972694677893631036}
+  m_Father: {fileID: 5454529444075148772}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5928235908693348218
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8003769971751322650}
   m_Layer: 0
-  m_Name: Dynamic
+  m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +239,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5454529444075148772}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7661633127603349455
 GameObject:
@@ -240,7 +273,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7257845986480156458}
-  - {fileID: 7972694677893631036}
   m_Father: {fileID: 350167778069367910}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -313,7 +345,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5359719875861353710}
+    m_TransformParent: {fileID: 8207663355980069525}
     m_Modifications:
     - target: {fileID: 6885105220685995735, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
@@ -323,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8172248250695572478, guid: dd8abc02db5666c45a116cc4d56d8805,
         type: 3}
