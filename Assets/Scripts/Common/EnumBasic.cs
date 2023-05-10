@@ -5,3 +5,9 @@ public enum CookwareType
     Marriage,
     Retire
 }
+
+public enum Sex
+{
+    Male,
+    Female
+}
