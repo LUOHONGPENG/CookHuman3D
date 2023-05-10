@@ -10,37 +10,20 @@ public partial class MapMgr : MonoBehaviour
 
     public void Init()
     {
-        cookStudy1.Init(1001);
+        InitInput();
 
+        cookStudy1.Init(1001);
         InitHuman();
     }
-}
 
-public partial class MapMgr
-{
-    public Transform tfHuman;
-    public GameObject pfHuman;
-    public List<HumanBasic> listHumanObject = new List<HumanBasic>();
-    public List<HumanItem> listHumanItem = new List<HumanItem>();
-
-    public void InitHuman()
+    public void OnEnable()
     {
-        listHumanObject.Clear();
-        listHumanItem.Clear();
-
-        CreateHuman(new Vector3(0, 1.05f, 0.5f));
+        EnableInput();
     }
 
-    public void CreateHuman(Vector3 pos)
+    public void OnDisable()
     {
-        //Create a human item
-        HumanItem humanItem = new HumanItem(listHumanItem.Count);
-        listHumanItem.Add(humanItem);
-
-        //Create a human prefab
-        GameObject objHuman = GameObject.Instantiate(pfHuman, pos, Quaternion.identity, tfHuman);
-        HumanBasic itemHumanObject = objHuman.GetComponent<HumanBasic>();
-        itemHumanObject.Init(humanItem);
-        listHumanObject.Add(itemHumanObject);
+        DisableInput();
     }
 }
+
