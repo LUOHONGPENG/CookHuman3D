@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5399694838182308381}
   - component: {fileID: 7321032414610466076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HumanBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,9 +67,9 @@ GameObject:
   - component: {fileID: 511796791834038343}
   - component: {fileID: 2318341671578236034}
   - component: {fileID: 5731774124365335148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: model
-  m_TagString: Human
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

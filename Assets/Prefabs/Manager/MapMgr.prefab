@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 9040524801415919811}
   - component: {fileID: 6302542521270487420}
   - component: {fileID: 3173961808767180560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: modKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 8557283693093274342}
   - component: {fileID: 8597493994281169756}
   - component: {fileID: 375057036624862289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: modGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
