@@ -63,7 +63,7 @@ public partial class MapMgr
         }
     }
 
-    private void CheckDrag()
+    private void CheckRayDrag()
     {
         /*        Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
                 Ray ray = GameMgr.Instance.mapCamera.ScreenPointToRay(screenPosition);
@@ -75,12 +75,12 @@ public partial class MapMgr
         {
             Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
             Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-            if(Physics.Raycast(ray, out RaycastHit hitDataCook, LayerMask.GetMask("Cookware")))
+            if(Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 Debug.Log("Cook" + hitDataCook.point);
                 draggingHuman.transform.position = hitDataCook.point + new Vector3(0, 0.2f, 0);
             }
-            else if (Physics.Raycast(ray, out RaycastHit hitDataStatic, LayerMask.GetMask("Static")))
+            else if (Physics.Raycast(ray, out RaycastHit hitDataStatic, 999f, LayerMask.GetMask("Static")))
             {
                 Debug.Log("Static" + hitDataStatic.point);
                 draggingHuman.transform.position = hitDataStatic.point + new Vector3(0, 0.2f, 0);

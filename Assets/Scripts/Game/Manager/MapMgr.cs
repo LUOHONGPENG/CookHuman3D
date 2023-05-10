@@ -36,7 +36,7 @@ public partial class MapMgr : MonoBehaviour
         {
             return;
         }
-        CheckDrag();
+        CheckRayDrag();
     }
 }
 
