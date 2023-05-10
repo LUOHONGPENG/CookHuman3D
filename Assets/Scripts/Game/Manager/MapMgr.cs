@@ -28,7 +28,7 @@ public partial class MapMgr
         listHumanObject.Clear();
         listHumanItem.Clear();
 
-        CreateHuman(new Vector3(0, 1.5f, 0.5f));
+        CreateHuman(new Vector3(0, 1f, 0.5f));
     }
 
     public void CreateHuman(Vector3 pos)
