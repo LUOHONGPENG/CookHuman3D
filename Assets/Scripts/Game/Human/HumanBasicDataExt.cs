@@ -73,7 +73,7 @@ public partial class HumanBasic
         DataGrow(yearDelta);
     }
 
-    ///
+    //The data of education and career will grow according to the year passed.
     private void DataGrow(float yearDelta)
     {
         if (isInSchool)
