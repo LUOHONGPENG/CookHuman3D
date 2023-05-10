@@ -39,12 +39,18 @@ public partial class MapMgr
     private bool isDragging = false;
     private HumanBasic draggingHuman = null;
 
-    private void Touch_performed(InputAction.CallbackContext obj)
+    //The function that returns ray
+    private Ray GetMouseRay()
     {
         Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
-        Ray ray = GameMgr.Instance.mapCamera.ScreenPointToRay(screenPosition);
-        //Cast Human
-        Physics.Raycast(ray, out RaycastHit hitData, LayerMask.GetMask("Human"));
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        return ray;
+    }
+
+    //Left button just pressed
+    private void Touch_performed(InputAction.CallbackContext obj)
+    {
+        Physics.Raycast(GetMouseRay(), out RaycastHit hitData, LayerMask.GetMask("Human"));
         if (hitData.transform.parent.GetComponent<HumanBasic>() != null)
         {
             isDragging = true;
@@ -52,43 +58,53 @@ public partial class MapMgr
         }
     }
 
-
+    //Left button released
     private void Touch_canceled(InputAction.CallbackContext obj)
     {
         //Release Dragging
-        if (isDragging)
+        if (isDragging && draggingHuman != null)
         {
+            bool isBind = false;
+
+            Ray ray = GetMouseRay();
+            if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
+            {
+                if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
+                {
+                    Debug.Log("BindCookware");
+                }
+            }
+
+            if (!isBind)
+            {
+                //Go back to original place
+            }
+
             isDragging = false;
             draggingHuman = null;
         }
     }
 
+    #endregion
+
+
+    #region Interaction
+
     private void CheckRayDrag()
     {
-        /*        Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
-                Ray ray = GameMgr.Instance.mapCamera.ScreenPointToRay(screenPosition);
-                Physics.Raycast(ray, out RaycastHit hitData);
-                Debug.Log(hitData.transform.name);
-        */
-
         if (isDragging && draggingHuman != null)
         {
-            Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
-            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-            if(Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
+            Ray ray = GetMouseRay();
+            if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
-                Debug.Log("Cook" + hitDataCook.point);
                 draggingHuman.transform.position = hitDataCook.point + new Vector3(0, 0.2f, 0);
             }
             else if (Physics.Raycast(ray, out RaycastHit hitDataStatic, 999f, LayerMask.GetMask("Static")))
             {
-                Debug.Log("Static" + hitDataStatic.point);
                 draggingHuman.transform.position = hitDataStatic.point + new Vector3(0, 0.2f, 0);
             }
         }
     }
 
-
     #endregion
-
 }
