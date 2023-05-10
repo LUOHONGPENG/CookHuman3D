@@ -44,7 +44,7 @@ MonoBehaviour:
     growRate: 2
     ageMin_real: 23
     ageMax_real: 45
-    eduMin: 23
+    eduMin: 2
   - id: 2003
     name: Work3
     desc: Enhance career +++
@@ -52,7 +52,7 @@ MonoBehaviour:
     growRate: 4
     ageMin_real: 25
     ageMax_real: 60
-    eduMin: 50
+    eduMin: 4
   - id: 4001
     name: Retire
     desc: Finish this human
