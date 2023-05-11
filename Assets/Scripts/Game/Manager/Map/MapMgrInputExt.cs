@@ -58,13 +58,12 @@ public partial class MapMgr
         }
     }
 
-    //Left button released
+    //Left button released(Drop Human)
     private void Touch_canceled(InputAction.CallbackContext obj)
     {
         //Release Dragging
         if (isDragging && draggingHuman != null)
         {
-            bool isBind = false;
             Ray ray = GetMouseRay();
             //Release human at a cookware
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
@@ -86,19 +85,12 @@ public partial class MapMgr
             {
                 draggingHuman.UnBindCookware();
             }
-
-            if (!isBind)
-            {
-                //Go back to original place
-            }
-
             isDragging = false;
             draggingHuman = null;
         }
     }
 
     #endregion
-
 
     #region Interaction
 

@@ -4,17 +4,12 @@ using UnityEngine;
 
 public partial class MapMgr : MonoBehaviour
 {
-    [Header("Cookware")]
-    public CookwareBasic cookStudy1;
-    public CookwareBasic cookStudy2;
-
     private bool isInit = false;
 
     public void Init()
     {
         InitInput();
-
-        cookStudy1.Init(1001);
+        InitCookware();
         InitHuman();
 
         isInit = true;

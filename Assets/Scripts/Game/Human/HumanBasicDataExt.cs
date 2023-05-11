@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public partial class HumanBasic
 {
     #region BasicData
@@ -39,60 +40,6 @@ public partial class HumanBasic
         }
     }
     #endregion
-
-    #region Cookware
-    //The data of currentCookware
-    public CookwareBasic curCookware;
-
-    public void BindCookware(CookwareBasic tarCookware)
-    {
-        //Try to bind a cookware
-        if (tarCookware.CheckHuman(this))
-        {
-            //Check whether this human bind a cookware
-            if (curCookware != null)
-            {
-                curCookware.UnbindHuman();
-            }
-            //Bind each other
-            tarCookware.BindHuman(this);
-            curCookware = tarCookware;
-        }
-        else
-        {
-            if (curCookware != null)
-            {
-                BackStart();
-            }
-            else
-            {
-                BackOrigin();
-            }
-        }
-    }
-
-    public void UnBindCookware()
-    {
-        if (curCookware != null)
-        {
-            curCookware.UnbindHuman();
-        }
-        curCookware = null;
-        BackOrigin();
-    }
-
-    public void BackStart()
-    {
-        Debug.Log("BackStart");
-    }
-
-    public void BackOrigin()
-    {
-        Debug.Log("BackOrigin");
-    }
-
-    #endregion
-
 
     #region Time
     private float yearGrow = 1f;
