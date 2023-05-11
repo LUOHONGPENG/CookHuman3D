@@ -10,7 +10,7 @@ public class CookwareBasic : MonoBehaviour
 
     [Header("Human")]
     public Transform tfHuman;
-    public HumanBasic bindHuman;
+    public HumanBasic curHuman;
 
     //The cookware data
     private CookwareExcelItem cookItem;
@@ -33,33 +33,29 @@ public class CookwareBasic : MonoBehaviour
     #endregion
 
     #region Bind
-    public bool BindHuman(HumanBasic humanBasic)
+    //Check whether the dragging human meet the condition
+    public bool CheckHuman(HumanBasic human)
     {
-        if (bindHuman != null)
+        if (curHuman != null)
         {
             return false;
         }
         else
         {
-            //Find that target is not empty
-            if (humanBasic.bindCookware!=null)
-            {
-                humanBasic.UnBindCookware();
-            }
-            //Bind this target
-            humanBasic.BindCookware(this);
-            bindHuman = humanBasic;
             return true;
         }
     }
 
+    //Bind human
+    public void BindHuman(HumanBasic human)
+    {
+        curHuman = human;
+    }
+
+    //Unbind human
     public void UnbindHuman()
     {
-        if (bindHuman.bindCookware != null)
-        {
-            bindHuman.UnBindCookware();
-        }
-        bindHuman = null;
+        curHuman = null;
     }
     #endregion
 }

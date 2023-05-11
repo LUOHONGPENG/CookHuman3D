@@ -7,24 +7,12 @@ public partial class HumanBasic
     #region BasicData
     //The data of this human
     public HumanItem humanItem;
-    //The data of currentCookware
-    public CookwareBasic bindCookware; 
-
-    public void BindCookware(CookwareBasic cookware)
-    {
-        bindCookware = cookware;
-    }
-
-    public void UnBindCookware()
-    {
-        bindCookware = null;
-    }
 
     public bool isInSchool
     {
         get
         {
-            if(bindCookware.cookType == CookwareType.Study)
+            if(curCookware.cookType == CookwareType.Study)
             {
                 return true;
             }
@@ -39,7 +27,7 @@ public partial class HumanBasic
     {
         get
         {
-            if(bindCookware.cookType == CookwareType.Job)
+            if(curCookware.cookType == CookwareType.Job)
             {
                 return true;
             }
@@ -51,6 +39,60 @@ public partial class HumanBasic
         }
     }
     #endregion
+
+    #region Cookware
+    //The data of currentCookware
+    public CookwareBasic curCookware;
+
+    public void BindCookware(CookwareBasic tarCookware)
+    {
+        //Try to bind a cookware
+        if (tarCookware.CheckHuman(this))
+        {
+            //Check whether this human bind a cookware
+            if (curCookware != null)
+            {
+                curCookware.UnbindHuman();
+            }
+            //Bind each other
+            tarCookware.BindHuman(this);
+            curCookware = tarCookware;
+        }
+        else
+        {
+            if (curCookware != null)
+            {
+                BackStart();
+            }
+            else
+            {
+                BackOrigin();
+            }
+        }
+    }
+
+    public void UnBindCookware()
+    {
+        if (curCookware != null)
+        {
+            curCookware.UnbindHuman();
+        }
+        curCookware = null;
+        BackOrigin();
+    }
+
+    public void BackStart()
+    {
+        Debug.Log("BackStart");
+    }
+
+    public void BackOrigin()
+    {
+        Debug.Log("BackOrigin");
+    }
+
+    #endregion
+
 
     #region Time
     private float yearGrow = 1f;
@@ -78,13 +120,13 @@ public partial class HumanBasic
     {
         if (isInSchool)
         {
-            float eduDelta = bindCookware.GetItem().growRate * yearDelta;
+            float eduDelta = curCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordSchool(yearDelta, eduDelta);
         }
 
         if (isInJob)
         {
-            float careerDelta = bindCookware.GetItem().growRate * yearDelta;
+            float careerDelta = curCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordJob(yearDelta, careerDelta);
         }
     }

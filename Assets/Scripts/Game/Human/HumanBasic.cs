@@ -16,4 +16,7 @@ public partial class HumanBasic : MonoBehaviour
         this.humanItem = humanItem;
     }
     #endregion
+
+
+
 }

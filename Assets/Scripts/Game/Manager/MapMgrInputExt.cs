@@ -66,17 +66,25 @@ public partial class MapMgr
         {
             bool isBind = false;
             Ray ray = GetMouseRay();
+            //Release human at a cookware
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    CookwareBasic targetCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
-
+                    CookwareBasic tarCookware = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+                    switch (tarCookware.cookType)
+                    {
+                        case CookwareType.Study:
+                        case CookwareType.Job:
+                            draggingHuman.BindCookware(tarCookware);
+                            break;
+                    }
                 }
             }
+            //Release human at empty space
             else
             {
-
+                draggingHuman.UnBindCookware();
             }
 
             if (!isBind)
