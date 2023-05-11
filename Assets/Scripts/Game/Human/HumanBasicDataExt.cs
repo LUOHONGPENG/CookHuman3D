@@ -8,23 +8,23 @@ public partial class HumanBasic
     //The data of this human
     public HumanItem humanItem;
     //The data of currentCookware
-    public CookwareExcelItem curCookware; 
+    public CookwareBasic bindCookware; 
 
-    public void BindCookware(CookwareExcelItem cookware)
+    public void BindCookware(CookwareBasic cookware)
     {
-        curCookware = cookware;
+        bindCookware = cookware;
     }
 
     public void UnBindCookware()
     {
-        curCookware = null;
+        bindCookware = null;
     }
 
     public bool isInSchool
     {
         get
         {
-            if(curCookware.cookwareType == CookwareType.Study)
+            if(bindCookware.cookType == CookwareType.Study)
             {
                 return true;
             }
@@ -39,7 +39,7 @@ public partial class HumanBasic
     {
         get
         {
-            if(curCookware.cookwareType == CookwareType.Job)
+            if(bindCookware.cookType == CookwareType.Job)
             {
                 return true;
             }
@@ -78,13 +78,13 @@ public partial class HumanBasic
     {
         if (isInSchool)
         {
-            float eduDelta = curCookware.growRate * yearDelta;
+            float eduDelta = bindCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordSchool(yearDelta, eduDelta);
         }
 
         if (isInJob)
         {
-            float careerDelta = curCookware.growRate * yearDelta;
+            float careerDelta = bindCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordJob(yearDelta, careerDelta);
         }
     }

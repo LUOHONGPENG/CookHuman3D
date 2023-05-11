@@ -65,14 +65,18 @@ public partial class MapMgr
         if (isDragging && draggingHuman != null)
         {
             bool isBind = false;
-
             Ray ray = GetMouseRay();
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    Debug.Log("BindCookware");
+                    CookwareBasic targetCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+
                 }
+            }
+            else
+            {
+
             }
 
             if (!isBind)
