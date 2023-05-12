@@ -6,8 +6,8 @@ public static class GameGlobal
 {
     public static float timeOneYear = 1.5f;
 
-    public static int[] expEduLevelLimit = new int[] { 0,1,2,3,4};
+    public static List<int> expEduLevelLimit = new List<int>();
 
-    public static int[] expCareerLevelLimit = new int[] { 0, 1, 2, 3, 4 };
+    public static List<int> expCareerLevelLimit = new List<int>();
 
 }

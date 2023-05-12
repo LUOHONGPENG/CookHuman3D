@@ -14,6 +14,9 @@ public class DataMgr : Singleton<DataMgr>
         //Cookware
         cookwareData = ExcelManager.Instance.GetExcelData<CookwareExcelData, CookwareExcelItem>();
         //Special Value
+        SpecialValueExcelItem specialItem = ExcelManager.Instance.GetExcelData<SpecialValueExcelData, SpecialValueExcelItem>().GetExcelItem(1001);
+        GameGlobal.expEduLevelLimit = specialItem.expEduLevel;
+        GameGlobal.expCareerLevelLimit = specialItem.expCareerLevel;
 
 
         Debug.Log("DataMgrInit");

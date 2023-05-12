@@ -30,6 +30,7 @@ public partial class HumanBasic
         switch (humanState)
         {
             case HumanState.Studying:
+                imgAgeFill.fillAmount = PublicTool.CalculateEduRate(humanItem.expEdu);
                 imgAgeFill.color = listColorFill[1];
                 break;
             case HumanState.Working:

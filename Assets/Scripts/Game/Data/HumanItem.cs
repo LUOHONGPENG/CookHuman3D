@@ -8,8 +8,8 @@ public class HumanItem
     public int HumanID = -1;
     public Sex sex;
     public int Age = 0;
-    public float vEdu = 0;//Value about Education
-    public float vCareer = 0;//Value about Job
+    public float expEdu = 0;//Value about Education
+    public float expCareer = 0;//Value about Job
     public bool isMarried = false;//Whether this people is married
     //Special
     public int vMarryAge = -1;
@@ -20,8 +20,8 @@ public class HumanItem
         this.HumanID = ID;
         this.Age = 0;
         this.isMarried = false;
-        this.vEdu = 0;
-        this.vCareer = 0;
+        this.expEdu = 0;
+        this.expCareer = 0;
         //Initial Sex data
         int ranSex = Random.Range(0, 2);
         if(ranSex == 0)
@@ -50,21 +50,24 @@ public class HumanItem
     }
     #endregion
 
+    #region TimeGo
+
     public void TimeGoRecordSchool(float yearDelta,float eduDelta)
     {
-        vEdu += eduDelta;
-        if (vEdu > 100f)
+        expEdu += eduDelta;
+        if (expEdu > 100f)
         {
-            vEdu = 100f;
+            expEdu = 100f;
         }
     }
 
     public void TimeGoRecordJob(float yearDelta, float careerDelta)
     {
-        vCareer += careerDelta;
-        if(vCareer > 100f)
+        expCareer += careerDelta;
+        if(expCareer > 100f)
         {
-            vCareer = 100f;
+            expCareer = 100f;
         }
     }
+    #endregion
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PublicTool
+public partial class PublicTool
 {
     public static void ClearChildItem(UnityEngine.Transform tf)
     {
