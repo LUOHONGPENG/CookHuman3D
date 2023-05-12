@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CookwareBasic : MonoBehaviour
 {
     [Header("BasicInfo")]
     public CookwareType cookType;
-    public int cookID;
+    private int cookID;
+    private int cookCapacity;
+
 
     [Header("Human")]
-    public Transform tfHuman;
-    public HumanBasic curHuman;
+    public List<Transform> listTfHuman = new List<Transform>();
+    public List<HumanBasic> listCurHuman = new List<HumanBasic>();
+
 
     //The cookware data
     private CookwareExcelItem cookItem;
@@ -21,8 +25,10 @@ public class CookwareBasic : MonoBehaviour
     {
         //Load the item data
         this.cookID = ID;
+        listCurHuman.Clear();
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
-        cookType = cookItem.cookwareType;
+        this.cookType = cookItem.cookwareType;
+        this.cookCapacity = cookItem.capacity;
     }
 
     //Get the item data
@@ -36,7 +42,8 @@ public class CookwareBasic : MonoBehaviour
     //Check whether the dragging human meet the condition
     public bool CheckHuman(HumanBasic human)
     {
-        if (curHuman != null)
+        //Full
+        if (listCurHuman.Count >= cookCapacity)
         {
             return false;
         }
@@ -49,13 +56,25 @@ public class CookwareBasic : MonoBehaviour
     //Bind human
     public void BindHuman(HumanBasic human)
     {
-        curHuman = human;
+        listCurHuman.Add(human);
+        SetHumanPos();
     }
 
     //Unbind human
-    public void UnbindHuman()
+    public void UnbindHuman(HumanBasic human)
     {
-        curHuman = null;
+        listCurHuman.Remove(human);
+        SetHumanPos();
+    }
+
+    public void SetHumanPos()
+    {
+        for(int i = 0;i < listCurHuman.Count; i++)
+        {
+            //listCurHuman[i].transform.DOMove(listTfHuman[i].position,0.5f);
+            listCurHuman[i].transform.position = listTfHuman[i].position;
+            listCurHuman[i].posCookware = listTfHuman[i].position;
+        }
     }
     #endregion
 }

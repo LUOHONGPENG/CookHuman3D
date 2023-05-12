@@ -7,6 +7,7 @@ public partial class HumanBasic : MonoBehaviour
 {
     [Header("Basic")]
     public Vector3 posOrigin;
+    public Vector3 posCookware;
     
     private bool isInit = false;
 
@@ -33,10 +34,11 @@ public partial class HumanBasic : MonoBehaviour
             //Check whether this human bind a cookware
             if (curCookware != null)
             {
-                curCookware.UnbindHuman();
+                curCookware.UnbindHuman(this);
             }
             //Bind each other
             tarCookware.BindHuman(this);
+
             curCookware = tarCookware;
             //Move
             BackCookware();
@@ -58,7 +60,7 @@ public partial class HumanBasic : MonoBehaviour
     {
         if (curCookware != null)
         {
-            curCookware.UnbindHuman();
+            curCookware.UnbindHuman(this);
         }
         curCookware = null;
         BackOrigin();
@@ -69,7 +71,8 @@ public partial class HumanBasic : MonoBehaviour
         if (curCookware != null)
         {
             //Back to cookware
-            this.transform.DOMove(curCookware.tfHuman.position,0.2f);
+            
+            //this.transform.DOMove(curCookware.tfHuman.position,0.2f);
         }
         else
         {
