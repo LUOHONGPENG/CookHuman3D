@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public partial class HumanBasic
 {
     [Header("HumanUI")]
-    public Transform tfAgeUI;
+    public Transform tfRootUI;
     public Text txAge;
+    public Image imgAgeFill;
+    public List<Color> listColorFill = new List<Color>();
 
     private void Update()
     {
@@ -21,7 +23,22 @@ public partial class HumanBasic
             return;
         }
         //UI Position
-        tfAgeUI.localPosition = PublicTool.CalculateUICanvasPos(this.transform.position, GameMgr.Instance.mapCamera) + new Vector3(0, 100f, 0);
+        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(this.transform.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
+        //Age Data
         txAge.text = Mathf.FloorToInt(humanItem.Age).ToString();
+        //Age Fill Check
+        switch (humanState)
+        {
+            case HumanState.Studying:
+                imgAgeFill.color = listColorFill[1];
+                break;
+            case HumanState.Working:
+                imgAgeFill.color = listColorFill[2];
+                break;
+            default:
+                imgAgeFill.fillAmount = 1f;
+                imgAgeFill.color = listColorFill[0];
+                break;
+        }
     }
 }
