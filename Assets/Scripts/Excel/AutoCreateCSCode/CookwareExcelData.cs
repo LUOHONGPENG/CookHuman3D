@@ -11,6 +11,7 @@ public class CookwareExcelItem : ExcelItemBase
 	public string name;
 	public string desc;
 	public CookwareType cookwareType;
+	public int capacity;
 	public float growRate;
 	public int ageMin_real;
 	public int ageMax_real;
@@ -38,6 +39,7 @@ public class CookwareAssetAssignment
 			items[i].name = allItemValueRowList[i]["name"];
 			items[i].desc = allItemValueRowList[i]["desc"];
 			items[i].cookwareType = (CookwareType) Enum.Parse(typeof(CookwareType), allItemValueRowList[i]["cookwareType"], true);
+			items[i].capacity = Convert.ToInt32(allItemValueRowList[i]["capacity"]);
 			items[i].growRate = Convert.ToSingle(allItemValueRowList[i]["growRate"]);
 			items[i].ageMin_real = Convert.ToInt32(allItemValueRowList[i]["ageMin_real"]);
 			items[i].ageMax_real = Convert.ToInt32(allItemValueRowList[i]["ageMax_real"]);
