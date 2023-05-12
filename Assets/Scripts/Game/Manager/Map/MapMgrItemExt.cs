@@ -41,7 +41,7 @@ public partial class MapMgr
 
         //Decide PosID
         int posID = 0;
-        for(int i = 0; i < GameGlobal.listPosHuman.Count; i++)
+        for(int i = 0; i < GameGlobal.listPosHumanOrigin.Count; i++)
         {
             if (!dicHumanPos.ContainsKey(i))
             {
@@ -51,7 +51,7 @@ public partial class MapMgr
         }
 
         //Create a human prefab
-        GameObject objHuman = GameObject.Instantiate(pfHuman, GameGlobal.listPosHuman[posID], Quaternion.identity, tfHuman);
+        GameObject objHuman = GameObject.Instantiate(pfHuman, GameGlobal.listPosHumanOrigin[posID], Quaternion.identity, tfHuman);
         HumanBasic itemHumanBasic = objHuman.GetComponent<HumanBasic>();
         itemHumanBasic.Init(humanItem, posID);
         listHumanBasic.Add(itemHumanBasic);

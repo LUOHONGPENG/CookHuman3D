@@ -45,6 +45,7 @@ public partial class PublicTool
             float curExp = expEdu;
             if (levelEdu > 0)
             {
+                requiredExp = GameGlobal.expCareerLevelLimit[levelEdu] - GameGlobal.expCareerLevelLimit[levelEdu - 1];
                 curExp = expEdu - GameGlobal.expCareerLevelLimit[levelEdu - 1];
             }
             rateEdu = curExp / requiredExp;

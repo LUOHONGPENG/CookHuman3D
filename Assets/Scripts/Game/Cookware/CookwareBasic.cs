@@ -12,6 +12,7 @@ public class CookwareBasic : MonoBehaviour
 
 
     [Header("Human")]
+    public Transform tfHumanGroup;
     public List<Transform> listTfHuman = new List<Transform>();
     public List<HumanBasic> listCurHuman = new List<HumanBasic>();
 
@@ -25,10 +26,22 @@ public class CookwareBasic : MonoBehaviour
     {
         //Load the item data
         this.cookID = ID;
-        listCurHuman.Clear();
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
+        //Initialize capacity
+        listTfHuman.Clear();
+        listCurHuman.Clear();
+        for (int i = 0; i < cookCapacity; i++)
+        {
+            if (i < GameGlobal.listPosHumanCookware.Count)
+            {
+                GameObject objNew = new GameObject("tf");
+                objNew.transform.parent = tfHumanGroup;
+                objNew.transform.localPosition = GameGlobal.listPosHumanCookware[i];
+                listTfHuman.Add(objNew.transform);
+            }
+        }
     }
 
     //Get the item data
