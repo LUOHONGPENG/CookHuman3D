@@ -31,6 +31,8 @@ public partial class MapMgr
         listHumanItem.Clear();
 
         CreateHuman();
+        CreateHuman();
+
     }
 
     public void CreateHuman()
@@ -55,6 +57,7 @@ public partial class MapMgr
         HumanBasic itemHumanBasic = objHuman.GetComponent<HumanBasic>();
         itemHumanBasic.Init(humanItem, posID);
         listHumanBasic.Add(itemHumanBasic);
+        dicHumanPos.Add(posID, itemHumanBasic);
     }
     #endregion
 }
