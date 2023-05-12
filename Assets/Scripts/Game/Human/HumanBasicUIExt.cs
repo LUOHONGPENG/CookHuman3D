@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public partial class HumanBasic
 {
     [Header("HumanUI")]
+    public Transform tfHumanHead;
     public Transform tfRootUI;
     public Text txAge;
     public Image imgAgeFill;
@@ -23,7 +24,7 @@ public partial class HumanBasic
             return;
         }
         //UI Position
-        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(this.transform.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
+        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(tfHumanHead.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
         //Age Data
         txAge.text = Mathf.FloorToInt(humanItem.Age).ToString();
         //Age Fill Check

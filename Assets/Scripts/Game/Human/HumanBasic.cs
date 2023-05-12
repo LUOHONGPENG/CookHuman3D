@@ -6,17 +6,17 @@ using DG.Tweening;
 public partial class HumanBasic : MonoBehaviour
 {
     [Header("Basic")]
-    public Vector3 posOrigin;
+    public int posOriginID = 0;
     public Vector3 posCookware;
     
     private bool isInit = false;
 
 
     #region Init
-    public void Init(HumanItem humanItem,Vector3 pos)
+    public void Init(HumanItem humanItem,int posID)
     {
         this.humanItem = humanItem;
-        this.posOrigin = pos;
+        this.posOriginID = posID;
 
         isInit = true;
     }
@@ -83,7 +83,7 @@ public partial class HumanBasic : MonoBehaviour
     public void BackOrigin()
     {
         //Back to birthplace
-        this.transform.DOMove(posOrigin, 0.2f);
+        this.transform.DOMove(GameGlobal.listPosHuman[posOriginID], 0.2f);
     }
 
     #endregion

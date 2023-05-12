@@ -12,6 +12,7 @@ public partial class MapMgr
     public Transform tfHuman;
     public GameObject pfHuman;
     public List<HumanBasic> listHumanBasic = new List<HumanBasic>();
+    public Dictionary<int, HumanBasic> dicHumanPos = new Dictionary<int, HumanBasic>();
     public List<HumanItem> listHumanItem = new List<HumanItem>();
 
     #region Cookware
@@ -29,19 +30,30 @@ public partial class MapMgr
         listHumanBasic.Clear();
         listHumanItem.Clear();
 
-        CreateHuman(new Vector3(0, 1.05f, 0.5f));
+        CreateHuman();
     }
 
-    public void CreateHuman(Vector3 pos)
+    public void CreateHuman()
     {
         //Create a human item
         HumanItem humanItem = new HumanItem(listHumanItem.Count);
         listHumanItem.Add(humanItem);
 
+        //Decide PosID
+        int posID = 0;
+        for(int i = 0; i < GameGlobal.listPosHuman.Count; i++)
+        {
+            if (!dicHumanPos.ContainsKey(i))
+            {
+                posID = i;
+                break;
+            }
+        }
+
         //Create a human prefab
-        GameObject objHuman = GameObject.Instantiate(pfHuman, pos, Quaternion.identity, tfHuman);
+        GameObject objHuman = GameObject.Instantiate(pfHuman, GameGlobal.listPosHuman[posID], Quaternion.identity, tfHuman);
         HumanBasic itemHumanBasic = objHuman.GetComponent<HumanBasic>();
-        itemHumanBasic.Init(humanItem,pos);
+        itemHumanBasic.Init(humanItem, posID);
         listHumanBasic.Add(itemHumanBasic);
     }
     #endregion

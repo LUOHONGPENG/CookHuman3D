@@ -51,6 +51,11 @@ public partial class MapMgr
     private void Touch_performed(InputAction.CallbackContext obj)
     {
         Physics.Raycast(GetMouseRay(), out RaycastHit hitData, LayerMask.GetMask("Human"));
+        if (hitData.transform == null)
+        {
+            Debug.Log("NoHit");
+            return;
+        }
         if (hitData.transform.parent.GetComponent<HumanBasic>() != null)
         {
             isDragging = true;
@@ -106,7 +111,8 @@ public partial class MapMgr
             }
             else if (Physics.Raycast(ray, out RaycastHit hitDataStatic, 999f, LayerMask.GetMask("Static")))
             {
-                draggingHuman.transform.position = hitDataStatic.point + new Vector3(0, 0.2f, 0);
+                //draggingHuman.transform.position = hitDataStatic.point + new Vector3(0, 0.2f, 0);
+                draggingHuman.transform.position = hitDataStatic.point + hitDataStatic.normal * 0.2f;
             }
         }
     }
