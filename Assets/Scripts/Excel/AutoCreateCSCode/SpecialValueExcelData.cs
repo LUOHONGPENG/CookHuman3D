@@ -10,8 +10,8 @@ public class SpecialValueExcelItem : ExcelItemBase
 {
 	public int ageMin_study;
 	public int ageMax_study;
-	public List<int> eduLevel;
-	public List<int> careerLevel;
+	public List<int> expEduLevel;
+	public List<int> expCareerLevel;
 }
 
 [CreateAssetMenu(fileName = "SpecialValueExcelData", menuName = "Excel To ScriptableObject/Create SpecialValueExcelData", order = 1)]
@@ -34,8 +34,8 @@ public class SpecialValueAssetAssignment
 			items[i].id = Convert.ToInt32(allItemValueRowList[i]["id"]);
 			items[i].ageMin_study = Convert.ToInt32(allItemValueRowList[i]["ageMin_study"]);
 			items[i].ageMax_study = Convert.ToInt32(allItemValueRowList[i]["ageMax_study"]);
-			items[i].eduLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["eduLevel"]).Split(';'), int.Parse));
-			items[i].careerLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["careerLevel"]).Split(';'), int.Parse));
+			items[i].expEduLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["expEduLevel"]).Split(';'), int.Parse));
+			items[i].expCareerLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["expCareerLevel"]).Split(';'), int.Parse));
 		}
 		SpecialValueExcelData excelDataAsset = ScriptableObject.CreateInstance<SpecialValueExcelData>();
 		excelDataAsset.items = items;
