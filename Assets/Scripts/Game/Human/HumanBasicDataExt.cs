@@ -8,51 +8,42 @@ public partial class HumanBasic
     #region BasicData
     //The data of this human
     public HumanItem humanItem;
-
-    public bool isInSchool
+    //Check and get the human's state
+    public HumanState humanState
     {
         get
         {
-            if(curCookware.cookType == CookwareType.Study)
+            if (curCookware == null)
             {
-                return true;
+                return HumanState.Rest;
             }
             else
             {
-                return false;
-            }
-        }
-    }
-
-    public bool isInJob
-    {
-        get
-        {
-            if(curCookware.cookType == CookwareType.Job)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-
+                if (curCookware.cookType == CookwareType.Study)
+                {
+                    return HumanState.Studying;
+                }
+                else if(curCookware.cookType == CookwareType.Job)
+                {
+                    return HumanState.Working;
+                }
+                return HumanState.Rest;
             }
         }
     }
     #endregion
 
-    #region Time
+    #region TimeGo
     private float yearGrow = 1f;
-
 
     public void TimeGo()
     {
         TimeGoData();
     }
 
-    public void TimeGoData()
+    private void TimeGoData()
     {
-        float yearDelta = Time.deltaTime / GameGlobal.timeOneYear;
+        float yearDelta = Time.fixedDeltaTime / GameGlobal.timeOneYear;
         yearGrow -= yearDelta;
         if (yearGrow < 0)
         {
@@ -65,13 +56,13 @@ public partial class HumanBasic
     //The data of education and career will grow according to the year passed.
     private void DataGrow(float yearDelta)
     {
-        if (isInSchool)
+        if (humanState == HumanState.Studying)
         {
             float eduDelta = curCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordSchool(yearDelta, eduDelta);
         }
 
-        if (isInJob)
+        if (humanState == HumanState.Working)
         {
             float careerDelta = curCookware.GetItem().growRate * yearDelta;
             humanItem.TimeGoRecordJob(yearDelta, careerDelta);

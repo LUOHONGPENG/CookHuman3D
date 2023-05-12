@@ -23,7 +23,6 @@ public partial class MapMgr
 
     #endregion
 
-
     #region Human
     public void InitHuman()
     {
@@ -45,6 +44,5 @@ public partial class MapMgr
         itemHumanBasic.Init(humanItem,pos);
         listHumanBasic.Add(itemHumanBasic);
     }
-
     #endregion
 }

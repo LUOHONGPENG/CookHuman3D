@@ -25,13 +25,15 @@ public partial class MapMgr : MonoBehaviour
         DisableInput();
     }
 
-    public void FixedUpdate()
+    public void FixedTimeGo()
     {
-        if (!isInit)
-        {
-            return;
-        }
+        //Dragging
         CheckRayDrag();
+        //Check Human Time and destory
+        for(int i = listHumanBasic.Count - 1; i >= 0; i--)
+        {
+            listHumanBasic[i].TimeGo();
+        }
     }
 }
 

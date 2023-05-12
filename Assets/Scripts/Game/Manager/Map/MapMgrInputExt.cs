@@ -34,7 +34,7 @@ public partial class MapMgr
     }
     #endregion
 
-    #region DragDeal
+    #region Drag&DropDeal
 
     private bool isDragging = false;
     private HumanBasic draggingHuman = null;
@@ -92,8 +92,9 @@ public partial class MapMgr
 
     #endregion
 
-    #region Interaction
+    #region RayCheck
 
+    //Check item position when dragging
     private void CheckRayDrag()
     {
         if (isDragging && draggingHuman != null)

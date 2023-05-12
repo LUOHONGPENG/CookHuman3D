@@ -12,17 +12,35 @@ public class GameMgr : MonoSingleton<GameMgr>
     public UIMgr uiMgr;
     public LightMgr lightMgr;
     public SoundMgr soundMgr;
-
     public DataMgr dataMgr;
+
+    private bool isInit = false;
+
     public override void Init()
     {
-        Debug.Log("GameMgrStartInit");
-
         dataMgr = DataMgr.Instance;
         dataMgr.Init();
-
         mapMgr.Init();
-
+        isInit = true;
         Debug.Log("GameMgrEndInit");
+    }
+
+    //For UI or event
+    public void Update()
+    {
+        if (!isInit)
+        {
+            return;
+        }
+    }
+
+    //For Drag and Data
+    public void FixedUpdate()
+    {
+        if (!isInit)
+        {
+            return;
+        }
+        mapMgr.FixedTimeGo();
     }
 }
