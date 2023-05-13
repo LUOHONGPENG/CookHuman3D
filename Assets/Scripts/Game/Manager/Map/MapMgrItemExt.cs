@@ -37,6 +37,12 @@ public partial class MapMgr
 
     public void CreateHuman()
     {
+        if(listHumanBasic.Count >= GameGlobal.listPosHumanOrigin.Count)
+        {
+            Debug.Log("HumanIsFull");
+            return;
+        }
+
         //Create a human item
         HumanItem humanItem = new HumanItem(listHumanItem.Count);
         listHumanItem.Add(humanItem);

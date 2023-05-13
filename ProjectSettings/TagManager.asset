@@ -47,9 +47,6 @@ TagManager:
   - name: ObjectUI
     uniqueID: 1934268795
     locked: 0
-  - name: HoverUI
-    uniqueID: 338171499
-    locked: 0
   - name: PageUI
     uniqueID: 747406807
     locked: 0
