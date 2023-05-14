@@ -99,6 +99,11 @@ public partial class MapMgr
 
     #region RayCheck
 
+    private void CheckRayHover()
+    {
+
+    }
+
     //Check item position when dragging
     private void CheckRayDrag()
     {

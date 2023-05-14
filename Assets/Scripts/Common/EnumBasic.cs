@@ -19,3 +19,9 @@ public enum Sex
     Male,
     Female
 }
+
+public enum ExpType
+{
+    Edu,
+    Career
+}
