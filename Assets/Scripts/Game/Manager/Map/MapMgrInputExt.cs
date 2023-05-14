@@ -38,6 +38,9 @@ public partial class MapMgr
 
     private bool isDragging = false;
     private HumanBasic draggingHuman = null;
+    private bool isHumanPageOpen = false;
+    private bool isCookPageOpen = false;
+
 
     //The function that returns ray
     private Ray GetMouseRay()
@@ -101,8 +104,86 @@ public partial class MapMgr
 
     private void CheckRayHover()
     {
-
+        if (!isDragging)
+        {
+            Ray ray = GetMouseRay();
+            if (Physics.Raycast(ray, out RaycastHit hitDataHuman, 999f, LayerMask.GetMask("Human")))
+            {
+                CloseCookPage();
+                if (!isHumanPageOpen)
+                {
+                    if (hitDataHuman.transform.parent.GetComponent<HumanBasic>() != null)
+                    {
+                        HumanBasic tarHuman = hitDataHuman.transform.parent.GetComponent<HumanBasic>();
+                        EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
+                        isHumanPageOpen = true;
+                    }
+                }
+            }
+            else if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
+            {
+                CloseHumanPage();
+                if (!isCookPageOpen)
+                {
+                    if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
+                    {
+                        CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+                        Debug.Log("Cookware");
+                        //EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
+                        isCookPageOpen = true;
+                    }
+                }
+            }
+            else
+            {
+                CloseHumanPage();
+                CloseCookPage();
+            }
+        }
+        else
+        {
+            CloseHumanPage();
+            Ray ray = GetMouseRay();
+            if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
+            {
+                CloseHumanPage();
+                if (!isCookPageOpen)
+                {
+                    if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
+                    {
+                        CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+                        Debug.Log("Cookware");
+                        //EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
+                        isCookPageOpen = true;
+                    }
+                }
+            }
+            else
+            {
+                CloseCookPage();
+            }
+        }
     }
+
+    private void CloseHumanPage()
+    {
+        if (isHumanPageOpen)
+        {
+            EventCenter.Instance.EventTrigger("HideHumanPage", null);
+            isHumanPageOpen = false;
+        }
+    }
+
+    private void CloseCookPage()
+    {
+        if (isCookPageOpen)
+        {
+            EventCenter.Instance.EventTrigger("HideCookPage", null);
+            isCookPageOpen = false;
+        }
+    }
+
+
 
     //Check item position when dragging
     private void CheckRayDrag()
