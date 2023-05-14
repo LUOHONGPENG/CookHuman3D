@@ -31,6 +31,13 @@ public partial class HumanBasic
             }
         }
     }
+
+    public int LevelEdu { get { return PublicTool.CalculateEduLevel(humanItem.expEdu); } }
+    public int LevelCareer { get { return PublicTool.CalculateCareerLevel(humanItem.expCareer); } }
+    public float RateEdu { get { return PublicTool.CalculateEduRate(humanItem.expEdu); } }
+    public float RateCareer { get { return PublicTool.CalculateCareerRate(humanItem.expCareer); } }
+
+
     #endregion
 
     #region TimeGo

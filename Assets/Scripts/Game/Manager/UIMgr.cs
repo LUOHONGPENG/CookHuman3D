@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UIMgr : MonoBehaviour
 {
-    public HumanUIMgr humanUIMgr;
+    public HoverUIMgr hoverUIMgr;
 
     public void Init()
     {
-        humanUIMgr.Init();
+        hoverUIMgr.Init();
     }
 }

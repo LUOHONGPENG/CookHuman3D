@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ExpUIItem : MonoBehaviour
 {
@@ -22,8 +23,18 @@ public class ExpUIItem : MonoBehaviour
         }
     }
 
-    public void SetFill(float rate)
+    public void RefreshExp(bool isFull, float rate)
     {
+        if (isFull)
+        {
+            imgIcon.DOFade(1f, 0);
+            imgExpFill.DOFade(1f, 0);
+        }
+        else
+        {
+            imgIcon.DOFade(0.5f, 0);
+            imgExpFill.DOFade(0.5f, 0);
+        }
         imgExpFill.fillAmount = rate;
     }
 }
