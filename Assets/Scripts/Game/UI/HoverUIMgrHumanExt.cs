@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public partial class HoverUIMgr
 {
-    public GameObject objPopupHuman;
     [Header("Info")]
     public Text txAge;
     public Image imgSex;
@@ -45,7 +44,7 @@ public partial class HoverUIMgr
     }
 
 
-    private void ShowPageHuman(object arg0)
+    private void ShowHumanPage(object arg0)
     {
         HumanBasic humanBasic = (HumanBasic)arg0;
         if (curHuman != humanBasic)
@@ -68,7 +67,7 @@ public partial class HoverUIMgr
         objPopupHuman.SetActive(true);
     }
 
-    private void HidePageHuman(object arg0)
+    private void HideHumanPage(object arg0)
     {
         objPopupHuman.SetActive(false);
     }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public partial class HoverUIMgr : MonoBehaviour
 {
+    public RectTransform rtPos;
+    public GameObject objPopupHuman;
+    public GameObject objPopupCook;
+
     private bool isInit = false;
 
     public void Init()
@@ -15,6 +19,18 @@ public partial class HoverUIMgr : MonoBehaviour
 
     private void Update()
     {
+        //pos
+        float width = Screen.width;
+        float mouseX = GameMgr.Instance.mapMgr.GetMousePos().x;
+        if (mouseX < width / 2)
+        {
+            rtPos.anchoredPosition = new Vector2(400f, 0);
+        }
+        else
+        {
+            rtPos.anchoredPosition = new Vector2(-400f, 0);
+        }
+        //Refresh
         if (objPopupHuman.activeSelf)
         {
             RefreshHumanPage();
@@ -24,14 +40,14 @@ public partial class HoverUIMgr : MonoBehaviour
 
     public void OnEnable()
     {
-        EventCenter.Instance.AddEventListener("ShowHumanPage", ShowPageHuman);
-        EventCenter.Instance.AddEventListener("HideHumanPage", HidePageHuman);
+        EventCenter.Instance.AddEventListener("ShowHumanPage", ShowHumanPage);
+        EventCenter.Instance.AddEventListener("HideHumanPage", HideHumanPage);
     }
 
     public void OnDestroy()
     {
-        EventCenter.Instance.RemoveEventListener("ShowHumanPage", ShowPageHuman);
-        EventCenter.Instance.RemoveEventListener("HideHumanPage", HidePageHuman);
+        EventCenter.Instance.RemoveEventListener("ShowHumanPage", ShowHumanPage);
+        EventCenter.Instance.RemoveEventListener("HideHumanPage", HideHumanPage);
     }
 
 

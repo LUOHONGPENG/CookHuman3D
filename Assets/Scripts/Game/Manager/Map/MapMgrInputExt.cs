@@ -38,8 +38,6 @@ public partial class MapMgr
 
     private bool isDragging = false;
     private HumanBasic draggingHuman = null;
-    private bool isHumanPageOpen = false;
-    private bool isCookPageOpen = false;
 
 
     //The function that returns ray
@@ -110,28 +108,18 @@ public partial class MapMgr
             if (Physics.Raycast(ray, out RaycastHit hitDataHuman, 999f, LayerMask.GetMask("Human")))
             {
                 CloseCookPage();
-                if (!isHumanPageOpen)
+                if (hitDataHuman.transform.parent.GetComponent<HumanBasic>() != null)
                 {
-                    if (hitDataHuman.transform.parent.GetComponent<HumanBasic>() != null)
-                    {
-                        HumanBasic tarHuman = hitDataHuman.transform.parent.GetComponent<HumanBasic>();
-                        EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
-                        isHumanPageOpen = true;
-                    }
+                    HumanBasic tarHuman = hitDataHuman.transform.parent.GetComponent<HumanBasic>(); 
+                    EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
                 }
             }
             else if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 CloseHumanPage();
-                if (!isCookPageOpen)
+                if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
                 {
-                    if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
-                    {
-                        CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
-                        Debug.Log("Cookware");
-                        //EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
-                        isCookPageOpen = true;
-                    }
+                    CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
                 }
             }
             else
@@ -146,16 +134,9 @@ public partial class MapMgr
             Ray ray = GetMouseRay();
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
-                CloseHumanPage();
-                if (!isCookPageOpen)
+                if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
                 {
-                    if (hitDataCook.transform.GetComponent<CookwareBasic>() != null)
-                    {
-                        CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
-                        Debug.Log("Cookware");
-                        //EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
-                        isCookPageOpen = true;
-                    }
+                    CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
                 }
             }
             else
@@ -167,20 +148,13 @@ public partial class MapMgr
 
     private void CloseHumanPage()
     {
-        if (isHumanPageOpen)
-        {
-            EventCenter.Instance.EventTrigger("HideHumanPage", null);
-            isHumanPageOpen = false;
-        }
+        EventCenter.Instance.EventTrigger("HideHumanPage", null);
+
     }
 
     private void CloseCookPage()
     {
-        if (isCookPageOpen)
-        {
-            EventCenter.Instance.EventTrigger("HideCookPage", null);
-            isCookPageOpen = false;
-        }
+        EventCenter.Instance.EventTrigger("HideCookPage", null);
     }
 
 
