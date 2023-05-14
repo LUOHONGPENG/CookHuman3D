@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objPopup: {fileID: 1919900086489131282}
+  rtBg: {fileID: 6039982246232286966}
   txAge: {fileID: 5205505698323382926}
   imgSex: {fileID: 4304846972863999218}
   listSpSex:

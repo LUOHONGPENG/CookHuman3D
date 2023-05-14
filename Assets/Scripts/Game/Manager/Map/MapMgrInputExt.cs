@@ -203,5 +203,11 @@ public partial class MapMgr
         }
     }
 
+    public Vector2 GetMousePos()
+    {
+        Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
+        return screenPosition;
+    }
+
     #endregion
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HumanUIMgr : MonoBehaviour
 {
     public GameObject objPopup;
+    public RectTransform rtBg;
     [Header("Info")]
     public Text txAge;
     public Image imgSex;
@@ -88,10 +89,28 @@ public class HumanUIMgr : MonoBehaviour
                     imgSex.sprite = listSpSex[1];
                     break;
             }
-
-
-
         }
     }
 
+    private void Update()
+    {
+        if (objPopup.activeSelf)
+        {
+            RefreshPage();
+        }
+    }
+
+    public void RefreshPage()
+    {
+        float width = Screen.width;
+        float mouseX = GameMgr.Instance.mapMgr.GetMousePos().x;
+        if (mouseX < width / 2)
+        {
+            rtBg.anchoredPosition = new Vector2(400f, 0);
+        }
+        else
+        {
+            rtBg.anchoredPosition = new Vector2(-400f, 0);
+        }
+    }
 }

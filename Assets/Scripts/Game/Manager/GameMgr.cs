@@ -21,6 +21,7 @@ public class GameMgr : MonoSingleton<GameMgr>
         dataMgr = DataMgr.Instance;
         dataMgr.Init();
         mapMgr.Init();
+        uiMgr.Init();
         isInit = true;
         Debug.Log("GameMgrEndInit");
     }

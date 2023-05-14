@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class UIMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public HumanUIMgr humanUIMgr;
 
-    // Update is called once per frame
-    void Update()
+    public void Init()
     {
-        
+        humanUIMgr.Init();
     }
 }

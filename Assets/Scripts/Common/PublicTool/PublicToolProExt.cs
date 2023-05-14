@@ -56,4 +56,5 @@ public partial class PublicTool
         }
         return rateEdu;
     }
+
 }
