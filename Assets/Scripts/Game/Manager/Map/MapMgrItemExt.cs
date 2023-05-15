@@ -27,7 +27,9 @@ public partial class MapMgr
         cookStudy.Init(1001);
         cookWork1.Init(2001);
         cookWork2.Init(2002);
+        cookWork3.Init(2003);
 
+        cookRetire.Init(4001);
     }
 
     #endregion
