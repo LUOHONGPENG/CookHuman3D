@@ -35,6 +35,10 @@ public partial class HoverUIMgr : MonoBehaviour
         {
             RefreshHumanPage();
         }
+        if (objPopupCook.activeSelf)
+        {
+            RefreshCookPage();
+        }
     }
 
 
@@ -42,12 +46,16 @@ public partial class HoverUIMgr : MonoBehaviour
     {
         EventCenter.Instance.AddEventListener("ShowHumanPage", ShowHumanPage);
         EventCenter.Instance.AddEventListener("HideHumanPage", HideHumanPage);
+        EventCenter.Instance.AddEventListener("ShowCookPage", ShowCookPage);
+        EventCenter.Instance.AddEventListener("HideCookPage", HideCookPage);
     }
 
     public void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener("ShowHumanPage", ShowHumanPage);
         EventCenter.Instance.RemoveEventListener("HideHumanPage", HideHumanPage);
+        EventCenter.Instance.RemoveEventListener("ShowCookPage", ShowCookPage);
+        EventCenter.Instance.RemoveEventListener("HideCookPage", HideCookPage);
     }
 
 

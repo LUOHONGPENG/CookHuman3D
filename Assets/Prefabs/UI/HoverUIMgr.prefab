@@ -821,14 +821,17 @@ MonoBehaviour:
   rtPos: {fileID: 6987465750571931143}
   objPopupHuman: {fileID: 3716711105944110782}
   objPopupCook: {fileID: 5759066769493503642}
-  txAge: {fileID: 6622031310419444140}
-  imgSex: {fileID: 1982221047603758995}
+  txNameCook: {fileID: 5660171355957067554}
+  txNameDesc: {fileID: 2853509421072704253}
+  txAgeHuman: {fileID: 6622031310419444140}
+  imgSexHuman: {fileID: 1982221047603758995}
   listSpSex:
   - {fileID: 21300000, guid: fc3f6e839603f604baeef29e26f8fd2a, type: 3}
   - {fileID: 21300000, guid: 7ea1e3590a97ce843aa23441f69cd466, type: 3}
-  tfEdu: {fileID: 5656389225156574695}
-  tfCareer: {fileID: 8765898693515288339}
-  pfExp: {fileID: 8069232579054946891, guid: e11c60a94d69a1543aaf4062a1ba8bf1, type: 3}
+  tfEduHuman: {fileID: 5656389225156574695}
+  tfCareerHuman: {fileID: 8765898693515288339}
+  pfExpHuman: {fileID: 8069232579054946891, guid: e11c60a94d69a1543aaf4062a1ba8bf1,
+    type: 3}
 --- !u!1 &7886447403722145798
 GameObject:
   m_ObjectHideFlags: 0

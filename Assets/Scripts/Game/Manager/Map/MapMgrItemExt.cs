@@ -5,8 +5,13 @@ using UnityEngine;
 public partial class MapMgr
 {
     [Header("Cookware")]
-    public CookwareBasic cookStudy1;
-    public CookwareBasic cookStudy2;
+    public CookwareBasic cookStudy;
+    public CookwareBasic cookWork1;
+    public CookwareBasic cookWork2;
+    public CookwareBasic cookWork3;
+    public CookwareBasic cookMarry1;
+    public CookwareBasic cookMarry2;
+    public CookwareBasic cookRetire;
 
     [Header("Human")]
     public Transform tfHuman;
@@ -19,7 +24,9 @@ public partial class MapMgr
 
     public void InitCookware()
     {
-        cookStudy1.Init(1001);
+        cookStudy.Init(1001);
+        cookWork1.Init(2001);
+
     }
 
     #endregion

@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public partial class HoverUIMgr
 {
-    [Header("Info")]
-    public Text txAge;
-    public Image imgSex;
+    [Header("HumanInfo")]
+    public Text txAgeHuman;
+    public Image imgSexHuman;
     public List<Sprite> listSpSex = new List<Sprite>();
 
-    [Header("Exp")]
-    public Transform tfEdu;
-    public Transform tfCareer;
-    public GameObject pfExp;
+    [Header("HumanExp")]
+    public Transform tfEduHuman;
+    public Transform tfCareerHuman;
+    public GameObject pfExpHuman;
     private List<ExpUIItem> listExpEdu = new List<ExpUIItem>();
     private List<ExpUIItem> listExpCareer = new List<ExpUIItem>();
 
@@ -23,19 +23,19 @@ public partial class HoverUIMgr
     private void InitHuman()
     {
         //Edu
-        PublicTool.ClearChildItem(tfEdu);
+        PublicTool.ClearChildItem(tfEduHuman);
         for (int i = 0; i < GameGlobal.expEduLevelLimit.Count; i++)
         {
-            GameObject objEdu = GameObject.Instantiate(pfExp, tfEdu);
+            GameObject objEdu = GameObject.Instantiate(pfExpHuman, tfEduHuman);
             ExpUIItem itemEdu = objEdu.GetComponent<ExpUIItem>();
             itemEdu.Init(ExpType.Edu);
             listExpEdu.Add(itemEdu);
         }
         //Career
-        PublicTool.ClearChildItem(tfCareer);
+        PublicTool.ClearChildItem(tfCareerHuman);
         for (int i = 0; i < GameGlobal.expCareerLevelLimit.Count; i++)
         {
-            GameObject objCareer = GameObject.Instantiate(pfExp, tfCareer);
+            GameObject objCareer = GameObject.Instantiate(pfExpHuman, tfCareerHuman);
             ExpUIItem itemCareer = objCareer.GetComponent<ExpUIItem>();
             itemCareer.Init(ExpType.Career);
             listExpCareer.Add(itemCareer);
@@ -56,10 +56,10 @@ public partial class HoverUIMgr
                 switch (curHuman.humanItem.sex)
                 {
                     case Sex.Female:
-                        imgSex.sprite = listSpSex[0];
+                        imgSexHuman.sprite = listSpSex[0];
                         break;
                     case Sex.Male:
-                        imgSex.sprite = listSpSex[1];
+                        imgSexHuman.sprite = listSpSex[1];
                         break;
                 }
             }
@@ -80,7 +80,7 @@ public partial class HoverUIMgr
         if (curHuman !=null)
         {
             //Age
-            txAge.text = curHuman.humanItem.Age.ToString();
+            txAgeHuman.text = curHuman.humanItem.Age.ToString();
             //Edu
             for(int i = 0; i < listExpEdu.Count; i++)
             {
