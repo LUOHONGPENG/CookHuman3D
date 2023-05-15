@@ -26,6 +26,7 @@ public partial class MapMgr
     {
         cookStudy.Init(1001);
         cookWork1.Init(2001);
+        cookWork2.Init(2002);
 
     }
 
