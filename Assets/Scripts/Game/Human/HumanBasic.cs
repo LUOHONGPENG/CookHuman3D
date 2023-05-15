@@ -9,6 +9,7 @@ public partial class HumanBasic : MonoBehaviour
     //Remember the original Pos
     public int posOriginID = 0;
     public Vector3 posCookware;
+    public Canvas canvasUI;
     
     private bool isInit = false;
 
@@ -18,6 +19,7 @@ public partial class HumanBasic : MonoBehaviour
     {
         this.humanItem = humanItem;
         this.posOriginID = posID;
+        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
 
         isInit = true;
     }

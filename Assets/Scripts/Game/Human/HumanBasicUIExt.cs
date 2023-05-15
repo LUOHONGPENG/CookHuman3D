@@ -35,6 +35,7 @@ public partial class HumanBasic
                 imgAgeFill.color = listColorFill[1];
                 break;
             case HumanState.Working:
+                imgAgeFill.fillAmount = PublicTool.CalculateEduRate(humanItem.expCareer);
                 imgAgeFill.color = listColorFill[2];
                 break;
             default:
