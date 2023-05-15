@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CookwareBasic : MonoBehaviour
+public partial class CookwareBasic : MonoBehaviour
 {
     [Header("BasicInfo")]
     public CookwareType cookType;
@@ -55,8 +55,25 @@ public class CookwareBasic : MonoBehaviour
     //Check whether the dragging human meet the condition
     public bool CheckHuman(HumanBasic human)
     {
+        HumanItem humanItem = human.humanItem;
         //Full
         if (listCurHuman.Count >= cookCapacity)
+        {
+            return false;
+        }
+        else if(humanItem.Age < AgeMin_real)
+        {
+            return false;
+        }
+        else if (humanItem.Age > AgeMax_real)
+        {
+            return false;
+        }
+        else if (human.LevelEdu < eduMin)
+        {
+            return false;
+        }
+        else if (human.LevelCareer < CareerMin)
         {
             return false;
         }
