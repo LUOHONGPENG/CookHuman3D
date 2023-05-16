@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,15 @@ public partial class MapMgr : MonoBehaviour
     public void OnEnable()
     {
         EnableInput();
+        EventCenter.Instance.AddEventListener("CreateBaby", CreateBaby);
     }
 
     public void OnDisable()
     {
         DisableInput();
+        EventCenter.Instance.RemoveEventListener("CreateBaby", CreateBaby);
     }
+
 
     public void FixedTimeGo()
     {
@@ -38,7 +42,6 @@ public partial class MapMgr : MonoBehaviour
         CheckRayHover();
         //Dragging
         CheckRayDrag();
-
     }
 }
 

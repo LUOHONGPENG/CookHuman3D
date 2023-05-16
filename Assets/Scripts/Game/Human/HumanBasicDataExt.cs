@@ -76,6 +76,8 @@ public partial class HumanBasic
         }
         else if(curCookware!=null && curCookware.cookType == CookwareType.Marriage)
         {
+            humanItem.RecordMarried();
+            EventCenter.Instance.EventTrigger("CreateBaby", null);
             UnBindCookware();
         }
     }

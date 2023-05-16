@@ -43,7 +43,6 @@ public partial class MapMgr
 
         CreateHuman();
         CreateHuman();
-
     }
 
     public void CreateHuman()
@@ -75,6 +74,11 @@ public partial class MapMgr
         itemHumanBasic.Init(humanItem, posID);
         listHumanBasic.Add(itemHumanBasic);
         dicHumanPos.Add(posID, itemHumanBasic);
+    }
+
+    private void CreateBaby(object arg0)
+    {
+        CreateHuman();
     }
     #endregion
 

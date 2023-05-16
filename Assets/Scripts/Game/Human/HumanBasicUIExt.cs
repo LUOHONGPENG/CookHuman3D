@@ -40,7 +40,7 @@ public partial class HumanBasic
                 imgAgeFill.color = listColorFill[2];
                 break;
             case HumanState.Marrying:
-                imgAgeFill.fillAmount = yearMarriage / 1f;
+                imgAgeFill.fillAmount = 1f - (yearMarriage / 1f);
                 imgAgeFill.color = listColorFill[3];
                 break;
             default:

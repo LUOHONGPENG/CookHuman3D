@@ -12,7 +12,7 @@ public partial class CookwareBasic
             {
                 if(cookType == CookwareType.Marriage)
                 {
-
+                    return ageMinMarry;
                 }
                 else
                 {
@@ -31,7 +31,7 @@ public partial class CookwareBasic
             {
                 if (cookType == CookwareType.Marriage)
                 {
-
+                    return ageMaxMarry;
                 }
                 else
                 {
@@ -50,7 +50,7 @@ public partial class CookwareBasic
             {
                 if (cookType == CookwareType.Marriage)
                 {
-
+                    return eduMinMarry;
                 }
                 else
                 {
@@ -69,7 +69,7 @@ public partial class CookwareBasic
             {
                 if (cookType == CookwareType.Marriage)
                 {
-
+                    return careerMinMarry;
                 }
             }
             return 0;

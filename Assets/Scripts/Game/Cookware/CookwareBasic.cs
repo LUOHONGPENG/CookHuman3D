@@ -45,6 +45,11 @@ public partial class CookwareBasic : MonoBehaviour
         }
         //Initialize UI
         InitUI();
+        //Initialize Marriage
+        if (cookType == CookwareType.Marriage)
+        {
+            RefreshMarryCondition();
+        }
         isInit = true;
     }
 
@@ -80,10 +85,18 @@ public partial class CookwareBasic : MonoBehaviour
         {
             return false;
         }
-        else
+        else if (cookType == CookwareType.Marriage)
         {
-            return true;
+            if (human.humanItem.isMarried)
+            {
+                return false;
+            }
+            else if (GameMgr.Instance.mapMgr.listHumanBasic.Count >= 6)
+            {
+                return false;
+            }
         }
+        return true;
     }
 
     //Bind human
@@ -107,6 +120,10 @@ public partial class CookwareBasic : MonoBehaviour
     {
         listCurHuman.Remove(human);
         SetHumanPos();
+        if (cookType == CookwareType.Marriage)
+        {
+            RefreshMarryCondition();
+        }
     }
 
     public void SetHumanPos()
