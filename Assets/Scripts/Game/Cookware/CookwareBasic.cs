@@ -91,6 +91,10 @@ public partial class CookwareBasic : MonoBehaviour
             {
                 return false;
             }
+            else if (human.humanItem.sex != requiredSex)
+            {
+                return false;
+            }
             else if (GameMgr.Instance.mapMgr.listHumanBasic.Count >= 6)
             {
                 return false;

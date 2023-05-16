@@ -13,6 +13,7 @@ public partial class HoverUIMgr
     public Transform tfEduCook;
     public Transform tfCareerCook;
     public GameObject pfRequiredCook;
+    public Image imgSexCook;
 
     private CookwareBasic curCook;
 
@@ -46,6 +47,7 @@ public partial class HoverUIMgr
             if (curCook.cookType == CookwareType.Study)
             {
                 txAgeCook.text = "Recommended Age:";
+                codeAgeCook.text = string.Format("{0}-{1}", GameGlobal.ageMinStudy, GameGlobal.ageMaxStudy);
             }
             //Not School
             else
@@ -76,6 +78,24 @@ public partial class HoverUIMgr
                 GameObject obj = GameObject.Instantiate(pfRequiredCook, tfCareerCook);
                 RequireUIItem item = obj.GetComponent<RequireUIItem>();
                 item.Init(ExpType.Career);
+            }
+            //SexRequirement
+            if(curCook.cookType == CookwareType.Marriage)
+            {
+                switch (curCook.requiredSex)
+                {
+                    case Sex.Female:
+                        imgSexCook.sprite = listSpSex[0];
+                        break;
+                    case Sex.Male:
+                        imgSexCook.sprite = listSpSex[1];
+                        break;
+                }
+                imgSexCook.gameObject.SetActive(true);
+            }
+            else
+            {
+                imgSexCook.gameObject.SetActive(false);
             }
         }
     }

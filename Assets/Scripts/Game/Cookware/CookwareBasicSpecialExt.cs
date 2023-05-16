@@ -8,7 +8,8 @@ public partial class CookwareBasic
     private int ageMaxMarry = 0;
     private int eduMinMarry = 0;
     private int careerMinMarry = 0;
-    private Sex requiredSexMarry;
+    [HideInInspector]
+    public Sex requiredSex;
 
     private void InvokeMarriage(HumanBasic human)
     {
@@ -24,11 +25,11 @@ public partial class CookwareBasic
     {
         if(cookID == 3001)
         {
-            requiredSexMarry = Sex.Female;
+            requiredSex = Sex.Female;
         }
         else if(cookID == 3002)
         {
-            requiredSexMarry = Sex.Male;
+            requiredSex = Sex.Male;
         }
         ageMinMarry = 18 + Random.Range(-2, 2);
         ageMaxMarry = 40 + Random.Range(-2, 2);

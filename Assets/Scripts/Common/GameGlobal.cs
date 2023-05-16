@@ -4,10 +4,14 @@ using UnityEngine;
 
 public static class GameGlobal
 {
+    //Fixed Value
     public static float timeOneYear = 1.5f;
 
-    public static List<int> expEduLevelLimit = new List<int>();
+    //Excel Special Value
+    public static int ageMinStudy = 0;
+    public static int ageMaxStudy = 0;
 
+    public static List<int> expEduLevelLimit = new List<int>();
     public static List<int> expCareerLevelLimit = new List<int>();
 
     public static List<Vector3> listPosHumanOrigin = new List<Vector3>
