@@ -7,7 +7,12 @@ public partial class HoverUIMgr
 {
     [Header("CookInfo")]
     public Text txNameCook;
-    public Text txNameDesc;
+    public Text txDescCook;
+    public Text txAgeCook;
+    public Text codeAgeCook;
+    public Transform tfEduCook;
+    public Transform tfCareerCook;
+    public GameObject pfRequiredCook;
 
     private CookwareBasic curCook;
 
@@ -34,8 +39,41 @@ public partial class HoverUIMgr
         if (curCook.GetItem() != null)
         {
             CookwareExcelItem cookItem = curCook.GetItem();
+            //Desc
             txNameCook.text = cookItem.name;
-            txNameDesc.text = cookItem.desc;
+            txDescCook.text = cookItem.desc;
+            //Age
+            //ForSchool
+            if (curCook.cookType == CookwareType.Study)
+            {
+                txAgeCook.text = "Recommended Age:";
+            }
+            //Not School
+            else
+            {
+                txAgeCook.text = "Required Age:";
+                //If retire
+                if (curCook.AgeMax_real > 100)
+                {
+                    codeAgeCook.text = string.Format("{0}+", curCook.AgeMin_real);
+                }
+                //Normal
+                else
+                {
+                    codeAgeCook.text = string.Format("{0}-{1}", curCook.AgeMin_real, curCook.AgeMax_real);
+                }
+            }
+            //Requirement
+            PublicTool.ClearChildItem(tfEduCook);
+            PublicTool.ClearChildItem(tfCareerCook);
+            for(int i = 0; i < curCook.eduMin; i++)
+            {
+
+            }
+            for(int i = 0;i < curCook.CareerMin; i++)
+            {
+
+            }
         }
     }
 }

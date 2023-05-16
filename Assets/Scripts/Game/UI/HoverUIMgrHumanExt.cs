@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public partial class HoverUIMgr
 {
     [Header("HumanInfo")]
-    public Text txAgeHuman;
+    public Text codeAgeHuman;
     public Image imgSexHuman;
     public List<Sprite> listSpSex = new List<Sprite>();
 
@@ -80,7 +80,7 @@ public partial class HoverUIMgr
         if (curHuman !=null)
         {
             //Age
-            txAgeHuman.text = curHuman.humanItem.Age.ToString();
+            codeAgeHuman.text = curHuman.humanItem.Age.ToString();
             //Edu
             for(int i = 0; i < listExpEdu.Count; i++)
             {
