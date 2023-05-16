@@ -9,8 +9,8 @@ public partial class MapMgr
     public CookwareBasic cookWork1;
     public CookwareBasic cookWork2;
     public CookwareBasic cookWork3;
-    public CookwareBasic cookMarry1;
-    public CookwareBasic cookMarry2;
+    public CookwareBasic cookMarryF;
+    public CookwareBasic cookMarryM;
     public CookwareBasic cookRetire;
 
     [Header("Human")]

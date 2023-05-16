@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public partial class HumanBasic
 {
     [Header("HumanUI")]
+    public Canvas canvasUI;
     public Transform tfHumanHead;
     public Transform tfRootUI;
     public Text txAge;

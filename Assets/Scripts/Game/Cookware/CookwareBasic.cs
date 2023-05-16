@@ -16,7 +16,7 @@ public partial class CookwareBasic : MonoBehaviour
     public List<Transform> listTfHuman = new List<Transform>();
     public List<HumanBasic> listCurHuman = new List<HumanBasic>();
 
-
+    private bool isInit = false;
     //The cookware data
     private CookwareExcelItem cookItem;
 
@@ -24,6 +24,7 @@ public partial class CookwareBasic : MonoBehaviour
     //Initialize the cookware
     public void Init(int ID)
     {
+        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
         //Load the item data
         this.cookID = ID;
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
@@ -42,6 +43,9 @@ public partial class CookwareBasic : MonoBehaviour
                 listTfHuman.Add(objNew.transform);
             }
         }
+        //Initialize UI
+        InitUI();
+        isInit = true;
     }
 
     //Get the item data
