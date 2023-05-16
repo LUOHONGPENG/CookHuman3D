@@ -29,7 +29,12 @@ public partial class MapMgr : MonoBehaviour
     {
         //Check Human Time and destory
         TimeGoCheckAllHuman();
-        //
+
+        //Ban Ray Check When Page On
+        if (GameMgr.Instance.isPageOn)
+        {
+            return;
+        }
         CheckRayHover();
         //Dragging
         CheckRayDrag();

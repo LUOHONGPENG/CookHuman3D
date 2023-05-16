@@ -51,6 +51,11 @@ public partial class MapMgr
     //Left button just pressed
     private void Touch_performed(InputAction.CallbackContext obj)
     {
+        if (GameMgr.Instance.isPageOn)
+        {
+            return;
+        }
+
         Physics.Raycast(GetMouseRay(), out RaycastHit hitData, LayerMask.GetMask("Human"));
         if (hitData.transform == null)
         {
@@ -68,6 +73,10 @@ public partial class MapMgr
     //Left button released(Drop Human)
     private void Touch_canceled(InputAction.CallbackContext obj)
     {
+        if (GameMgr.Instance.isPageOn)
+        {
+            return;
+        }
         //Release Dragging
         if (isDragging && draggingHuman != null)
         {

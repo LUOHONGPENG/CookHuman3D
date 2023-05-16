@@ -15,6 +15,8 @@ public class GameMgr : MonoSingleton<GameMgr>
     public DataMgr dataMgr;
 
     private bool isInit = false;
+    public bool isPageOn = false;
+
 
     public override void Init()
     {
@@ -22,6 +24,7 @@ public class GameMgr : MonoSingleton<GameMgr>
         dataMgr.Init();
         mapMgr.Init();
         uiMgr.Init();
+        isPageOn = false;
         isInit = true;
         Debug.Log("GameMgrEndInit");
     }
@@ -32,6 +35,15 @@ public class GameMgr : MonoSingleton<GameMgr>
         if (!isInit)
         {
             return;
+        }
+
+        if (isPageOn)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 

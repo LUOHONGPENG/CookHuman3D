@@ -84,6 +84,12 @@ public partial class MapMgr
         for(int i = listHumanBasic.Count - 1; i >= 0; i--)
         {
             HumanBasic human = listHumanBasic[i];
+            //Dead
+            if (human.isDead)
+            {
+                DestroyHuman(human);
+                continue;
+            }
             //Time Go
             human.TimeGo();
             //Retire
@@ -96,14 +102,13 @@ public partial class MapMgr
             }
             if (human.isRetired)
             {
-                Retire(human);
+                EventCenter.Instance.EventTrigger("RetirePage", human);
             }
         }
     }
 
-    public void Retire(HumanBasic human)
+    public void DestroyHuman(HumanBasic human)
     {
-        Debug.Log("Retire");
         human.UnBindCookware();
         listHumanBasic.Remove(human);
         Destroy(human.gameObject);

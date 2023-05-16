@@ -21,6 +21,8 @@ public partial class HumanBasic : MonoBehaviour
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
         
         isRetired = false;
+        isDead = false;
+
         isInit = true;
     }
     #endregion

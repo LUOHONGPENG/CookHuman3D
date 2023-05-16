@@ -5,9 +5,10 @@ using UnityEngine;
 public class UIMgr : MonoBehaviour
 {
     public HoverUIMgr hoverUIMgr;
-
+    public RetireUIMgr retireUIMgr;
     public void Init()
     {
         hoverUIMgr.Init();
+        retireUIMgr.Init();
     }
 }

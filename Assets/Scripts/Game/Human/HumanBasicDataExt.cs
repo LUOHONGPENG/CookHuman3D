@@ -9,6 +9,7 @@ public partial class HumanBasic
     //The data of this human
     public HumanItem humanItem;
     public bool isRetired = false;
+    public bool isDead = false;
     public float yearMarriage = 0;
     //Check and get the human's state
     public HumanState humanState
@@ -73,7 +74,7 @@ public partial class HumanBasic
         {
             yearMarriage -= yearDelta;
         }
-        else if(curCookware.cookType == CookwareType.Marriage)
+        else if(curCookware!=null && curCookware.cookType == CookwareType.Marriage)
         {
             UnBindCookware();
         }
