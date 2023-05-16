@@ -28,7 +28,8 @@ public partial class MapMgr
         cookWork1.Init(2001);
         cookWork2.Init(2002);
         cookWork3.Init(2003);
-
+        cookMarryF.Init(3001);
+        cookMarryM.Init(3002);
         cookRetire.Init(4001);
     }
 
