@@ -38,6 +38,10 @@ public partial class HumanBasic
                 imgAgeFill.fillAmount = PublicTool.CalculateEduRate(humanItem.expCareer);
                 imgAgeFill.color = listColorFill[2];
                 break;
+            case HumanState.Marrying:
+                imgAgeFill.fillAmount = yearMarriage / 1f;
+                imgAgeFill.color = listColorFill[3];
+                break;
             default:
                 imgAgeFill.fillAmount = 1f;
                 imgAgeFill.color = listColorFill[0];

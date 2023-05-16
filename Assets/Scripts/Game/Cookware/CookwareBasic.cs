@@ -87,10 +87,14 @@ public partial class CookwareBasic : MonoBehaviour
     {
         listCurHuman.Add(human);
         SetHumanPos();
-        //Check Retire
+        //Invoke Special
         if(cookType == CookwareType.Retire)
         {
-            human.isRetired = true;
+            InvokeRetire(human);
+        }
+        else if(cookType == CookwareType.Marriage)
+        {
+            InvokeMarriage(human);
         }
     }
 

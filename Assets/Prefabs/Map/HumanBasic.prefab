@@ -249,6 +249,8 @@ MonoBehaviour:
   posCookware: {x: 0, y: 0, z: 0}
   canvasUI: {fileID: 6613795783390533959}
   curCookware: {fileID: 0}
+  isRetired: 0
+  yearMarriage: 0
   tfHumanHead: {fileID: 4064086222802939598}
   tfRootUI: {fileID: 5914741817728949631}
   txAge: {fileID: 2935283031302663120}
@@ -257,6 +259,7 @@ MonoBehaviour:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.40251565, g: 0.9264182, b: 1, a: 1}
   - {r: 1, g: 0.6170819, b: 0.40251565, a: 1}
+  - {r: 1, g: 0.4039216, b: 0.66134655, a: 1}
 --- !u!1 &6597995112367456232
 GameObject:
   m_ObjectHideFlags: 0

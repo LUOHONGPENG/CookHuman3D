@@ -9,6 +9,7 @@ public partial class HumanBasic
     //The data of this human
     public HumanItem humanItem;
     public bool isRetired = false;
+    public float yearMarriage = 0;
     //Check and get the human's state
     public HumanState humanState
     {
@@ -27,6 +28,10 @@ public partial class HumanBasic
                 else if(curCookware.cookType == CookwareType.Job)
                 {
                     return HumanState.Working;
+                }
+                else if(curCookware.cookType == CookwareType.Marriage)
+                {
+                    return HumanState.Marrying;
                 }
                 return HumanState.Rest;
             }
@@ -48,19 +53,30 @@ public partial class HumanBasic
 
     public void TimeGo()
     {
-        TimeGoData();
+        TimeGoYear();
     }
 
-    private void TimeGoData()
+    private void TimeGoYear()
     {
         float yearDelta = Time.fixedDeltaTime / GameGlobal.timeOneYear;
+        //YearGrow
         yearGrow -= yearDelta;
         if (yearGrow < 0)
         {
             yearGrow = 1f;
             AgeGrow();
         }
+        //DataGrow
         DataGrow(yearDelta);
+        //MarriageCost
+        if (yearMarriage > 0)
+        {
+            yearMarriage -= yearDelta;
+        }
+        else if(curCookware.cookType == CookwareType.Marriage)
+        {
+            UnBindCookware();
+        }
     }
 
     //The data of education and career will grow according to the year passed.
