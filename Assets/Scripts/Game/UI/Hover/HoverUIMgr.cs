@@ -24,11 +24,11 @@ public partial class HoverUIMgr : MonoBehaviour
         float mouseX = GameMgr.Instance.mapMgr.GetMousePos().x;
         if (mouseX < width / 2)
         {
-            rtPos.anchoredPosition = new Vector2(400f, 0);
+            rtPos.anchoredPosition = new Vector2(500f, 0);
         }
         else
         {
-            rtPos.anchoredPosition = new Vector2(-400f, 0);
+            rtPos.anchoredPosition = new Vector2(-500f, 0);
         }
         //Refresh
         if (objPopupHuman.activeSelf)

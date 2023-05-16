@@ -118,7 +118,13 @@ public partial class MapMgr
         //Destory
         human.UnBindCookware();
         listHumanBasic.Remove(human);
+        dicHumanPos.Remove(human.posOriginID);
         Destroy(human.gameObject);
+
+        if (listHumanBasic.Count <= 0)
+        {
+            EventCenter.Instance.EventTrigger("EndGame", null) ;
+        }
     }
 
     public void RefreshHumanScore()

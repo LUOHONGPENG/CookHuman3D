@@ -213,7 +213,7 @@ MonoBehaviour:
   codeTotalScore: {fileID: 4501259284275097678}
   btnRestart: {fileID: 1441538839645152765}
   tfMeal: {fileID: 3294570280872450445}
-  pfMeal: {fileID: 0}
+  pfMeal: {fileID: 8370350660978757709, guid: f2ae069a314ecfb428e61659abb8f339, type: 3}
 --- !u!1 &4760091296482975735
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 100, y: 50}
+  m_CellSize: {x: 200, y: 200}
+  m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &6945529627903147029

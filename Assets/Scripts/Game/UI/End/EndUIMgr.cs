@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndUIMgr : MonoBehaviour
@@ -17,7 +18,7 @@ public class EndUIMgr : MonoBehaviour
         btnRestart.onClick.RemoveAllListeners();
         btnRestart.onClick.AddListener(delegate () {
             HidePopup();
-            //SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main");
         });
     }
 
@@ -37,9 +38,9 @@ public class EndUIMgr : MonoBehaviour
         int totalScore = 0;
         for (int i = 0; i < listHuman.Count; i++)
         {
-            /*            GameObject objMeal = GameObject.Instantiate(pfMeal, tfMeal);
-                        EndUIMeal itemMeal = objMeal.GetComponent<EndUIMeal>();
-                        itemMeal.Init(listScore[i]);*/
+            GameObject objMeal = GameObject.Instantiate(pfMeal, tfMeal);
+            EndUIMealItem itemMeal = objMeal.GetComponent<EndUIMealItem>();
+            itemMeal.Init(listHuman[i].vScore);
 
             totalScore += listHuman[i].vScore;
         }

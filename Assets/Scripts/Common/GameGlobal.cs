@@ -19,5 +19,5 @@ public static class GameGlobal
     new Vector3(-2.25f,1.2f,0.7f),new Vector3(-2.05f,1.2f,0.7f),new Vector3(-1.8f,1.2f,0.7f) };
 
     public static List<Vector3> listPosHumanCookware = new List<Vector3>
-    {new Vector3(-0.1f,0.1f,0),new Vector3(0.1f,0.1f,0),new Vector3(0,0.1f,0.1f) };
+    {new Vector3(-0.1f,0.15f,0),new Vector3(0.1f,0.15f,0),new Vector3(0,0.15f,0.1f) };
 }
