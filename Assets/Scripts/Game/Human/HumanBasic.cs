@@ -13,14 +13,14 @@ public partial class HumanBasic : MonoBehaviour
     
     private bool isInit = false;
 
-
     #region Init
     public void Init(HumanItem humanItem,int posID)
     {
         this.humanItem = humanItem;
         this.posOriginID = posID;
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
-
+        
+        isRetired = false;
         isInit = true;
     }
     #endregion

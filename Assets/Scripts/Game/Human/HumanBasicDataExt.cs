@@ -8,6 +8,7 @@ public partial class HumanBasic
     #region BasicData
     //The data of this human
     public HumanItem humanItem;
+    public bool isRetired = false;
     //Check and get the human's state
     public HumanState humanState
     {
@@ -31,6 +32,8 @@ public partial class HumanBasic
             }
         }
     }
+
+    public int Age { get { return humanItem.Age; } }
 
     public int LevelEdu { get { return PublicTool.CalculateEduLevel(humanItem.expEdu); } }
     public int LevelCareer { get { return PublicTool.CalculateCareerLevel(humanItem.expCareer); } }

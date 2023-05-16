@@ -26,7 +26,7 @@ public partial class HumanBasic
         //UI Position
         tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(tfHumanHead.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
         //Age Data
-        txAge.text = Mathf.FloorToInt(humanItem.Age).ToString();
+        txAge.text = Age.ToString();
         //Age Fill Check
         switch (humanState)
         {

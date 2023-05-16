@@ -78,13 +78,7 @@ public partial class MapMgr
                 if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
                 {
                     CookwareBasic tarCookware = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
-                    switch (tarCookware.cookType)
-                    {
-                        case CookwareType.Study:
-                        case CookwareType.Job:
-                            draggingHuman.BindCookware(tarCookware);
-                            break;
-                    }
+                    draggingHuman.BindCookware(tarCookware);
                 }
             }
             //Release human at empty space

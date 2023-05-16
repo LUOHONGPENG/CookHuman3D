@@ -28,10 +28,7 @@ public partial class MapMgr : MonoBehaviour
     public void FixedTimeGo()
     {
         //Check Human Time and destory
-        for (int i = listHumanBasic.Count - 1; i >= 0; i--)
-        {
-            listHumanBasic[i].TimeGo();
-        }
+        TimeGoCheckAllHuman();
         //
         CheckRayHover();
         //Dragging

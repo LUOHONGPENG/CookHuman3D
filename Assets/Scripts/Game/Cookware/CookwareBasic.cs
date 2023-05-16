@@ -55,17 +55,16 @@ public partial class CookwareBasic : MonoBehaviour
     //Check whether the dragging human meet the condition
     public bool CheckHuman(HumanBasic human)
     {
-        HumanItem humanItem = human.humanItem;
         //Full
         if (listCurHuman.Count >= cookCapacity)
         {
             return false;
         }
-        else if(humanItem.Age < AgeMin_real)
+        else if(human.Age < AgeMin_real)
         {
             return false;
         }
-        else if (humanItem.Age > AgeMax_real)
+        else if (human.Age > AgeMax_real)
         {
             return false;
         }
@@ -88,6 +87,11 @@ public partial class CookwareBasic : MonoBehaviour
     {
         listCurHuman.Add(human);
         SetHumanPos();
+        //Check Retire
+        if(cookType == CookwareType.Retire)
+        {
+            human.isRetired = true;
+        }
     }
 
     //Unbind human

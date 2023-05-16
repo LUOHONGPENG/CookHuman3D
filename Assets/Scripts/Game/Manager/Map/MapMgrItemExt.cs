@@ -76,4 +76,37 @@ public partial class MapMgr
         dicHumanPos.Add(posID, itemHumanBasic);
     }
     #endregion
+
+    #region Special-Retirement
+
+    public void TimeGoCheckAllHuman()
+    {
+        for(int i = listHumanBasic.Count - 1; i >= 0; i--)
+        {
+            HumanBasic human = listHumanBasic[i];
+            //Time Go
+            human.TimeGo();
+            //Retire
+            if (human.Age >= 80)
+            {
+                if (!human.isRetired)
+                {
+                    human.isRetired = true;
+                }
+            }
+            if (human.isRetired)
+            {
+                Retire(human);
+            }
+        }
+    }
+
+    public void Retire(HumanBasic human)
+    {
+        Debug.Log("Retire");
+        human.UnBindCookware();
+        listHumanBasic.Remove(human);
+        Destroy(human.gameObject);
+    }
+    #endregion
 }

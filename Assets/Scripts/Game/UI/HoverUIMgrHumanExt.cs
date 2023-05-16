@@ -80,7 +80,7 @@ public partial class HoverUIMgr
         if (curHuman !=null)
         {
             //Age
-            codeAgeHuman.text = curHuman.humanItem.Age.ToString();
+            codeAgeHuman.text = curHuman.Age.ToString();
             //Edu
             for(int i = 0; i < listExpEdu.Count; i++)
             {
