@@ -194,8 +194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -53}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: -100, y: -77.5}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &13610027026188568
 MonoBehaviour:
@@ -257,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -53}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 100, y: -77.5}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5891034039790671900
 MonoBehaviour:
@@ -716,7 +716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -315}
+  m_AnchoredPosition: {x: 250, y: -540}
   m_SizeDelta: {x: 600, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3807460361078525696
@@ -836,7 +836,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 34}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1193783080214064924
 CanvasRenderer:
@@ -879,7 +879,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: 
 --- !u!1 &5510844682961079227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,7 +1195,8 @@ MonoBehaviour:
   codeAgeCook: {fileID: 8528131865868937445}
   tfEduCook: {fileID: 3823642687168255370}
   tfCareerCook: {fileID: 1431792730951338714}
-  pfRequiredCook: {fileID: 0}
+  pfRequiredCook: {fileID: 2607780703102876242, guid: 497a238a170e57442ad2e535583a531f,
+    type: 3}
   codeAgeHuman: {fileID: 6622031310419444140}
   imgSexHuman: {fileID: 1982221047603758995}
   listSpSex:

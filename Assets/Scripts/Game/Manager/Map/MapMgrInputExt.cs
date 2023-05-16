@@ -60,6 +60,7 @@ public partial class MapMgr
         if (hitData.transform.parent.GetComponent<HumanBasic>() != null)
         {
             isDragging = true;
+            Debug.Log("StartDragHuman");
             draggingHuman = hitData.transform.parent.GetComponent<HumanBasic>();
         }
     }
@@ -93,6 +94,7 @@ public partial class MapMgr
             }
             isDragging = false;
             draggingHuman = null;
+            Debug.Log("EndDragHuman");
         }
     }
 

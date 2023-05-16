@@ -19,14 +19,13 @@ public partial class HoverUIMgr
 
     private void ShowCookPage(object arg0)
     {
-        Debug.Log("CookPage");
         CookwareBasic cookBasic = (CookwareBasic)arg0;
         if (curCook != cookBasic)
         {
             curCook = cookBasic;
         }
+        RefreshCookPage();
         objPopupCook.SetActive(true);
-
     }
 
     private void HideCookPage(object arg0)
@@ -68,11 +67,15 @@ public partial class HoverUIMgr
             PublicTool.ClearChildItem(tfCareerCook);
             for(int i = 0; i < curCook.eduMin; i++)
             {
-
+                GameObject obj = GameObject.Instantiate(pfRequiredCook, tfEduCook);
+                RequireUIItem item = obj.GetComponent<RequireUIItem>();
+                item.Init(ExpType.Edu);
             }
             for(int i = 0;i < curCook.CareerMin; i++)
             {
-
+                GameObject obj = GameObject.Instantiate(pfRequiredCook, tfCareerCook);
+                RequireUIItem item = obj.GetComponent<RequireUIItem>();
+                item.Init(ExpType.Career);
             }
         }
     }
