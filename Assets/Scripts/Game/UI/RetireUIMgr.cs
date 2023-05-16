@@ -38,13 +38,12 @@ public class RetireUIMgr : MonoBehaviour
     {
         HumanBasic human = (HumanBasic)arg0;
         this.storedHuman = human;
-        HumanItem humanItem = human.humanItem;
 
         PublicTool.ClearChildItem(tfComment);
-        int vScore = CalculateScore(humanItem);
-/*        GameMgr.Instance.levelManager.totalScore += vScore;
-        GameMgr.Instance.levelManager.listMealScore.Add(vScore);*/
+        int vScore = CalculateScore(human);
         codeScore.text = vScore.ToString();
+        //Set Score
+        human.humanItem.vScore = vScore;
 
         objPopup.SetActive(true);
         GameMgr.Instance.isPageOn = true;
@@ -68,17 +67,19 @@ public class RetireUIMgr : MonoBehaviour
         itemComment.Init(strComment, vScore);
     }
 
-    public int CalculateScore(HumanItem humanItem)
+    public int CalculateScore(HumanBasic human)
     {
+        HumanItem humanItem = human.humanItem;
+
         string strComment = "";
         int totalScore = 0;
         int tempScore = 0;
-/*        //Education
-        if (humanItem.vEdu > 60)
+        //Education
+        if (human.LevelEdu >= 3)
         {
             strComment = "High Education. So clean!";
         }
-        else if (humanItem.vEdu >= 20)
+        else if (human.LevelEdu >= 1)
         {
             strComment = "Normal Education. Not bad!";
         }
@@ -86,17 +87,16 @@ public class RetireUIMgr : MonoBehaviour
         {
             strComment = "Poor Education. Dirty!";
         }
-        tempScore = -300 + Mathf.RoundToInt(humanModel.vEdu) * 15;
+        tempScore = -300 + Mathf.RoundToInt(humanItem.expEdu) * 15;
         CreateComment(strComment, tempScore);
         totalScore += tempScore;
 
-
         //Career
-        if (humanModel.vCareer > 60)
+        if (human.LevelCareer >= 3)
         {
             strComment = "Nice Career. Smooth taste!";
         }
-        else if (humanModel.vCareer >= 30)
+        else if (human.LevelCareer >= 1)
         {
             strComment = "Normal Career. Not bad!";
         }
@@ -104,19 +104,19 @@ public class RetireUIMgr : MonoBehaviour
         {
             strComment = "Poor Career. Woody taste!";
         }
-        tempScore = -600 + Mathf.RoundToInt(humanModel.vCareer) * 20;
+        tempScore = -600 + Mathf.RoundToInt(humanItem.expCareer) * 20;
         CreateComment(strComment, tempScore);
         totalScore += tempScore;
 
         //Marriage
-        if (humanModel.isMarried)
+        if (humanItem.isMarried)
         {
-            if (humanModel.vMarryAge >= 40)
+            if (humanItem.vMarryAge >= 40)
             {
                 strComment = "Too Late to Marry!";
                 tempScore = -200;
             }
-            else if (humanModel.vMarryAge >= 30)
+            else if (humanItem.vMarryAge >= 30)
             {
                 strComment = "Married.";
                 tempScore = 200;
@@ -135,6 +135,7 @@ public class RetireUIMgr : MonoBehaviour
         CreateComment(strComment, tempScore);
         totalScore += tempScore;
 
+        /*
         //Gap Year
         if(humanModel.vLastStudyAge > 0 && humanModel.vFirstWorkAge - humanModel.vLastStudyAge > 1)
         {

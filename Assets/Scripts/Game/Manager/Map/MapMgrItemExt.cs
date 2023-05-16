@@ -93,6 +93,7 @@ public partial class MapMgr
             if (human.isDead)
             {
                 DestroyHuman(human);
+                RefreshHumanScore();
                 continue;
             }
             //Time Go
@@ -114,9 +115,21 @@ public partial class MapMgr
 
     public void DestroyHuman(HumanBasic human)
     {
+        //Destory
         human.UnBindCookware();
         listHumanBasic.Remove(human);
         Destroy(human.gameObject);
+    }
+
+    public void RefreshHumanScore()
+    {
+        int vScore = 0;
+        for(int i = 0; i < listHumanItem.Count; i++)
+        {
+            vScore += listHumanItem[i].vScore;
+        }
+
+        EventCenter.Instance.EventTrigger("RefreshScore",vScore);
     }
     #endregion
 }

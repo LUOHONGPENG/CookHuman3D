@@ -13,6 +13,7 @@ public class HumanItem
     public bool isMarried = false;//Whether this people is married
     //Special
     public int vMarryAge = -1;
+    public int vScore = 0;
 
     public HumanItem(int ID)
     {
@@ -32,6 +33,8 @@ public class HumanItem
         {
             sex = Sex.Female;
         }
+        //Initial Score
+        vScore = 0;
     }
 
     #region Basic Record
