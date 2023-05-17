@@ -6,17 +6,21 @@ using DG.Tweening;
 public partial class HumanBasic : MonoBehaviour
 {
     [Header("Basic")]
-    public Vector3 posOrigin;
+    //Remember the original Pos
+    public int posOriginID = 0;
     public Vector3 posCookware;
     
     private bool isInit = false;
 
-
     #region Init
-    public void Init(HumanItem humanItem,Vector3 pos)
+    public void Init(HumanItem humanItem,int posID)
     {
         this.humanItem = humanItem;
-        this.posOrigin = pos;
+        this.posOriginID = posID;
+        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
+        
+        isRetired = false;
+        isDead = false;
 
         isInit = true;
     }
@@ -70,9 +74,7 @@ public partial class HumanBasic : MonoBehaviour
     {
         if (curCookware != null)
         {
-            //Back to cookware
-            
-            //this.transform.DOMove(curCookware.tfHuman.position,0.2f);
+            this.transform.DOMove(posCookware, 0.2f);
         }
         else
         {
@@ -83,7 +85,7 @@ public partial class HumanBasic : MonoBehaviour
     public void BackOrigin()
     {
         //Back to birthplace
-        this.transform.DOMove(posOrigin, 0.2f);
+        this.transform.DOMove(GameGlobal.listPosHumanOrigin[posOriginID], 0.2f);
     }
 
     #endregion

@@ -15,6 +15,6 @@ MonoBehaviour:
   items:
   - id: 1001
     ageMin_study: 8
-    ageMax_study: 26
+    ageMax_study: 28
     expEduLevel: 14000000280000003c0000005000000064000000
     expCareerLevel: 14000000280000003c0000005000000064000000

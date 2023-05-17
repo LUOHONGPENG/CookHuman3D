@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public partial class HumanBasic
 {
     [Header("HumanUI")]
+    public Canvas canvasUI;
+    public Transform tfHumanHead;
     public Transform tfRootUI;
     public Text txAge;
     public Image imgAgeFill;
@@ -23,9 +25,9 @@ public partial class HumanBasic
             return;
         }
         //UI Position
-        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(this.transform.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
+        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(tfHumanHead.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
         //Age Data
-        txAge.text = Mathf.FloorToInt(humanItem.Age).ToString();
+        txAge.text = Age.ToString();
         //Age Fill Check
         switch (humanState)
         {
@@ -34,7 +36,12 @@ public partial class HumanBasic
                 imgAgeFill.color = listColorFill[1];
                 break;
             case HumanState.Working:
+                imgAgeFill.fillAmount = PublicTool.CalculateEduRate(humanItem.expCareer);
                 imgAgeFill.color = listColorFill[2];
+                break;
+            case HumanState.Marrying:
+                imgAgeFill.fillAmount = 1f - (yearMarriage / 1f);
+                imgAgeFill.color = listColorFill[3];
                 break;
             default:
                 imgAgeFill.fillAmount = 1f;

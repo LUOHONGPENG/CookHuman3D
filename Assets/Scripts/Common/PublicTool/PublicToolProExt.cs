@@ -41,11 +41,12 @@ public partial class PublicTool
         float rateEdu = 0;
         if(levelEdu < GameGlobal.expEduLevelLimit.Count)
         {
-            float requiredExp = GameGlobal.expCareerLevelLimit[levelEdu];
+            float requiredExp = GameGlobal.expEduLevelLimit[levelEdu];
             float curExp = expEdu;
             if (levelEdu > 0)
             {
-                curExp = expEdu - GameGlobal.expCareerLevelLimit[levelEdu - 1];
+                requiredExp = GameGlobal.expEduLevelLimit[levelEdu] - GameGlobal.expEduLevelLimit[levelEdu - 1];
+                curExp = expEdu - GameGlobal.expEduLevelLimit[levelEdu - 1];
             }
             rateEdu = curExp / requiredExp;
         }
@@ -55,4 +56,28 @@ public partial class PublicTool
         }
         return rateEdu;
     }
+
+    //Calculate Edu Rate
+    public static float CalculateCareerRate(float expCareer)
+    {
+        int levelCareer = CalculateCareerLevel(expCareer);
+        float rateCareer = 0;
+        if (levelCareer < GameGlobal.expCareerLevelLimit.Count)
+        {
+            float requiredExp = GameGlobal.expCareerLevelLimit[levelCareer];
+            float curExp = expCareer;
+            if (levelCareer > 0)
+            {
+                requiredExp = GameGlobal.expCareerLevelLimit[levelCareer] - GameGlobal.expCareerLevelLimit[levelCareer - 1];
+                curExp = expCareer - GameGlobal.expCareerLevelLimit[levelCareer - 1];
+            }
+            rateCareer = curExp / requiredExp;
+        }
+        else
+        {
+            rateCareer = 1f;
+        }
+        return rateCareer;
+    }
+
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CookwareBasic : MonoBehaviour
+public partial class CookwareBasic : MonoBehaviour
 {
     [Header("BasicInfo")]
     public CookwareType cookType;
@@ -12,10 +12,11 @@ public class CookwareBasic : MonoBehaviour
 
 
     [Header("Human")]
+    public Transform tfHumanGroup;
     public List<Transform> listTfHuman = new List<Transform>();
     public List<HumanBasic> listCurHuman = new List<HumanBasic>();
 
-
+    private bool isInit = false;
     //The cookware data
     private CookwareExcelItem cookItem;
 
@@ -23,12 +24,33 @@ public class CookwareBasic : MonoBehaviour
     //Initialize the cookware
     public void Init(int ID)
     {
+        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
         //Load the item data
         this.cookID = ID;
-        listCurHuman.Clear();
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
+        //Initialize capacity
+        listTfHuman.Clear();
+        listCurHuman.Clear();
+        for (int i = 0; i < cookCapacity; i++)
+        {
+            if (i < GameGlobal.listPosHumanCookware.Count)
+            {
+                GameObject objNew = new GameObject("tf");
+                objNew.transform.parent = tfHumanGroup;
+                objNew.transform.localPosition = GameGlobal.listPosHumanCookware[i];
+                listTfHuman.Add(objNew.transform);
+            }
+        }
+        //Initialize UI
+        InitUI();
+        //Initialize Marriage
+        if (cookType == CookwareType.Marriage)
+        {
+            RefreshMarryCondition();
+        }
+        isInit = true;
     }
 
     //Get the item data
@@ -47,10 +69,38 @@ public class CookwareBasic : MonoBehaviour
         {
             return false;
         }
-        else
+        else if(human.Age < AgeMin_real)
         {
-            return true;
+            return false;
         }
+        else if (human.Age > AgeMax_real)
+        {
+            return false;
+        }
+        else if (human.LevelEdu < eduMin)
+        {
+            return false;
+        }
+        else if (human.LevelCareer < CareerMin)
+        {
+            return false;
+        }
+        else if (cookType == CookwareType.Marriage)
+        {
+            if (human.humanItem.isMarried)
+            {
+                return false;
+            }
+            else if (human.humanItem.sex != requiredSex)
+            {
+                return false;
+            }
+            else if (GameMgr.Instance.mapMgr.listHumanBasic.Count >= 6)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     //Bind human
@@ -58,6 +108,15 @@ public class CookwareBasic : MonoBehaviour
     {
         listCurHuman.Add(human);
         SetHumanPos();
+        //Invoke Special
+        if(cookType == CookwareType.Retire)
+        {
+            InvokeRetire(human);
+        }
+        else if(cookType == CookwareType.Marriage)
+        {
+            InvokeMarriage(human);
+        }
     }
 
     //Unbind human
@@ -65,6 +124,10 @@ public class CookwareBasic : MonoBehaviour
     {
         listCurHuman.Remove(human);
         SetHumanPos();
+        if (cookType == CookwareType.Marriage)
+        {
+            RefreshMarryCondition();
+        }
     }
 
     public void SetHumanPos()

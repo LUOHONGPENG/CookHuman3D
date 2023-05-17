@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UIMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public HoverUIMgr hoverUIMgr;
+    public RetireUIMgr retireUIMgr;
+    public InterfaceUIMgr interfaceUIMgr;
+    public EndUIMgr endUIMgr;
 
-    // Update is called once per frame
-    void Update()
+    public void Init()
     {
-        
+        hoverUIMgr.Init();
+        retireUIMgr.Init();
+        interfaceUIMgr.Init();
+        endUIMgr.Init();
     }
 }
