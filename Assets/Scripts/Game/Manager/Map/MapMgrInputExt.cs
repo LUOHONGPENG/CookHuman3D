@@ -136,7 +136,6 @@ public partial class MapMgr
         }
         else
         {
-            CloseHumanPage();
             Ray ray = GetMouseRay();
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
@@ -144,10 +143,13 @@ public partial class MapMgr
                 {
                     CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
+                    EventCenter.Instance.EventTrigger("ShowHumanPage", draggingHuman);
+
                 }
             }
             else
             {
+                CloseHumanPage();
                 CloseCookPage();
             }
         }

@@ -15,8 +15,8 @@ public static class GameGlobal
     public static List<int> expCareerLevelLimit = new List<int>();
 
     public static List<Vector3> listPosHumanOrigin = new List<Vector3>
-    {new Vector3(-2.25f,1.62f,0.7f),new Vector3(-2.05f,1.62f,0.7f),new Vector3(-1.8f,1.62f,0.7f),
-    new Vector3(-2.25f,1.2f,0.7f),new Vector3(-2.05f,1.2f,0.7f),new Vector3(-1.8f,1.2f,0.7f) };
+    {new Vector3(-2.1f,1.85f,0.7f),new Vector3(-1.9f,1.85f,0.7f),new Vector3(-1.7f,1.85f,0.7f),
+    new Vector3(-2.1f,1.42f,0.7f),new Vector3(-1.9f,1.42f,0.7f),new Vector3(-1.7f,1.42f,0.7f) };
 
     public static List<Vector3> listPosHumanCookware = new List<Vector3>
     {new Vector3(-0.1f,0.15f,0),new Vector3(0.1f,0.15f,0),new Vector3(0,0.15f,0.1f) };
