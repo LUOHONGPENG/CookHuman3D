@@ -6,15 +6,18 @@ using DG.Tweening;
 public partial class CookwareBasic : MonoBehaviour
 {
     [Header("BasicInfo")]
+    public Transform tfModel;
+    public CookwareView itemView;
+
     public CookwareType cookType;
-    private int cookID;
-    private int cookCapacity;
-
-
-    [Header("Human")]
-    public Transform tfHumanGroup;
-    public List<Transform> listTfHuman = new List<Transform>();
+    [HideInInspector]
+    public int cookID;
+    [HideInInspector]
+    public int cookCapacity;
+    [HideInInspector]
     public List<HumanBasic> listCurHuman = new List<HumanBasic>();
+
+
 
     private bool isInit = false;
     //The cookware data
@@ -24,32 +27,21 @@ public partial class CookwareBasic : MonoBehaviour
     //Initialize the cookware
     public void Init(int ID)
     {
-        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
         //Load the item data
         this.cookID = ID;
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
-        //Initialize capacity
-        listTfHuman.Clear();
-        listCurHuman.Clear();
-        for (int i = 0; i < cookCapacity; i++)
-        {
-            if (i < GameGlobal.listPosHumanCookware.Count)
-            {
-                GameObject objNew = new GameObject("tf");
-                objNew.transform.parent = tfHumanGroup;
-                objNew.transform.localPosition = GameGlobal.listPosHumanCookware[i];
-                listTfHuman.Add(objNew.transform);
-            }
-        }
-        //Initialize UI
-        InitUI();
         //Initialize Marriage
         if (cookType == CookwareType.Marriage)
         {
             RefreshMarryCondition();
         }
+
+        listCurHuman.Clear();
+        itemView.Init(this);
+
+
         isInit = true;
     }
 
@@ -135,8 +127,8 @@ public partial class CookwareBasic : MonoBehaviour
         for(int i = 0;i < listCurHuman.Count; i++)
         {
             //listCurHuman[i].transform.DOMove(listTfHuman[i].position,0.5f);
-            listCurHuman[i].transform.position = listTfHuman[i].position;
-            listCurHuman[i].posCookware = listTfHuman[i].position;
+            listCurHuman[i].transform.position = itemView.listTfHuman[i].position;
+            listCurHuman[i].posCookware = itemView.listTfHuman[i].position;
         }
     }
     #endregion
