@@ -9,8 +9,9 @@ public class GameMgr : MonoSingleton<GameMgr>
     public Camera uiCamera;
     [Header("Manager")]
     public MapMgr mapMgr;
-    public UIMgr uiMgr;
     public LightMgr lightMgr;
+    public EffectUIMgr effectUIMgr;
+    public UIMgr uiMgr;
     public SoundMgr soundMgr;
     public DataMgr dataMgr;
 

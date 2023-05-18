@@ -47,6 +47,9 @@ TagManager:
   - name: ObjectUI
     uniqueID: 1934268795
     locked: 0
+  - name: EffectUI
+    uniqueID: 1770335947
+    locked: 0
   - name: PageUI
     uniqueID: 747406807
     locked: 0
