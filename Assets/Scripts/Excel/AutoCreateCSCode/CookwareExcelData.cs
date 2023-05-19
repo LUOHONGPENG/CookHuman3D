@@ -16,6 +16,8 @@ public class CookwareExcelItem : ExcelItemBase
 	public int ageMin_real;
 	public int ageMax_real;
 	public int eduMin;
+	public float posxCapa;
+	public float posyCapa;
 }
 
 [CreateAssetMenu(fileName = "CookwareExcelData", menuName = "Excel To ScriptableObject/Create CookwareExcelData", order = 1)]
@@ -44,6 +46,8 @@ public class CookwareAssetAssignment
 			items[i].ageMin_real = Convert.ToInt32(allItemValueRowList[i]["ageMin_real"]);
 			items[i].ageMax_real = Convert.ToInt32(allItemValueRowList[i]["ageMax_real"]);
 			items[i].eduMin = Convert.ToInt32(allItemValueRowList[i]["eduMin"]);
+			items[i].posxCapa = Convert.ToSingle(allItemValueRowList[i]["posxCapa"]);
+			items[i].posyCapa = Convert.ToSingle(allItemValueRowList[i]["posyCapa"]);
 		}
 		CookwareExcelData excelDataAsset = ScriptableObject.CreateInstance<CookwareExcelData>();
 		excelDataAsset.items = items;

@@ -54,6 +54,7 @@ public class CookwareView : MonoBehaviour
         tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(parent.tfModel.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
 
         //tfCapacity
+        tfCapacity.localPosition = new Vector2(parent.GetItem().posxCapa, parent.GetItem().posyCapa);
         listCapacityUI.Clear();
         PublicTool.ClearChildItem(tfCapacity);
 
@@ -70,6 +71,8 @@ public class CookwareView : MonoBehaviour
                 }
                 break;
         }
+
+
     }
 
     private void Update()
