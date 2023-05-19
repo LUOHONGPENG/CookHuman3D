@@ -8,7 +8,12 @@ public enum SoundType
     TooOld,
     MoreEdu,
     MoreCareer,
-    Married
+    Married,
+    NoSpace,
+    Study,
+    Job,
+    Marriage,
+    Retire
 }
 
 public class SoundMgr : MonoBehaviour
@@ -18,9 +23,24 @@ public class SoundMgr : MonoBehaviour
     public AudioSource auMoreEdu;
     public AudioSource auMoreCareer;
     public AudioSource auMarried;
+    public AudioSource auNoSpace;
+    public AudioSource auStudy;
+    public AudioSource auJob;
+    public AudioSource auMarriage;
+    public AudioSource auRetire;
 
     public Dictionary<SoundType, AudioSource> dicSoundAudio = new Dictionary<SoundType, AudioSource>();
     public Dictionary<SoundType, float> dicSoundTime = new Dictionary<SoundType, float>();
+
+    public void OnEnable()
+    {
+        EventCenter.Instance.AddEventListener("PlaySound", PlaySound);
+    }
+
+    public void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener("PlaySound", PlaySound);
+    }
 
     public void Init()
     {
@@ -31,7 +51,24 @@ public class SoundMgr : MonoBehaviour
         dicSoundAudio.Add(SoundType.MoreCareer, auMoreCareer);
         dicSoundAudio.Add(SoundType.Married, auMarried);
 
-        dicSoundTime.Clear();
+        dicSoundTime.Clear(); dicSoundTime.Add(SoundType.Marriage, 0.7f);
     }
 
+    public void PlaySound(object arg0)
+    {
+        SoundType soundType = (SoundType)arg0;
+
+        if (dicSoundAudio.ContainsKey(soundType))
+        {
+            AudioSource targetSound = dicSoundAudio[soundType];
+
+            float playTime = 0.5f;
+            if (dicSoundTime.ContainsKey(soundType))
+            {
+                playTime = dicSoundTime[soundType];
+            }
+            targetSound.time = playTime;
+            targetSound.Play();
+        }
+    }
 }

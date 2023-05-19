@@ -13,12 +13,17 @@ public partial class HumanBasic
     public Image imgAgeFill;
     public List<Color> listColorFill = new List<Color>();
 
+    private int lastEduLevel = -1;
+    private int lastCareerLevel = -1;
+
+
     private void Update()
     {
         RefreshHumanUI();
+        CheckLevelUp();
     }
 
-    public void RefreshHumanUI()
+    private void RefreshHumanUI()
     {
         if (!isInit)
         {
@@ -47,6 +52,37 @@ public partial class HumanBasic
                 imgAgeFill.fillAmount = 1f;
                 imgAgeFill.color = listColorFill[0];
                 break;
+        }
+    }
+
+    private void CheckLevelUp()
+    {
+        if(humanState == HumanState.Studying)
+        {
+            if (lastEduLevel < 0)
+            {
+                lastEduLevel = LevelEdu;
+            }
+            else if (LevelEdu > lastEduLevel)
+            {
+                lastEduLevel = LevelEdu;
+
+                EffectUIInfo info = new EffectUIInfo("LevelUp",PublicTool.CalculateUICanvasPos(tfHumanHead.position,GameMgr.Instance.mapCamera),LevelEdu);
+                EventCenter.Instance.EventTrigger("EffectUI", info);
+            }
+        }
+        else if(humanState == HumanState.Working)
+        {
+            if (lastCareerLevel < 0)
+            {
+                lastCareerLevel = LevelCareer;
+            }
+            else if (LevelCareer > lastCareerLevel)
+            {
+                lastCareerLevel = LevelCareer;
+                EffectUIInfo info = new EffectUIInfo("LevelUp", PublicTool.CalculateUICanvasPos(tfHumanHead.position, GameMgr.Instance.mapCamera), LevelCareer);
+                EventCenter.Instance.EventTrigger("EffectUI", info);
+            }
         }
     }
 }

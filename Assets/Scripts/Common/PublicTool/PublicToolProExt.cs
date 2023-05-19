@@ -80,4 +80,9 @@ public partial class PublicTool
         return rateCareer;
     }
 
+    public static void PlaySound(SoundType soundType)
+    {
+        EventCenter.Instance.EventTrigger("PlaySound", soundType);
+    }
+
 }

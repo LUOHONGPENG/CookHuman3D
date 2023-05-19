@@ -59,28 +59,34 @@ public partial class CookwareBasic : MonoBehaviour
         //Full
         if (listCurHuman.Count >= cookCapacity)
         {
+            PublicTool.PlaySound(SoundType.NoSpace);
             return false;
         }
         else if(human.Age < AgeMin_real)
         {
+            PublicTool.PlaySound(SoundType.TooYoung);
             return false;
         }
         else if (human.Age > AgeMax_real)
         {
+            PublicTool.PlaySound(SoundType.TooOld);
             return false;
         }
         else if (human.LevelEdu < eduMin)
         {
+            PublicTool.PlaySound(SoundType.MoreEdu);
             return false;
         }
         else if (human.LevelCareer < CareerMin)
         {
+            PublicTool.PlaySound(SoundType.MoreCareer);
             return false;
         }
         else if (cookType == CookwareType.Marriage)
         {
             if (human.humanItem.isMarried)
             {
+                PublicTool.PlaySound(SoundType.Married);
                 return false;
             }
             else if (human.humanItem.sex != requiredSex)
@@ -101,13 +107,21 @@ public partial class CookwareBasic : MonoBehaviour
         listCurHuman.Add(human);
         SetHumanPos();
         //Invoke Special
-        if(cookType == CookwareType.Retire)
+        switch (cookType)
         {
-            InvokeRetire(human);
-        }
-        else if(cookType == CookwareType.Marriage)
-        {
-            InvokeMarriage(human);
+            case CookwareType.Study:
+                PublicTool.PlaySound(SoundType.Study);
+                break;
+            case CookwareType.Job:
+                PublicTool.PlaySound(SoundType.Job);
+                break;
+            case CookwareType.Marriage:
+                InvokeMarriage(human);
+                break;
+            case CookwareType.Retire:
+                PublicTool.PlaySound(SoundType.Retire);
+                InvokeRetire(human);
+                break;
         }
     }
 

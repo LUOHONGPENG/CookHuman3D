@@ -18,13 +18,13 @@ public class GameMgr : MonoSingleton<GameMgr>
     private bool isInit = false;
     public bool isPageOn = false;
 
-
     public override void Init()
     {
         dataMgr = DataMgr.Instance;
         dataMgr.Init();
         mapMgr.Init();
         uiMgr.Init();
+        soundMgr.Init();
         isPageOn = false;
         isInit = true;
         Debug.Log("GameMgrEndInit");
