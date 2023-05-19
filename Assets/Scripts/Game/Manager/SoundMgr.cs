@@ -61,7 +61,6 @@ public class SoundMgr : MonoBehaviour
 
     public void PlaySound(object arg0)
     {
-        Debug.Log(111);
         SoundType soundType = (SoundType)arg0;
 
         if (dicSoundAudio.ContainsKey(soundType))
