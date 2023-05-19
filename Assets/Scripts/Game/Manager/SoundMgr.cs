@@ -50,12 +50,18 @@ public class SoundMgr : MonoBehaviour
         dicSoundAudio.Add(SoundType.MoreEdu, auMoreEdu);
         dicSoundAudio.Add(SoundType.MoreCareer, auMoreCareer);
         dicSoundAudio.Add(SoundType.Married, auMarried);
+        dicSoundAudio.Add(SoundType.NoSpace, auNoSpace);
+        dicSoundAudio.Add(SoundType.Study, auStudy);
+        dicSoundAudio.Add(SoundType.Job, auJob);
+        dicSoundAudio.Add(SoundType.Marriage, auMarriage);
+        dicSoundAudio.Add(SoundType.Retire, auRetire);
 
         dicSoundTime.Clear(); dicSoundTime.Add(SoundType.Marriage, 0.7f);
     }
 
     public void PlaySound(object arg0)
     {
+        Debug.Log(111);
         SoundType soundType = (SoundType)arg0;
 
         if (dicSoundAudio.ContainsKey(soundType))
