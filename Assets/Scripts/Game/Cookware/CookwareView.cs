@@ -17,6 +17,10 @@ public class CookwareView : MonoBehaviour
     public GameObject pfCapacity;
     private List<CapacityUIItem> listCapacityUI = new List<CapacityUIItem>();
 
+    [Header("MarriageUI")]
+    public GameObject objMarriage;
+
+
     private CookwareBasic parent;
     private bool isInit = false;
 
