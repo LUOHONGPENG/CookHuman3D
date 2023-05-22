@@ -6,7 +6,7 @@ using System;
 using System.IO;
 
 [Serializable]
-public class SpecialValueExcelItem : ExcelItemBase
+public partial class SpecialValueExcelItem : ExcelItemBase
 {
 	public int ageMin_study;
 	public int ageMax_study;

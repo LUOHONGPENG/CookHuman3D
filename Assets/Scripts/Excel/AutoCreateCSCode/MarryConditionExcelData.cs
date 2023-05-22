@@ -6,7 +6,7 @@ using System;
 using System.IO;
 
 [Serializable]
-public class MarryConditionExcelItem : ExcelItemBase
+public partial class MarryConditionExcelItem : ExcelItemBase
 {
 	public int numMarriage;
 	public int ageMinM;

@@ -62,7 +62,7 @@ public class ExcelCodeCreater
     {
         StringBuilder classSource = new StringBuilder();
         classSource.Append("[Serializable]\n");
-        classSource.Append("public class " + itemClassName + " : ExcelItemBase\n");
+        classSource.Append("public partial class " + itemClassName + " : ExcelItemBase\n");
         classSource.Append("{\n");
 
         foreach (var item in propertyNameTypeDic)

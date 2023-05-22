@@ -6,7 +6,7 @@ using System;
 using System.IO;
 
 [Serializable]
-public class CookwareExcelItem : ExcelItemBase
+public partial class CookwareExcelItem : ExcelItemBase
 {
 	public string name;
 	public string desc;
