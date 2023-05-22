@@ -21,7 +21,7 @@ public class CookwareExcelItem : ExcelItemBase
 }
 
 [CreateAssetMenu(fileName = "CookwareExcelData", menuName = "Excel To ScriptableObject/Create CookwareExcelData", order = 1)]
-public class CookwareExcelData : ExcelDataBase<CookwareExcelItem>
+public partial class CookwareExcelData : ExcelDataBase<CookwareExcelItem>
 {
 }
 

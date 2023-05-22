@@ -15,7 +15,7 @@ public class SpecialValueExcelItem : ExcelItemBase
 }
 
 [CreateAssetMenu(fileName = "SpecialValueExcelData", menuName = "Excel To ScriptableObject/Create SpecialValueExcelData", order = 1)]
-public class SpecialValueExcelData : ExcelDataBase<SpecialValueExcelItem>
+public partial class SpecialValueExcelData : ExcelDataBase<SpecialValueExcelItem>
 {
 }
 
