@@ -22,8 +22,8 @@ MonoBehaviour:
     ageMin_real: 4
     ageMax_real: 60
     eduMin: 0
-    posxCapa: 0
-    posyCapa: -100
+    posxInfo: 0
+    posyInfo: -100
   - id: 2001
     name: Work1
     desc: Enhance career +
@@ -33,8 +33,8 @@ MonoBehaviour:
     ageMin_real: 16
     ageMax_real: 60
     eduMin: 0
-    posxCapa: 0
-    posyCapa: -125
+    posxInfo: 0
+    posyInfo: -150
   - id: 2002
     name: Work2
     desc: Enhance career ++
@@ -44,8 +44,8 @@ MonoBehaviour:
     ageMin_real: 23
     ageMax_real: 45
     eduMin: 2
-    posxCapa: 100
-    posyCapa: 0
+    posxInfo: 100
+    posyInfo: -50
   - id: 2003
     name: Work3
     desc: Enhance career +++
@@ -55,8 +55,8 @@ MonoBehaviour:
     ageMin_real: 25
     ageMax_real: 60
     eduMin: 4
-    posxCapa: 100
-    posyCapa: 0
+    posxInfo: 100
+    posyInfo: -50
   - id: 3001
     name: MarryF
     desc: 
@@ -66,8 +66,8 @@ MonoBehaviour:
     ageMin_real: 0
     ageMax_real: 0
     eduMin: 0
-    posxCapa: 0
-    posyCapa: 0
+    posxInfo: 0
+    posyInfo: 0
   - id: 3002
     name: MarryM
     desc: 
@@ -77,8 +77,8 @@ MonoBehaviour:
     ageMin_real: 0
     ageMax_real: 0
     eduMin: 0
-    posxCapa: 0
-    posyCapa: 0
+    posxInfo: 0
+    posyInfo: 0
   - id: 4001
     name: Retire
     desc: Finish this human
@@ -88,5 +88,5 @@ MonoBehaviour:
     ageMin_real: 60
     ageMax_real: 888
     eduMin: 0
-    posxCapa: 0
-    posyCapa: 0
+    posxInfo: 0
+    posyInfo: -120

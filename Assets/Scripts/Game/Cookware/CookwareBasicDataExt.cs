@@ -75,4 +75,17 @@ public partial class CookwareBasic
             return 0;
         }
     }
+
+    public string GetAgeString()
+    {
+        switch (cookType)
+        {
+            case CookwareType.Study:
+                return string.Format("{0}-{1}", GameGlobal.ageMinStudy, GameGlobal.ageMaxStudy);
+            case CookwareType.Retire:
+                return string.Format("{0}+", AgeMin_real);
+            default:
+                return string.Format("{0}-{1}", AgeMin_real, AgeMax_real);
+        }
+    }
 }

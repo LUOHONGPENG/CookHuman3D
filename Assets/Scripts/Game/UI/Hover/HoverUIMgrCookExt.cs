@@ -49,26 +49,16 @@ public partial class HoverUIMgr
             txNameCook.text = cookItem.name;
             txDescCook.text = cookItem.desc;
             //Age
+            txAgeCook.text = curCook.GetAgeString();
             //ForSchool
             if (curCook.cookType == CookwareType.Study)
             {
                 txAgeCook.text = "Recommended Age:";
-                codeAgeCook.text = string.Format("{0}-{1}", GameGlobal.ageMinStudy, GameGlobal.ageMaxStudy);
             }
             //Not School
             else
             {
                 txAgeCook.text = "Required Age:";
-                //If retire
-                if (curCook.AgeMax_real > 100)
-                {
-                    codeAgeCook.text = string.Format("{0}+", curCook.AgeMin_real);
-                }
-                //Normal
-                else
-                {
-                    codeAgeCook.text = string.Format("{0}-{1}", curCook.AgeMin_real, curCook.AgeMax_real);
-                }
             }
             //Requirement
             PublicTool.ClearChildItem(tfEduCook);

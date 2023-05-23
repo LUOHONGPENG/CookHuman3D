@@ -13,6 +13,11 @@ public class CookwareView : MonoBehaviour
     public Canvas canvasUI;
     public Transform tfRootUI;
 
+    [Header("NormalUI")]
+    public Transform tfNormal;
+    public Text txAgeNormal;
+
+
     [Header("CapacityUI")]
     public Transform tfCapacity;
     public GameObject pfCapacity;
@@ -61,9 +66,11 @@ public class CookwareView : MonoBehaviour
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
 
         tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(parent.tfModel.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
+        
+        //tfNormal
+        tfNormal.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);
 
         //tfCapacity
-        tfCapacity.localPosition = new Vector2(parent.GetItem().posxCapa, parent.GetItem().posyCapa);
         listCapacityUI.Clear();
         PublicTool.ClearChildItem(tfCapacity);
 
@@ -71,6 +78,8 @@ public class CookwareView : MonoBehaviour
         {
             case CookwareType.Study:
             case CookwareType.Job:
+                tfNormal.gameObject.SetActive(true);
+                txAgeNormal.text = parent.GetAgeString();
                 objMarriage.SetActive(false);
                 for (int i = 0; i < parent.cookCapacity; i++)
                 {
@@ -81,9 +90,13 @@ public class CookwareView : MonoBehaviour
                 }
                 break;
             case CookwareType.Retire:
+                tfNormal.gameObject.SetActive(true);
+                txAgeNormal.text = parent.GetAgeString();
                 objMarriage.SetActive(false);
                 break;
             case CookwareType.Marriage:
+                tfNormal.gameObject.SetActive(false);
+
                 objMarriage.SetActive(true);
                 PublicTool.ClearChildItem(tfEduMarry);
                 PublicTool.ClearChildItem(tfCareerMarry);
@@ -123,7 +136,7 @@ public class CookwareView : MonoBehaviour
         if(parent.cookType == CookwareType.Marriage)
         {
             //Age
-            txAgeMarry.text = string.Format("{0}-{1}", parent.AgeMin_real, parent.AgeMax_real);
+            txAgeMarry.text = parent.GetAgeString();
             //Sex
             if(parent.requiredSex == Sex.Female)
             {
