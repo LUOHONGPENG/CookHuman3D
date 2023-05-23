@@ -44,7 +44,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1002
-    numMarriage: 2
+    numMarriage: 1
     ageMinM: 19
     ageMaxM: 48
     ageMinF: 18
@@ -74,7 +74,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1003
-    numMarriage: 5
+    numMarriage: 3
     ageMinM: 20
     ageMaxM: 46
     ageMinF: 18
@@ -104,7 +104,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1004
-    numMarriage: 8
+    numMarriage: 5
     ageMinM: 21
     ageMaxM: 44
     ageMinF: 18
@@ -134,7 +134,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1005
-    numMarriage: 12
+    numMarriage: 8
     ageMinM: 22
     ageMaxM: 42
     ageMinF: 18
@@ -149,7 +149,7 @@ MonoBehaviour:
     wEduF1: 10
     wEduF2: 10
     wEduF3: 10
-    wEduF4: 10
+    wEduF4: 5
     wEduF5: 0
     wCareerM0: 10
     wCareerM1: 10
@@ -164,7 +164,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1006
-    numMarriage: 16
+    numMarriage: 12
     ageMinM: 23
     ageMaxM: 40
     ageMinF: 18
@@ -179,8 +179,8 @@ MonoBehaviour:
     wEduF1: 10
     wEduF2: 10
     wEduF3: 10
-    wEduF4: 10
-    wEduF5: 10
+    wEduF4: 5
+    wEduF5: 5
     wCareerM0: 10
     wCareerM1: 10
     wCareerM2: 10
@@ -190,6 +190,66 @@ MonoBehaviour:
     wCareerF0: 10
     wCareerF1: 10
     wCareerF2: 10
+    wCareerF3: 5
+    wCareerF4: 0
+    wCareerF5: 0
+  - id: 1007
+    numMarriage: 16
+    ageMinM: 24
+    ageMaxM: 38
+    ageMinF: 18
+    ageMaxF: 29
+    wEduM0: 5
+    wEduM1: 10
+    wEduM2: 15
+    wEduM3: 10
+    wEduM4: 10
+    wEduM5: 10
+    wEduF0: 5
+    wEduF1: 15
+    wEduF2: 10
+    wEduF3: 10
+    wEduF4: 5
+    wEduF5: 5
+    wCareerM0: 5
+    wCareerM1: 15
+    wCareerM2: 10
+    wCareerM3: 10
+    wCareerM4: 10
+    wCareerM5: 5
+    wCareerF0: 5
+    wCareerF1: 15
+    wCareerF2: 10
+    wCareerF3: 5
+    wCareerF4: 0
+    wCareerF5: 0
+  - id: 1008
+    numMarriage: 20
+    ageMinM: 25
+    ageMaxM: 36
+    ageMinF: 18
+    ageMaxF: 28
+    wEduM0: 5
+    wEduM1: 10
+    wEduM2: 15
+    wEduM3: 15
+    wEduM4: 15
+    wEduM5: 10
+    wEduF0: 5
+    wEduF1: 15
+    wEduF2: 10
+    wEduF3: 10
+    wEduF4: 5
+    wEduF5: 5
+    wCareerM0: 5
+    wCareerM1: 15
+    wCareerM2: 15
+    wCareerM3: 10
+    wCareerM4: 10
+    wCareerM5: 10
+    wCareerF0: 5
+    wCareerF1: 15
+    wCareerF2: 15
     wCareerF3: 5
     wCareerF4: 0
     wCareerF5: 0
