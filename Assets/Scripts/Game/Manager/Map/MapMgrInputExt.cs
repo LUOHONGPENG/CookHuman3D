@@ -105,6 +105,8 @@ public partial class MapMgr
 
     #region RayCheck
 
+    private int recordEnterCook = -1;
+
     private void CheckRayHover()
     {
         if (!isDragging)
@@ -125,6 +127,7 @@ public partial class MapMgr
                 if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
                 {
                     CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+                    recordEnterCook = tarCook.cookID;
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
                 }
             }
@@ -143,6 +146,7 @@ public partial class MapMgr
                 {
                     CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
+                    recordEnterCook = tarCook.cookID;
                     EventCenter.Instance.EventTrigger("ShowHumanPage", draggingHuman);
 
                 }
@@ -163,7 +167,7 @@ public partial class MapMgr
 
     private void CloseCookPage()
     {
-        EventCenter.Instance.EventTrigger("HideCookPage", null);
+        EventCenter.Instance.EventTrigger("HideCookPage", recordEnterCook);
     }
 
 

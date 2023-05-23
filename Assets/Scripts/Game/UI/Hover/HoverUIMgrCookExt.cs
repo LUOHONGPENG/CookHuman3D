@@ -27,6 +27,9 @@ public partial class HoverUIMgr
             return;
         }
 
+        ////////////////////////Temp////////////////////////
+        return;
+
         if (curCook != cookBasic)
         {
             curCook = cookBasic;
@@ -67,13 +70,13 @@ public partial class HoverUIMgr
             {
                 GameObject obj = GameObject.Instantiate(pfRequiredCook, tfEduCook);
                 RequireUIItem item = obj.GetComponent<RequireUIItem>();
-                item.Init(ExpType.Edu);
+                item.Init(ExpType.Edu, Color.white);
             }
             for(int i = 0;i < curCook.CareerMin; i++)
             {
                 GameObject obj = GameObject.Instantiate(pfRequiredCook, tfCareerCook);
                 RequireUIItem item = obj.GetComponent<RequireUIItem>();
-                item.Init(ExpType.Career);
+                item.Init(ExpType.Career,Color.white);
             }
             //SexRequirement
             if(curCook.cookType == CookwareType.Marriage)
