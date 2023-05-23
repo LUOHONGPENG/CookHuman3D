@@ -8,6 +8,9 @@ public partial class CookwareBasic
     private int ageMaxMarry = 0;
     private int eduMinMarry = 0;
     private int careerMinMarry = 0;
+
+    private MarryConditionExcelData marryConditionData;
+
     [HideInInspector]
     public Sex requiredSex;
 
@@ -31,10 +34,26 @@ public partial class CookwareBasic
         {
             requiredSex = Sex.Male;
         }
-        ageMinMarry = 18 + Random.Range(-2, 2);
-        ageMaxMarry = 40 + Random.Range(-2, 2);
-        eduMinMarry = Random.Range(0, 2);
-        careerMinMarry = Random.Range(0, 2);
+
+        marryConditionData = GameMgr.Instance.dataMgr.marryConditionData;
+        MarryConditionExcelItem marryConditionItem = marryConditionData.GetMarryItem(GameMgr.Instance.numMarry);
+
+        if(requiredSex == Sex.Male)
+        {
+            ageMinMarry = marryConditionItem.ageMinM + Random.Range(-2, 2);
+            ageMaxMarry = marryConditionItem.ageMaxM + Random.Range(-2, 2);
+            eduMinMarry = PublicTool.GetRandomIndexIntArray(marryConditionItem.GetWeightEduM());
+            careerMinMarry = PublicTool.GetRandomIndexIntArray(marryConditionItem.GetWeightCareerM());
+        }
+        else if(requiredSex == Sex.Female)
+        {
+            ageMinMarry = marryConditionItem.ageMinF + Random.Range(-2, 2);
+            ageMaxMarry = marryConditionItem.ageMaxF + Random.Range(-2, 2);
+            eduMinMarry = PublicTool.GetRandomIndexIntArray(marryConditionItem.GetWeightEduF());
+            careerMinMarry = PublicTool.GetRandomIndexIntArray(marryConditionItem.GetWeightCareerF());
+        }
+
+        itemView.RefreshMarryUI();
     }
 
 }

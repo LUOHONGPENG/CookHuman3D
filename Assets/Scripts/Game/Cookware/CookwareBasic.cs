@@ -32,15 +32,16 @@ public partial class CookwareBasic : MonoBehaviour
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
+
+        //InitView
+        listCurHuman.Clear();
+        itemView.Init(this);
+
         //Initialize Marriage
         if (cookType == CookwareType.Marriage)
         {
             RefreshMarryCondition();
         }
-
-        listCurHuman.Clear();
-        itemView.Init(this);
-
 
         isInit = true;
     }

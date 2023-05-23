@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CookwareView : MonoBehaviour
 {
@@ -19,7 +20,12 @@ public class CookwareView : MonoBehaviour
 
     [Header("MarriageUI")]
     public GameObject objMarriage;
-
+    public Text txAgeMarry;
+    public Image imgSexMarry;
+    public List<Sprite> listSpMarry = new List<Sprite>();
+    public Transform tfEduMarry;
+    public Transform tfCareerMarry;
+    public GameObject pfConditionMarry;
 
     private CookwareBasic parent;
     private bool isInit = false;
@@ -50,7 +56,6 @@ public class CookwareView : MonoBehaviour
         }
     }
 
-
     private void InitUI()
     {
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
@@ -66,6 +71,7 @@ public class CookwareView : MonoBehaviour
         {
             case CookwareType.Study:
             case CookwareType.Job:
+                objMarriage.SetActive(false);
                 for (int i = 0; i < parent.cookCapacity; i++)
                 {
                     GameObject objCapaUI = GameObject.Instantiate(pfCapacity, tfCapacity);
@@ -74,6 +80,14 @@ public class CookwareView : MonoBehaviour
                     listCapacityUI.Add(itemCapaUI);
                 }
                 break;
+            case CookwareType.Retire:
+                objMarriage.SetActive(false);
+                break;
+            case CookwareType.Marriage:
+                objMarriage.SetActive(true);
+                PublicTool.ClearChildItem(tfEduMarry);
+                PublicTool.ClearChildItem(tfCareerMarry);
+                break;
         }
 
 
@@ -81,10 +95,12 @@ public class CookwareView : MonoBehaviour
 
     private void Update()
     {
-        if (isInit)
+        if (!isInit)
         {
-            RefreshCapacityUI();
+            return;
         }
+        RefreshCapacityUI();
+
     }
 
     private void RefreshCapacityUI()
@@ -98,6 +114,39 @@ public class CookwareView : MonoBehaviour
             else
             {
                 listCapacityUI[i].SetEmpty();
+            }
+        }
+    }
+
+    public void RefreshMarryUI()
+    {
+        if(parent.cookType == CookwareType.Marriage)
+        {
+            //Age
+            txAgeMarry.text = string.Format("{0}-{1}", parent.AgeMin_real, parent.AgeMax_real);
+            //Sex
+            if(parent.requiredSex == Sex.Female)
+            {
+                imgSexMarry.sprite = listSpMarry[0];
+            }
+            else if(parent.requiredSex == Sex.Male)
+            {
+                imgSexMarry.sprite = listSpMarry[1];
+            }
+            //
+            PublicTool.ClearChildItem(tfEduMarry);
+            for(int i = 0; i < parent.eduMin; i++)
+            {
+                GameObject objExp = GameObject.Instantiate(pfConditionMarry, tfEduMarry);
+                RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
+                requireExp.Init(ExpType.Edu);
+            }
+            PublicTool.ClearChildItem(tfCareerMarry);
+            for (int i = 0; i < parent.CareerMin; i++)
+            {
+                GameObject objExp = GameObject.Instantiate(pfConditionMarry, tfCareerMarry);
+                RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
+                requireExp.Init(ExpType.Career);
             }
         }
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - id: 1001
-    numMarriage: 2
+    numMarriage: 0
     ageMinM: 18
     ageMaxM: 50
     ageMinF: 18
@@ -44,7 +44,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1002
-    numMarriage: 4
+    numMarriage: 2
     ageMinM: 19
     ageMaxM: 48
     ageMinF: 18
@@ -74,7 +74,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1003
-    numMarriage: 6
+    numMarriage: 5
     ageMinM: 20
     ageMaxM: 46
     ageMinF: 18
@@ -134,7 +134,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1005
-    numMarriage: 10
+    numMarriage: 12
     ageMinM: 22
     ageMaxM: 42
     ageMinF: 18
@@ -164,7 +164,7 @@ MonoBehaviour:
     wCareerF4: 0
     wCareerF5: 0
   - id: 1006
-    numMarriage: 12
+    numMarriage: 16
     ageMinM: 23
     ageMaxM: 40
     ageMinF: 18

@@ -34,4 +34,30 @@ public partial class PublicTool
         Vector2 targetPos = new Vector2(screenPos.x - 1920f / 2, screenPos.y - 1080f / 2);
         return new Vector3(targetPos.x, targetPos.y, 0);
     }
+
+    //Randomly pick one index with weight
+    public static int GetRandomIndexIntArray(int[] array)
+    {
+        int totalWeight = 0;
+        //Sum up
+        for(int i = 0; i < array.Length; i++)
+        {
+            totalWeight += array[i];
+        }
+
+        //Calculate
+        if (totalWeight > 0)
+        {
+            int ran = Random.Range(0, totalWeight);
+            for(int i = 0; i < array.Length; i++)
+            {
+                ran -= array[i];
+                if (ran < 0)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 }

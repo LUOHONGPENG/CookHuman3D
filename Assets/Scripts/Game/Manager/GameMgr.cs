@@ -18,6 +18,8 @@ public class GameMgr : MonoSingleton<GameMgr>
     private bool isInit = false;
     public bool isPageOn = false;
 
+    public int numMarry = 0;
+
     public override void Init()
     {
         dataMgr = DataMgr.Instance;
@@ -27,6 +29,7 @@ public class GameMgr : MonoSingleton<GameMgr>
         soundMgr.Init();
         isPageOn = false;
         isInit = true;
+        numMarry = 0;
         Debug.Log("GameMgrEndInit");
     }
 
