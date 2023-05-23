@@ -50,6 +50,7 @@ public class HumanItem
     {
         isMarried = true;
         vMarryAge = Age;
+        GameMgr.Instance.numMarry++;
     }
     #endregion
 

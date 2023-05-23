@@ -35,10 +35,6 @@ public partial class HoverUIMgr : MonoBehaviour
         {
             RefreshHumanPage();
         }
-        if (objPopupCook.activeSelf && curCook.cookType == CookwareType.Marriage)
-        {
-            RefreshCookPage();
-        }
     }
 
 

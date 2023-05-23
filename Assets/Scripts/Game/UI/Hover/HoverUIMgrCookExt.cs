@@ -21,6 +21,12 @@ public partial class HoverUIMgr
     private void ShowCookPage(object arg0)
     {
         CookwareBasic cookBasic = (CookwareBasic)arg0;
+        //Don't show Marriage info
+        if(cookBasic.cookType == CookwareType.Marriage)
+        {
+            return;
+        }
+
         if (curCook != cookBasic)
         {
             curCook = cookBasic;
