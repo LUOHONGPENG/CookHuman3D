@@ -7,8 +7,10 @@ public partial class HumanBasic : MonoBehaviour
 {
     [Header("Basic")]
     //Remember the original Pos
+    public Transform tfHumanHead;
     public int posOriginID = 0;
     public Vector3 posCookware;
+    public HumanView itemView;
     
     private bool isInit = false;
 
@@ -17,8 +19,8 @@ public partial class HumanBasic : MonoBehaviour
     {
         this.humanItem = humanItem;
         this.posOriginID = posID;
-        this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
-        
+        itemView.Init(this);
+
         isRetired = false;
         isDead = false;
 

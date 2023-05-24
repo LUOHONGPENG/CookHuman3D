@@ -105,6 +105,7 @@ public partial class MapMgr
 
     #region RayCheck
 
+    private int recordEnterHuman = -1;
     private int recordEnterCook = -1;
 
     private void CheckRayHover()
@@ -117,7 +118,8 @@ public partial class MapMgr
                 CloseCookPage();
                 if (hitDataHuman.transform.parent.GetComponent<HumanBasic>() != null)
                 {
-                    HumanBasic tarHuman = hitDataHuman.transform.parent.GetComponent<HumanBasic>(); 
+                    HumanBasic tarHuman = hitDataHuman.transform.parent.GetComponent<HumanBasic>();
+                    recordEnterHuman = tarHuman.humanItem.HumanID;
                     EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
                 }
             }
@@ -148,7 +150,7 @@ public partial class MapMgr
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
                     recordEnterCook = tarCook.cookID;
                     EventCenter.Instance.EventTrigger("ShowHumanPage", draggingHuman);
-
+                    recordEnterHuman = draggingHuman.humanItem.HumanID;
                 }
             }
             else
@@ -161,7 +163,7 @@ public partial class MapMgr
 
     private void CloseHumanPage()
     {
-        EventCenter.Instance.EventTrigger("HideHumanPage", null);
+        EventCenter.Instance.EventTrigger("HideHumanPage", recordEnterHuman);
 
     }
 

@@ -47,6 +47,10 @@ public partial class HoverUIMgr
     private void ShowHumanPage(object arg0)
     {
         HumanBasic humanBasic = (HumanBasic)arg0;
+
+        /////////////////////////////Hide
+        return;
+
         if (curHuman != humanBasic)
         {
             curHuman = humanBasic;

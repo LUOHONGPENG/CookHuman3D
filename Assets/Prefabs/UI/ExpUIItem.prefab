@@ -209,6 +209,9 @@ MonoBehaviour:
   listSpIcon:
   - {fileID: 21300000, guid: 4d4fbc317d877cc468bc6e85259ec6ea, type: 3}
   - {fileID: 21300000, guid: 5470ba81cfc9f014797620c9b2f9fcfa, type: 3}
+  listColor:
+  - {r: 0.4392157, g: 0.87058824, b: 1, a: 1}
+  - {r: 1, g: 0.65882355, b: 0.3372549, a: 1}
 --- !u!222 &4985195513068808882
 CanvasRenderer:
   m_ObjectHideFlags: 0

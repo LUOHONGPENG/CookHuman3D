@@ -7,6 +7,7 @@ public partial class HumanBasic
 {
     #region BasicData
     //The data of this human
+    [Header("Status")]
     public HumanItem humanItem;
     public bool isRetired = false;
     public bool isDead = false;
