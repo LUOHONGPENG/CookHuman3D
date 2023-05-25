@@ -8,16 +8,14 @@ public class HumanView : MonoBehaviour
 {
     public Canvas canvasUI;
     public Transform tfRootUI;
-    [Header("HumanConstantUI")]
-    public GameObject objConst;
-    public Text txAgeConst;
-    public Image imgAgeFillConst;
-    public List<Color> listColorFill = new List<Color>();
 
-    [Header("HumanHoverUI")]
-    public GameObject objHover;
-    public Text txAgeHover;
-    public Image imgAgeFillHover;
+    [Header("Age")]
+    public RectTransform rtAge;
+    public Text txAge;
+    public Image imgAgeFill;
+
+    [Header("Info")]
+    public CanvasGroup canvasGroupInfo;
     public Transform tfEduHuman;
     public Transform tfCareerHuman;
     public GameObject pfExpHuman;
@@ -94,15 +92,15 @@ public class HumanView : MonoBehaviour
     private void ShowConst()
     {
         canvasUI.sortingOrder = 0;
-        objConst.SetActive(true);
-        objHover.SetActive(false);
+        canvasGroupInfo.alpha = 0;
+        rtAge.localPosition = new Vector2(0, 225f);
     }
 
     private void ShowHover()
     {
         canvasUI.sortingOrder = 1;
-        objConst.SetActive(false);
-        objHover.SetActive(true);
+        canvasGroupInfo.alpha = 1f;
+        rtAge.localPosition = new Vector2(-317f, 448f);
     }
     #endregion
 
@@ -132,35 +130,21 @@ public class HumanView : MonoBehaviour
             return;
         }
         //Age Data
-        txAgeConst.text = parent.Age.ToString();
-        txAgeHover.text = parent.Age.ToString();
+        txAge.text = parent.Age.ToString();
         //Age Fill Check
         switch (parent.humanState)
         {
             case HumanState.Studying:
-                imgAgeFillConst.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
-                imgAgeFillConst.color = listColorFill[1];
-                imgAgeFillHover.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
-                imgAgeFillHover.color = listColorFill[1];
+                imgAgeFill.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
                 break;
             case HumanState.Working:
-                imgAgeFillConst.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
-                imgAgeFillConst.color = listColorFill[2];
-                imgAgeFillHover.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
-                imgAgeFillHover.color = listColorFill[2];
+                imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
                 break;
             case HumanState.Marrying:
-                imgAgeFillConst.fillAmount = 1f - (parent.yearMarriage / 1f);
-                imgAgeFillConst.color = listColorFill[3];
-
-                imgAgeFillHover.fillAmount = 1f - (parent.yearMarriage / 1f);
-                imgAgeFillHover.color = listColorFill[3];
+                imgAgeFill.fillAmount = 1f - (parent.yearMarriage / 1f);
                 break;
             default:
-                imgAgeFillConst.fillAmount = 1f;
-                imgAgeFillConst.color = listColorFill[0];
-                imgAgeFillHover.fillAmount = 1f;
-                imgAgeFillHover.color = listColorFill[0];
+                imgAgeFill.fillAmount = 1f;
                 break;
         }
     }
