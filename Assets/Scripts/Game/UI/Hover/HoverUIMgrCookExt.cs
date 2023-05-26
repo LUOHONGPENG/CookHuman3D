@@ -70,13 +70,13 @@ public partial class HoverUIMgr
             {
                 GameObject obj = GameObject.Instantiate(pfRequiredCook, tfEduCook);
                 RequireUIItem item = obj.GetComponent<RequireUIItem>();
-                item.Init(ExpType.Edu, Color.white);
+                item.Init(ExpType.Edu);
             }
             for(int i = 0;i < curCook.CareerMin; i++)
             {
                 GameObject obj = GameObject.Instantiate(pfRequiredCook, tfCareerCook);
                 RequireUIItem item = obj.GetComponent<RequireUIItem>();
-                item.Init(ExpType.Career,Color.white);
+                item.Init(ExpType.Career);
             }
             //SexRequirement
             if(curCook.cookType == CookwareType.Marriage)

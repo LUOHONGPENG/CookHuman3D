@@ -88,4 +88,9 @@ public partial class CookwareBasic
                 return string.Format("{0}-{1}", AgeMin_real, AgeMax_real);
         }
     }
+
+    public string GetDesc()
+    {
+        return cookItem.desc;
+    }
 }

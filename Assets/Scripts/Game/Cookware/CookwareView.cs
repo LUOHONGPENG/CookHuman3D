@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CookwareView : MonoBehaviour
 {
@@ -14,21 +15,31 @@ public class CookwareView : MonoBehaviour
     public Transform tfRootUI;
 
     [Header("NormalUI")]
-    public Transform tfNormal;
+    public GameObject objNormal;
+    public RectTransform rtBgNormal;
     public Text txAgeNormal;
-    public GameObject objCondition;
-    public Transform tfEduNormal;
-
     [Header("CapacityUI")]
     public Transform tfCapacity;
     public GameObject pfCapacity;
     private List<CapacityUIItem> listCapacityUI = new List<CapacityUIItem>();
 
+    [Header("ConditionUI")]
+    public CanvasGroup canvasGroupCondition;
+    public Transform tfEduNormal;
+
+    [Header("DescUI")]
+    public CanvasGroup canvasGroupDesc;
+    public Text txDesc;
+
+
+    [Header("CapacityUI")]
+
+
     [Header("MarriageUI")]
     public GameObject objMarriage;
     public Text txAgeMarry;
     public Image imgSexMarry;
-    public List<Sprite> listSpMarry = new List<Sprite>();
+    public List<Sprite> listSpSex = new List<Sprite>();
     public Transform tfEduMarry;
     public Transform tfCareerMarry;
     public GameObject pfCondition;
@@ -80,9 +91,9 @@ public class CookwareView : MonoBehaviour
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
 
         tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(parent.tfModel.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
-        
-        //tfNormal
-        tfNormal.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);
+
+        //Set the position of the Normal UI
+        objNormal.transform.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);
 
         switch (parent.cookType)
         {
@@ -100,11 +111,15 @@ public class CookwareView : MonoBehaviour
     private void InitNormalUI()
     {
         objMarriage.SetActive(false);
-        tfNormal.gameObject.SetActive(true);
-        //Age
+        objNormal.gameObject.SetActive(true);
+
+        //Init Age Info
         txAgeNormal.text = parent.GetAgeString();
 
-        //Capa
+        //Init Desc Info
+        txDesc.text = parent.GetDesc();
+
+        //Init Capacity Info
         listCapacityUI.Clear();
         PublicTool.ClearChildItem(tfCapacity);
         if(parent.cookType == CookwareType.Study || parent.cookType == CookwareType.Job)
@@ -118,21 +133,21 @@ public class CookwareView : MonoBehaviour
             }
         }
 
-        //Condition
+        //Init Condition Info
         PublicTool.ClearChildItem(tfEduNormal);
         for (int i = 0; i < parent.eduMin; i++)
         {
             GameObject objExp = GameObject.Instantiate(pfCondition, tfEduNormal);
             RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
-            requireExp.Init(ExpType.Edu,Color.black);
+            requireExp.Init(ExpType.Edu);
         }
-        objCondition.SetActive(false);
+        HideNormalCookInfo();
     }
 
     private void InitMarryUI()
     {
         objMarriage.SetActive(true);
-        tfNormal.gameObject.SetActive(false);
+        objNormal.gameObject.SetActive(false);
 
         PublicTool.ClearChildItem(tfEduMarry);
         PublicTool.ClearChildItem(tfCareerMarry);
@@ -177,11 +192,11 @@ public class CookwareView : MonoBehaviour
             //Sex
             if(parent.requiredSex == Sex.Female)
             {
-                imgSexMarry.sprite = listSpMarry[0];
+                imgSexMarry.sprite = listSpSex[0];
             }
             else if(parent.requiredSex == Sex.Male)
             {
-                imgSexMarry.sprite = listSpMarry[1];
+                imgSexMarry.sprite = listSpSex[1];
             }
             //
             PublicTool.ClearChildItem(tfEduMarry);
@@ -189,14 +204,14 @@ public class CookwareView : MonoBehaviour
             {
                 GameObject objExp = GameObject.Instantiate(pfCondition, tfEduMarry);
                 RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
-                requireExp.Init(ExpType.Edu, Color.black);
+                requireExp.Init(ExpType.Edu);
             }
             PublicTool.ClearChildItem(tfCareerMarry);
             for (int i = 0; i < parent.CareerMin; i++)
             {
                 GameObject objExp = GameObject.Instantiate(pfCondition, tfCareerMarry);
                 RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
-                requireExp.Init(ExpType.Career, Color.black);
+                requireExp.Init(ExpType.Career);
             }
         }
     }
@@ -209,14 +224,11 @@ public class CookwareView : MonoBehaviour
         int tarID = ((CookwareBasic)arg0).cookID;
         if (tarID != parent.cookID)
         {
-            objCondition.SetActive(false);
+            HideNormalCookInfo();
             return;
         }
 
-        if(parent.eduMin > 0)
-        {
-            objCondition.SetActive(true);
-        }
+        ShowNormalCookInfo();
     }
 
     private void HoverLeaveEvent(object arg0)
@@ -226,10 +238,29 @@ public class CookwareView : MonoBehaviour
             return;
         }
 
-        objCondition.SetActive(false);
+        HideNormalCookInfo();
     }
 
+    private void ShowNormalCookInfo()
+    {
+        canvasGroupDesc.DOFade(1f, 0.25f);
+        if (parent.eduMin > 0)
+        {
+            canvasGroupCondition.DOFade(1f, 0.25f);
+            rtBgNormal.DOSizeDelta(new Vector2(836f, 600f), 0.25f);
+        }
+        else
+        {
+            rtBgNormal.DOSizeDelta(new Vector2(836f, 450f), 0.25f);
+        }
+    }
 
+    private void HideNormalCookInfo()
+    {
+        canvasGroupDesc.DOFade(0, 0.25f);
+        canvasGroupCondition.DOFade(0, 0.25f);
+        rtBgNormal.DOSizeDelta(new Vector2(836f, 280f), 0.25f);
+    }
     #endregion
 
 }

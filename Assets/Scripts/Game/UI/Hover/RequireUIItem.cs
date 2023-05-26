@@ -8,9 +8,8 @@ public class RequireUIItem : MonoBehaviour
     public Image imgIcon;
     public List<Sprite> listSp = new List<Sprite>();
 
-    public void Init(ExpType expType,Color color)
+    public void Init(ExpType expType)
     {
-        imgIcon.color = color;
         switch (expType)
         {
             case ExpType.Edu:

@@ -51,7 +51,7 @@ public class ExpUIItem : MonoBehaviour
         else
         {
             imgLight.gameObject.SetActive(false);
-            this.transform.localScale = new Vector2(0.75f,0.75f);
+            this.transform.localScale = new Vector2(0.85f,0.85f);
             imgIcon.DOFade(0.5f, 0);
             imgExpFill.DOFade(0.5f, 0);
         }

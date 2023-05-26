@@ -96,7 +96,7 @@ public class HumanView : MonoBehaviour
     private void ShowConst()
     {
         canvasUI.sortingOrder = 0;
-        canvasGroupInfo.DOFade(0, 0.5f);
+        canvasGroupInfo.DOFade(0, 0.25f);
         rtAge.DOLocalMove(new Vector2(0, 200f),0.25f);
         rtAge.DOScale(new Vector2(0.62f, 0.62f), 0.25f);
     }
@@ -104,7 +104,7 @@ public class HumanView : MonoBehaviour
     private void ShowHover()
     {
         canvasUI.sortingOrder = 1;
-        canvasGroupInfo.DOFade(1, 0.5f);
+        canvasGroupInfo.DOFade(1, 0.25f);
         rtAge.DOLocalMove(new Vector2(-308f, 442f), 0.25f);
         rtAge.DOScale(Vector2.one, 0.25f);
     }
