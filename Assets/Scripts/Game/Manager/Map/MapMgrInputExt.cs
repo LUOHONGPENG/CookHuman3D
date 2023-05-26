@@ -113,6 +113,7 @@ public partial class MapMgr
         if (!isDragging)
         {
             Ray ray = GetMouseRay();
+            //Mouse above Human
             if (Physics.Raycast(ray, out RaycastHit hitDataHuman, 999f, LayerMask.GetMask("Human")))
             {
                 CloseCookPage();
@@ -123,6 +124,7 @@ public partial class MapMgr
                     EventCenter.Instance.EventTrigger("ShowHumanPage", tarHuman);
                 }
             }
+            //Mouse above Cookware
             else if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 CloseHumanPage();
@@ -141,6 +143,7 @@ public partial class MapMgr
         }
         else
         {
+            //Mouse above Cookware when dragging human
             Ray ray = GetMouseRay();
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {

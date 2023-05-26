@@ -26,7 +26,7 @@ MonoBehaviour:
     desc: Normal Education. Not bad!
     init: -300
     slope: 15
-    remark: 
+    remark: expEdu
   - id: 1003
     scoreType: 0
     keyValue: 75
@@ -40,7 +40,7 @@ MonoBehaviour:
     desc: Poor Career. Woody taste!
     init: -600
     slope: 20
-    remark: 
+    remark: expCareer
   - id: 2002
     scoreType: 1
     keyValue: 35
@@ -61,7 +61,7 @@ MonoBehaviour:
     desc: Single?
     init: -1000
     slope: 0
-    remark: 
+    remark: MarriageAge
   - id: 3002
     scoreType: 2
     keyValue: 0

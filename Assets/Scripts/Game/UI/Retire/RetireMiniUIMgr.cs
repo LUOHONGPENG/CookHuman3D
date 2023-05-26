@@ -19,7 +19,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     public GameObject pfComment;
 
     //Inner Data
-    private float timerClose = 5f;
+    private float timerClose = 3f;
     private bool isInit = false;
 
     #region Basic
@@ -69,7 +69,7 @@ public class RetireMiniUIMgr : MonoBehaviour
         codeScore.text = vScore.ToString();
         human.humanItem.vScore = vScore;
 
-        timerClose = 5f;
+        timerClose = 3f;
         btnPause.gameObject.SetActive(true) ;
 
         human.isDead = true;

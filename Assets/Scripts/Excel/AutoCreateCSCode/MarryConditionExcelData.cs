@@ -19,24 +19,28 @@ public partial class MarryConditionExcelItem : ExcelItemBase
 	public int wEduM3;
 	public int wEduM4;
 	public int wEduM5;
+	public float expectEduM;
 	public int wEduF0;
 	public int wEduF1;
 	public int wEduF2;
 	public int wEduF3;
 	public int wEduF4;
 	public int wEduF5;
+	public float expectEduF;
 	public int wCareerM0;
 	public int wCareerM1;
 	public int wCareerM2;
 	public int wCareerM3;
 	public int wCareerM4;
 	public int wCareerM5;
+	public float expectCareerM;
 	public int wCareerF0;
 	public int wCareerF1;
 	public int wCareerF2;
 	public int wCareerF3;
 	public int wCareerF4;
 	public int wCareerF5;
+	public float expectCareerF;
 }
 
 [CreateAssetMenu(fileName = "MarryConditionExcelData", menuName = "Excel To ScriptableObject/Create MarryConditionExcelData", order = 1)]
@@ -68,24 +72,28 @@ public class MarryConditionAssetAssignment
 			items[i].wEduM3 = Convert.ToInt32(allItemValueRowList[i]["wEduM3"]);
 			items[i].wEduM4 = Convert.ToInt32(allItemValueRowList[i]["wEduM4"]);
 			items[i].wEduM5 = Convert.ToInt32(allItemValueRowList[i]["wEduM5"]);
+			items[i].expectEduM = Convert.ToSingle(allItemValueRowList[i]["expectEduM"]);
 			items[i].wEduF0 = Convert.ToInt32(allItemValueRowList[i]["wEduF0"]);
 			items[i].wEduF1 = Convert.ToInt32(allItemValueRowList[i]["wEduF1"]);
 			items[i].wEduF2 = Convert.ToInt32(allItemValueRowList[i]["wEduF2"]);
 			items[i].wEduF3 = Convert.ToInt32(allItemValueRowList[i]["wEduF3"]);
 			items[i].wEduF4 = Convert.ToInt32(allItemValueRowList[i]["wEduF4"]);
 			items[i].wEduF5 = Convert.ToInt32(allItemValueRowList[i]["wEduF5"]);
+			items[i].expectEduF = Convert.ToSingle(allItemValueRowList[i]["expectEduF"]);
 			items[i].wCareerM0 = Convert.ToInt32(allItemValueRowList[i]["wCareerM0"]);
 			items[i].wCareerM1 = Convert.ToInt32(allItemValueRowList[i]["wCareerM1"]);
 			items[i].wCareerM2 = Convert.ToInt32(allItemValueRowList[i]["wCareerM2"]);
 			items[i].wCareerM3 = Convert.ToInt32(allItemValueRowList[i]["wCareerM3"]);
 			items[i].wCareerM4 = Convert.ToInt32(allItemValueRowList[i]["wCareerM4"]);
 			items[i].wCareerM5 = Convert.ToInt32(allItemValueRowList[i]["wCareerM5"]);
+			items[i].expectCareerM = Convert.ToSingle(allItemValueRowList[i]["expectCareerM"]);
 			items[i].wCareerF0 = Convert.ToInt32(allItemValueRowList[i]["wCareerF0"]);
 			items[i].wCareerF1 = Convert.ToInt32(allItemValueRowList[i]["wCareerF1"]);
 			items[i].wCareerF2 = Convert.ToInt32(allItemValueRowList[i]["wCareerF2"]);
 			items[i].wCareerF3 = Convert.ToInt32(allItemValueRowList[i]["wCareerF3"]);
 			items[i].wCareerF4 = Convert.ToInt32(allItemValueRowList[i]["wCareerF4"]);
 			items[i].wCareerF5 = Convert.ToInt32(allItemValueRowList[i]["wCareerF5"]);
+			items[i].expectCareerF = Convert.ToSingle(allItemValueRowList[i]["expectCareerF"]);
 		}
 		MarryConditionExcelData excelDataAsset = ScriptableObject.CreateInstance<MarryConditionExcelData>();
 		excelDataAsset.items = items;
