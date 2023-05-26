@@ -9,12 +9,16 @@ public class DataMgr : Singleton<DataMgr>
     /// </summary>
     public CookwareExcelData cookwareData;
     public MarryConditionExcelData marryConditionData;
+    public RetireScoreExcelData retireScoreData;
 
     public void Init()
     {
         //Cookware
         cookwareData = ExcelManager.Instance.GetExcelData<CookwareExcelData, CookwareExcelItem>();
         marryConditionData = ExcelManager.Instance.GetExcelData<MarryConditionExcelData, MarryConditionExcelItem>();
+        //Score
+        retireScoreData = ExcelManager.Instance.GetExcelData<RetireScoreExcelData, RetireScoreExcelItem>();
+        retireScoreData.Init();
         //Special Value
         SpecialValueExcelItem specialItem = ExcelManager.Instance.GetExcelData<SpecialValueExcelData, SpecialValueExcelItem>().GetExcelItem(1001);
         GameGlobal.ageMinStudy = specialItem.ageMin_study;

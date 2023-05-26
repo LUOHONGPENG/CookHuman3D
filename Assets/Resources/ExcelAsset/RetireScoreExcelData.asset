@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bab55a36663b9f47aee1a57ba9cf5a1, type: 3}
+  m_Name: RetireScoreExcelData
+  m_EditorClassIdentifier: 
+  items:
+  - id: 1001
+    scoreType: 0
+    keyValue: 0
+    desc: Poor Education. Dirty!
+    init: -300
+    slope: 15
+    remark: score=init+slope*key
+  - id: 1002
+    scoreType: 0
+    keyValue: 35
+    desc: Normal Education. Not bad!
+    init: -300
+    slope: 15
+    remark: 
+  - id: 1003
+    scoreType: 0
+    keyValue: 75
+    desc: High Education. So clean!
+    init: -300
+    slope: 15
+    remark: 
+  - id: 2001
+    scoreType: 1
+    keyValue: 0
+    desc: Poor Career. Woody taste!
+    init: -600
+    slope: 20
+    remark: 
+  - id: 2002
+    scoreType: 1
+    keyValue: 35
+    desc: Normal Career. Not bad!
+    init: -600
+    slope: 20
+    remark: 
+  - id: 2003
+    scoreType: 1
+    keyValue: 75
+    desc: Nice Career. Smooth taste!
+    init: -600
+    slope: 20
+    remark: 
+  - id: 3001
+    scoreType: 2
+    keyValue: -1
+    desc: Single?
+    init: -1000
+    slope: 0
+    remark: 
+  - id: 3002
+    scoreType: 2
+    keyValue: 0
+    desc: Quick Marry.
+    init: 500
+    slope: 0
+    remark: 
+  - id: 3003
+    scoreType: 2
+    keyValue: 30
+    desc: Married.
+    init: 200
+    slope: 0
+    remark: 
+  - id: 3004
+    scoreType: 2
+    keyValue: 40
+    desc: Too Late to Marry!
+    init: -200
+    slope: 0
+    remark: 

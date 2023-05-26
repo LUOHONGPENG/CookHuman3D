@@ -25,3 +25,10 @@ public enum ExpType
     Edu,
     Career
 }
+
+public enum RetireScoreType
+{
+    Edu,
+    Career,
+    Marriage
+}
