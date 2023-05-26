@@ -70,70 +70,87 @@ public class RetireUIMgr : MonoBehaviour
     public int CalculateScore(HumanBasic human)
     {
         HumanItem humanItem = human.humanItem;
+        RetireScoreExcelData scoreData = GameMgr.Instance.dataMgr.retireScoreData;
+
+        int totalScore = 0;
+
+        ScoreInfo scoreEdu = scoreData.CalculateScore(RetireScoreType.Edu, Mathf.FloorToInt(humanItem.expEdu));
+        CreateComment(scoreEdu.desc, scoreEdu.score);
+        totalScore += scoreEdu.score;
+
+        ScoreInfo scoreCareer = scoreData.CalculateScore(RetireScoreType.Career, Mathf.FloorToInt(humanItem.expCareer));
+        CreateComment(scoreCareer.desc, scoreCareer.score);
+        totalScore += scoreCareer.score;
+
+        ScoreInfo scoreMarriage = scoreData.CalculateScore(RetireScoreType.Marriage, humanItem.vMarryAge);
+        CreateComment(scoreMarriage.desc, scoreMarriage.score);
+        totalScore += scoreMarriage.score;
 
         string strComment = "";
-        int totalScore = 0;
         int tempScore = 0;
-        //Education
-        if (human.LevelEdu >= 3)
-        {
-            strComment = "High Education. So clean!";
-        }
-        else if (human.LevelEdu >= 1)
-        {
-            strComment = "Normal Education. Not bad!";
-        }
-        else
-        {
-            strComment = "Poor Education. Dirty!";
-        }
-        tempScore = -300 + Mathf.RoundToInt(humanItem.expEdu) * 15;
-        CreateComment(strComment, tempScore);
-        totalScore += tempScore;
 
-        //Career
-        if (human.LevelCareer >= 3)
-        {
-            strComment = "Nice Career. Smooth taste!";
-        }
-        else if (human.LevelCareer >= 1)
-        {
-            strComment = "Normal Career. Not bad!";
-        }
-        else
-        {
-            strComment = "Poor Career. Woody taste!";
-        }
-        tempScore = -600 + Mathf.RoundToInt(humanItem.expCareer) * 20;
-        CreateComment(strComment, tempScore);
-        totalScore += tempScore;
 
-        //Marriage
-        if (humanItem.isMarried)
-        {
-            if (humanItem.vMarryAge >= 40)
-            {
-                strComment = "Too Late to Marry!";
-                tempScore = -200;
-            }
-            else if (humanItem.vMarryAge >= 30)
-            {
-                strComment = "Married.";
-                tempScore = 200;
-            }
-            else
-            {
-                strComment = "Quick Marry.";
-                tempScore = 500;
-            }
-        }
-        else
-        {
-            strComment = "Single?";
-            tempScore = -1000;
-        }
-        CreateComment(strComment, tempScore);
-        totalScore += tempScore;
+
+        /*        //Education
+                if (human.LevelEdu >= 3)
+                {
+                    strComment = "High Education. So clean!";
+                }
+                else if (human.LevelEdu >= 1)
+                {
+                    strComment = "Normal Education. Not bad!";
+                }
+                else
+                {
+                    strComment = "Poor Education. Dirty!";
+                }
+                tempScore = -300 + Mathf.RoundToInt(humanItem.expEdu) * 15;
+                CreateComment(strComment, tempScore);
+                totalScore += tempScore;*/
+
+        /*        //Career
+                if (human.LevelCareer >= 3)
+                {
+                    strComment = "Nice Career. Smooth taste!";
+                }
+                else if (human.LevelCareer >= 1)
+                {
+                    strComment = "Normal Career. Not bad!";
+                }
+                else
+                {
+                    strComment = "Poor Career. Woody taste!";
+                }
+                tempScore = -600 + Mathf.RoundToInt(humanItem.expCareer) * 20;
+                CreateComment(strComment, tempScore);
+                totalScore += tempScore;
+
+                //Marriage
+                if (humanItem.isMarried)
+                {
+                    if (humanItem.vMarryAge >= 40)
+                    {
+                        strComment = "Too Late to Marry!";
+                        tempScore = -200;
+                    }
+                    else if (humanItem.vMarryAge >= 30)
+                    {
+                        strComment = "Married.";
+                        tempScore = 200;
+                    }
+                    else
+                    {
+                        strComment = "Quick Marry.";
+                        tempScore = 500;
+                    }
+                }
+                else
+                {
+                    strComment = "Single?";
+                    tempScore = -1000;
+                }
+                CreateComment(strComment, tempScore);
+                totalScore += tempScore;*/
 
         /*
         //Gap Year
