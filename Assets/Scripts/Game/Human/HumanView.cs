@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HumanView : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class HumanView : MonoBehaviour
 
     [Header("Info")]
     public CanvasGroup canvasGroupInfo;
+    public Image imgSex;
+    public List<Sprite> listSpSex = new List<Sprite>();
+    public Image imgMarry;
     public Transform tfEduHuman;
     public Transform tfCareerHuman;
     public GameObject pfExpHuman;
@@ -92,15 +96,17 @@ public class HumanView : MonoBehaviour
     private void ShowConst()
     {
         canvasUI.sortingOrder = 0;
-        canvasGroupInfo.alpha = 0;
-        rtAge.localPosition = new Vector2(0, 225f);
+        canvasGroupInfo.DOFade(0, 0.5f);
+        rtAge.DOLocalMove(new Vector2(0, 200f),0.25f);
+        rtAge.DOScale(new Vector2(0.62f, 0.62f), 0.25f);
     }
 
     private void ShowHover()
     {
         canvasUI.sortingOrder = 1;
-        canvasGroupInfo.alpha = 1f;
-        rtAge.localPosition = new Vector2(-317f, 448f);
+        canvasGroupInfo.DOFade(1, 0.5f);
+        rtAge.DOLocalMove(new Vector2(-308f, 442f), 0.25f);
+        rtAge.DOScale(Vector2.one, 0.25f);
     }
     #endregion
 
@@ -154,6 +160,25 @@ public class HumanView : MonoBehaviour
         if (!isInit)
         {
             return;
+        }
+        //Sex
+        switch (parent.humanItem.sex)
+        {
+            case Sex.Female:
+                imgSex.sprite = listSpSex[0];
+                break;
+            case Sex.Male:
+                imgSex.sprite = listSpSex[1];
+                break;
+        }
+        //Marry
+        if (parent.humanItem.isMarried)
+        {
+            imgMarry.gameObject.SetActive(true);
+        }
+        else
+        {
+            imgMarry.gameObject.SetActive(false);
         }
         //Edu
         for (int i = 0; i < listExpEdu.Count; i++)
