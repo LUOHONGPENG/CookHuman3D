@@ -59,6 +59,7 @@ public class RetireUIMgr : MonoBehaviour
         GameMgr.Instance.isPageOn = false;
     }
 
+    
     #region Generate Score & Comment
     public void CreateComment(string strComment, int vScore)
     {

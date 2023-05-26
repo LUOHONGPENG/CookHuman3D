@@ -6,6 +6,7 @@ public class UIMgr : MonoBehaviour
 {
     public HoverUIMgr hoverUIMgr;
     public RetireUIMgr retireUIMgr;
+    public RetireMiniUIMgr retireMiniUIMgr;
     public InterfaceUIMgr interfaceUIMgr;
     public EndUIMgr endUIMgr;
 
@@ -13,6 +14,7 @@ public class UIMgr : MonoBehaviour
     {
         hoverUIMgr.Init();
         retireUIMgr.Init();
+        retireMiniUIMgr.Init();
         interfaceUIMgr.Init();
         endUIMgr.Init();
     }
