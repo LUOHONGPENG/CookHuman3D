@@ -9,6 +9,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     public GameObject objBlock;
     public RectTransform rtInfo;
     public Button btnClose;
+    public Button btnPause;
 
     [Header("Score")]
     public Text codeScore;
@@ -32,6 +33,14 @@ public class RetireMiniUIMgr : MonoBehaviour
         btnClose.onClick.RemoveAllListeners();
         btnClose.onClick.AddListener(delegate () {
             timerClose = 0;
+        });
+
+        btnPause.onClick.RemoveAllListeners();
+        btnPause.onClick.AddListener(delegate ()
+        {
+            btnPause.gameObject.SetActive(false);
+            GameMgr.Instance.isPageOn = true;
+            objBlock.gameObject.SetActive(true);
         });
 
         isInit = true;
@@ -61,6 +70,7 @@ public class RetireMiniUIMgr : MonoBehaviour
         human.humanItem.vScore = vScore;
 
         timerClose = 5f;
+        btnPause.gameObject.SetActive(true) ;
 
         human.isDead = true;
     }
@@ -68,6 +78,8 @@ public class RetireMiniUIMgr : MonoBehaviour
     public void HidePopup()
     {
         DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(1000f, 0), 0.5f);
+        GameMgr.Instance.isPageOn = false;
+        objBlock.gameObject.SetActive(false);
     }
 
 
