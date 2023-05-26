@@ -106,7 +106,7 @@ public partial class MapMgr
                     human.isRetired = true;
                 }
             }
-            if (human.isRetired)
+            if (human.isRetired && !human.isDead)
             {
                 EventCenter.Instance.EventTrigger("RetirePage", human);
             }

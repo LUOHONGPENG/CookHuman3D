@@ -26,12 +26,12 @@ public class RetireUIMgr : MonoBehaviour
 
     public void OnEnable()
     {
-        EventCenter.Instance.AddEventListener("RetirePage", ShowPopup);
+        //EventCenter.Instance.AddEventListener("RetirePage", ShowPopup);
     }
 
     public void OnDestroy()
     {
-        EventCenter.Instance.RemoveEventListener("RetirePage", ShowPopup);
+        //EventCenter.Instance.RemoveEventListener("RetirePage", ShowPopup);
     }
 
     public void ShowPopup(object arg0)
