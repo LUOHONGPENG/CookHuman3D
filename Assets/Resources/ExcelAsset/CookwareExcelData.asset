@@ -42,7 +42,7 @@ MonoBehaviour:
     capacity: 2
     growRate: 2
     ageMin_real: 23
-    ageMax_real: 45
+    ageMax_real: 50
     eduMin: 2
     posxInfo: 100
     posyInfo: -50
@@ -86,7 +86,7 @@ MonoBehaviour:
     capacity: 1
     growRate: 0
     ageMin_real: 60
-    ageMax_real: 888
+    ageMax_real: 999
     eduMin: 0
     posxInfo: 0
     posyInfo: -120
