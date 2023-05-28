@@ -39,6 +39,7 @@ public partial class MapMgr : MonoBehaviour
         {
             return;
         }
+        CheckGraphicRay();
         CheckRayHover();
         //Dragging
         CheckRayDrag();

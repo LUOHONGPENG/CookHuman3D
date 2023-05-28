@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameMgr : MonoSingleton<GameMgr>
 {
     [Header("Camera")]
     public Camera mapCamera;
     public Camera uiCamera;
+    public EventSystem eventSystem;
     [Header("Manager")]
     public MapMgr mapMgr;
     public LightMgr lightMgr;

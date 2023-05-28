@@ -47,6 +47,11 @@ public class CookwareView : MonoBehaviour
     private CookwareBasic parent;
     private bool isInit = false;
 
+    public CookwareBasic GetBasic()
+    {
+        return parent;
+    }
+
     public void Init(CookwareBasic parent)
     {
         this.parent = parent;

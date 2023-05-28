@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public partial class MapMgr
 {
@@ -80,14 +81,31 @@ public partial class MapMgr
         //Release Dragging
         if (isDragging && draggingHuman != null)
         {
+            //UIRay
+            foreach (RaycastResult item in raycastResults)
+            {
+                if (item.gameObject.tag == "CookwareUI")
+                {
+                    if (item.gameObject.transform.parent.parent.parent.parent.GetComponent<CookwareView>() != null)
+                    {
+                        CookwareView cookwareView = item.gameObject.transform.parent.parent.parent.parent.GetComponent<CookwareView>();
+                        CookwareBasic tarCook = cookwareView.GetBasic();
+                        draggingHuman.BindCookware(tarCook);
+                        EndDragHuman();
+                        return;
+                    }
+                }
+            }
+
+
             Ray ray = GetMouseRay();
             //Release human at a cookware
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 if (hitDataCook.transform.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    CookwareBasic tarCookware = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
-                    draggingHuman.BindCookware(tarCookware);
+                    CookwareBasic tarCook = hitDataCook.transform.parent.GetComponent<CookwareBasic>();
+                    draggingHuman.BindCookware(tarCook);
                 }
             }
             //Release human at empty space
@@ -95,10 +113,15 @@ public partial class MapMgr
             {
                 draggingHuman.UnBindCookware();
             }
-            isDragging = false;
-            draggingHuman = null;
-            Debug.Log("EndDragHuman");
+            EndDragHuman();
         }
+    }
+
+    private void EndDragHuman()
+    {
+        isDragging = false;
+        draggingHuman = null;
+        Debug.Log("EndDragHuman");
     }
 
     #endregion
@@ -107,11 +130,42 @@ public partial class MapMgr
 
     private int recordEnterHuman = -1;
     private int recordEnterCook = -1;
+    private List<RaycastResult> raycastResults = new List<RaycastResult>();
+
+    private void CheckGraphicRay()
+    {
+        //Mouse
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = GetMousePos();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+    }
 
     private void CheckRayHover()
     {
+        //UIRay
+        foreach (RaycastResult item in raycastResults)
+        {
+            if (item.gameObject.tag == "CookwareUI")
+            {
+                if (item.gameObject.transform.parent.parent.parent.parent.GetComponent<CookwareView>() != null)
+                {
+                    CookwareView cookwareView = item.gameObject.transform.parent.parent.parent.parent.GetComponent<CookwareView>();
+                    CookwareBasic tarCook = cookwareView.GetBasic();
+                    recordEnterCook = tarCook.cookID;
+                    EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
+                    if (isDragging)
+                    {
+                        EventCenter.Instance.EventTrigger("ShowHumanPage", draggingHuman);
+                        recordEnterHuman = draggingHuman.humanItem.HumanID;
+                    }
+                    return;
+                }
+            }
+        }
+
         if (!isDragging)
         {
+            //Object Raycast
             Ray ray = GetMouseRay();
             //Mouse above Human
             if (Physics.Raycast(ray, out RaycastHit hitDataHuman, 999f, LayerMask.GetMask("Human")))
@@ -199,6 +253,14 @@ public partial class MapMgr
     {
         Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
         return screenPosition;
+    }
+
+    public Vector2 GetMousePosUI()
+    {
+        Vector2 screenPos = touchPositionAction.ReadValue<Vector2>();
+        screenPos = new Vector2(screenPos.x * 1920f / Screen.width, screenPos.y * 1080f / Screen.height);
+        Vector2 targetPos = new Vector2(screenPos.x - 1920f / 2, screenPos.y - 1080f / 2);
+        return targetPos;
     }
 
     #endregion

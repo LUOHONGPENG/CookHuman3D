@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 3144120495531029900}
   - component: {fileID: 105694073463137012}
   m_Layer: 5
-  m_Name: bg
-  m_TagString: Untagged
+  m_Name: bgMarriage
+  m_TagString: CookwareUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 6946841685449817577}
   - component: {fileID: 5758401809384928226}
   - component: {fileID: 5367316845746366353}
+  - component: {fileID: 7550028334485148189}
   m_Layer: 5
   m_Name: CookUICanvas
   m_TagString: Untagged
@@ -539,6 +540,23 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &7550028334485148189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793251693593218532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &4948955928484356831
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +615,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &5167040604866060121
 GameObject:
@@ -1295,7 +1313,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &8842551649558906103
 GameObject:
@@ -1411,7 +1429,7 @@ GameObject:
   - component: {fileID: 601625746669195160}
   m_Layer: 5
   m_Name: bgNormal
-  m_TagString: Untagged
+  m_TagString: CookwareUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
