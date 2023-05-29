@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using LootLocker.Requests;
+
 
 public class GameMgr : MonoSingleton<GameMgr>
 {
@@ -17,6 +19,7 @@ public class GameMgr : MonoSingleton<GameMgr>
     public SoundMgr soundMgr;
     public DataMgr dataMgr;
 
+
     private bool isInit = false;
     public bool isPageOn = false;
 
@@ -24,6 +27,8 @@ public class GameMgr : MonoSingleton<GameMgr>
 
     public override void Init()
     {
+        StartCoroutine(LoginRoutine());
+
         dataMgr = DataMgr.Instance;
         dataMgr.Init();
         mapMgr.Init();
@@ -62,4 +67,26 @@ public class GameMgr : MonoSingleton<GameMgr>
         }
         mapMgr.FixedTimeGo();
     }
+
+    #region LootLocker
+    IEnumerator LoginRoutine()
+    {
+        bool done = false;
+        LootLockerSDKManager.StartGuestSession((response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Player was logged in");
+                PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
+                done = true;
+            }
+            else
+            {
+                Debug.Log("Could not start session");
+                done = true;
+            }
+        });
+        yield return new WaitWhile(() => done == false);
+    }
+    #endregion
 }

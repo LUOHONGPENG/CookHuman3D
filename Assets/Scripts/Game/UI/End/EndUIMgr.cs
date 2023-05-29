@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using LootLocker.Requests;
+
 
 public class EndUIMgr : MonoBehaviour
 {
@@ -21,17 +23,20 @@ public class EndUIMgr : MonoBehaviour
     public Text codeScoreHuman;
     [Header("Upload")]
     public GameObject objUpload;
+    public Text txTipTypeName;
+    public InputField inputName;
     public Text codeScoreUpload;
     [Header("Leaderboard")]
     public GameObject objLeaderboard;
     public Transform tfScore;
-    public Transform pfScore;
+    public GameObject pfScore;
     [Header("Button")]
     public Button btnUpload;
     public Button btnRestart;
     public Button btnBack;
     public Button btnLeaderboard;
 
+    private int leaderboardID = 14649;
     private int finalScore = 0;
     private bool isUpload = false;
     private EndPageType pageType = EndPageType.Human;
@@ -150,6 +155,8 @@ public class EndUIMgr : MonoBehaviour
         btnBack.gameObject.SetActive(true);
         btnLeaderboard.gameObject.SetActive(false);
 
+        InitLeaderBoard();
+
         pageType = EndPageType.Leaderboard;
     }
     #endregion
@@ -158,7 +165,17 @@ public class EndUIMgr : MonoBehaviour
 
     public void UploadScore()
     {
-
+        if (inputName.text.Length > 0 && inputName.text.Length <= 8 && CheckAllCanASCII(inputName.text))
+        {
+            SetPlayerName();
+            StartCoroutine(SubmitScoreRoutine(finalScore, PlayerPrefs.GetString("PlayerID")));
+            isUpload = true;
+            ShowHumanPage();
+        }
+        else
+        {
+            txTipTypeName.gameObject.SetActive(true);
+        }
     }
 
     public void RestartGame()
@@ -171,4 +188,132 @@ public class EndUIMgr : MonoBehaviour
     #endregion
 
 
+    #region AboutLeaderBoard
+
+    public void SetPlayerName()
+    {
+        LootLockerSDKManager.SetPlayerName(inputName.text, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Successfully set player name");
+            }
+            else
+            {
+                Debug.Log("Could not set player name");
+            }
+        });
+    }
+
+    public long GetASCII(string str)
+    {
+        long num = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            num = num * 100 + TranslateChar(str[i]);
+        }
+        return num;
+    }
+
+    public int TranslateChar(char digit)
+    {
+        int index = 0;
+        if ('0' <= digit && digit <= '9')
+        {
+            index = 1 + digit - '0';
+        }
+        else if ('a' <= digit && digit <= 'z')
+        {
+            index = 11 + digit - 'a';
+        }
+        else if ('A' <= digit && digit <= 'Z')
+        {
+            index = 37 + digit - 'A';
+        }
+        return index;
+    }
+
+    public bool CheckAllCanASCII(string str)
+    {
+        for (int i = 0; i < str.Length; i++)
+        {
+            if ('0' <= str[i] && str[i] <= '9')
+            {
+                continue;
+            }
+            if ('a' <= str[i] && str[i] <= 'z')
+            {
+                continue;
+            }
+            if ('A' <= str[i] && str[i] <= 'Z')
+            {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+
+
+    [System.Obsolete]
+    public IEnumerator SubmitScoreRoutine(float time, string playerName)
+    {
+        bool done = false;
+        //string nowTime = GetUnixTime().ToString();
+        string memberID = GetASCII(inputName.text).ToString();
+
+        int score = finalScore;
+        LootLockerSDKManager.SubmitScore(memberID, score, leaderboardID, inputName.text, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Successfully uploaded time");
+                done = true;
+            }
+            else
+            {
+                Debug.Log("Failed" + response.Error);
+                done = true;
+            }
+        });
+        yield return new WaitWhile(() => done == false);
+    }
+
+    [System.Obsolete]
+    public void InitLeaderBoard()
+    {
+        PublicTool.ClearChildItem(tfScore);
+        StartCoroutine(FetchLeaderBoardRoutine());
+    }
+
+    [System.Obsolete]
+
+    public IEnumerator FetchLeaderBoardRoutine()
+    {
+        bool done = false;
+        LootLockerSDKManager.GetScoreListMain(leaderboardID, 100, 0, (response) =>
+        {
+            if (response.success)
+            {
+                LootLockerLeaderboardMember[] members = response.items;
+
+                for (int i = 0; i < members.Length; i++)
+                {
+                    GameObject objMember = GameObject.Instantiate(pfScore, tfScore);
+                    LeaderBoardUIItem itemMember = objMember.GetComponent<LeaderBoardUIItem>();
+                    itemMember.Init(i + 1, members[i].metadata, members[i].score);
+                }
+                done = true;
+            }
+            else
+            {
+                Debug.Log("Failed" + response.Error);
+                done = true;
+            }
+
+        });
+        yield return new WaitWhile(() => done == false);
+    }
+
+    #endregion
 }
