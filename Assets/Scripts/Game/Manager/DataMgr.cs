@@ -10,6 +10,7 @@ public class DataMgr : Singleton<DataMgr>
     public CookwareExcelData cookwareData;
     public MarryConditionExcelData marryConditionData;
     public RetireScoreExcelData retireScoreData;
+    public TutorialExcelData tutorialExcelData;
 
     public void Init()
     {
@@ -19,6 +20,8 @@ public class DataMgr : Singleton<DataMgr>
         //Score
         retireScoreData = ExcelManager.Instance.GetExcelData<RetireScoreExcelData, RetireScoreExcelItem>();
         retireScoreData.Init();
+        //Tutorial
+        tutorialExcelData = ExcelManager.Instance.GetExcelData<TutorialExcelData, TutorialExcelItem>();
         //Special Value
         SpecialValueExcelItem specialItem = ExcelManager.Instance.GetExcelData<SpecialValueExcelData, SpecialValueExcelItem>().GetExcelItem(1001);
         GameGlobal.ageMinStudy = specialItem.ageMin_study;

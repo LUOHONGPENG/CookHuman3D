@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921862cb447542e4e94b4f800b802e23, type: 3}
+  m_Name: TutorialExcelData
+  m_EditorClassIdentifier: 
+  items:
+  - id: 1001
+    strTip: 'You are a great parent.
+
+      You need to cook your children on time
+      according to Social Clock.'
+    posx: -200
+    posy: 100
+  - id: 1002
+    strTip: Wash your children in the Study Sink to get Education.
+    posx: -200
+    posy: -100
+  - id: 1003
+    strTip: Cook your children in the Working Pot for Career.
+    posx: 0
+    posy: -200
+  - id: 1004
+    strTip: Roast your children in the Marriage Toaster to create new food.
+    posx: 200
+    posy: -200
+  - id: 1005
+    strTip: 'Send your children to the Retire plate.
+
+      Let Social Clock taste
+      them.'
+    posx: 400
+    posy: -300

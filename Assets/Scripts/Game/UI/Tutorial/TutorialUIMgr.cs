@@ -5,27 +5,18 @@ using UnityEngine.UI;
 
 public class TutorialUIMgr : MonoBehaviour
 {
-    public enum TutorialStep
-    {
-        Human,
-        Study,
-        Job,
-        Marriage,
-        Retire,
-        End
-    }
-
     public GameObject objPopup;
     public RectTransform rtHole;
     public Text txTip;
     public Button btnNext;
     public Button btnSkip;
     
-    private TutorialStep curStep;
+    private TutorialExcelItem[] arrayTutorial;
+    private int curID = 0;
 
     public void Init()
     {
-        curStep = TutorialStep.Human;
+        arrayTutorial = GameMgr.Instance.dataMgr.tutorialExcelData.items;
 
         btnNext.onClick.RemoveAllListeners();
         btnNext.onClick.AddListener(delegate ()
@@ -36,24 +27,44 @@ public class TutorialUIMgr : MonoBehaviour
         btnSkip.onClick.RemoveAllListeners();
         btnSkip.onClick.AddListener(delegate ()
         {
-            SkipStep();
+            EndTutorial();
         });
     }
 
-    public void NextStep()
+    public void StartTutorial()
     {
-        curStep++;
-        InvokeStop();
+        curID = 0;
+        ReadTutorial();
+        objPopup.SetActive(true);
+        GameMgr.Instance.isPageOn = true;
     }
 
-    public void SkipStep()
+    private void NextStep()
     {
-        curStep = TutorialStep.End;
-        InvokeStop();
+        curID++;
+        if (curID < arrayTutorial.Length)
+        {
+            ReadTutorial();
+        }
+        else
+        {
+            EndTutorial();
+        }
     }
 
-    public void InvokeStop()
+    private void EndTutorial()
     {
+        objPopup.SetActive(false);
+        GameMgr.Instance.isPageOn = false;
+    }
 
+    private void ReadTutorial()
+    {
+        if(curID < arrayTutorial.Length)
+        {
+            TutorialExcelItem thisTutorial = arrayTutorial[curID];
+            rtHole.anchoredPosition = new Vector2(thisTutorial.posx, thisTutorial.posy);
+            txTip.text = thisTutorial.strTip;
+        }
     }
 }

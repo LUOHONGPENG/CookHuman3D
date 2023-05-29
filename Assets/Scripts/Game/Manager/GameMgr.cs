@@ -38,6 +38,13 @@ public class GameMgr : MonoSingleton<GameMgr>
         isInit = true;
         numMarry = 0;
         Debug.Log("GameMgrEndInit");
+
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        GameMgr.Instance.uiMgr.tutorialUIMgr.StartTutorial();
     }
 
     //For UI or event

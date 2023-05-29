@@ -56,7 +56,7 @@ public class HumanView : MonoBehaviour
             listExpCareer.Add(itemCareer);
         }
 
-        ShowConst();
+        InitConst();
         isInit = true;
     }
 
@@ -91,6 +91,14 @@ public class HumanView : MonoBehaviour
             return;
         }
         ShowConst();
+    }
+
+    private void InitConst()
+    {
+        canvasUI.sortingOrder = 0;
+        canvasGroupInfo.alpha = 0;
+        rtAge.localPosition = new Vector2(0, 200f);
+        rtAge.localScale = new Vector2(0.62f, 0.62f);
     }
 
     private void ShowConst()
