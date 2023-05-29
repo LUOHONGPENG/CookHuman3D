@@ -9,7 +9,7 @@ public class UIMgr : MonoBehaviour
     public RetireMiniUIMgr retireMiniUIMgr;
     public InterfaceUIMgr interfaceUIMgr;
     public EndUIMgr endUIMgr;
-
+    public TutorialUIMgr tutorialUIMgr;
     public void Init()
     {
         //hoverUIMgr.Init();
@@ -17,5 +17,6 @@ public class UIMgr : MonoBehaviour
         retireMiniUIMgr.Init();
         interfaceUIMgr.Init();
         endUIMgr.Init();
+        tutorialUIMgr.Init();
     }
 }
