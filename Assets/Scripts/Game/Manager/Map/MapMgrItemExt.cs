@@ -103,6 +103,7 @@ public partial class MapMgr
             {
                 if (!human.isRetired)
                 {
+                    human.humanItem.RecordRetired();
                     human.isRetired = true;
                 }
             }

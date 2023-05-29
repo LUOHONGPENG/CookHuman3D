@@ -11,8 +11,9 @@ public class HumanItem
     public float expEdu = 0;//Value about Education
     public float expCareer = 0;//Value about Job
     public bool isMarried = false;//Whether this people is married
-    //Special
+    //Record
     public int vMarryAge = -1;
+    public int vRetireAge = -1;
     public int vScore = 0;
 
     public HumanItem(int ID)
@@ -52,6 +53,11 @@ public class HumanItem
         vMarryAge = Age;
         GameMgr.Instance.numMarry++;
     }
+
+    public void RecordRetired()
+    {
+        vRetireAge = Age;
+    }
     #endregion
 
     #region TimeGo
@@ -73,5 +79,44 @@ public class HumanItem
             expCareer = 100f;
         }
     }
+    #endregion
+
+    #region Comment
+
+    public List<ScoreInfo> GetCommentList()
+    {
+        RetireScoreExcelData scoreData = GameMgr.Instance.dataMgr.retireScoreData;
+        List<ScoreInfo> listTempScore = new List<ScoreInfo>();
+
+        for (int i = (int)RetireScoreType.Edu; i < (int)RetireScoreType.End; i++)
+        {
+            int keyValue = 0;
+            switch ((RetireScoreType)i)
+            {
+                case RetireScoreType.Edu:
+                    keyValue = Mathf.FloorToInt(expEdu);
+                    break;
+                case RetireScoreType.Career:
+                    keyValue = Mathf.FloorToInt(expCareer);
+                    break;
+                case RetireScoreType.Marriage:
+                    keyValue = vMarryAge;
+                    break;
+                case RetireScoreType.Retire:
+                    keyValue = vRetireAge;
+                    break;
+            }
+
+            ScoreInfo scoreTemp = scoreData.CalculateScore((RetireScoreType)i, keyValue);
+            if (scoreTemp.desc.Length > 0)
+            {
+                listTempScore.Add(scoreTemp);
+            }
+        }
+
+        return listTempScore;
+    }
+
+
     #endregion
 }

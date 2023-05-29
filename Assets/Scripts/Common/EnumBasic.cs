@@ -30,5 +30,7 @@ public enum RetireScoreType
 {
     Edu,
     Career,
-    Marriage
+    Marriage,
+    Retire,
+    End
 }

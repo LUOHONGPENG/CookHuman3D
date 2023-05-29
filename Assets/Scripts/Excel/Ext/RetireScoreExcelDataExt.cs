@@ -34,14 +34,18 @@ public partial class RetireScoreExcelData
         {
             List<RetireScoreExcelItem> listScore = dicRetireScoreType[scoreType];
             //Calculate the index of target item
-            int targetIndex = 0;
+            int targetIndex = -1;
             for (int i = 0; i < listScore.Count; i++)
             {
                 if(i < listScore.Count - 1)
                 {
-                    if (keyValue >= listScore[i].keyValue && keyValue < items[i + 1].keyValue)
+                    if (keyValue >= listScore[i].keyValue && keyValue < listScore[i + 1].keyValue)
                     {
                         targetIndex = i;
+                    }
+                    else if(keyValue < listScore[i].keyValue)
+                    {
+                        break;
                     }
                 }
                 else
@@ -52,12 +56,16 @@ public partial class RetireScoreExcelData
                     }
                 }
             }
-            RetireScoreExcelItem targetItem = listScore[targetIndex];
 
-            int targetScore = targetItem.init + targetItem.slope * keyValue;
-            string targetDesc = targetItem.desc;
+            if (targetIndex >= 0)
+            {
+                RetireScoreExcelItem targetItem = listScore[targetIndex];
 
-            return new ScoreInfo(targetDesc, targetScore);
+                int targetScore = targetItem.init + targetItem.slope * keyValue;
+                string targetDesc = targetItem.desc;
+
+                return new ScoreInfo(targetDesc, targetScore);
+            }
         }
         return new ScoreInfo("",0);
     }

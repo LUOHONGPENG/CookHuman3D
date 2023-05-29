@@ -107,21 +107,15 @@ public class RetireMiniUIMgr : MonoBehaviour
 
     public int CalculateScore(HumanItem humanItem)
     {
-        RetireScoreExcelData scoreData = GameMgr.Instance.dataMgr.retireScoreData;
+        List<ScoreInfo> listScore = humanItem.GetCommentList();
 
         int totalScore = 0;
 
-        ScoreInfo scoreEdu = scoreData.CalculateScore(RetireScoreType.Edu, Mathf.FloorToInt(humanItem.expEdu));
-        CreateComment(scoreEdu.desc, scoreEdu.score);
-        totalScore += scoreEdu.score;
-
-        ScoreInfo scoreCareer = scoreData.CalculateScore(RetireScoreType.Career, Mathf.FloorToInt(humanItem.expCareer));
-        CreateComment(scoreCareer.desc, scoreCareer.score);
-        totalScore += scoreCareer.score;
-
-        ScoreInfo scoreMarriage = scoreData.CalculateScore(RetireScoreType.Marriage, humanItem.vMarryAge);
-        CreateComment(scoreMarriage.desc, scoreMarriage.score);
-        totalScore += scoreMarriage.score;
+        for(int i = 0; i < listScore.Count; i++)
+        {
+            CreateComment(listScore[i].desc, listScore[i].score);
+            totalScore += listScore[i].score;
+        }
 
         return totalScore;
     }

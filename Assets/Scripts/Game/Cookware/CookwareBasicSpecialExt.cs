@@ -21,6 +21,7 @@ public partial class CookwareBasic
 
     private void InvokeRetire(HumanBasic human)
     {
+        human.humanItem.RecordRetired();
         human.isRetired = true;
     }
 
