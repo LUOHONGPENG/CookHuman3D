@@ -9,8 +9,10 @@ using System.IO;
 public partial class TutorialExcelItem : ExcelItemBase
 {
 	public string strTip;
-	public float posx;
-	public float posy;
+	public float posX;
+	public float posY;
+	public float sizeX;
+	public float sizeY;
 }
 
 [CreateAssetMenu(fileName = "TutorialExcelData", menuName = "Excel To ScriptableObject/Create TutorialExcelData", order = 1)]
@@ -32,8 +34,10 @@ public class TutorialAssetAssignment
 			items[i] = new TutorialExcelItem();
 			items[i].id = Convert.ToInt32(allItemValueRowList[i]["id"]);
 			items[i].strTip = allItemValueRowList[i]["strTip"];
-			items[i].posx = Convert.ToSingle(allItemValueRowList[i]["posx"]);
-			items[i].posy = Convert.ToSingle(allItemValueRowList[i]["posy"]);
+			items[i].posX = Convert.ToSingle(allItemValueRowList[i]["posX"]);
+			items[i].posY = Convert.ToSingle(allItemValueRowList[i]["posY"]);
+			items[i].sizeX = Convert.ToSingle(allItemValueRowList[i]["sizeX"]);
+			items[i].sizeY = Convert.ToSingle(allItemValueRowList[i]["sizeY"]);
 		}
 		TutorialExcelData excelDataAsset = ScriptableObject.CreateInstance<TutorialExcelData>();
 		excelDataAsset.items = items;

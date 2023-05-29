@@ -17,25 +17,37 @@ MonoBehaviour:
     strTip: 'You are a great parent.
 
       You need to cook your children on time
-      according to Social Clock.'
-    posx: -200
-    posy: 100
+      according to <color=#fff984ff>Social Clock</color>.'
+    posX: -680
+    posY: 120
+    sizeX: 400
+    sizeY: 400
   - id: 1002
-    strTip: Wash your children in the Study Sink to get Education.
-    posx: -200
-    posy: -100
+    strTip: Wash your children in the <color=#fff984ff>Study Sink</color> to get
+      <color=#fff984ff>Education</color>.
+    posX: -580
+    posY: -250
+    sizeX: 400
+    sizeY: 400
   - id: 1003
-    strTip: Cook your children in the Working Pot for Career.
-    posx: 0
-    posy: -200
+    strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for Career.
+    posX: 0
+    posY: -250
+    sizeX: 600
+    sizeY: 500
   - id: 1004
-    strTip: Roast your children in the Marriage Toaster to create new food.
-    posx: 200
-    posy: -200
+    strTip: Roast your children in the <color=#fff984ff>Marriage Toaster</color>
+      to create new food.
+    posX: 520
+    posY: -200
+    sizeX: 380
+    sizeY: 580
   - id: 1005
-    strTip: 'Send your children to the Retire plate.
+    strTip: 'Send your children to the <color=#fff984ff>Retire Plate</color>.
 
-      Let Social Clock taste
-      them.'
-    posx: 400
-    posy: -300
+      Let
+      Social Clock taste them.'
+    posX: 800
+    posY: -350
+    sizeX: 380
+    sizeY: 300

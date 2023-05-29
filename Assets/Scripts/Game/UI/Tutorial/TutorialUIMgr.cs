@@ -63,7 +63,8 @@ public class TutorialUIMgr : MonoBehaviour
         if(curID < arrayTutorial.Length)
         {
             TutorialExcelItem thisTutorial = arrayTutorial[curID];
-            rtHole.anchoredPosition = new Vector2(thisTutorial.posx, thisTutorial.posy);
+            rtHole.anchoredPosition = new Vector2(thisTutorial.posX, thisTutorial.posY);
+            rtHole.sizeDelta = new Vector2(thisTutorial.sizeX, thisTutorial.sizeY);
             txTip.text = thisTutorial.strTip;
         }
     }
