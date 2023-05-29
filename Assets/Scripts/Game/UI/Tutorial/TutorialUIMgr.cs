@@ -16,6 +16,8 @@ public class TutorialUIMgr : MonoBehaviour
     }
 
     public GameObject objPopup;
+    public RectTransform rtHole;
+    public Text txTip;
     public Button btnNext;
     public Button btnSkip;
     
