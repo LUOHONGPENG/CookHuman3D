@@ -85,4 +85,40 @@ public partial class PublicTool
         EventCenter.Instance.EventTrigger("PlaySound", soundType);
     }
 
+    public static List<int> DrawTwo(List<int> listPool, List<int> listDelete)
+    {
+        List<int> listTemp = new List<int>();
+        List<int> listDraw = new List<int>(listPool);
+        for(int i = 0; i < listDelete.Count; i++)
+        {
+            listDraw.Remove(listDelete[i]);
+        }
+        
+        for(int i = 0; i < 2; i++)
+        {
+            int index = Random.Range(0, listDraw.Count);
+            listTemp.Add(listDraw[index]);
+            listDraw.RemoveAt(index);
+        }
+        return listTemp;
+    }
+
+    #region Effort
+    public static bool CheckWhetherEffortGot(int ID)
+    {
+        if (GameMgr.Instance.listEffortGot.Contains(ID))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static EffortExcelItem GetEffortItem(int ID)
+    {
+        return GameMgr.Instance.dataMgr.effortExcelData.GetExcelItem(ID);
+    }
+    #endregion
 }

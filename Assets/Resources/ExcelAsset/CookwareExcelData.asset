@@ -29,7 +29,7 @@ MonoBehaviour:
     desc: Enhance career +
     cookwareType: 1
     capacity: 3
-    growRate: 1
+    growRate: 1.5
     ageMin_real: 16
     ageMax_real: 60
     eduMin: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
     desc: Enhance career ++
     cookwareType: 1
     capacity: 2
-    growRate: 2
+    growRate: 3
     ageMin_real: 23
     ageMax_real: 50
     eduMin: 2
@@ -51,7 +51,7 @@ MonoBehaviour:
     desc: Enhance career +++
     cookwareType: 1
     capacity: 1
-    growRate: 4
+    growRate: 5
     ageMin_real: 25
     ageMax_real: 60
     eduMin: 4

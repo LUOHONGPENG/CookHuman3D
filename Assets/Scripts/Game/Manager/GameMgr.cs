@@ -44,14 +44,17 @@ public class GameMgr : MonoSingleton<GameMgr>
     public int numMarry = 0;
     public int numEffortCharge = 0;
     public int maxEffortCharge = 0;
-    public List<int> listEffortID = new List<int>();
+    public List<int> listEffortGot = new List<int>();
+    public List<int> listEffortPrepared = new List<int>();
+
 
     private void InitGameData()
     {
         numMarry = 0;
         maxEffortCharge = 4;
         numEffortCharge = 0;
-        listEffortID.Clear();
+        listEffortGot.Clear();
+        listEffortPrepared.Clear();
     }
 
     public void ChargeEffort()
@@ -60,6 +63,10 @@ public class GameMgr : MonoSingleton<GameMgr>
         {
             numEffortCharge++;
             EventCenter.Instance.EventTrigger("RefreshEffort", null);
+            if(numEffortCharge >= maxEffortCharge)
+            {
+                DrawEffort();
+            }
         }
     }
 
@@ -69,6 +76,11 @@ public class GameMgr : MonoSingleton<GameMgr>
         EventCenter.Instance.EventTrigger("RefreshEffort", null);
     }
 
+    public void DrawEffort()
+    {
+        listEffortPrepared.Clear();
+        listEffortPrepared = PublicTool.DrawTwo(dataMgr.effortExcelData.GetEffortIDList(), listEffortGot);
+    }
     #endregion
 
     public override void Init()

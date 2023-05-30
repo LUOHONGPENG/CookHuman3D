@@ -9,6 +9,7 @@ public class DataMgr : Singleton<DataMgr>
     /// </summary>
     public CookwareExcelData cookwareData;
     public MarryConditionExcelData marryConditionData;
+    public EffortExcelData effortExcelData;
     public RetireScoreExcelData retireScoreData;
     public TutorialExcelData tutorialExcelData;
 
@@ -17,6 +18,8 @@ public class DataMgr : Singleton<DataMgr>
         //Cookware
         cookwareData = ExcelManager.Instance.GetExcelData<CookwareExcelData, CookwareExcelItem>();
         marryConditionData = ExcelManager.Instance.GetExcelData<MarryConditionExcelData, MarryConditionExcelItem>();
+        //Effort
+        effortExcelData = ExcelManager.Instance.GetExcelData<EffortExcelData, EffortExcelItem>();
         //Score
         retireScoreData = ExcelManager.Instance.GetExcelData<RetireScoreExcelData, RetireScoreExcelItem>();
         retireScoreData.Init();
