@@ -25,11 +25,18 @@ public class EffortUIItem : MonoBehaviour
             btnEffort.onClick.RemoveAllListeners();
             btnEffort.onClick.AddListener(delegate ()
             {
-                if(ID != 9999)
+                if(ID == 9999)
+                {
+                    EventCenter.Instance.EventTrigger("ReduceMarry", null);
+                    //Cost Score
+                }
+                else
                 {
                     GameMgr.Instance.listEffortGot.Add(ID);
                 }
                 GameMgr.Instance.ClearEffort();
+                //Refresh
+                EventCenter.Instance.EventTrigger("ViewAllRefresh", null);
                 parent.HidePopup();
             });
         }

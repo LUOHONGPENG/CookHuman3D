@@ -10,7 +10,10 @@ public partial class EffortExcelData
 
         for(int i = 0;i < items.Length; i++)
         {
-            listEffortID.Add(items[i].id);
+            if(items[i].id != 9999)
+            {
+                listEffortID.Add(items[i].id);
+            }
         }
         return listEffortID;
     }

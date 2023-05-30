@@ -33,3 +33,8 @@ MonoBehaviour:
     desc: Can gain working experience in school after {0} years old.
     value0: 16
     value1: 1
+  - id: 9999
+    name: Bribe
+    desc: Reduce marriage requirements temporarily
+    value0: 1
+    value1: 6

@@ -52,6 +52,16 @@ public partial class CookwareBasic : MonoBehaviour
         }
     }
 
+    public void OnEnable()
+    {
+        EventCenter.Instance.AddEventListener("ReduceMarry", ReduceMarryCondition);
+    }
+
+    public void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener("ReduceMarry", ReduceMarryCondition);
+    }
+
     //Get the item data
     public CookwareExcelItem GetItem()
     {

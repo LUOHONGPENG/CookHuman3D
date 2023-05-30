@@ -8,7 +8,8 @@ public class EffortUIMgr : MonoBehaviour
     public GameObject objPopup;
     public Button btnClose;
 
-    public Transform tfEffort;
+    public Transform tfEffortNormal;
+    public Transform tfEffortSpecial;
     public GameObject pfEffort;
 
     #region Basic
@@ -34,15 +35,20 @@ public class EffortUIMgr : MonoBehaviour
     public void ShowPopup(object arg0)
     {
         GameMgr.Instance.isEffortPageOn = true;
-
-        PublicTool.ClearChildItem(tfEffort);
+        //Normal
+        PublicTool.ClearChildItem(tfEffortNormal);
         List<int> listEffortID = GameMgr.Instance.listEffortPrepared;
         for(int i = 0;i < listEffortID.Count; i++)
         {
-            GameObject objEffort = GameObject.Instantiate(pfEffort, tfEffort);
+            GameObject objEffort = GameObject.Instantiate(pfEffort, tfEffortNormal);
             EffortUIItem itemEffort = objEffort.GetComponent<EffortUIItem>();
             itemEffort.Init(listEffortID[i],this);
         }
+        //Special
+        PublicTool.ClearChildItem(tfEffortSpecial);
+        GameObject objSpecial = GameObject.Instantiate(pfEffort, tfEffortSpecial);
+        EffortUIItem itemSpecial = objSpecial.GetComponent<EffortUIItem>();
+        itemSpecial.Init(9999, this);
 
         objPopup.SetActive(true);
     }

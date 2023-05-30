@@ -70,6 +70,7 @@ public class CookwareView : MonoBehaviour
     {
         EventCenter.Instance.AddEventListener("ShowCookPage", HoverEnterEvent);
         EventCenter.Instance.AddEventListener("HideCookPage", HoverLeaveEvent);
+        EventCenter.Instance.AddEventListener("ViewAllRefresh", ViewAllRefresh);
 
 
     }
@@ -78,9 +79,11 @@ public class CookwareView : MonoBehaviour
     {
         EventCenter.Instance.RemoveEventListener("ShowCookPage", HoverEnterEvent);
         EventCenter.Instance.RemoveEventListener("HideCookPage", HoverLeaveEvent);
+        EventCenter.Instance.RemoveEventListener("ViewAllRefresh", ViewAllRefresh);
+
     }
 
-    private void ViewAllRefresh()
+    private void ViewAllRefresh(object arg0)
     {
         RefreshCapacityPhysics();
         RefreshNormalInfoUI();

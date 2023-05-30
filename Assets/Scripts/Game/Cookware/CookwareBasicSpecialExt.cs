@@ -57,4 +57,26 @@ public partial class CookwareBasic
         itemView.RefreshMarryUI();
     }
 
+
+    private void ReduceMarryCondition(object arg0)
+    {
+        if(cookType == CookwareType.Marriage)
+        {
+            EffortExcelItem effort = PublicTool.GetEffortItem(9999);
+            eduMinMarry -= Mathf.FloorToInt(effort.value0);
+            careerMinMarry -= Mathf.FloorToInt(effort.value0);
+            ageMaxMarry += Mathf.FloorToInt(effort.value1);
+
+            if (eduMinMarry < 0)
+            {
+                eduMinMarry = 0;
+            }
+            if (careerMinMarry < 0)
+            {
+                careerMinMarry = 0;
+            }
+
+            itemView.RefreshMarryUI();
+        }
+    }
 }

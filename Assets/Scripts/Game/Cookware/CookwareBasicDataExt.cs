@@ -10,13 +10,21 @@ public partial class CookwareBasic
         {
             if (cookItem != null)
             {
-                if(cookType == CookwareType.Marriage)
+                switch (cookType)
                 {
-                    return ageMinMarry;
-                }
-                else
-                {
-                    return cookItem.ageMin_real;
+                    case CookwareType.Study:
+                        if (PublicTool.CheckWhetherEffortGot(1002))
+                        {
+                            return Mathf.FloorToInt(PublicTool.GetEffortItem(1002).value0);
+                        }
+                        else
+                        {
+                            return cookItem.ageMin_real;
+                        }
+                    case CookwareType.Marriage:
+                        return ageMinMarry;
+                    default:
+                        return cookItem.ageMin_real;
                 }
             }
             return 0;
@@ -29,13 +37,12 @@ public partial class CookwareBasic
         {
             if (cookItem != null)
             {
-                if (cookType == CookwareType.Marriage)
+                switch (cookType)
                 {
-                    return ageMaxMarry;
-                }
-                else
-                {
-                    return cookItem.ageMax_real;
+                    case CookwareType.Marriage:
+                        return ageMaxMarry;
+                    default:
+                        return cookItem.ageMax_real;
                 }
             }
             return 0;
@@ -80,8 +87,6 @@ public partial class CookwareBasic
     {
         switch (cookType)
         {
-            case CookwareType.Study:
-                return string.Format("{0}-{1}", GameGlobal.ageMinStudy, GameGlobal.ageMaxStudy);
             case CookwareType.Retire:
                 return string.Format("{0}+", AgeMin_real);
             default:
