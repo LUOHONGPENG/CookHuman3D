@@ -22,8 +22,8 @@ public class HumanItem
         this.HumanID = ID;
         this.Age = 0;
         this.isMarried = false;
-        this.expEdu = 0;
-        this.expCareer = 0;
+        this.expEdu = 0.0001f;
+        this.expCareer = 0.0001f;
         //Initial Sex data
         int ranSex = Random.Range(0, 2);
         if(ranSex == 0)

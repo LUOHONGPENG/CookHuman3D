@@ -13,7 +13,7 @@ public class InterfaceUIMgr : MonoBehaviour
     [Header("Speed")]
     public Button btnNormal;
     public Button btnFast;
-
+    public Material mGray;
 
     private bool isInit = false;
 
@@ -29,13 +29,13 @@ public class InterfaceUIMgr : MonoBehaviour
         btnNormal.onClick.RemoveAllListeners();
         btnNormal.onClick.AddListener(delegate ()
         {
-            GameMgr.Instance.globalTimeScale = 1f;
+            SetNormalSpeed();
         });
 
         btnFast.onClick.RemoveAllListeners();
         btnFast.onClick.AddListener(delegate ()
         {
-            GameMgr.Instance.globalTimeScale = 2f;
+            SetFastSpeed();
         });
 
         isInit = true;
@@ -43,7 +43,7 @@ public class InterfaceUIMgr : MonoBehaviour
 
     public void StartGame()
     {
-        GameMgr.Instance.globalTimeScale = 1f;
+        SetNormalSpeed();
         RefreshScore(0);
         RefreshEffort(null);
     }
@@ -60,6 +60,24 @@ public class InterfaceUIMgr : MonoBehaviour
         EventCenter.Instance.RemoveEventListener("RefreshEffort", RefreshEffort);
     }
     #endregion
+
+    #region Speed
+
+    private void SetNormalSpeed()
+    {
+        GameMgr.Instance.globalTimeScale = 1f;
+        btnNormal.GetComponent<Image>().material = null;
+        btnFast.GetComponent<Image>().material = mGray;
+    }
+
+    private void SetFastSpeed()
+    {
+        GameMgr.Instance.globalTimeScale = 2f;
+        btnNormal.GetComponent<Image>().material = mGray;
+        btnFast.GetComponent<Image>().material = null;
+    }
+    #endregion
+
 
     private void RefreshScore(object arg0)
     {
