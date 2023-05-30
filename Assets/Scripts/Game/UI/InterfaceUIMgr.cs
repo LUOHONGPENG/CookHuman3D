@@ -29,13 +29,13 @@ public class InterfaceUIMgr : MonoBehaviour
         btnNormal.onClick.RemoveAllListeners();
         btnNormal.onClick.AddListener(delegate ()
         {
-            Time.timeScale = 1f;
+            GameMgr.Instance.globalTimeScale = 1f;
         });
 
         btnFast.onClick.RemoveAllListeners();
         btnFast.onClick.AddListener(delegate ()
         {
-            Time.timeScale = 2f;
+            GameMgr.Instance.globalTimeScale = 2f;
         });
 
         isInit = true;
@@ -43,7 +43,7 @@ public class InterfaceUIMgr : MonoBehaviour
 
     public void StartGame()
     {
-        Time.timeScale = 1f;
+        GameMgr.Instance.globalTimeScale = 1f;
         RefreshScore(0);
         RefreshEffort(null);
     }

@@ -39,6 +39,7 @@ public class GameMgr : MonoSingleton<GameMgr>
     public bool isTutorialPageOn = false;
     public bool isRetirePageOn = false;
     public bool isEndPageOn = false;
+    public float globalTimeScale = 1f;
 
     #region GameData
 
@@ -125,7 +126,7 @@ public class GameMgr : MonoSingleton<GameMgr>
         }
         else
         {
-            Time.timeScale = 1f;
+            Time.timeScale = globalTimeScale;
         }
     }
 
