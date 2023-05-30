@@ -102,7 +102,7 @@ public class EndUIMgr : MonoBehaviour
         codeScoreHuman.text = finalScore.ToString();
         codeScoreUpload.text = finalScore.ToString();
         //Basic
-        GameMgr.Instance.isPageOn = true;
+        GameMgr.Instance.isEndPageOn = true;
         objPopup.SetActive(true);
         ShowHumanPage();
     }
@@ -181,7 +181,7 @@ public class EndUIMgr : MonoBehaviour
     public void RestartGame()
     {
         objPopup.SetActive(false);
-        GameMgr.Instance.isPageOn = false;
+        GameMgr.Instance.isEndPageOn = false;
         GameMgr.Instance.StartGame();
         //SceneManager.LoadScene("Main");
     }

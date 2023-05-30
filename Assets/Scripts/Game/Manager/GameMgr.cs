@@ -21,7 +21,24 @@ public class GameMgr : MonoSingleton<GameMgr>
 
 
     private bool isInit = false;
-    public bool isPageOn = false;
+    public bool isPageOn
+    {
+        get
+        {
+            if(isTutorialPageOn|| isRetirePageOn || isEndPageOn)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    public bool isTutorialPageOn = false;
+    public bool isRetirePageOn = false;
+    public bool isEndPageOn = false;
+
 
     public int numMarry = 0;
 
@@ -34,7 +51,6 @@ public class GameMgr : MonoSingleton<GameMgr>
         mapMgr.Init();
         uiMgr.Init();
         soundMgr.Init();
-        isPageOn = false;
         isInit = true;
         Debug.Log("GameMgrEndInit");
 

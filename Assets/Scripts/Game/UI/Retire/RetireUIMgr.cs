@@ -46,7 +46,7 @@ public class RetireUIMgr : MonoBehaviour
         human.humanItem.vScore = vScore;
 
         objPopup.SetActive(true);
-        GameMgr.Instance.isPageOn = true;
+        GameMgr.Instance.isRetirePageOn = true;
     }
 
     public void HidePopup()
@@ -56,7 +56,7 @@ public class RetireUIMgr : MonoBehaviour
             storedHuman.isDead = true;
         }
         objPopup.SetActive(false);
-        GameMgr.Instance.isPageOn = false;
+        GameMgr.Instance.isRetirePageOn = false;
     }
 
     

@@ -36,7 +36,7 @@ public class TutorialUIMgr : MonoBehaviour
         curID = 0;
         ReadTutorial();
         objPopup.SetActive(true);
-        GameMgr.Instance.isPageOn = true;
+        GameMgr.Instance.isTutorialPageOn = true;
     }
 
     private void NextStep()
@@ -55,7 +55,7 @@ public class TutorialUIMgr : MonoBehaviour
     private void EndTutorial()
     {
         objPopup.SetActive(false);
-        GameMgr.Instance.isPageOn = false;
+        GameMgr.Instance.isTutorialPageOn = false;
     }
 
     private void ReadTutorial()

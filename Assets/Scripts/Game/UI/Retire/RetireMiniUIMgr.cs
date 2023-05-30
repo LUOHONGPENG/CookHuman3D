@@ -10,6 +10,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     public RectTransform rtInfo;
     public Button btnClose;
     public Button btnPause;
+    public Image imgTime;
 
     [Header("Score")]
     public Text codeScore;
@@ -34,8 +35,9 @@ public class RetireMiniUIMgr : MonoBehaviour
         btnPause.onClick.RemoveAllListeners();
         btnPause.onClick.AddListener(delegate ()
         {
-            btnPause.gameObject.SetActive(false);
-            GameMgr.Instance.isPageOn = true;
+            btnPause.interactable = false;
+            imgTime.gameObject.SetActive(false);
+            GameMgr.Instance.isRetirePageOn = true;
             objBlock.gameObject.SetActive(true);
         });
 
@@ -71,9 +73,10 @@ public class RetireMiniUIMgr : MonoBehaviour
 
         if (GameMgr.Instance.mapMgr.listHumanBasic.Count > 1)
         {
+            btnPause.interactable = true;
             DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(0, 0), 0.5f);
             timerClose = 3f;
-            btnPause.gameObject.SetActive(true);
+            imgTime.gameObject.SetActive(true);
         }
 
         human.isDead = true;
@@ -82,7 +85,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     public void HidePopup()
     {
         DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(1000f, 0), 0.5f);
-        GameMgr.Instance.isPageOn = false;
+        GameMgr.Instance.isRetirePageOn = false;
         objBlock.gameObject.SetActive(false);
     }
 
@@ -92,6 +95,7 @@ public class RetireMiniUIMgr : MonoBehaviour
         if (timerClose > 0)
         {
             timerClose -= Time.deltaTime;
+            imgTime.fillAmount = timerClose / 3F;
         }
         else
         {
