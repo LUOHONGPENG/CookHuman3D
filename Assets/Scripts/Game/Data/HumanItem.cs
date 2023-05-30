@@ -57,6 +57,7 @@ public class HumanItem
     public void RecordRetired()
     {
         vRetireAge = Age;
+        GameMgr.Instance.ChargeEffort();
     }
     #endregion
 

@@ -19,8 +19,8 @@ public class GameMgr : MonoSingleton<GameMgr>
     public SoundMgr soundMgr;
     public DataMgr dataMgr;
 
-
     private bool isInit = false;
+
     public bool isPageOn
     {
         get
@@ -39,8 +39,37 @@ public class GameMgr : MonoSingleton<GameMgr>
     public bool isRetirePageOn = false;
     public bool isEndPageOn = false;
 
+    #region GameData
 
     public int numMarry = 0;
+    public int numEffortCharge = 0;
+    public int maxEffortCharge = 0;
+    public List<int> listEffortID = new List<int>();
+
+    private void InitGameData()
+    {
+        numMarry = 0;
+        maxEffortCharge = 4;
+        numEffortCharge = 0;
+        listEffortID.Clear();
+    }
+
+    public void ChargeEffort()
+    {
+        if (numEffortCharge < maxEffortCharge)
+        {
+            numEffortCharge++;
+            EventCenter.Instance.EventTrigger("RefreshEffort", null);
+        }
+    }
+
+    public void ClearEffort()
+    {
+        numEffortCharge = 0;
+        EventCenter.Instance.EventTrigger("RefreshEffort", null);
+    }
+
+    #endregion
 
     public override void Init()
     {
@@ -59,7 +88,7 @@ public class GameMgr : MonoSingleton<GameMgr>
 
     public void StartGame()
     {
-        numMarry = 0;
+        InitGameData();
         mapMgr.StartGame();
         uiMgr.StartGame();
     }

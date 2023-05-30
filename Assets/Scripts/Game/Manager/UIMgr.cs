@@ -8,6 +8,7 @@ public class UIMgr : MonoBehaviour
     //public RetireUIMgr retireUIMgr;
     public InterfaceUIMgr interfaceUIMgr;
     public RetireMiniUIMgr retireMiniUIMgr;
+    public EffortUIMgr effortUIMgr;
     public EndUIMgr endUIMgr;
     public TutorialUIMgr tutorialUIMgr;
     public void Init()
@@ -16,6 +17,7 @@ public class UIMgr : MonoBehaviour
         //retireUIMgr.Init();
         interfaceUIMgr.Init();
         retireMiniUIMgr.Init();
+        effortUIMgr.Init();
         endUIMgr.Init();
         tutorialUIMgr.Init();
     }
