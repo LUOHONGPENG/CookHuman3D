@@ -63,16 +63,18 @@ public class RetireMiniUIMgr : MonoBehaviour
         HumanBasic human = (HumanBasic)arg0;
         HumanItem humanItem = human.humanItem;
 
-        DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(0, 0), 0.5f);
-
         PublicTool.ClearChildItem(tfComment);
         //CalculateScore
         int vScore = CalculateScore(humanItem);
         codeScore.text = vScore.ToString();
         human.humanItem.vScore = vScore;
 
-        timerClose = 3f;
-        btnPause.gameObject.SetActive(true) ;
+        if (GameMgr.Instance.mapMgr.listHumanBasic.Count > 1)
+        {
+            DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(0, 0), 0.5f);
+            timerClose = 3f;
+            btnPause.gameObject.SetActive(true);
+        }
 
         human.isDead = true;
     }
