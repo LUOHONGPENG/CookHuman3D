@@ -33,6 +33,17 @@ public partial class MapMgr
         cookRetire.Init(4001);
     }
 
+    public void StartCookware()
+    {
+        cookStudy.StartGame();
+        cookWork1.StartGame();
+        cookWork2.StartGame();
+        cookWork3.StartGame();
+        cookMarryF.StartGame();
+        cookMarryM.StartGame();
+        cookRetire.StartGame();
+    }
+
     #endregion
 
     #region Human

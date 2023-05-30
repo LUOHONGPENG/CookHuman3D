@@ -11,6 +11,15 @@ public partial class MapMgr
     private InputAction touchAction;
     private InputAction touchPositionAction;
 
+    public void StartInput()
+    {
+        isDragging = false;
+        draggingHuman = null;
+
+        recordEnterCook = -1;
+        recordEnterHuman = -1;
+    }
+
     #region BasicInputBinding
     private void InitInput()
     {

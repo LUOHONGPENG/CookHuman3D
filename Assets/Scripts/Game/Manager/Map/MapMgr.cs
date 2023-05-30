@@ -16,7 +16,9 @@ public partial class MapMgr : MonoBehaviour
 
     public void StartGame()
     {
+        StartInput();
         StartHuman();
+        StartCookware();
     }
 
 

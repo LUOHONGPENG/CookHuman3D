@@ -33,17 +33,19 @@ public partial class CookwareBasic : MonoBehaviour
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
 
-        //InitView
-        listCurHuman.Clear();
         itemView.Init(this);
 
+        isInit = true;
+    }
+
+    public void StartGame()
+    {
+        listCurHuman.Clear();
         //Initialize Marriage
         if (cookType == CookwareType.Marriage)
         {
             RefreshMarryCondition();
         }
-
-        isInit = true;
     }
 
     //Get the item data

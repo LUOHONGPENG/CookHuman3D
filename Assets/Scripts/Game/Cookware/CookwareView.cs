@@ -146,7 +146,8 @@ public class CookwareView : MonoBehaviour
             RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
             requireExp.Init(ExpType.Edu);
         }
-        HideNormalCookInfo();
+
+        InitNormalCookInfo();
     }
 
     private void InitMarryUI()
@@ -260,11 +261,34 @@ public class CookwareView : MonoBehaviour
         }
     }
 
+    private void InitNormalCookInfo()
+    {
+        canvasGroupDesc.alpha = 0;
+        canvasGroupCondition.alpha = 1;
+        if (parent.eduMin > 0)
+        {
+            rtBgNormal.sizeDelta = new Vector2(836f, 450f);
+            canvasGroupCondition.gameObject.SetActive(true);
+        }
+        else
+        {
+            rtBgNormal.sizeDelta = new Vector2(836f, 280f);
+            canvasGroupCondition.gameObject.SetActive(false);
+        }
+    }
+
     private void HideNormalCookInfo()
     {
         canvasGroupDesc.DOFade(0, 0.25f);
-        canvasGroupCondition.DOFade(0, 0.25f);
-        rtBgNormal.DOSizeDelta(new Vector2(836f, 280f), 0.25f);
+        //canvasGroupCondition.DOFade(0, 0.25f);
+        if(parent.eduMin > 0)
+        {
+            rtBgNormal.DOSizeDelta(new Vector2(836f, 450f), 0.25f);
+        }
+        else
+        {
+            rtBgNormal.DOSizeDelta(new Vector2(836f, 280f), 0.25f);
+        }
     }
     #endregion
 
