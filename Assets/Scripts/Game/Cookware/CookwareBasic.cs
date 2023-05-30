@@ -40,7 +40,11 @@ public partial class CookwareBasic : MonoBehaviour
 
     public void StartGame()
     {
+
         listCurHuman.Clear();
+
+        itemView.StartGame();
+
         //Initialize Marriage
         if (cookType == CookwareType.Marriage)
         {

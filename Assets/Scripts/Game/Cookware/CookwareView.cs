@@ -46,6 +46,7 @@ public class CookwareView : MonoBehaviour
 
     private CookwareBasic parent;
     private bool isInit = false;
+    private bool isStartGame = false;
 
     public CookwareBasic GetBasic()
     {
@@ -56,16 +57,20 @@ public class CookwareView : MonoBehaviour
     {
         this.parent = parent;
 
-        InitUI();
-        InitCapacity();
-
         isInit = true;
+    }
+
+    public void StartGame()
+    {
+        InitUI();
+        RefreshCapacityPhysics();
     }
 
     public void OnEnable()
     {
         EventCenter.Instance.AddEventListener("ShowCookPage", HoverEnterEvent);
         EventCenter.Instance.AddEventListener("HideCookPage", HoverLeaveEvent);
+
 
     }
 
@@ -75,7 +80,15 @@ public class CookwareView : MonoBehaviour
         EventCenter.Instance.RemoveEventListener("HideCookPage", HoverLeaveEvent);
     }
 
-    private void InitCapacity()
+    private void ViewAllRefresh()
+    {
+        RefreshCapacityPhysics();
+        RefreshNormalInfoUI();
+        RefreshMarryUI();
+    }
+
+
+    public void RefreshCapacityPhysics()
     {
         //Initialize capacity
         listTfHuman.Clear();
@@ -118,16 +131,29 @@ public class CookwareView : MonoBehaviour
         objMarriage.SetActive(false);
         objNormal.gameObject.SetActive(true);
 
+
+        RefreshNormalInfoUI();
+        InitNormalCookInfo();
+    }
+
+    private void RefreshNormalInfoUI()
+    {
         //Init Age Info
         txAgeNormal.text = parent.GetAgeString();
 
         //Init Desc Info
         txDesc.text = parent.GetDesc();
 
+        RefreshCapacityUI();
+        RefreshConditionUI();
+    }
+
+    private void RefreshCapacityUI()
+    {
         //Init Capacity Info
         listCapacityUI.Clear();
         PublicTool.ClearChildItem(tfCapacity);
-        if(parent.cookType == CookwareType.Study || parent.cookType == CookwareType.Job)
+        if (parent.cookType == CookwareType.Study || parent.cookType == CookwareType.Job)
         {
             for (int i = 0; i < parent.cookCapacity; i++)
             {
@@ -137,7 +163,10 @@ public class CookwareView : MonoBehaviour
                 listCapacityUI.Add(itemCapaUI);
             }
         }
+    }
 
+    private void RefreshConditionUI()
+    {
         //Init Condition Info
         PublicTool.ClearChildItem(tfEduNormal);
         for (int i = 0; i < parent.eduMin; i++)
@@ -146,9 +175,8 @@ public class CookwareView : MonoBehaviour
             RequireUIItem requireExp = objExp.GetComponent<RequireUIItem>();
             requireExp.Init(ExpType.Edu);
         }
-
-        InitNormalCookInfo();
     }
+
 
     private void InitMarryUI()
     {
@@ -167,11 +195,10 @@ public class CookwareView : MonoBehaviour
         {
             return;
         }
-        RefreshCapacityUI();
-
+        RefreshCapacityInnerUI();
     }
 
-    private void RefreshCapacityUI()
+    private void RefreshCapacityInnerUI()
     {
         for (int i = 0; i < listCapacityUI.Count; i++)
         {
