@@ -20,7 +20,7 @@ public class EffortUIItem : MonoBehaviour
         if (effortItem != null)
         {
             txName.text = effortItem.name;
-            txDesc.text = effortItem.desc;
+            txDesc.text = string.Format(effortItem.desc,effortItem.value0,effortItem.value1);
 
             btnEffort.onClick.RemoveAllListeners();
             btnEffort.onClick.AddListener(delegate ()

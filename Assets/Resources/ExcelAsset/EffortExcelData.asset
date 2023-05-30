@@ -15,21 +15,21 @@ MonoBehaviour:
   items:
   - id: 1001
     name: Tiger Mother
-    desc: 111
+    desc: Improve learning efficiency.
     value0: 2
     value1: 0
   - id: 1002
     name: Early Bird
-    desc: 111
+    desc: Nowborn children can go to school.
     value0: 0
     value1: 0
   - id: 1003
     name: Magic Belly
-    desc: 11
+    desc: Can give birth to twins.
     value0: 20
     value1: 0
   - id: 1004
     name: Working Student
-    desc: 11
-    value0: 1
-    value1: 0
+    desc: Can gain working experience in school after {0} years old.
+    value0: 16
+    value1: 1

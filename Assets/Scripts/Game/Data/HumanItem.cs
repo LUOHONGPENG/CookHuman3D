@@ -63,7 +63,7 @@ public class HumanItem
 
     #region TimeGo
 
-    public void TimeGoRecordSchool(float yearDelta,float eduDelta)
+    public void TimeGoGrowEdu(float eduDelta)
     {
         expEdu += eduDelta;
         if (expEdu > 100f)
@@ -72,7 +72,7 @@ public class HumanItem
         }
     }
 
-    public void TimeGoRecordJob(float yearDelta, float careerDelta)
+    public void TimeGoGrowCareer( float careerDelta)
     {
         expCareer += careerDelta;
         if(expCareer > 100f)

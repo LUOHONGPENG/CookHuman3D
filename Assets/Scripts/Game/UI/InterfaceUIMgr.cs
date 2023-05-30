@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class InterfaceUIMgr : MonoBehaviour
 {
+    [Header("Score")]
     public Text codeScore;
-
+    [Header("Effort")]
     public Button btnEffort;
     public Image imgEffortFill;
+    [Header("Speed")]
+    public Button btnNormal;
+    public Button btnFast;
+
 
     private bool isInit = false;
 
@@ -20,11 +25,25 @@ public class InterfaceUIMgr : MonoBehaviour
         {
             EventCenter.Instance.EventTrigger("ShowEffortPage", null);
         });
+
+        btnNormal.onClick.RemoveAllListeners();
+        btnNormal.onClick.AddListener(delegate ()
+        {
+            Time.timeScale = 1f;
+        });
+
+        btnFast.onClick.RemoveAllListeners();
+        btnFast.onClick.AddListener(delegate ()
+        {
+            Time.timeScale = 2f;
+        });
+
         isInit = true;
     }
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
         RefreshScore(0);
         RefreshEffort(null);
     }
@@ -33,17 +52,13 @@ public class InterfaceUIMgr : MonoBehaviour
     {
         EventCenter.Instance.AddEventListener("RefreshScore", RefreshScore);
         EventCenter.Instance.AddEventListener("RefreshEffort", RefreshEffort);
-
     }
 
     public void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener("RefreshScore", RefreshScore);
         EventCenter.Instance.RemoveEventListener("RefreshEffort", RefreshEffort);
-
     }
-
-
     #endregion
 
     private void RefreshScore(object arg0)

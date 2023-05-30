@@ -11,7 +11,7 @@ public class EffortUIMgr : MonoBehaviour
     public Transform tfEffort;
     public GameObject pfEffort;
 
-    #region
+    #region Basic
     public void Init()
     {
         btnClose.onClick.RemoveAllListeners();
@@ -33,7 +33,7 @@ public class EffortUIMgr : MonoBehaviour
 
     public void ShowPopup(object arg0)
     {
-        objPopup.SetActive(true);
+        GameMgr.Instance.isEffortPageOn = true;
 
         PublicTool.ClearChildItem(tfEffort);
         List<int> listEffortID = GameMgr.Instance.listEffortPrepared;
@@ -43,11 +43,14 @@ public class EffortUIMgr : MonoBehaviour
             EffortUIItem itemEffort = objEffort.GetComponent<EffortUIItem>();
             itemEffort.Init(listEffortID[i],this);
         }
+
+        objPopup.SetActive(true);
     }
 
     public void HidePopup()
     {
         objPopup.SetActive(false);
+        GameMgr.Instance.isEffortPageOn = false;
     }
     #endregion
 }

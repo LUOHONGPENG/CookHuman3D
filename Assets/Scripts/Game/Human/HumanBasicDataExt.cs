@@ -89,14 +89,21 @@ public partial class HumanBasic
     {
         if (humanState == HumanState.Studying)
         {
-            float eduDelta = curCookware.GetItem().growRate * yearDelta;
-            humanItem.TimeGoRecordSchool(yearDelta, eduDelta);
+            float eduDelta = curCookware.GetItem().ReadGrowRate * yearDelta;
+            humanItem.TimeGoGrowEdu(eduDelta);
+
+            if (PublicTool.CheckWhetherEffortGot(1004) && Age >= 16)
+            {
+                float extraCareerDelta = PublicTool.GetEffortItem(1004).value1 * yearDelta;
+                humanItem.TimeGoGrowCareer(extraCareerDelta);
+            }
         }
 
         if (humanState == HumanState.Working)
         {
-            float careerDelta = curCookware.GetItem().growRate * yearDelta;
-            humanItem.TimeGoRecordJob(yearDelta, careerDelta);
+            float careerDelta = curCookware.GetItem().ReadGrowRate * yearDelta;
+            humanItem.TimeGoGrowCareer(careerDelta);
+            //Send yearDelta
         }
     }
 

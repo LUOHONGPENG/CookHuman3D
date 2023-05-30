@@ -25,7 +25,7 @@ public class GameMgr : MonoSingleton<GameMgr>
     {
         get
         {
-            if(isTutorialPageOn|| isRetirePageOn || isEndPageOn)
+            if(isEffortPageOn || isTutorialPageOn || isRetirePageOn || isEndPageOn)
             {
                 return true;
             }
@@ -35,6 +35,7 @@ public class GameMgr : MonoSingleton<GameMgr>
             }
         }
     }
+    public bool isEffortPageOn = false;
     public bool isTutorialPageOn = false;
     public bool isRetirePageOn = false;
     public bool isEndPageOn = false;
