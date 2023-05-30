@@ -36,12 +36,18 @@ public partial class MapMgr
     #endregion
 
     #region Human
-    public void InitHuman()
+
+    public void StartHuman()
     {
         listHumanBasic.Clear();
         listHumanItem.Clear();
+        StartCoroutine(IE_StartHuman());
+    }
 
+    public IEnumerator IE_StartHuman()
+    {
         CreateHuman();
+        yield return new WaitForSeconds(GameGlobal.timeOneYear * 2);
         CreateHuman();
     }
 

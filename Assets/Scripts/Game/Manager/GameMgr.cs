@@ -36,7 +36,6 @@ public class GameMgr : MonoSingleton<GameMgr>
         soundMgr.Init();
         isPageOn = false;
         isInit = true;
-        numMarry = 0;
         Debug.Log("GameMgrEndInit");
 
         StartGame();
@@ -44,7 +43,9 @@ public class GameMgr : MonoSingleton<GameMgr>
 
     public void StartGame()
     {
-        GameMgr.Instance.uiMgr.tutorialUIMgr.StartTutorial();
+        numMarry = 0;
+        mapMgr.StartGame();
+        uiMgr.StartGame();
     }
 
     //For UI or event

@@ -11,10 +11,14 @@ public partial class MapMgr : MonoBehaviour
     {
         InitInput();
         InitCookware();
-        InitHuman();
-
         isInit = true;
     }
+
+    public void StartGame()
+    {
+        StartHuman();
+    }
+
 
     public void OnEnable()
     {

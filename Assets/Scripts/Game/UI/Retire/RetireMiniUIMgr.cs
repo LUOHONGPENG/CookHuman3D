@@ -26,10 +26,6 @@ public class RetireMiniUIMgr : MonoBehaviour
 
     public void Init()
     {
-        objBlock.SetActive(false);
-
-        rtInfo.anchoredPosition = new Vector2(1000f, 0);
-
         btnClose.onClick.RemoveAllListeners();
         btnClose.onClick.AddListener(delegate () {
             timerClose = 0;
@@ -44,6 +40,12 @@ public class RetireMiniUIMgr : MonoBehaviour
         });
 
         isInit = true;
+    }
+
+    public void StartGame()
+    {
+        objBlock.SetActive(false);
+        rtInfo.anchoredPosition = new Vector2(1000f, 0);
     }
 
     public void OnEnable()

@@ -9,6 +9,11 @@ public class InterfaceUIMgr : MonoBehaviour
 
     public void Init()
     {
+
+    }
+
+    public void StartGame()
+    {
         RefreshScore(0);
     }
 
