@@ -32,6 +32,8 @@ public partial class CookwareBasic : MonoBehaviour
         cookItem = DataMgr.Instance.cookwareData.GetExcelItem(cookID);
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
+        //Temp
+        this.itemView.transform.position = tfModel.position;
 
         itemView.Init(this);
 

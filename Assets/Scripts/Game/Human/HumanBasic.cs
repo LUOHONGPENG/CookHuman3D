@@ -8,6 +8,8 @@ public partial class HumanBasic : MonoBehaviour
     [Header("Basic")]
     //Remember the original Pos
     public Transform tfHumanHead;
+    public GameObject modelM;
+    public GameObject modelF;
     public int posOriginID = 0;
     public Vector3 posCookware;
     public HumanView itemView;
@@ -19,8 +21,19 @@ public partial class HumanBasic : MonoBehaviour
     {
         this.humanItem = humanItem;
         this.posOriginID = posID;
-        itemView.Init(this);
+        switch (humanItem.sex)
+        {
+            case Sex.Male:
+                modelM.SetActive(true);
+                modelF.SetActive(false);
+                break;
+            case Sex.Female:
+                modelM.SetActive(false);
+                modelF.SetActive(true);
+                break;
+        }
 
+        itemView.Init(this);
         isRetired = false;
         isDead = false;
 

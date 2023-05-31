@@ -8,10 +8,15 @@ public partial class HumanBasic
     #region BasicData
     //The data of this human
     [Header("Status")]
+    [HideInInspector]
     public HumanItem humanItem;
+    [HideInInspector]
     public bool isRetired = false;
+    [HideInInspector]
     public bool isDead = false;
+    [HideInInspector]
     public float yearMarriage = 0;
+    [HideInInspector]
     public float maxYearMarriage = 0;
     //Check and get the human's state
     public HumanState humanState
