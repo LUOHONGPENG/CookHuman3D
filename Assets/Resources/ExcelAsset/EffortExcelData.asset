@@ -16,7 +16,7 @@ MonoBehaviour:
   - id: 1001
     name: Tiger Mother
     desc: Improve learning efficiency.
-    value0: 1.1
+    value0: 0.65
     value1: 0
   - id: 1002
     name: Early Bird
