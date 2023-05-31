@@ -57,12 +57,12 @@ public partial class MapMgr
 
     public IEnumerator IE_StartHuman()
     {
-        CreateHuman();
+        CreateHuman(false);
         yield return new WaitForSeconds(GameGlobal.timeOneYear * 2);
-        CreateHuman();
+        CreateHuman(false);
     }
 
-    public void CreateHuman()
+    public void CreateHuman(bool setSex,Sex sex = Sex.Male)
     {
         if(listHumanBasic.Count >= GameGlobal.listPosHumanOrigin.Count)
         {
@@ -70,8 +70,26 @@ public partial class MapMgr
             return;
         }
 
-        //Create a human item
-        HumanItem humanItem = new HumanItem(listHumanItem.Count);
+        //Sex
+        Sex targetSex= Sex.Male;
+        if (setSex)
+        {
+            targetSex = sex;
+        }
+        else
+        {
+            //Initial Sex data
+            int ranSex = Random.Range(0, 2);
+            if (ranSex == 0)
+            {
+                targetSex = Sex.Male;
+            }
+            else if (ranSex == 1)
+            {
+                targetSex = Sex.Female;
+            }
+        }
+        HumanItem humanItem = new HumanItem(listHumanItem.Count, targetSex);
         listHumanItem.Add(humanItem);
 
         //Decide PosID
@@ -95,7 +113,30 @@ public partial class MapMgr
 
     private void CreateBaby(object arg0)
     {
-        CreateHuman();
+        bool isTwin = false;
+        if (PublicTool.CheckWhetherEffortGot(1003))
+        {
+            if (listHumanBasic.Count <= 2)
+            {
+                int ran = Random.Range(0, 100);
+                if(ran < PublicTool.GetEffortItem(1003).value0)
+                {
+                    isTwin = true;
+                }
+            }
+        }
+
+        if (isTwin)
+        {
+            CreateHuman(true,Sex.Male);
+            CreateHuman(true,Sex.Female);
+
+            //MagicBelly!
+        }
+        else
+        {
+            CreateHuman(false);
+        }
     }
     #endregion
 
@@ -110,7 +151,7 @@ public partial class MapMgr
             if (human.isDead)
             {
                 DestroyHuman(human);
-                RefreshHumanScore();
+                EventCenter.Instance.EventTrigger("RefreshScore", null);
                 continue;
             }
             //Time Go
@@ -143,17 +184,6 @@ public partial class MapMgr
         {
             EventCenter.Instance.EventTrigger("EndGame", null) ;
         }
-    }
-
-    public void RefreshHumanScore()
-    {
-        int vScore = 0;
-        for(int i = 0; i < listHumanItem.Count; i++)
-        {
-            vScore += listHumanItem[i].vScore;
-        }
-
-        EventCenter.Instance.EventTrigger("RefreshScore",vScore);
     }
     #endregion
 }

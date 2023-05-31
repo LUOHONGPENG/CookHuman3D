@@ -17,57 +17,57 @@ MonoBehaviour:
     scoreType: 0
     keyValue: 0
     desc: Poor Education.
-    init: -300
-    slope: 15
+    init: -1200
+    slope: 30
     remark: score=init+slope*key
   - id: 1002
     scoreType: 0
-    keyValue: 35
+    keyValue: 40
     desc: Normal Education.
-    init: -300
-    slope: 15
+    init: -1000
+    slope: 25
     remark: expEdu
   - id: 1003
     scoreType: 0
-    keyValue: 75
+    keyValue: 80
     desc: High Education.
-    init: -300
-    slope: 15
+    init: -1800
+    slope: 35
     remark: 
   - id: 2001
     scoreType: 1
     keyValue: 0
     desc: Poor Career.
-    init: -600
-    slope: 20
+    init: -900
+    slope: 30
     remark: expCareer
   - id: 2002
     scoreType: 1
-    keyValue: 35
+    keyValue: 30
     desc: Normal Career.
-    init: -600
-    slope: 20
+    init: -1050
+    slope: 35
     remark: 
   - id: 2003
     scoreType: 1
     keyValue: 75
     desc: Nice Career.
-    init: -600
-    slope: 20
+    init: -1775
+    slope: 40
     remark: 
   - id: 3001
     scoreType: 2
     keyValue: -1
     desc: Single?
-    init: -1000
+    init: -1500
     slope: 0
     remark: MarriageAge
   - id: 3002
     scoreType: 2
     keyValue: 0
     desc: Quick Marry.
-    init: 500
-    slope: 0
+    init: 1700
+    slope: -50
     remark: 
   - id: 3003
     scoreType: 2
@@ -80,20 +80,20 @@ MonoBehaviour:
     scoreType: 2
     keyValue: 40
     desc: Late Marry!
-    init: -200
-    slope: 0
+    init: 1900
+    slope: -50
     remark: 
   - id: 4001
     scoreType: 3
     keyValue: 60
     desc: Retire on time!
-    init: 3500
+    init: 3600
     slope: -50
     remark: RetireAge
   - id: 4002
     scoreType: 3
     keyValue: 65
     desc: Late Retire!
-    init: 3250
+    init: 3050
     slope: -50
     remark: 

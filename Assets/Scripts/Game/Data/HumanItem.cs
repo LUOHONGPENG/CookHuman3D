@@ -16,7 +16,7 @@ public class HumanItem
     public int vRetireAge = -1;
     public int vScore = 0;
 
-    public HumanItem(int ID)
+    public HumanItem(int ID,Sex sex)
     {
         //Initial Basic data
         this.HumanID = ID;
@@ -24,16 +24,7 @@ public class HumanItem
         this.isMarried = false;
         this.expEdu = 0.0001f;
         this.expCareer = 0.0001f;
-        //Initial Sex data
-        int ranSex = Random.Range(0, 2);
-        if(ranSex == 0)
-        {
-            sex = Sex.Male;
-        }
-        else if(ranSex == 1)
-        {
-            sex = Sex.Female;
-        }
+        this.sex = sex;
         //Initial Score
         vScore = 0;
     }

@@ -32,6 +32,7 @@ public partial class MapMgr : MonoBehaviour
     {
         DisableInput();
         EventCenter.Instance.RemoveEventListener("CreateBaby", CreateBaby);
+
     }
 
 

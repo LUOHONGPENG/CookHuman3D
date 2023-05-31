@@ -45,19 +45,21 @@ public class InterfaceUIMgr : MonoBehaviour
     public void StartGame()
     {
         SetNormalSpeed();
-        RefreshScore(0);
+        RefreshScore(null);
         RefreshEffort(null);
     }
 
     public void OnEnable()
     {
         EventCenter.Instance.AddEventListener("RefreshScore", RefreshScore);
+        EventCenter.Instance.AddEventListener("ViewAllRefresh", RefreshScore);
         EventCenter.Instance.AddEventListener("RefreshEffort", RefreshEffort);
     }
 
     public void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener("RefreshScore", RefreshScore);
+        EventCenter.Instance.RemoveEventListener("ViewAllRefresh", RefreshScore);
         EventCenter.Instance.RemoveEventListener("RefreshEffort", RefreshEffort);
     }
     #endregion
@@ -82,8 +84,16 @@ public class InterfaceUIMgr : MonoBehaviour
 
     private void RefreshScore(object arg0)
     {
-        int score = (int)arg0;
-        codeScore.text = score.ToString();
+        int totalScore = 0;
+        List<HumanItem> listHuman = GameMgr.Instance.mapMgr.listHumanItem;
+        for (int i = 0; i < listHuman.Count; i++)
+        {
+            totalScore += listHuman[i].vScore;
+        }
+
+        totalScore += GameMgr.Instance.scorePenalty;
+
+        codeScore.text = totalScore.ToString();
     }
 
     private void RefreshEffort(object arg0)

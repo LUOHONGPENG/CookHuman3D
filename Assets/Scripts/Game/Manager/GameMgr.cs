@@ -44,9 +44,12 @@ public class GameMgr : MonoSingleton<GameMgr>
     #region GameData
 
     public int numMarry = 0;
+    //Effort
     public int numEffortCharge = 0;
     public int maxEffortCharge = 0;
     public int maxEffortLimit = 0;
+    public int numReduceMarry = 0;
+    public int scorePenalty = 0;
     public List<int> listEffortGot = new List<int>();
     public List<int> listEffortPrepared = new List<int>();
 
@@ -54,8 +57,10 @@ public class GameMgr : MonoSingleton<GameMgr>
     {
         numMarry = 0;
         numEffortCharge = 0;
-        maxEffortCharge = 1;
-        maxEffortLimit = 2;
+        maxEffortCharge = 2;
+        maxEffortLimit = 3;
+        numReduceMarry = 0;
+        scorePenalty = 0;
         listEffortGot.Clear();
         listEffortPrepared.Clear();
     }
@@ -86,6 +91,11 @@ public class GameMgr : MonoSingleton<GameMgr>
     public void DrawEffort()
     {
         listEffortPrepared = PublicTool.DrawTwo(dataMgr.effortExcelData.GetEffortIDList(), listEffortGot);
+    }
+
+    public int CalculateCurPenalty()
+    {
+        return numReduceMarry * -500 - 500;
     }
     #endregion
 

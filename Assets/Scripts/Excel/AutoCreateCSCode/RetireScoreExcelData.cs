@@ -13,6 +13,7 @@ public partial class RetireScoreExcelItem : ExcelItemBase
 	public string desc;
 	public int init;
 	public int slope;
+	public int keyPointScore;
 	public string remark;
 }
 
@@ -39,6 +40,7 @@ public class RetireScoreAssetAssignment
 			items[i].desc = allItemValueRowList[i]["desc"];
 			items[i].init = Convert.ToInt32(allItemValueRowList[i]["init"]);
 			items[i].slope = Convert.ToInt32(allItemValueRowList[i]["slope"]);
+			items[i].keyPointScore = Convert.ToInt32(allItemValueRowList[i]["keyPointScore"]);
 			items[i].remark = allItemValueRowList[i]["remark"];
 		}
 		RetireScoreExcelData excelDataAsset = ScriptableObject.CreateInstance<RetireScoreExcelData>();

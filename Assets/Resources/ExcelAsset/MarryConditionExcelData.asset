@@ -48,7 +48,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0
   - id: 1002
-    numMarriage: 2
+    numMarriage: 1
     ageMinM: 18
     ageMaxM: 49
     ageMinF: 18
@@ -82,7 +82,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.16666667
   - id: 1003
-    numMarriage: 4
+    numMarriage: 2
     ageMinM: 19
     ageMaxM: 49
     ageMinF: 18
@@ -116,7 +116,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.2857143
   - id: 1004
-    numMarriage: 6
+    numMarriage: 4
     ageMinM: 19
     ageMaxM: 48
     ageMinF: 18
@@ -150,7 +150,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.375
   - id: 1005
-    numMarriage: 8
+    numMarriage: 6
     ageMinM: 20
     ageMaxM: 48
     ageMinF: 18
@@ -184,7 +184,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.44444445
   - id: 1006
-    numMarriage: 10
+    numMarriage: 8
     ageMinM: 20
     ageMaxM: 47
     ageMinF: 18
@@ -218,7 +218,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.5
   - id: 1007
-    numMarriage: 12
+    numMarriage: 10
     ageMinM: 21
     ageMaxM: 47
     ageMinF: 18
@@ -252,7 +252,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.6363636
   - id: 1008
-    numMarriage: 14
+    numMarriage: 12
     ageMinM: 21
     ageMaxM: 46
     ageMinF: 18
@@ -286,7 +286,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.75
   - id: 1009
-    numMarriage: 16
+    numMarriage: 14
     ageMinM: 22
     ageMaxM: 46
     ageMinF: 18
@@ -320,7 +320,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.84615386
   - id: 1010
-    numMarriage: 18
+    numMarriage: 16
     ageMinM: 22
     ageMaxM: 45
     ageMinF: 18
@@ -354,7 +354,7 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 0.9285714
   - id: 1011
-    numMarriage: 20
+    numMarriage: 18
     ageMinM: 23
     ageMaxM: 45
     ageMinF: 18
@@ -388,18 +388,18 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 1
   - id: 1012
-    numMarriage: 22
+    numMarriage: 20
     ageMinM: 23
     ageMaxM: 44
     ageMinF: 18
     ageMaxF: 32
-    wEduM0: 3
+    wEduM0: 2
     wEduM1: 10
-    wEduM2: 25
+    wEduM2: 20
     wEduM3: 15
     wEduM4: 10
     wEduM5: 10
-    expectEduM: 2.671233
+    expectEduM: 2.761194
     wEduF0: 15
     wEduF1: 20
     wEduF2: 20
@@ -422,18 +422,18 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 1.125
   - id: 1013
-    numMarriage: 24
+    numMarriage: 22
     ageMinM: 24
     ageMaxM: 44
     ageMinF: 18
     ageMaxF: 32
-    wEduM0: 3
+    wEduM0: 2
     wEduM1: 10
-    wEduM2: 25
+    wEduM2: 20
     wEduM3: 20
     wEduM4: 15
     wEduM5: 10
-    expectEduM: 2.7710843
+    expectEduM: 2.857143
     wEduF0: 15
     wEduF1: 20
     wEduF2: 20
@@ -456,18 +456,18 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 1.2352941
   - id: 1014
-    numMarriage: 26
+    numMarriage: 24
     ageMinM: 24
     ageMaxM: 43
     ageMinF: 18
     ageMaxF: 31
-    wEduM0: 3
+    wEduM0: 1
     wEduM1: 5
-    wEduM2: 25
+    wEduM2: 20
     wEduM3: 25
-    wEduM4: 15
-    wEduM5: 10
-    expectEduM: 2.8915663
+    wEduM4: 20
+    wEduM5: 15
+    expectEduM: 3.1976745
     wEduF0: 15
     wEduF1: 20
     wEduF2: 20
@@ -475,13 +475,13 @@ MonoBehaviour:
     wEduF4: 10
     wEduF5: 0
     expectEduF: 1.9444444
-    wCareerM0: 3
+    wCareerM0: 2
     wCareerM1: 10
-    wCareerM2: 25
+    wCareerM2: 20
     wCareerM3: 15
     wCareerM4: 10
     wCareerM5: 10
-    expectCareerM: 2.671233
+    expectCareerM: 2.761194
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 15
@@ -490,18 +490,18 @@ MonoBehaviour:
     wCareerF5: 0
     expectCareerF: 1.3333334
   - id: 1015
-    numMarriage: 28
+    numMarriage: 26
     ageMinM: 25
     ageMaxM: 43
     ageMinF: 18
     ageMaxF: 31
-    wEduM0: 3
+    wEduM0: 1
     wEduM1: 5
     wEduM2: 20
     wEduM3: 25
-    wEduM4: 15
-    wEduM5: 10
-    expectEduM: 2.9487178
+    wEduM4: 20
+    wEduM5: 20
+    expectEduM: 3.2967033
     wEduF0: 15
     wEduF1: 20
     wEduF2: 20
@@ -509,13 +509,13 @@ MonoBehaviour:
     wEduF4: 10
     wEduF5: 0
     expectEduF: 2
-    wCareerM0: 3
+    wCareerM0: 2
     wCareerM1: 10
-    wCareerM2: 25
+    wCareerM2: 20
     wCareerM3: 20
     wCareerM4: 15
     wCareerM5: 10
-    expectCareerM: 2.7710843
+    expectCareerM: 2.857143
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 15
