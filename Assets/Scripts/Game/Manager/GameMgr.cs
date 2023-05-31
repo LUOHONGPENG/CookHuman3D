@@ -57,7 +57,7 @@ public class GameMgr : MonoSingleton<GameMgr>
     {
         numMarry = 0;
         numEffortCharge = 0;
-        maxEffortCharge = 2;
+        maxEffortCharge = 3;
         maxEffortLimit = 3;
         numReduceMarry = 0;
         scorePenalty = 0;

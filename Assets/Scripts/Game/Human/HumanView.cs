@@ -155,7 +155,7 @@ public class HumanView : MonoBehaviour
                 imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
                 break;
             case HumanState.Marrying:
-                imgAgeFill.fillAmount = 1f - (parent.yearMarriage / 1f);
+                imgAgeFill.fillAmount = 1f - (parent.yearMarriage / parent.maxYearMarriage);
                 break;
             default:
                 imgAgeFill.fillAmount = 1f;

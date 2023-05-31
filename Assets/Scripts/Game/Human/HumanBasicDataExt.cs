@@ -12,6 +12,7 @@ public partial class HumanBasic
     public bool isRetired = false;
     public bool isDead = false;
     public float yearMarriage = 0;
+    public float maxYearMarriage = 0;
     //Check and get the human's state
     public HumanState humanState
     {

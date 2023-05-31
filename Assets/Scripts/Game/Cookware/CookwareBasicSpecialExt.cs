@@ -16,7 +16,16 @@ public partial class CookwareBasic
 
     private void InvokeMarriage(HumanBasic human)
     {
-        human.yearMarriage = 1f;
+        if (human.humanItem.sex == Sex.Male)
+        {
+            human.maxYearMarriage = 0.8f;
+        }
+        else if(human.humanItem.sex == Sex.Female)
+        {
+            human.maxYearMarriage = 2.5f;
+        }
+
+        human.yearMarriage = human.maxYearMarriage;
     }
 
     private void InvokeRetire(HumanBasic human)

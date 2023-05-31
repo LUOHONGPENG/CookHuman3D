@@ -98,6 +98,7 @@ public class EndUIMgr : MonoBehaviour
             itemMeal.Init(listHuman[i].vScore);
             finalScore += listHuman[i].vScore;
         }
+        finalScore += GameMgr.Instance.scorePenalty;
         //Init Text
         codeScoreHuman.text = finalScore.ToString();
         codeScoreUpload.text = finalScore.ToString();
