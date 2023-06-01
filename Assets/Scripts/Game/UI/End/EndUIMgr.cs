@@ -12,7 +12,8 @@ public class EndUIMgr : MonoBehaviour
     {
         Human,
         Upload,
-        Leaderboard
+        Leaderboard,
+        About
     }
 
     public GameObject objPopup;
@@ -30,11 +31,17 @@ public class EndUIMgr : MonoBehaviour
     public GameObject objLeaderboard;
     public Transform tfScore;
     public GameObject pfScore;
+
+    [Header("About")]
+    public GameObject objAbout;
+
     [Header("Button")]
     public Button btnUpload;
     public Button btnRestart;
     public Button btnBack;
     public Button btnLeaderboard;
+    public Button btnAbout;
+    public Text txTitle;
 
     private int leaderboardID = 14649;
     private int finalScore = 0;
@@ -115,6 +122,7 @@ public class EndUIMgr : MonoBehaviour
         objHuman.SetActive(true);
         objUpload.SetActive(false);
         objLeaderboard.SetActive(false);
+        objAbout.SetActive(false);
 
         if (isUpload)
         {
@@ -127,8 +135,10 @@ public class EndUIMgr : MonoBehaviour
         btnRestart.gameObject.SetActive(true);
         btnBack.gameObject.SetActive(false);
         btnLeaderboard.gameObject.SetActive(true);
+        btnAbout.gameObject.SetActive(false);
 
         pageType = EndPageType.Human;
+        txTitle.text = "Summary";
     }
 
     public void ShowUploadPage()
@@ -136,13 +146,16 @@ public class EndUIMgr : MonoBehaviour
         objHuman.SetActive(false);
         objUpload.SetActive(true);
         objLeaderboard.SetActive(false);
-        
+        objAbout.SetActive(false);
+
         btnUpload.gameObject.SetActive(true);
         btnRestart.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(true);
         btnLeaderboard.gameObject.SetActive(false);
+        btnAbout.gameObject.SetActive(false);
 
         pageType = EndPageType.Upload;
+        txTitle.text = "Upload";
     }
 
     public void ShowLeaderBoard()
@@ -150,16 +163,37 @@ public class EndUIMgr : MonoBehaviour
         objHuman.SetActive(false);
         objUpload.SetActive(false);
         objLeaderboard.SetActive(true);
+        objAbout.SetActive(false);
 
         btnUpload.gameObject.SetActive(false);
         btnRestart.gameObject.SetActive(false);
         btnBack.gameObject.SetActive(true);
         btnLeaderboard.gameObject.SetActive(false);
+        btnAbout.gameObject.SetActive(false);
 
         InitLeaderBoard();
 
         pageType = EndPageType.Leaderboard;
+        txTitle.text = "Leaderboard";
+
     }
+
+    public void ShowAbout()
+    {
+        objHuman.SetActive(false);
+        objUpload.SetActive(false);
+        objLeaderboard.SetActive(false);
+        objAbout.SetActive(true);
+
+        btnUpload.gameObject.SetActive(false);
+        btnRestart.gameObject.SetActive(false);
+        btnBack.gameObject.SetActive(true);
+        btnLeaderboard.gameObject.SetActive(false);
+        btnAbout.gameObject.SetActive(false);
+        txTitle.text = "About";
+
+    }
+
     #endregion
 
     #region ButtonFunction
