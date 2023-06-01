@@ -99,16 +99,16 @@ public class HumanView : MonoBehaviour
     {
         canvasUI.sortingOrder = 0;
         canvasGroupInfo.alpha = 0;
-        rtAge.localPosition = new Vector2(0, 80f);
-        rtAge.localScale = new Vector2(0.62f, 0.62f);
+        rtAge.localPosition = new Vector2(0, 55f);
+        rtAge.localScale = new Vector2(0.55f, 0.55f);
     }
 
     private void ShowConst()
     {
         canvasUI.sortingOrder = 0;
         canvasGroupInfo.DOFade(0, 0.25f);
-        rtAge.DOLocalMove(new Vector2(0, 80f),0.25f);
-        rtAge.DOScale(new Vector2(0.62f, 0.62f), 0.25f);
+        rtAge.DOLocalMove(new Vector2(0, 55f),0.25f);
+        rtAge.DOScale(new Vector2(0.55f, 0.55f), 0.25f);
     }
 
     private void ShowHover()

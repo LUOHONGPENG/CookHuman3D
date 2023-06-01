@@ -45,7 +45,7 @@ MonoBehaviour:
     ageMax_real: 50
     eduMin: 2
     posxInfo: -180
-    posyInfo: 120
+    posyInfo: 60
   - id: 2003
     name: Work3
     desc: Enhance career +++
