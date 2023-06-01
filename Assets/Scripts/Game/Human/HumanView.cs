@@ -97,7 +97,7 @@ public class HumanView : MonoBehaviour
     {
         canvasUI.sortingOrder = 0;
         canvasGroupInfo.alpha = 0;
-        rtAge.localPosition = new Vector2(0, 200f);
+        rtAge.localPosition = new Vector2(0, 80f);
         rtAge.localScale = new Vector2(0.62f, 0.62f);
     }
 
@@ -105,7 +105,7 @@ public class HumanView : MonoBehaviour
     {
         canvasUI.sortingOrder = 0;
         canvasGroupInfo.DOFade(0, 0.25f);
-        rtAge.DOLocalMove(new Vector2(0, 200f),0.25f);
+        rtAge.DOLocalMove(new Vector2(0, 80f),0.25f);
         rtAge.DOScale(new Vector2(0.62f, 0.62f), 0.25f);
     }
 
@@ -113,7 +113,7 @@ public class HumanView : MonoBehaviour
     {
         canvasUI.sortingOrder = 1;
         canvasGroupInfo.DOFade(1, 0.25f);
-        rtAge.DOLocalMove(new Vector2(-308f, 442f), 0.25f);
+        rtAge.DOLocalMove(new Vector2(-131.1f, 180f), 0.25f);
         rtAge.DOScale(Vector2.one, 0.25f);
     }
     #endregion
