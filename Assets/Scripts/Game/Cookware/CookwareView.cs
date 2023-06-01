@@ -111,7 +111,7 @@ public class CookwareView : MonoBehaviour
     {
         this.canvasUI.worldCamera = GameMgr.Instance.uiCamera;
 
-        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(parent.tfModel.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
+        tfRootUI.localPosition = PublicTool.CalculateUICanvasPos(parent.tfCenter.position, GameMgr.Instance.mapCamera);//+ new Vector3(0, 100f, 0)
 
         //Set the position of the Normal UI
         objNormal.transform.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);

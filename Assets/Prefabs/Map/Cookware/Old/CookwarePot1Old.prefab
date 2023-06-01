@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b6a01668144bc4ca37761baceef45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tfModel: {fileID: 4035955078986433794}
+  tfCenter: {fileID: 4035955078986433794}
   itemView: {fileID: 6163862856005783546}
   cookType: 0
   cookID: 0

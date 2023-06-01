@@ -6,7 +6,7 @@ using DG.Tweening;
 public partial class CookwareBasic : MonoBehaviour
 {
     [Header("BasicInfo")]
-    public Transform tfModel;
+    public Transform tfCenter;
     public CookwareView itemView;
     [HideInInspector]
     public CookwareType cookType;
@@ -33,7 +33,7 @@ public partial class CookwareBasic : MonoBehaviour
         this.cookType = cookItem.cookwareType;
         this.cookCapacity = cookItem.capacity;
         //Temp
-        this.itemView.transform.position = tfModel.position;
+        this.itemView.transform.position = tfCenter.position;
 
         itemView.Init(this);
 

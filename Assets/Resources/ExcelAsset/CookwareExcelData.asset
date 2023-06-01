@@ -45,7 +45,7 @@ MonoBehaviour:
     ageMax_real: 50
     eduMin: 2
     posxInfo: -180
-    posyInfo: 60
+    posyInfo: 0
   - id: 2003
     name: Work3
     desc: Enhance career +++
@@ -55,8 +55,8 @@ MonoBehaviour:
     ageMin_real: 26
     ageMax_real: 60
     eduMin: 4
-    posxInfo: 100
-    posyInfo: -50
+    posxInfo: 0
+    posyInfo: -150
   - id: 3001
     name: MarryF
     desc: 
