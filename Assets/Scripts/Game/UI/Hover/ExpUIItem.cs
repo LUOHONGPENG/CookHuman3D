@@ -49,11 +49,11 @@ public class ExpUIItem : MonoBehaviour
             imgExpFill.DOFade(1f, 0);
             if(index == 4)
             {
-                imgLight.gameObject.SetActive(true);
+                imgLightB.gameObject.SetActive(true);
             }
             else
             {
-                imgLightB.gameObject.SetActive(true);
+                imgLight.gameObject.SetActive(true);
             }
         }
         else

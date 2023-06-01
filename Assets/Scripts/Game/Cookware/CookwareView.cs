@@ -40,6 +40,9 @@ public class CookwareView : MonoBehaviour
     public Text txAgeMarry;
     public Image imgSexMarry;
     public List<Sprite> listSpSex = new List<Sprite>();
+    public RectTransform rtBgMarry;
+    public Image imgBgMarry;
+    public List<Sprite> listBgSex = new List<Sprite>();
     public Transform tfEduMarry;
     public Transform tfCareerMarry;
     public GameObject pfCondition;
@@ -115,6 +118,7 @@ public class CookwareView : MonoBehaviour
 
         //Set the position of the Normal UI
         objNormal.transform.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);
+        rtBgMarry.transform.localPosition = new Vector2(parent.GetItem().posxInfo, parent.GetItem().posyInfo);
 
         switch (parent.cookType)
         {
@@ -229,10 +233,12 @@ public class CookwareView : MonoBehaviour
             if(parent.requiredSex == Sex.Female)
             {
                 imgSexMarry.sprite = listSpSex[0];
+                imgBgMarry.sprite = listBgSex[0];
             }
             else if(parent.requiredSex == Sex.Male)
             {
                 imgSexMarry.sprite = listSpSex[1];
+                imgBgMarry.sprite = listBgSex[1];
             }
             //
             PublicTool.ClearChildItem(tfEduMarry);
