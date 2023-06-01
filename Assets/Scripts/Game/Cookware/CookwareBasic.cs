@@ -8,7 +8,7 @@ public partial class CookwareBasic : MonoBehaviour
     [Header("BasicInfo")]
     public Transform tfModel;
     public CookwareView itemView;
-
+    [HideInInspector]
     public CookwareType cookType;
     [HideInInspector]
     public int cookID;

@@ -121,9 +121,9 @@ public partial class MapMgr
             //Release human at a cookware
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
-                if (hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>() != null)
+                if (hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>();
+                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>();
                     draggingHuman.BindCookware(tarCook);
                 }
             }
@@ -201,9 +201,9 @@ public partial class MapMgr
             else if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 CloseHumanPage();
-                if (hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>() != null)
+                if (hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>();
+                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>();
                     recordEnterCook = tarCook.cookID;
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
                 }
@@ -220,9 +220,9 @@ public partial class MapMgr
             Ray ray = GetMouseRay();
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
-                if (hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>() != null)
+                if (hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>() != null)
                 {
-                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.GetComponent<CookwareBasic>();
+                    CookwareBasic tarCook = hitDataCook.transform.parent.parent.parent.GetComponent<CookwareBasic>();
                     EventCenter.Instance.EventTrigger("ShowCookPage", tarCook);
                     recordEnterCook = tarCook.cookID;
                     EventCenter.Instance.EventTrigger("ShowHumanPage", draggingHuman);

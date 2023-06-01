@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6002646053876526400}
   - component: {fileID: 6116067635176038591}
   m_Layer: 0
-  m_Name: CookwarePot1
+  m_Name: CookwarePot1Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
