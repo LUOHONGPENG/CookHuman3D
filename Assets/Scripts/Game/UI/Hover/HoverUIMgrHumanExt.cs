@@ -90,15 +90,15 @@ public partial class HoverUIMgr
             {
                 if(i < curHuman.LevelEdu)
                 {
-                    listExpEdu[i].RefreshExp(true, 1f);
+                    listExpEdu[i].RefreshExp(true, 1f,i);
                 }
                 else if (i == curHuman.LevelEdu)
                 {
-                    listExpEdu[i].RefreshExp(false, curHuman.RateEdu);
+                    listExpEdu[i].RefreshExp(false, curHuman.RateEdu,i);
                 }
                 else
                 {
-                    listExpEdu[i].RefreshExp(false, 0);
+                    listExpEdu[i].RefreshExp(false, 0,i);
                 }
             }
             //Career
@@ -106,15 +106,15 @@ public partial class HoverUIMgr
             {
                 if (i < curHuman.LevelCareer)
                 {
-                    listExpCareer[i].RefreshExp(true, 1f);
+                    listExpCareer[i].RefreshExp(true, 1f,i);
                 }
                 else if (i == curHuman.LevelCareer)
                 {
-                    listExpCareer[i].RefreshExp(false, curHuman.RateCareer);
+                    listExpCareer[i].RefreshExp(false, curHuman.RateCareer,i);
                 }
                 else
                 {
-                    listExpCareer[i].RefreshExp(false, 0);
+                    listExpCareer[i].RefreshExp(false, 0,i);
                 }
             }
         }

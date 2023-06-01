@@ -9,6 +9,7 @@ public class ExpUIItem : MonoBehaviour
     public Image imgExpFill;
     public Image imgIcon;
     public Image imgLight;
+    public Image imgLightB;
     public List<Sprite> listSpIcon = new List<Sprite>();
     
 
@@ -27,7 +28,7 @@ public class ExpUIItem : MonoBehaviour
         }
     }
 
-    public void RefreshExp(bool isFull, float rate)
+    public void RefreshExp(bool isFull, float rate,int index)
     {
         if (rate <= 0)
         {
@@ -46,11 +47,19 @@ public class ExpUIItem : MonoBehaviour
             this.transform.localScale = Vector2.one;
             imgIcon.DOFade(1f, 0);
             imgExpFill.DOFade(1f, 0);
-            imgLight.gameObject.SetActive(true);
+            if(index == 4)
+            {
+                imgLight.gameObject.SetActive(true);
+            }
+            else
+            {
+                imgLightB.gameObject.SetActive(true);
+            }
         }
         else
         {
             imgLight.gameObject.SetActive(false);
+            imgLightB.gameObject.SetActive(false);
             this.transform.localScale = new Vector2(0.85f,0.85f);
             imgIcon.DOFade(0.5f, 0);
             imgExpFill.DOFade(0.5f, 0);

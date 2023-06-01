@@ -17,6 +17,8 @@ public class HumanView : MonoBehaviour
 
     [Header("Info")]
     public CanvasGroup canvasGroupInfo;
+    public Image imgBg;
+    public List<Sprite> listSpBg = new List<Sprite>();
     public Image imgSex;
     public List<Sprite> listSpSex = new List<Sprite>();
     public Image imgMarry;
@@ -173,10 +175,12 @@ public class HumanView : MonoBehaviour
         switch (parent.humanItem.sex)
         {
             case Sex.Female:
+                imgBg.sprite = listSpBg[0];
                 imgSex.sprite = listSpSex[0];
                 break;
             case Sex.Male:
                 imgSex.sprite = listSpSex[1];
+                imgBg.sprite = listSpBg[1];
                 break;
         }
         //Marry
@@ -193,15 +197,15 @@ public class HumanView : MonoBehaviour
         {
             if (i < parent.LevelEdu)
             {
-                listExpEdu[i].RefreshExp(true, 1f);
+                listExpEdu[i].RefreshExp(true, 1f,i);
             }
             else if (i == parent.LevelEdu)
             {
-                listExpEdu[i].RefreshExp(false, parent.RateEdu);
+                listExpEdu[i].RefreshExp(false, parent.RateEdu,i);
             }
             else
             {
-                listExpEdu[i].RefreshExp(false, 0);
+                listExpEdu[i].RefreshExp(false, 0,i);
             }
         }
         //Career
@@ -209,15 +213,15 @@ public class HumanView : MonoBehaviour
         {
             if (i < parent.LevelCareer)
             {
-                listExpCareer[i].RefreshExp(true, 1f);
+                listExpCareer[i].RefreshExp(true, 1f,i);
             }
             else if (i == parent.LevelCareer)
             {
-                listExpCareer[i].RefreshExp(false, parent.RateCareer);
+                listExpCareer[i].RefreshExp(false, parent.RateCareer,i);
             }
             else
             {
-                listExpCareer[i].RefreshExp(false, 0);
+                listExpCareer[i].RefreshExp(false, 0,i);
             }
         }
     }
