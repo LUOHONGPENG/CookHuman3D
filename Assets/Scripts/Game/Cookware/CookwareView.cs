@@ -283,11 +283,11 @@ public class CookwareView : MonoBehaviour
         if (parent.eduMin > 0)
         {
             canvasGroupCondition.DOFade(1f, 0.25f);
-            rtBgNormal.DOSizeDelta(new Vector2(836f, 600f), 0.25f);
+            rtBgNormal.DOSizeDelta(new Vector2(220f, 174f), 0.25f);
         }
         else
         {
-            rtBgNormal.DOSizeDelta(new Vector2(836f, 450f), 0.25f);
+            rtBgNormal.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
         }
     }
 
@@ -297,12 +297,12 @@ public class CookwareView : MonoBehaviour
         canvasGroupCondition.alpha = 1;
         if (parent.eduMin > 0)
         {
-            rtBgNormal.sizeDelta = new Vector2(836f, 450f);
+            rtBgNormal.sizeDelta = new Vector2(220f, 125f);
             canvasGroupCondition.gameObject.SetActive(true);
         }
         else
         {
-            rtBgNormal.sizeDelta = new Vector2(836f, 280f);
+            rtBgNormal.sizeDelta = new Vector2(220f, 76f);
             canvasGroupCondition.gameObject.SetActive(false);
         }
     }
@@ -313,11 +313,11 @@ public class CookwareView : MonoBehaviour
         //canvasGroupCondition.DOFade(0, 0.25f);
         if(parent.eduMin > 0)
         {
-            rtBgNormal.DOSizeDelta(new Vector2(836f, 450f), 0.25f);
+            rtBgNormal.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
         }
         else
         {
-            rtBgNormal.DOSizeDelta(new Vector2(836f, 280f), 0.25f);
+            rtBgNormal.DOSizeDelta(new Vector2(220f, 76f), 0.25f);
         }
     }
     #endregion
