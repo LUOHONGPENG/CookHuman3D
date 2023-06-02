@@ -12,6 +12,8 @@ public class EffortUIMgr : MonoBehaviour
     public Transform tfEffortSpecial;
     public GameObject pfEffort;
 
+    public RectTransform rtMarry;
+
     #region Basic
     public void Init()
     {
@@ -49,6 +51,16 @@ public class EffortUIMgr : MonoBehaviour
         GameObject objSpecial = GameObject.Instantiate(pfEffort, tfEffortSpecial);
         EffortUIItem itemSpecial = objSpecial.GetComponent<EffortUIItem>();
         itemSpecial.Init(9999, this);
+
+        if (listEffortID.Count > 0)
+        {
+            rtMarry.anchoredPosition = new Vector2(550F, -50F);
+        }
+        else
+        {
+            rtMarry.anchoredPosition = new Vector2(0, -50F);
+
+        }
 
         objPopup.SetActive(true);
     }
