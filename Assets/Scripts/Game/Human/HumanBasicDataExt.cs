@@ -97,6 +97,7 @@ public partial class HumanBasic
         {
             float eduDelta = curCookware.GetItem().ReadGrowRate * yearDelta;
             humanItem.TimeGoGrowEdu(eduDelta);
+            humanItem.TimeGoRecordStudy(yearDelta);
 
             if (PublicTool.CheckWhetherEffortGot(1004) && Age >= 16)
             {

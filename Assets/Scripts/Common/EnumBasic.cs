@@ -29,6 +29,8 @@ public enum ExpType
 public enum RetireScoreType
 {
     Edu,
+    EduStart,
+    DelayGraduate,
     Career,
     Marriage,
     Retire,

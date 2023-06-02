@@ -14,6 +14,8 @@ public class HumanItem
     //Record
     public int vMarryAge = -1;
     public int vRetireAge = -1;
+    public int vStudyStartAge = 999;
+    public float vDelayYear = 0;
     public int vScore = 0;
 
     public HumanItem(int ID,Sex sex)
@@ -54,6 +56,19 @@ public class HumanItem
 
     #region TimeGo
 
+    public void TimeGoRecordStudy(float yearDelta)
+    {
+        if(Age <= vStudyStartAge)
+        {
+            vStudyStartAge = Age;
+        }
+
+        if (Age >= GameGlobal.ageMaxStudy) 
+        {
+            vDelayYear += yearDelta;
+        }
+    }
+
     public void TimeGoGrowEdu(float eduDelta)
     {
         expEdu += eduDelta;
@@ -87,6 +102,12 @@ public class HumanItem
             {
                 case RetireScoreType.Edu:
                     keyValue = Mathf.FloorToInt(expEdu);
+                    break;
+                case RetireScoreType.EduStart:
+                    keyValue = vStudyStartAge;
+                    break;
+                case RetireScoreType.DelayGraduate:
+                    keyValue = Mathf.FloorToInt(vDelayYear);
                     break;
                 case RetireScoreType.Career:
                     keyValue = Mathf.FloorToInt(expCareer);

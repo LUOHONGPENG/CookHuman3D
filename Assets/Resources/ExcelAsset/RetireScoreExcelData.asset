@@ -37,8 +37,40 @@ MonoBehaviour:
     slope: 35
     keyPointScore: 1000
     remark: 
-  - id: 2001
+  - id: 1011
     scoreType: 1
+    keyValue: 0
+    desc: Early School!
+    init: 400
+    slope: -30
+    keyPointScore: 400
+    remark: EduStartAge
+  - id: 1012
+    scoreType: 1
+    keyValue: 8
+    desc: 
+    init: 0
+    slope: 0
+    keyPointScore: 0
+    remark: 
+  - id: 1013
+    scoreType: 1
+    keyValue: 12
+    desc: Late for School!
+    init: 260
+    slope: -30
+    keyPointScore: -100
+    remark: 
+  - id: 1021
+    scoreType: 2
+    keyValue: 1
+    desc: Delay Graduate?
+    init: 0
+    slope: -100
+    keyPointScore: -100
+    remark: YearDelay
+  - id: 2001
+    scoreType: 3
     keyValue: 0
     desc: Poor Career.
     init: -900
@@ -46,7 +78,7 @@ MonoBehaviour:
     keyPointScore: -900
     remark: expCareer
   - id: 2002
-    scoreType: 1
+    scoreType: 3
     keyValue: 30
     desc: Normal Career.
     init: -1050
@@ -54,7 +86,7 @@ MonoBehaviour:
     keyPointScore: 0
     remark: 
   - id: 2003
-    scoreType: 1
+    scoreType: 3
     keyValue: 75
     desc: Nice Career.
     init: -1775
@@ -62,7 +94,7 @@ MonoBehaviour:
     keyPointScore: 1225
     remark: 
   - id: 3001
-    scoreType: 2
+    scoreType: 4
     keyValue: -1
     desc: Single?
     init: -1500
@@ -70,7 +102,7 @@ MonoBehaviour:
     keyPointScore: -1500
     remark: MarriageAge
   - id: 3002
-    scoreType: 2
+    scoreType: 4
     keyValue: 0
     desc: Quick Marry.
     init: 1700
@@ -78,7 +110,7 @@ MonoBehaviour:
     keyPointScore: 1700
     remark: 
   - id: 3003
-    scoreType: 2
+    scoreType: 4
     keyValue: 30
     desc: Married.
     init: 200
@@ -86,7 +118,7 @@ MonoBehaviour:
     keyPointScore: 200
     remark: 
   - id: 3004
-    scoreType: 2
+    scoreType: 4
     keyValue: 40
     desc: Late Marry!
     init: 1900
@@ -94,7 +126,7 @@ MonoBehaviour:
     keyPointScore: -100
     remark: 
   - id: 4001
-    scoreType: 3
+    scoreType: 5
     keyValue: 60
     desc: Retire on time!
     init: 3600
@@ -102,7 +134,7 @@ MonoBehaviour:
     keyPointScore: 600
     remark: RetireAge
   - id: 4002
-    scoreType: 3
+    scoreType: 5
     keyValue: 65
     desc: Late Retire!
     init: 3050
