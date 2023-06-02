@@ -65,8 +65,8 @@ MonoBehaviour:
     scoreType: 2
     keyValue: 1
     desc: Delay Graduate?
-    init: 0
-    slope: -100
+    init: -50
+    slope: -50
     keyPointScore: -100
     remark: YearDelay
   - id: 2001
