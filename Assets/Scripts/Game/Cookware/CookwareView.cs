@@ -30,9 +30,10 @@ public class CookwareView : MonoBehaviour
     [Header("DescUI")]
     public CanvasGroup canvasGroupDesc;
     public Text txDesc;
+    public Transform tfGrow;
+    public Image imgSlice;
+    public GameObject pfArrow;
 
-
-    [Header("CapacityUI")]
 
 
     [Header("MarriageUI")]
@@ -148,12 +149,64 @@ public class CookwareView : MonoBehaviour
         //Init Age Info
         txAgeNormal.text = parent.GetAgeString();
 
-        //Init Desc Info
-        txDesc.text = parent.GetDesc();
 
+
+
+        RefreshDescUI();
         RefreshCapacityUI();
         RefreshConditionUI();
     }
+
+    private void RefreshDescUI()
+    {
+        txDesc.text = parent.GetDesc();
+        //Init Grow Info
+        PublicTool.ClearChildItem(tfGrow);
+        int numArrow = 0;
+        switch (parent.cookID)
+        {
+            case 1001:
+                numArrow = 2;
+                break;
+            case 2001:
+                numArrow = 1;
+                break;
+            case 2002:
+                numArrow = 2;
+                break;
+            case 2003:
+                numArrow = 3;
+                break;
+        }
+        if (numArrow > 0)
+        {
+            tfGrow.gameObject.SetActive(true);
+            txDesc.gameObject.SetActive(false);
+            imgSlice.gameObject.SetActive(false);
+            GameObject objRe = GameObject.Instantiate(pfCondition, tfGrow);
+            RequireUIItem itemRe = objRe.GetComponent<RequireUIItem>();
+            switch (parent.cookType)
+            {
+                case CookwareType.Study:
+                    itemRe.Init(ExpType.Edu);
+                    break;
+                case CookwareType.Job:
+                    itemRe.Init(ExpType.Career);
+                    break;
+            }
+            for (int i = 0; i < numArrow; i++)
+            {
+                GameObject.Instantiate(pfArrow, tfGrow);
+            }
+        }
+        else
+        {
+            tfGrow.gameObject.SetActive(false);
+            txDesc.gameObject.SetActive(false);
+            imgSlice.gameObject.SetActive(true);
+        }
+    }
+
 
     private void RefreshCapacityUI()
     {

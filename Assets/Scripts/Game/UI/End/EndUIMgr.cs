@@ -21,6 +21,8 @@ public class EndUIMgr : MonoBehaviour
     public GameObject objHuman;
     public Transform tfMeal;
     public GameObject pfMeal;
+    public Transform tfComment;
+    public GameObject pfComment;
     public Text codeScoreHuman;
     [Header("Upload")]
     public GameObject objUpload;
@@ -47,6 +49,8 @@ public class EndUIMgr : MonoBehaviour
     private int finalScore = 0;
     private bool isUpload = false;
     private EndPageType pageType = EndPageType.Human;
+
+    private int curHumanID = 0;
 
     #region Basic
     public void Init()
@@ -108,7 +112,7 @@ public class EndUIMgr : MonoBehaviour
         {
             GameObject objMeal = GameObject.Instantiate(pfMeal, tfMeal);
             EndUIMealItem itemMeal = objMeal.GetComponent<EndUIMealItem>();
-            itemMeal.Init(listHuman[i].vScore);
+            itemMeal.Init(listHuman[i].vScore,this);
             finalScore += listHuman[i].vScore;
         }
         finalScore += GameMgr.Instance.scorePenalty;
@@ -226,6 +230,19 @@ public class EndUIMgr : MonoBehaviour
         GameMgr.Instance.StartGame();
         //SceneManager.LoadScene("Main");
     }
+
+    #endregion
+
+    #region About Comment
+    public void ShowHumanComment(int ID)
+    {
+        HumanItem humanItem = GameMgr.Instance.mapMgr.listHumanItem[ID];
+
+        PublicTool.ClearChildItem(tfComment);
+        
+    }
+
+
 
     #endregion
 
