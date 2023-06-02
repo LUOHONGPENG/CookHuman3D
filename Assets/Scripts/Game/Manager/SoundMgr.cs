@@ -13,7 +13,11 @@ public enum SoundType
     Study,
     Job,
     Marriage,
-    Retire
+    Retire,
+    Gay,
+    Lesbian,
+    Hurry,
+    Please
 }
 
 public class SoundMgr : MonoBehaviour
@@ -28,6 +32,11 @@ public class SoundMgr : MonoBehaviour
     public AudioSource auJob;
     public AudioSource auMarriage;
     public AudioSource auRetire;
+
+    public AudioSource auGay;
+    public AudioSource auLesbian;
+    public AudioSource auHurry;
+    public AudioSource auPlease;
 
     public Dictionary<SoundType, AudioSource> dicSoundAudio = new Dictionary<SoundType, AudioSource>();
     public Dictionary<SoundType, float> dicSoundTime = new Dictionary<SoundType, float>();
@@ -55,6 +64,12 @@ public class SoundMgr : MonoBehaviour
         dicSoundAudio.Add(SoundType.Job, auJob);
         dicSoundAudio.Add(SoundType.Marriage, auMarriage);
         dicSoundAudio.Add(SoundType.Retire, auRetire);
+
+        dicSoundAudio.Add(SoundType.Gay, auGay);
+        dicSoundAudio.Add(SoundType.Lesbian, auLesbian);
+        dicSoundAudio.Add(SoundType.Hurry, auHurry);
+        dicSoundAudio.Add(SoundType.Please, auPlease);
+
 
         dicSoundTime.Clear(); dicSoundTime.Add(SoundType.Marriage, 0.7f);
     }

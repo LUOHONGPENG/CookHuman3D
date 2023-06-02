@@ -75,29 +75,35 @@ public partial class CookwareBasic : MonoBehaviour
     //Check whether the dragging human meet the condition
     public bool CheckHuman(HumanBasic human)
     {
+        Vector3 headPos = human.tfHumanHead.position;
         //Full
         if (listCurHuman.Count >= cookCapacity)
         {
+            PublicTool.WarningTip("No Space", headPos);
             PublicTool.PlaySound(SoundType.NoSpace);
             return false;
         }
         else if(human.Age < AgeMin_real)
         {
+            PublicTool.WarningTip("Too Young", headPos);
             PublicTool.PlaySound(SoundType.TooYoung);
             return false;
         }
         else if (human.Age > AgeMax_real)
         {
+            PublicTool.WarningTip("Too Old", headPos);
             PublicTool.PlaySound(SoundType.TooOld);
             return false;
         }
         else if (human.LevelEdu < eduMin)
         {
+            PublicTool.WarningTip("Need Education", headPos);
             PublicTool.PlaySound(SoundType.MoreEdu);
             return false;
         }
         else if (human.LevelCareer < CareerMin)
         {
+            PublicTool.WarningTip("Need Career", headPos);
             PublicTool.PlaySound(SoundType.MoreCareer);
             return false;
         }
@@ -105,15 +111,28 @@ public partial class CookwareBasic : MonoBehaviour
         {
             if (human.humanItem.isMarried)
             {
+                PublicTool.WarningTip("Married", headPos);
                 PublicTool.PlaySound(SoundType.Married);
                 return false;
             }
             else if (human.humanItem.sex != requiredSex)
             {
+                if(requiredSex == Sex.Female)
+                {
+                    PublicTool.WarningTip("Not Gay", headPos);
+                    PublicTool.PlaySound(SoundType.Gay);
+                }
+                else if(requiredSex == Sex.Male)
+                {
+                    PublicTool.WarningTip("Not Lesbian", headPos);
+                    PublicTool.PlaySound(SoundType.Lesbian);
+                }
                 return false;
             }
             else if (GameMgr.Instance.mapMgr.listHumanBasic.Count >= 6)
             {
+                PublicTool.WarningTip("Baby Full", headPos);
+                PublicTool.PlaySound(SoundType.NoSpace);
                 return false;
             }
         }

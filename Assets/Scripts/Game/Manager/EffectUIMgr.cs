@@ -8,19 +8,22 @@ public struct EffectUIInfo
     public string type;
     public Vector2 pos;
     public int arg0;
-
-    public EffectUIInfo(string type,Vector2 pos,int arg0)
+    public string arg1;
+    public EffectUIInfo(string type,Vector2 pos,int arg0,string arg1="")
     {
         this.type = type;
         this.pos = pos;
         this.arg0 = arg0;
+        this.arg1 = arg1;
     }
 }
+
 
 public class EffectUIMgr : MonoBehaviour
 {
     public Transform tfFloat;
     public GameObject pfLevelUp;
+    public GameObject pfWarning;
 
     public void OnEnable()
     {
@@ -46,6 +49,11 @@ public class EffectUIMgr : MonoBehaviour
                 GameObject objLevelJ = GameObject.Instantiate(pfLevelUp, tfFloat);
                 EfLevelUpItem itemLevelJ = objLevelJ.GetComponent<EfLevelUpItem>();
                 itemLevelJ.Init(info.arg0, info.pos,ExpType.Career);
+                break;
+            case "Warning":
+                GameObject objLevelW = GameObject.Instantiate(pfWarning, tfFloat);
+                EfWarningItem itemLevelW = objLevelW.GetComponent<EfWarningItem>();
+                itemLevelW.Init(info.arg1, info.pos);
                 break;
         }
     }

@@ -91,6 +91,8 @@ MonoBehaviour:
   tfFloat: {fileID: 3727069311864110818}
   pfLevelUp: {fileID: 1747376972282515746, guid: d876f714b06836144b72c26fc8d55ece,
     type: 3}
+  pfWarning: {fileID: 1594472567162037232, guid: a20f99ee49c359840bac4df857d3c670,
+    type: 3}
 --- !u!223 &7141099878863444642
 Canvas:
   m_ObjectHideFlags: 0

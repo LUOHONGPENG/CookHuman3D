@@ -41,10 +41,13 @@ public class EffortUIItem : MonoBehaviour
                     GameMgr.Instance.scorePenalty += GameMgr.Instance.CalculateCurPenalty();
                     GameMgr.Instance.numReduceMarry++;
 
+                    PublicTool.PlaySound(SoundType.Please);
+
                 }
                 else
                 {
                     GameMgr.Instance.listEffortGot.Add(ID);
+                    PublicTool.PlaySound(SoundType.Hurry);
                 }
                 GameMgr.Instance.ClearEffort();
                 //Refresh

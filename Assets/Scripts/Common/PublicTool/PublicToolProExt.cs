@@ -85,6 +85,12 @@ public partial class PublicTool
         EventCenter.Instance.EventTrigger("PlaySound", soundType);
     }
 
+    public static void WarningTip(string strWarning,Vector3 headPos)
+    {
+        EffectUIInfo info = new EffectUIInfo("Warning", PublicTool.CalculateUICanvasPos(headPos, GameMgr.Instance.mapCamera), 0,strWarning);
+        EventCenter.Instance.EventTrigger("EffectUI", info);
+    }
+
     public static List<int> DrawTwo(List<int> listPool, List<int> listDelete)
     {
         List<int> listTemp = new List<int>();
