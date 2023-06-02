@@ -8,6 +8,7 @@ public class RetireMiniUIMgr : MonoBehaviour
 {
     public GameObject objBlock;
     public RectTransform rtInfo;
+    public RectTransform rtBg;
     public Button btnClose;
     public Button btnPause;
     public Image imgTime;
@@ -18,6 +19,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     [Header("Comment")]
     public Transform tfComment;
     public GameObject pfComment;
+    private int numComment = 0;
 
     //Inner Data
     private float timerClose = 3f;
@@ -47,7 +49,7 @@ public class RetireMiniUIMgr : MonoBehaviour
     public void StartGame()
     {
         objBlock.SetActive(false);
-        rtInfo.anchoredPosition = new Vector2(1000f, 0);
+        rtInfo.anchoredPosition = new Vector2(1000f, -40f);
     }
 
     public void OnEnable()
@@ -71,10 +73,12 @@ public class RetireMiniUIMgr : MonoBehaviour
         codeScore.text = vScore.ToString();
         human.humanItem.vScore = vScore;
 
+        rtBg.sizeDelta = new Vector2(400f, 272f + 40f * numComment);
+
         if (GameMgr.Instance.mapMgr.listHumanBasic.Count > 1)
         {
             btnPause.interactable = true;
-            DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(0, 0), 0.5f);
+            DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(-25f, -40f), 0.5f);
             timerClose = 3f;
             imgTime.gameObject.SetActive(true);
         }
@@ -84,7 +88,7 @@ public class RetireMiniUIMgr : MonoBehaviour
 
     public void HidePopup()
     {
-        DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(1000f, 0), 0.5f);
+        DOTween.To(() => rtInfo.anchoredPosition, x => rtInfo.anchoredPosition = x, new Vector2(1000f, -40f), 0.5f);
         GameMgr.Instance.isRetirePageOn = false;
         objBlock.gameObject.SetActive(false);
     }
@@ -118,8 +122,9 @@ public class RetireMiniUIMgr : MonoBehaviour
         List<ScoreInfo> listScore = humanItem.GetCommentList();
 
         int totalScore = 0;
+        numComment = listScore.Count;
 
-        for(int i = 0; i < listScore.Count; i++)
+        for (int i = 0; i < listScore.Count; i++)
         {
             CreateComment(listScore[i].desc, listScore[i].score);
             totalScore += listScore[i].score;
