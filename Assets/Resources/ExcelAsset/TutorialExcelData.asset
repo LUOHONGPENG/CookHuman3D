@@ -25,29 +25,35 @@ MonoBehaviour:
   - id: 1002
     strTip: Wash your children in the <color=#fff984ff>Study Sink</color> to get
       <color=#fff984ff>Education</color>.
-    posX: -580
-    posY: -250
+    posX: -496
+    posY: -215
     sizeX: 400
     sizeY: 400
   - id: 1003
     strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for Career.
-    posX: 0
-    posY: -250
-    sizeX: 600
+    posX: 114
+    posY: -206
+    sizeX: 550
     sizeY: 500
   - id: 1004
     strTip: Roast your children in the <color=#fff984ff>Marriage Toaster</color>
       to create new food.
-    posX: 520
+    posX: 679
     posY: -200
-    sizeX: 380
-    sizeY: 580
+    sizeX: 420
+    sizeY: 500
   - id: 1005
     strTip: 'Send your children to the <color=#fff984ff>Retire Plate</color>.
 
       Let
       Social Clock taste them.'
-    posX: 800
-    posY: -350
+    posX: 307
+    posY: 202
     sizeX: 380
+    sizeY: 300
+  - id: 1006
+    strTip: The more strict you obey the Social Clock, the more score you can get.
+    posX: -456
+    posY: 517
+    sizeX: 1000
     sizeY: 300
