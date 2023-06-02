@@ -11,6 +11,9 @@ public partial class MapMgr
     private InputAction touchAction;
     private InputAction touchPositionAction;
 
+    private LayerMask layerHuman;
+    private LayerMask layerCook;
+
     private bool isInitInput = false;
     public void StartInput()
     {
@@ -19,6 +22,7 @@ public partial class MapMgr
 
         recordEnterCook = -1;
         recordEnterHuman = -1;
+
     }
 
     #region BasicInputBinding
@@ -64,7 +68,8 @@ public partial class MapMgr
     private Ray GetMouseRay()
     {
         Vector2 screenPosition = touchPositionAction.ReadValue<Vector2>();
-        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Ray ray = GameMgr.Instance.mapCamera.ScreenPointToRay(screenPosition);
+        //Ray ray = Camera.main.ScreenPointToRay(screenPosition);
         return ray;
     }
 
@@ -76,7 +81,9 @@ public partial class MapMgr
             return;
         }
 
-        Physics.Raycast(GetMouseRay(), out RaycastHit hitData, LayerMask.GetMask("Human"));
+        Debug.Log("Performed");
+
+        Physics.Raycast(GetMouseRay(), out RaycastHit hitData,1000f, LayerMask.GetMask("Human"));
         if (hitData.transform == null)
         {
             Debug.Log("NoHit");
@@ -97,6 +104,9 @@ public partial class MapMgr
         {
             return;
         }
+
+        Debug.Log("Canceled");
+
         //Release Dragging
         if (isDragging && draggingHuman != null)
         {
@@ -256,6 +266,7 @@ public partial class MapMgr
         if (isDragging && draggingHuman != null)
         {
             Ray ray = GetMouseRay();
+            Debug.Log("Dragging");
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 draggingHuman.transform.position = hitDataCook.point + new Vector3(0, 0.2f, 0);

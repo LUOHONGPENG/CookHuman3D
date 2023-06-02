@@ -14,7 +14,7 @@ public class HumanItem
     //Record
     public int vMarryAge = -1;
     public int vRetireAge = -1;
-    public int vStudyStartAge = 999;
+    public int vStudyStartAge = GameGlobal.ageMaxStudy;
     public float vDelayYear = 0;
     public int vScore = 0;
 

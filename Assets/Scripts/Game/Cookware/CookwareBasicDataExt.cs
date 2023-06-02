@@ -30,11 +30,7 @@ public partial class CookwareBasic
                                 return tempAge;
                             }
                         }
-                        else
-                        {
-                            return cookItem.ageMin_real;
-                        }
-                        break;
+                        return cookItem.ageMin_real;
                     case CookwareType.Marriage:
                         return ageMinMarry;
                     default:

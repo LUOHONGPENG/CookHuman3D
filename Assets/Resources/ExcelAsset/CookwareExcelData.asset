@@ -22,8 +22,8 @@ MonoBehaviour:
     ageMin_real: 6
     ageMax_real: 28
     eduMin: 0
-    posxInfo: 0
-    posyInfo: -100
+    posxInfo: -172
+    posyInfo: -122
   - id: 2001
     name: Work1
     desc: Enhance career +
@@ -66,8 +66,8 @@ MonoBehaviour:
     ageMin_real: 0
     ageMax_real: 0
     eduMin: 0
-    posxInfo: 0
-    posyInfo: -150
+    posxInfo: -232
+    posyInfo: -43
   - id: 3002
     name: MarryM
     desc: 
@@ -77,7 +77,7 @@ MonoBehaviour:
     ageMin_real: 0
     ageMax_real: 0
     eduMin: 0
-    posxInfo: 120
+    posxInfo: -10
     posyInfo: 150
   - id: 4001
     name: Retire
