@@ -21,6 +21,7 @@ public class EndUIMgr : MonoBehaviour
     public GameObject objHuman;
     public Transform tfMeal;
     public GameObject pfMeal;
+    private List<EndUIMealItem> listMeal = new List<EndUIMealItem>();
     public Transform tfComment;
     public GameObject pfComment;
     public Text codeScoreHuman;
@@ -107,12 +108,14 @@ public class EndUIMgr : MonoBehaviour
         finalScore = 0;
         isUpload = false;
         //CalculateFinalScore & InitHuman
+        listMeal.Clear();
         List<HumanItem> listHuman = GameMgr.Instance.mapMgr.listHumanItem;
         for (int i = 0; i < listHuman.Count; i++)
         {
             GameObject objMeal = GameObject.Instantiate(pfMeal, tfMeal);
             EndUIMealItem itemMeal = objMeal.GetComponent<EndUIMealItem>();
-            itemMeal.Init(listHuman[i].vScore,this);
+            itemMeal.Init(listHuman[i].HumanID,listHuman[i].vScore,this);
+            listMeal.Add(itemMeal);
             finalScore += listHuman[i].vScore;
         }
         finalScore += GameMgr.Instance.scorePenalty;
@@ -149,6 +152,8 @@ public class EndUIMgr : MonoBehaviour
 
         pageType = EndPageType.Human;
         txTitle.text = "Summary";
+
+        ShowHumanComment(0);
     }
 
     public void ShowUploadPage()
@@ -245,6 +250,18 @@ public class EndUIMgr : MonoBehaviour
             GameObject objComment = GameObject.Instantiate(pfComment, tfComment);
             EndDetailUIItem itemComment = objComment.GetComponent<EndDetailUIItem>();
             itemComment.Init(listScore[i]);
+        }
+
+        for(int i = 0;i < listMeal.Count; i++)
+        {
+            if(listMeal[i].humanID == ID)
+            {
+                listMeal[i].Show();
+            }
+            else
+            {
+                listMeal[i].Hide();
+            }
         }
     }
 

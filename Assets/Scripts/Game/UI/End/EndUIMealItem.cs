@@ -10,18 +10,19 @@ public class EndUIMealItem : MonoBehaviour
     public Button btnShow;
 
     private EndUIMgr parent;
+    [HideInInspector]
+    public int humanID;
 
-    public void Init(int vScore,EndUIMgr parent)
+    public void Init(int ID,int vScore,EndUIMgr parent)
     {
         this.parent = parent;
+        this.humanID = ID;
         txMealScore.text = vScore.ToString();
 
         btnShow.onClick.RemoveAllListeners();
         btnShow.onClick.AddListener(delegate ()
         {
-            
-
-
+            parent.ShowHumanComment(humanID);
         });
     }
 
