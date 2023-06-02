@@ -237,9 +237,15 @@ public class EndUIMgr : MonoBehaviour
     public void ShowHumanComment(int ID)
     {
         HumanItem humanItem = GameMgr.Instance.mapMgr.listHumanItem[ID];
+        List<ScoreInfo> listScore = humanItem.GetCommentList();
 
         PublicTool.ClearChildItem(tfComment);
-        
+        for (int i = 0; i < listScore.Count; i++)
+        {
+            GameObject objComment = GameObject.Instantiate(pfComment, tfComment);
+            EndDetailUIItem itemComment = objComment.GetComponent<EndDetailUIItem>();
+            itemComment.Init(listScore[i]);
+        }
     }
 
 
