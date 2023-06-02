@@ -7219,11 +7219,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookwareToasterM
       objectReference: {fileID: 0}
-    - target: {fileID: 7990940219251356602, guid: ffc56fe4a7d966e4688e0e115859567b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc56fe4a7d966e4688e0e115859567b, type: 3}
 --- !u!114 &153107341800013548 stripped
