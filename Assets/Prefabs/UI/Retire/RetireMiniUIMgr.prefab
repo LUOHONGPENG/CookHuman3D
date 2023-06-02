@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objBlock: {fileID: 2397045643415065041}
   rtInfo: {fileID: 6323218939818129152}
-  rtBg: {fileID: 0}
+  rtBg: {fileID: 1143341425698106486}
   btnClose: {fileID: 3763321649233242720}
   btnPause: {fileID: 8638603121879600651}
   imgTime: {fileID: 6138712850630003123}
@@ -1311,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2642169535394216910
 RectTransform:
   m_ObjectHideFlags: 0

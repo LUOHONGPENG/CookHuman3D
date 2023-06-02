@@ -1351,7 +1351,7 @@ MonoBehaviour:
   btnBack: {fileID: 2056324223217646512}
   btnLeaderboard: {fileID: 6487517818535332529}
   btnAbout: {fileID: 1484365659358185870}
-  txTitle: {fileID: 0}
+  txTitle: {fileID: 9175457208377004743}
 --- !u!1 &3130711602277193029
 GameObject:
   m_ObjectHideFlags: 0

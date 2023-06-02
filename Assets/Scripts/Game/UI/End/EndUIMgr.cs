@@ -80,6 +80,12 @@ public class EndUIMgr : MonoBehaviour
         {
             ShowLeaderBoard();
         });
+
+        btnAbout.onClick.RemoveAllListeners();
+        btnAbout.onClick.AddListener(delegate ()
+        {
+            ShowAbout();
+        });
     }
 
     private void OnEnable()
@@ -135,7 +141,7 @@ public class EndUIMgr : MonoBehaviour
         btnRestart.gameObject.SetActive(true);
         btnBack.gameObject.SetActive(false);
         btnLeaderboard.gameObject.SetActive(true);
-        btnAbout.gameObject.SetActive(false);
+        btnAbout.gameObject.SetActive(true);
 
         pageType = EndPageType.Human;
         txTitle.text = "Summary";
