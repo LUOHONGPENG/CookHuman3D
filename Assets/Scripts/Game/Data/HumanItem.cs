@@ -25,6 +25,11 @@ public class HumanItem
         this.Age = 0;
         this.isMarried = false;
         this.expEdu = 0.0001f;
+        if (PublicTool.CheckWhetherEffortGot(1006))
+        {
+            EffortExcelItem itemEffort = PublicTool.GetEffortItem(1006);
+            this.expEdu += Random.Range(itemEffort.value0, itemEffort.value1);
+        }
         this.expCareer = 0.0001f;
         this.sex = sex;
         //Initial Score

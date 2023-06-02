@@ -21,6 +21,20 @@ public partial class CookwareBasic
                         {
                             return cookItem.ageMin_real;
                         }
+                    case CookwareType.Job:
+                        if (PublicTool.CheckWhetherEffortGot(1005))
+                        {
+                            int tempAge = Mathf.FloorToInt(PublicTool.GetEffortItem(1005).value0);
+                            if(cookItem.ageMin_real >= tempAge)
+                            {
+                                return tempAge;
+                            }
+                        }
+                        else
+                        {
+                            return cookItem.ageMin_real;
+                        }
+                        break;
                     case CookwareType.Marriage:
                         return ageMinMarry;
                     default:
@@ -61,6 +75,17 @@ public partial class CookwareBasic
                 }
                 else
                 {
+                    if(cookType == CookwareType.Job)
+                    {
+                        if (PublicTool.CheckWhetherEffortGot(1007))
+                        {
+                            if (cookItem.eduMin > 1)
+                            {
+                                return cookItem.eduMin-1;
+                            }
+                        }
+
+                    }
                     return cookItem.eduMin;
                 }
             }

@@ -81,17 +81,17 @@ MonoBehaviour:
     scoreType: 3
     keyValue: 30
     desc: Normal Career.
-    init: -1050
-    slope: 35
+    init: -900
+    slope: 30
     keyPointScore: 0
     remark: 
   - id: 2003
     scoreType: 3
-    keyValue: 75
+    keyValue: 70
     desc: Nice Career.
-    init: -1775
-    slope: 40
-    keyPointScore: 1225
+    init: -1250
+    slope: 35
+    keyPointScore: 1200
     remark: 
   - id: 3001
     scoreType: 4

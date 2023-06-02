@@ -33,6 +33,21 @@ MonoBehaviour:
     desc: Can gain working experience in school after {0} years old.
     value0: 16
     value1: 1
+  - id: 1005
+    name: Family Business
+    desc: Can do all jobs after {0} years old.
+    value0: 20
+    value1: 0
+  - id: 1006
+    name: Fetal Education
+    desc: Nowborn children get initial Education.
+    value0: 10
+    value1: 20
+  - id: 1007
+    name: Network
+    desc: Reduce educational requirement of all job.
+    value0: 0
+    value1: 0
   - id: 9999
     name: Bribe
     desc: Reduce marriage requirements temporarily

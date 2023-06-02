@@ -25,11 +25,15 @@ public class EfLevelUpItem : MonoBehaviour
         switch (type)
         {
             case ExpType.Edu:
-                imgArrow.sprite = listSpArrow[0];
-                txLevelUp.color = listTxColor[0];
-                outlineLevelUp.effectColor = listOutlineColor[0];
+                imgArrow.sprite = listSpArrow[1];
+                txLevelUp.color = listTxColor[1];
+                outlineLevelUp.effectColor = listOutlineColor[1];
                 imgIcon.sprite = listSpIcon[0];
                 break;
+            /*                imgArrow.sprite = listSpArrow[0];
+                            txLevelUp.color = listTxColor[0];
+                            outlineLevelUp.effectColor = listOutlineColor[0];
+                            break;*/
             case ExpType.Career:
                 imgArrow.sprite = listSpArrow[1];
                 txLevelUp.color = listTxColor[1];
@@ -38,8 +42,8 @@ public class EfLevelUpItem : MonoBehaviour
                 break;
         }
 
-        this.transform.localPosition = pos + new Vector2(0,50F);
-        txLevelUp.text = string.Format("Level {0}", newLevel);
+        this.transform.localPosition = pos + new Vector2(0,60F);
+        txLevelUp.text = string.Format("Lv{0}", newLevel);
 
         canvasGroup.alpha = 0;
 
@@ -49,12 +53,13 @@ public class EfLevelUpItem : MonoBehaviour
         //
         seq.Append(tfEffect.DOScale(1.5f, 0.5f));
         seq.Join(canvasGroup.DOFade(1f, 0.5f));
-        seq.Join(tfEffect.DOLocalMoveY(50f, 0.5f));
-        //
+        seq.Join(tfEffect.DOLocalMoveY(60f, 0.5f));
+        //0.5f
         seq.Append(tfEffect.DOScale(1f, 0.5f));
         seq.Join(imgRibbon.DOFade(1f, 0.5f));
+        //1F
         seq.Append(tfEffect.DOLocalMoveY(150f, 1.5f));
-        seq.Join(canvasGroup.DOFade(0, 1.5f));
+        seq.Insert(1.25F,canvasGroup.DOFade(0, 1.5f));
 
         seq.Insert(0f,imgArrow.transform.DOScaleX(1.3f, 0.2f));
         seq.Insert(0.2f, imgArrow.transform.DOScaleX(0.8f, 0.2f));
