@@ -65,6 +65,7 @@ public class TutorialUIMgr : MonoBehaviour
             TutorialExcelItem thisTutorial = arrayTutorial[curID];
             rtHole.anchoredPosition = new Vector2(thisTutorial.posX, thisTutorial.posY);
             rtHole.sizeDelta = new Vector2(thisTutorial.sizeX, thisTutorial.sizeY);
+            txTip.transform.localPosition = new Vector2(thisTutorial.posXtext, thisTutorial.posYtext);
             txTip.text = thisTutorial.strTip;
         }
     }

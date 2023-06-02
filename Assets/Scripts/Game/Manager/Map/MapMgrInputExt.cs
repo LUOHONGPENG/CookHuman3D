@@ -266,7 +266,6 @@ public partial class MapMgr
         if (isDragging && draggingHuman != null)
         {
             Ray ray = GetMouseRay();
-            Debug.Log("Dragging");
             if (Physics.Raycast(ray, out RaycastHit hitDataCook, 999f, LayerMask.GetMask("Cookware")))
             {
                 draggingHuman.transform.position = hitDataCook.point + new Vector3(0, 0.2f, 0);

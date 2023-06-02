@@ -669,7 +669,7 @@ RectTransform:
   m_Children:
   - {fileID: 920129924482319981}
   - {fileID: 7921818614147417546}
-  - {fileID: 2730892833096000338}
+  - {fileID: 9097658395646775704}
   m_Father: {fileID: 745643550372560377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -754,6 +754,7 @@ MonoBehaviour:
   btnEffort: {fileID: 6592976200326856032}
   imgEffortFill: {fileID: 3595116439855209259}
   aniEffort: {fileID: 2520456218163193907}
+  objPurpleParticle: {fileID: 993072424030007157}
   btnNormal: {fileID: 2913634208213706433}
   btnFast: {fileID: 5202086025028300990}
   mGray: {fileID: 2100000, guid: ffdb037ff5121f049b07857207220eec, type: 2}
@@ -1288,7 +1289,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &6729116942256280769
+--- !u!1001 &488030025523078667
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1298,7 +1299,17 @@ PrefabInstance:
     - target: {fileID: 796519910091803006, guid: 88cc058a6e5f8a44b93902b5c9360275,
         type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: particlePurple
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170254461247500657, guid: 88cc058a6e5f8a44b93902b5c9360275,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170254461247500657, guid: 88cc058a6e5f8a44b93902b5c9360275,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1770335947
       objectReference: {fileID: 0}
     - target: {fileID: 8684264602095548307, guid: 88cc058a6e5f8a44b93902b5c9360275,
         type: 3}
@@ -1407,9 +1418,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88cc058a6e5f8a44b93902b5c9360275, type: 3}
---- !u!224 &2730892833096000338 stripped
+--- !u!1 &993072424030007157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 796519910091803006, guid: 88cc058a6e5f8a44b93902b5c9360275,
+    type: 3}
+  m_PrefabInstance: {fileID: 488030025523078667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &9097658395646775704 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8684264602095548307, guid: 88cc058a6e5f8a44b93902b5c9360275,
     type: 3}
-  m_PrefabInstance: {fileID: 6729116942256280769}
+  m_PrefabInstance: {fileID: 488030025523078667}
   m_PrefabAsset: {fileID: 0}

@@ -13,6 +13,8 @@ public partial class TutorialExcelItem : ExcelItemBase
 	public float posY;
 	public float sizeX;
 	public float sizeY;
+	public float posXtext;
+	public float posYtext;
 }
 
 [CreateAssetMenu(fileName = "TutorialExcelData", menuName = "Excel To ScriptableObject/Create TutorialExcelData", order = 1)]
@@ -38,6 +40,8 @@ public class TutorialAssetAssignment
 			items[i].posY = Convert.ToSingle(allItemValueRowList[i]["posY"]);
 			items[i].sizeX = Convert.ToSingle(allItemValueRowList[i]["sizeX"]);
 			items[i].sizeY = Convert.ToSingle(allItemValueRowList[i]["sizeY"]);
+			items[i].posXtext = Convert.ToSingle(allItemValueRowList[i]["posXtext"]);
+			items[i].posYtext = Convert.ToSingle(allItemValueRowList[i]["posYtext"]);
 		}
 		TutorialExcelData excelDataAsset = ScriptableObject.CreateInstance<TutorialExcelData>();
 		excelDataAsset.items = items;

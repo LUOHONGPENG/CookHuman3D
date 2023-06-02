@@ -30,12 +30,12 @@ public class EndUIMealItem : MonoBehaviour
     public void Show()
     {
         //imgBg.gameObject.SetActive(true);
-        imgBg.DOFade(0.01f, 0);
+        imgBg.color = new Color(0, 0, 0, 0.1f);
     }
 
     public void Hide()
     {
         //imgBg.gameObject.SetActive(false);
-        imgBg.DOFade(0, 0);
+        imgBg.color = new Color(0, 0, 0, 0);
     }
 }

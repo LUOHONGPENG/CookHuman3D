@@ -51,8 +51,6 @@ public class EndUIMgr : MonoBehaviour
     private bool isUpload = false;
     private EndPageType pageType = EndPageType.Human;
 
-    private int curHumanID = 0;
-
     #region Basic
     public void Init()
     {
@@ -264,9 +262,6 @@ public class EndUIMgr : MonoBehaviour
             }
         }
     }
-
-
-
     #endregion
 
 

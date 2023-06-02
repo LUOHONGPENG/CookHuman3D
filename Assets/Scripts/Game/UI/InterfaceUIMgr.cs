@@ -11,6 +11,7 @@ public class InterfaceUIMgr : MonoBehaviour
     public Button btnEffort;
     public Image imgEffortFill;
     public Animator aniEffort;
+    public GameObject objPurpleParticle;
     [Header("Speed")]
     public Button btnNormal;
     public Button btnFast;
@@ -101,11 +102,20 @@ public class InterfaceUIMgr : MonoBehaviour
         imgEffortFill.fillAmount = GameMgr.Instance.numEffortCharge *1f / GameMgr.Instance.maxEffortCharge;
         if (GameMgr.Instance.numEffortCharge >= GameMgr.Instance.maxEffortCharge)
         {
+            if(GameMgr.Instance.listEffortGot.Count >= GameMgr.Instance.maxEffortLimit)
+            {
+                objPurpleParticle.SetActive(false);
+            }
+            else
+            {
+                objPurpleParticle.SetActive(true);
+            }
             btnEffort.interactable = true;
             aniEffort.enabled = true;
         }
         else
         {
+            objPurpleParticle.SetActive(false);
             btnEffort.interactable = false;
             aniEffort.enabled = false;
         }
