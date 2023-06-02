@@ -232,8 +232,8 @@ public class EndUIMgr : MonoBehaviour
     {
         objPopup.SetActive(false);
         GameMgr.Instance.isEndPageOn = false;
-        GameMgr.Instance.StartGame();
-        //SceneManager.LoadScene("Main");
+        //GameMgr.Instance.StartGame();
+        SceneManager.LoadScene("Main");
     }
 
     #endregion

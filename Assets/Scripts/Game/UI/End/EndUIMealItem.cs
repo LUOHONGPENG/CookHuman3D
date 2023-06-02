@@ -29,13 +29,13 @@ public class EndUIMealItem : MonoBehaviour
 
     public void Show()
     {
-        imgBg.gameObject.SetActive(true);
+        //imgBg.gameObject.SetActive(true);
         imgBg.DOFade(0.01f, 0);
     }
 
     public void Hide()
     {
-        imgBg.gameObject.SetActive(false);
+        //imgBg.gameObject.SetActive(false);
         imgBg.DOFade(0, 0);
     }
 }
