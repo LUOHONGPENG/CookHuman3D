@@ -15,6 +15,7 @@ public class HumanView : MonoBehaviour
     public Text txAge;
     public Image imgAgeNormal;
     public Image imgAgeFill;
+    public Image imgOvercook;
     public List<Color> listSpAgeBgColor = new List<Color>();
 
     [Header("Info")]
@@ -153,21 +154,32 @@ public class HumanView : MonoBehaviour
         switch (parent.humanState)
         {
             case HumanState.Studying:
+                if (parent.Age >= 28)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                }
+                else
+                {
+                    imgOvercook.gameObject.SetActive(false);
+                }
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[0];
                 imgAgeFill.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
                 break;
             case HumanState.Working:
+                imgOvercook.gameObject.SetActive(false);
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[1];
                 imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
                 break;
             case HumanState.Marrying:
+                imgOvercook.gameObject.SetActive(false);
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[2];
                 imgAgeFill.fillAmount = 1f - (parent.yearMarriage / parent.maxYearMarriage);
                 break;
             default:
+                imgOvercook.gameObject.SetActive(false);
                 imgAgeNormal.gameObject.SetActive(true);
                 imgAgeFill.fillAmount = 0;
                 break;
