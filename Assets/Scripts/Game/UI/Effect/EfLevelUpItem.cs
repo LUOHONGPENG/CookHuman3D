@@ -8,13 +8,36 @@ public class EfLevelUpItem : MonoBehaviour
 {
     public Transform tfEffect;
     public Image imgArrow;
+    public Image imgIcon;
     public Image imgRibbon;
+    public List<Sprite> listSpArrow = new List<Sprite>();
+    public List<Sprite> listSpIcon = new List<Sprite>();
+    public List<Color> listTxColor = new List<Color>();
+    public List<Color> listOutlineColor = new List<Color>();
+
 
     public CanvasGroup canvasGroup;
     public Text txLevelUp;
+    public Outline outlineLevelUp;
 
-    public void Init(int newLevel,Vector2 pos)
+    public void Init(int newLevel,Vector2 pos, ExpType type)
     {
+        switch (type)
+        {
+            case ExpType.Edu:
+                imgArrow.sprite = listSpArrow[0];
+                txLevelUp.color = listTxColor[0];
+                outlineLevelUp.effectColor = listOutlineColor[0];
+                imgIcon.sprite = listSpIcon[0];
+                break;
+            case ExpType.Career:
+                imgArrow.sprite = listSpArrow[1];
+                txLevelUp.color = listTxColor[1];
+                outlineLevelUp.effectColor = listOutlineColor[1];
+                imgIcon.sprite = listSpIcon[1];
+                break;
+        }
+
         this.transform.localPosition = pos + new Vector2(0,50F);
         txLevelUp.text = string.Format("Level {0}", newLevel);
 

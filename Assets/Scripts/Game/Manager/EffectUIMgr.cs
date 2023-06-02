@@ -37,10 +37,15 @@ public class EffectUIMgr : MonoBehaviour
         EffectUIInfo info = (EffectUIInfo)arg0;
         switch (info.type)
         {
-            case "LevelUp":
-                GameObject objLevel = GameObject.Instantiate(pfLevelUp, tfFloat);
-                EfLevelUpItem itemLevel = objLevel.GetComponent<EfLevelUpItem>();
-                itemLevel.Init(info.arg0, info.pos);
+            case "LevelUpStudy":
+                GameObject objLevelS = GameObject.Instantiate(pfLevelUp, tfFloat);
+                EfLevelUpItem itemLevelS = objLevelS.GetComponent<EfLevelUpItem>();
+                itemLevelS.Init(info.arg0, info.pos,ExpType.Edu);
+                break;
+            case "LevelUpJob":
+                GameObject objLevelJ = GameObject.Instantiate(pfLevelUp, tfFloat);
+                EfLevelUpItem itemLevelJ = objLevelJ.GetComponent<EfLevelUpItem>();
+                itemLevelJ.Init(info.arg0, info.pos,ExpType.Career);
                 break;
         }
     }

@@ -13,7 +13,9 @@ public class HumanView : MonoBehaviour
     [Header("Age")]
     public RectTransform rtAge;
     public Text txAge;
+    public Image imgAgeNormal;
     public Image imgAgeFill;
+    public List<Color> listSpAgeBgColor = new List<Color>();
 
     [Header("Info")]
     public CanvasGroup canvasGroupInfo;
@@ -151,16 +153,23 @@ public class HumanView : MonoBehaviour
         switch (parent.humanState)
         {
             case HumanState.Studying:
+                imgAgeNormal.gameObject.SetActive(false);
+                imgAgeFill.color = listSpAgeBgColor[0];
                 imgAgeFill.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
                 break;
             case HumanState.Working:
+                imgAgeNormal.gameObject.SetActive(false);
+                imgAgeFill.color = listSpAgeBgColor[1];
                 imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
                 break;
             case HumanState.Marrying:
+                imgAgeNormal.gameObject.SetActive(false);
+                imgAgeFill.color = listSpAgeBgColor[2];
                 imgAgeFill.fillAmount = 1f - (parent.yearMarriage / parent.maxYearMarriage);
                 break;
             default:
-                imgAgeFill.fillAmount = 1f;
+                imgAgeNormal.gameObject.SetActive(true);
+                imgAgeFill.fillAmount = 0;
                 break;
         }
     }
@@ -238,7 +247,7 @@ public class HumanView : MonoBehaviour
             {
                 lastEduLevel = parent.LevelEdu;
 
-                EffectUIInfo info = new EffectUIInfo("LevelUp", PublicTool.CalculateUICanvasPos(parent.tfHumanHead.position, GameMgr.Instance.mapCamera), parent.LevelEdu);
+                EffectUIInfo info = new EffectUIInfo("LevelUpStudy", PublicTool.CalculateUICanvasPos(parent.tfHumanHead.position, GameMgr.Instance.mapCamera), parent.LevelEdu);
                 EventCenter.Instance.EventTrigger("EffectUI", info);
             }
         }
@@ -251,7 +260,7 @@ public class HumanView : MonoBehaviour
             else if (parent.LevelCareer > lastCareerLevel)
             {
                 lastCareerLevel = parent.LevelCareer;
-                EffectUIInfo info = new EffectUIInfo("LevelUp", PublicTool.CalculateUICanvasPos(parent.tfHumanHead.position, GameMgr.Instance.mapCamera), parent.LevelCareer);
+                EffectUIInfo info = new EffectUIInfo("LevelUpJob", PublicTool.CalculateUICanvasPos(parent.tfHumanHead.position, GameMgr.Instance.mapCamera), parent.LevelCareer);
                 EventCenter.Instance.EventTrigger("EffectUI", info);
             }
         }
