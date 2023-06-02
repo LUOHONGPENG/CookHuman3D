@@ -64,8 +64,8 @@ MonoBehaviour:
   txRetireComment: {fileID: 4357218074224641390}
   txScore: {fileID: 1207903986003761502}
   listColor:
-  - {r: 0.40392157, g: 0.5921569, b: 0.8784314, a: 1}
-  - {r: 0.86666673, g: 0.427451, b: 0.24705884, a: 1}
+  - {r: 0.20000002, g: 0.49803925, b: 0.7960785, a: 1}
+  - {r: 0.8117648, g: 0.37647063, b: 0.20000002, a: 1}
 --- !u!1 &5088586306198709593
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.86666673, g: 0.427451, b: 0.24705884, a: 1}
+  m_Color: {r: 0.8117648, g: 0.37647063, b: 0.20000002, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0667be5f166e1a547976dfebe9a9773d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24705881, g: 0.6659135, b: 0.8666667, a: 1}
+  m_Color: {r: 0.2, g: 0.50312656, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -231,7 +231,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0667be5f166e1a547976dfebe9a9773d, type: 3}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

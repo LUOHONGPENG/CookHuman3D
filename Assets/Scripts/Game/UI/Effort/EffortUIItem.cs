@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class EffortUIItem : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class EffortUIItem : MonoBehaviour
 
     public GameObject objPenalty;
     public Text codePenalty;
+
+    public Image imgBG;
+    public List<Sprite> listSpBg = new List<Sprite>();
+    public Image imgNameBG;
+    public List<Color> listColor = new List<Color>();
 
     private EffortExcelItem effortItem;
     private EffortUIMgr parent;
@@ -34,6 +40,7 @@ public class EffortUIItem : MonoBehaviour
                     //Cost Score
                     GameMgr.Instance.scorePenalty += GameMgr.Instance.CalculateCurPenalty();
                     GameMgr.Instance.numReduceMarry++;
+
                 }
                 else
                 {
@@ -49,11 +56,22 @@ public class EffortUIItem : MonoBehaviour
         if(ID == 9999)
         {
             objPenalty.SetActive(true);
+            imgBG.sprite = listSpBg[1];
+            imgNameBG.color = listColor[1];
+            imgNameBG.DOFade(0.5f, 0);
+            txDesc.color = listColor[1];
+
             codePenalty.text = string.Format("Score Penalty: "+ GameMgr.Instance.CalculateCurPenalty().ToString());
         }
         else
         {
             objPenalty.SetActive(false);
+            imgBG.sprite = listSpBg[0];
+            imgNameBG.color = listColor[0];
+            imgNameBG.DOFade(0.5f, 0);
+            txDesc.color = listColor[0];
+
+
         }
     }
 }
