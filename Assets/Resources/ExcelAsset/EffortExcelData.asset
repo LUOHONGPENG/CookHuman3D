@@ -16,7 +16,7 @@ MonoBehaviour:
   - id: 1001
     name: Tiger Mother
     desc: Improve learning efficiency.
-    value0: 0.65
+    value0: 0.7
     value1: 0
   - id: 1002
     name: Early Bird
@@ -41,7 +41,7 @@ MonoBehaviour:
   - id: 1006
     name: Fetal Education
     desc: Nowborn children get initial Education.
-    value0: 10
+    value0: 15
     value1: 20
   - id: 1007
     name: Network
