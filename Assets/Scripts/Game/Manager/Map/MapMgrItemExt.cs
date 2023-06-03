@@ -119,7 +119,18 @@ public partial class MapMgr
             if (listHumanBasic.Count <= 2)
             {
                 int ran = Random.Range(0, 100);
-                if(ran < PublicTool.GetEffortItem(1003).value0)
+                float expectation = 0;
+                Debug.Log("MagicBellyCheck " + ran);
+                switch (listHumanBasic.Count)
+                {
+                    case 1:
+                        expectation = PublicTool.GetEffortItem(1003).value0;
+                        break;
+                    case 2:
+                        expectation = PublicTool.GetEffortItem(1003).value1;
+                        break;
+                }
+                if(ran < expectation)
                 {
                     isTwin = true;
                 }
