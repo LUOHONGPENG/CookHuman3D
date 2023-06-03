@@ -16,5 +16,9 @@ MonoBehaviour:
   - id: 1001
     ageMin_study: 6
     ageMax_study: 28
+    ageStartGap: 16
+    ageEndGap: 60
+    yearMarryM: 0.5
+    yearMarryF: 2.5
     expEduLevel: 14000000280000003c0000005000000064000000
     expCareerLevel: 0a000000190000002d0000004600000064000000

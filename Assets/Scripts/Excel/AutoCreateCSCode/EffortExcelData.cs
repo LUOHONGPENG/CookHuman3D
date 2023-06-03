@@ -12,6 +12,8 @@ public partial class EffortExcelItem : ExcelItemBase
 	public string desc;
 	public float value0;
 	public float value1;
+	public List<int> affect;
+	public string remark;
 }
 
 [CreateAssetMenu(fileName = "EffortExcelData", menuName = "Excel To ScriptableObject/Create EffortExcelData", order = 1)]
@@ -36,6 +38,8 @@ public class EffortAssetAssignment
 			items[i].desc = allItemValueRowList[i]["desc"];
 			items[i].value0 = Convert.ToSingle(allItemValueRowList[i]["value0"]);
 			items[i].value1 = Convert.ToSingle(allItemValueRowList[i]["value1"]);
+			items[i].affect = new List<int>(Array.ConvertAll((allItemValueRowList[i]["affect"]).Split(';'), int.Parse));
+			items[i].remark = allItemValueRowList[i]["remark"];
 		}
 		EffortExcelData excelDataAsset = ScriptableObject.CreateInstance<EffortExcelData>();
 		excelDataAsset.items = items;

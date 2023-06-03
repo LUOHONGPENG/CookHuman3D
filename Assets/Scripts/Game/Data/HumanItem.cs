@@ -16,6 +16,7 @@ public class HumanItem
     public int vRetireAge = -1;
     public int vStudyStartAge = GameGlobal.ageMaxStudy;
     public float vDelayYear = 0;
+    public float vGapYear = 0;
     public int vScore = 0;
 
     public HumanItem(int ID,Sex sex)
@@ -74,6 +75,14 @@ public class HumanItem
         }
     }
 
+    public void TimeGoRecordGapYear(float yearDelta)
+    {
+        if (Age >= GameGlobal.ageStartGap && Age < GameGlobal.ageEndGap)
+        {
+            vGapYear += yearDelta;
+        }
+    }
+
     public void TimeGoGrowEdu(float eduDelta)
     {
         expEdu += eduDelta;
@@ -123,8 +132,10 @@ public class HumanItem
                 case RetireScoreType.Retire:
                     keyValue = vRetireAge;
                     break;
+                case RetireScoreType.GapYear:
+                    keyValue = Mathf.FloorToInt(vGapYear);
+                    break;
             }
-
             ScoreInfo scoreTemp = scoreData.CalculateScore((RetireScoreType)i, keyValue);
             if (scoreTemp.desc.Length > 0)
             {

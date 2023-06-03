@@ -62,7 +62,7 @@ public partial class RetireScoreExcelData
                 RetireScoreExcelItem targetItem = listScore[targetIndex];
 
                 int targetScore = targetItem.init + targetItem.slope * keyValue;
-                string targetDesc = targetItem.desc;
+                string targetDesc = string.Format(targetItem.desc,keyValue);
 
                 return new ScoreInfo(targetDesc, targetScore);
             }

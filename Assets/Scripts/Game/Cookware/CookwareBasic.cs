@@ -75,6 +75,11 @@ public partial class CookwareBasic : MonoBehaviour
     //Check whether the dragging human meet the condition
     public bool CheckHuman(HumanBasic human)
     {
+        if (listCurHuman.Contains(human))
+        {
+            return false;
+        }
+
         Vector3 headPos = human.tfHumanHead.position;
         //Full
         if (listCurHuman.Count >= cookCapacity)

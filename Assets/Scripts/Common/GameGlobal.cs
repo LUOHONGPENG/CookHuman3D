@@ -10,6 +10,12 @@ public static class GameGlobal
     //Excel Special Value
     public static int ageMinStudy = 0;
     public static int ageMaxStudy = 0;
+    public static int ageStartGap = 16;
+    public static int ageEndGap = 60;
+
+    public static float yearMarryM = 0.5f;
+    public static float yearMarryF = 2.5f;
+
 
     public static List<int> expEduLevelLimit = new List<int>();
     public static List<int> expCareerLevelLimit = new List<int>();

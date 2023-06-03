@@ -18,38 +18,61 @@ MonoBehaviour:
     desc: Improve learning efficiency.
     value0: 0.7
     value1: 0
+    affect: e9030000
+    remark: Edu+15.4/19.6
   - id: 1002
     name: Early Bird
     desc: Nowborn children can go to school.
     value0: 0
     value1: 0
+    affect: e9030000
+    remark: Edu+19/Score
   - id: 1003
     name: Magic Belly
     desc: Can give birth to twins.
     value0: 30
     value1: 10
+    affect: 00000000
+    remark: Survival
   - id: 1004
     name: Working Student
     desc: Can gain working experience in school after {0} years old.
     value0: 16
     value1: 1
+    affect: e9030000
+    remark: Career+12
   - id: 1005
     name: Internship King
     desc: Can do all jobs after {0} years old.
     value0: 20
     value1: 0
+    affect: d2070000d3070000
+    remark: Career+18/27(SacrificeEdu)
   - id: 1006
     name: Fetal Education
     desc: Nowborn children get initial Education.
-    value0: 15
+    value0: 10
     value1: 20
+    affect: 00000000
+    remark: Edu+15
   - id: 1007
     name: Network
     desc: Reduce educational requirement of all job.
     value0: 0
     value1: 0
+    affect: d2070000d3070000
+    remark: Career+(15-20)
+  - id: 1008
+    name: Supervision
+    desc: Improve working efficiency.
+    value0: 0.5
+    value1: 0
+    affect: d1070000d2070000d3070000
+    remark: Career+22/7/12
   - id: 9999
     name: Bribe
     desc: Reduce marriage requirements temporarily
     value0: 1
     value1: 6
+    affect: b90b0000ba0b0000
+    remark: 

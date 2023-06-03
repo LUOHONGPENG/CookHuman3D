@@ -10,6 +10,10 @@ public partial class SpecialValueExcelItem : ExcelItemBase
 {
 	public int ageMin_study;
 	public int ageMax_study;
+	public int ageStartGap;
+	public int ageEndGap;
+	public float yearMarryM;
+	public float yearMarryF;
 	public List<int> expEduLevel;
 	public List<int> expCareerLevel;
 }
@@ -34,6 +38,10 @@ public class SpecialValueAssetAssignment
 			items[i].id = Convert.ToInt32(allItemValueRowList[i]["id"]);
 			items[i].ageMin_study = Convert.ToInt32(allItemValueRowList[i]["ageMin_study"]);
 			items[i].ageMax_study = Convert.ToInt32(allItemValueRowList[i]["ageMax_study"]);
+			items[i].ageStartGap = Convert.ToInt32(allItemValueRowList[i]["ageStartGap"]);
+			items[i].ageEndGap = Convert.ToInt32(allItemValueRowList[i]["ageEndGap"]);
+			items[i].yearMarryM = Convert.ToSingle(allItemValueRowList[i]["yearMarryM"]);
+			items[i].yearMarryF = Convert.ToSingle(allItemValueRowList[i]["yearMarryF"]);
 			items[i].expEduLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["expEduLevel"]).Split(';'), int.Parse));
 			items[i].expCareerLevel = new List<int>(Array.ConvertAll((allItemValueRowList[i]["expCareerLevel"]).Split(';'), int.Parse));
 		}

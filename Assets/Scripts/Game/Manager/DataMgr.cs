@@ -29,6 +29,13 @@ public class DataMgr : Singleton<DataMgr>
         SpecialValueExcelItem specialItem = ExcelManager.Instance.GetExcelData<SpecialValueExcelData, SpecialValueExcelItem>().GetExcelItem(1001);
         GameGlobal.ageMinStudy = specialItem.ageMin_study;
         GameGlobal.ageMaxStudy = specialItem.ageMax_study;
+
+        GameGlobal.ageStartGap = specialItem.ageStartGap;
+        GameGlobal.ageEndGap = specialItem.ageEndGap;
+
+        GameGlobal.yearMarryM = specialItem.yearMarryM;
+        GameGlobal.yearMarryF = specialItem.yearMarryF;
+
         GameGlobal.expEduLevelLimit = specialItem.expEduLevel;
         GameGlobal.expCareerLevelLimit = specialItem.expCareerLevel;
 

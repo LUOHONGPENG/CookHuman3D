@@ -20,6 +20,13 @@ public partial class CookwareExcelItem
                     return growRate + PublicTool.GetEffortItem(1001).value0;
                 }
             }
+            else if (cookwareType == CookwareType.Job)
+            {
+                if (PublicTool.CheckWhetherEffortGot(1008))
+                {
+                    return growRate + PublicTool.GetEffortItem(1008).value0;
+                }
+            }
             return growRate;
         }
     }

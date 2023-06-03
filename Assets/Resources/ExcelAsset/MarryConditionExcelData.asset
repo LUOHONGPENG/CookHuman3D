@@ -546,10 +546,10 @@ MonoBehaviour:
     wCareerM0: 1
     wCareerM1: 5
     wCareerM2: 20
-    wCareerM3: 25
+    wCareerM3: 30
     wCareerM4: 20
-    wCareerM5: 15
-    expectCareerM: 3.1976745
+    wCareerM5: 10
+    expectCareerM: 3.0813954
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 15
@@ -578,12 +578,12 @@ MonoBehaviour:
     wEduF5: 0
     expectEduF: 2.142857
     wCareerM0: 1
-    wCareerM1: 5
-    wCareerM2: 20
-    wCareerM3: 25
+    wCareerM1: 4
+    wCareerM2: 18
+    wCareerM3: 30
     wCareerM4: 20
-    wCareerM5: 20
-    expectCareerM: 3.2967033
+    wCareerM5: 10
+    expectCareerM: 3.1325302
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 20
@@ -613,11 +613,11 @@ MonoBehaviour:
     expectEduF: 2.2272727
     wCareerM0: 1
     wCareerM1: 3
-    wCareerM2: 15
-    wCareerM3: 25
-    wCareerM4: 25
-    wCareerM5: 20
-    expectCareerM: 3.460674
+    wCareerM2: 16
+    wCareerM3: 30
+    wCareerM4: 20
+    wCareerM5: 10
+    expectCareerM: 3.1875
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 25
@@ -646,12 +646,12 @@ MonoBehaviour:
     wEduF5: 0
     expectEduF: 2.319672
     wCareerM0: 1
-    wCareerM1: 3
-    wCareerM2: 15
-    wCareerM3: 25
-    wCareerM4: 25
-    wCareerM5: 25
-    expectCareerM: 3.5425532
+    wCareerM1: 2
+    wCareerM2: 14
+    wCareerM3: 30
+    wCareerM4: 20
+    wCareerM5: 10
+    expectCareerM: 3.2467532
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 35
@@ -680,12 +680,12 @@ MonoBehaviour:
     wEduF5: 0
     expectEduF: 2.4074075
     wCareerM0: 1
-    wCareerM1: 3
-    wCareerM2: 10
-    wCareerM3: 25
-    wCareerM4: 25
-    wCareerM5: 25
-    expectCareerM: 3.6292136
+    wCareerM1: 1
+    wCareerM2: 12
+    wCareerM3: 30
+    wCareerM4: 20
+    wCareerM5: 10
+    expectCareerM: 3.3108108
     wCareerF0: 15
     wCareerF1: 15
     wCareerF2: 45

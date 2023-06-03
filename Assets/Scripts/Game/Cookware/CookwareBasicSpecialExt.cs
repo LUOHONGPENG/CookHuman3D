@@ -18,11 +18,11 @@ public partial class CookwareBasic
     {
         if (human.humanItem.sex == Sex.Male)
         {
-            human.maxYearMarriage = 0.8f;
+            human.maxYearMarriage = GameGlobal.yearMarryM;
         }
         else if(human.humanItem.sex == Sex.Female)
         {
-            human.maxYearMarriage = 2.5f;
+            human.maxYearMarriage = GameGlobal.yearMarryF;
         }
 
         human.yearMarriage = human.maxYearMarriage;

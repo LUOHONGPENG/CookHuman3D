@@ -112,6 +112,11 @@ public partial class HumanBasic
             humanItem.TimeGoGrowCareer(careerDelta);
             //Send yearDelta
         }
+
+        if(humanState == HumanState.Rest)// || humanState == HumanState.Marrying)
+        {
+            humanItem.TimeGoRecordGapYear(yearDelta);
+        }
     }
 
     //The event of this human age grow

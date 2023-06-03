@@ -52,6 +52,7 @@ public class EffortUIItem : MonoBehaviour
                 GameMgr.Instance.ClearEffort();
                 //Refresh
                 EventCenter.Instance.EventTrigger("ViewAllRefresh", null);
+                EventCenter.Instance.EventTrigger("ConditionShine", effortItem.affect);
                 parent.HidePopup();
             });
         }

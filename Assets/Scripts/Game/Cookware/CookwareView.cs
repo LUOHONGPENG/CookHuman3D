@@ -18,6 +18,8 @@ public class CookwareView : MonoBehaviour
     public GameObject objNormal;
     public RectTransform rtBgNormal;
     public Text txAgeNormal;
+    public RectTransform rtBgNormalCover;
+    public Image imgBgNormalCover;
     [Header("CapacityUI")]
     public Transform tfCapacity;
     public GameObject pfCapacity;
@@ -47,6 +49,7 @@ public class CookwareView : MonoBehaviour
     public Transform tfEduMarry;
     public Transform tfCareerMarry;
     public GameObject pfCondition;
+    public Image imgBgMarryCover;
 
     private CookwareBasic parent;
     private bool isInit = false;
@@ -75,8 +78,7 @@ public class CookwareView : MonoBehaviour
         EventCenter.Instance.AddEventListener("ShowCookPage", HoverEnterEvent);
         EventCenter.Instance.AddEventListener("HideCookPage", HoverLeaveEvent);
         EventCenter.Instance.AddEventListener("ViewAllRefresh", ViewAllRefresh);
-
-
+        EventCenter.Instance.AddEventListener("ConditionShine", ConditionShine);
     }
 
     public void OnDestroy()
@@ -84,7 +86,7 @@ public class CookwareView : MonoBehaviour
         EventCenter.Instance.RemoveEventListener("ShowCookPage", HoverEnterEvent);
         EventCenter.Instance.RemoveEventListener("HideCookPage", HoverLeaveEvent);
         EventCenter.Instance.RemoveEventListener("ViewAllRefresh", ViewAllRefresh);
-
+        EventCenter.Instance.RemoveEventListener("ConditionShine", ConditionShine);
     }
 
     private void ViewAllRefresh(object arg0)
@@ -166,7 +168,14 @@ public class CookwareView : MonoBehaviour
         switch (parent.cookID)
         {
             case 1001:
-                numArrow = 2;
+                if (PublicTool.CheckWhetherEffortGot(1001))
+                {
+                    numArrow = 2;
+                }
+                else
+                {
+                    numArrow = 1;
+                }
                 break;
             case 2001:
                 numArrow = 1;
@@ -177,6 +186,10 @@ public class CookwareView : MonoBehaviour
             case 2003:
                 numArrow = 3;
                 break;
+        }
+        if (PublicTool.CheckWhetherEffortGot(1008) && parent.cookType == CookwareType.Job)
+        {
+            numArrow++;
         }
         if (numArrow > 0)
         {
@@ -196,6 +209,14 @@ public class CookwareView : MonoBehaviour
             }
             for (int i = 0; i < numArrow; i++)
             {
+                GameObject.Instantiate(pfArrow, tfGrow);
+            }
+
+            if (PublicTool.CheckWhetherEffortGot(1004) && parent.cookType == CookwareType.Study)
+            {
+                GameObject objWS = GameObject.Instantiate(pfCondition, tfGrow);
+                RequireUIItem itemWS = objWS.GetComponent<RequireUIItem>();
+                itemWS.Init(ExpType.Career);
                 GameObject.Instantiate(pfArrow, tfGrow);
             }
         }
@@ -338,45 +359,74 @@ public class CookwareView : MonoBehaviour
 
     private void ShowNormalCookInfo()
     {
+        canvasUI.sortingOrder = 1;
         canvasGroupDesc.DOFade(1f, 0.25f);
         if (parent.eduMin > 0)
         {
             canvasGroupCondition.DOFade(1f, 0.25f);
             rtBgNormal.DOSizeDelta(new Vector2(220f, 174f), 0.25f);
+            rtBgNormalCover.DOSizeDelta(new Vector2(220f, 174f), 0.25f);
+
         }
         else
         {
             rtBgNormal.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
+            rtBgNormalCover.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
+
         }
     }
 
     private void InitNormalCookInfo()
     {
+        canvasUI.sortingOrder = 0;
         canvasGroupDesc.alpha = 0;
         canvasGroupCondition.alpha = 1;
         if (parent.eduMin > 0)
         {
             rtBgNormal.sizeDelta = new Vector2(220f, 125f);
+            rtBgNormalCover.sizeDelta = new Vector2(220f, 125f);
             canvasGroupCondition.gameObject.SetActive(true);
         }
         else
         {
             rtBgNormal.sizeDelta = new Vector2(220f, 76f);
+            rtBgNormalCover.sizeDelta = new Vector2(220f, 76f);
             canvasGroupCondition.gameObject.SetActive(false);
         }
     }
 
     private void HideNormalCookInfo()
     {
+        canvasUI.sortingOrder = 0;
         canvasGroupDesc.DOFade(0, 0.25f);
         //canvasGroupCondition.DOFade(0, 0.25f);
         if(parent.eduMin > 0)
         {
             rtBgNormal.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
+            rtBgNormalCover.DOSizeDelta(new Vector2(220f, 125f), 0.25f);
         }
         else
         {
             rtBgNormal.DOSizeDelta(new Vector2(220f, 76f), 0.25f);
+            rtBgNormalCover.DOSizeDelta(new Vector2(220f, 76f), 0.25f);
+        }
+    }
+
+    private void ConditionShine(object arg0)
+    {
+        List<int> list = (List<int>)arg0;
+
+        if (list.Contains(parent.cookID))
+        {
+            Sequence seq = DOTween.Sequence();
+            seq.Append(imgBgNormalCover.DOFade(1F, 0.5f));
+            seq.Join(imgBgMarryCover.DOFade(1F, 0.5f));
+            seq.Append(imgBgNormalCover.DOFade(0, 0.5f));
+            seq.Join(imgBgMarryCover.DOFade(0, 0.5f));
+            seq.Append(imgBgNormalCover.DOFade(1F, 0.5f));
+            seq.Join(imgBgMarryCover.DOFade(1F, 0.5f));
+            seq.Append(imgBgNormalCover.DOFade(0, 0.5f));
+            seq.Join(imgBgMarryCover.DOFade(0, 0.5f));
         }
     }
     #endregion

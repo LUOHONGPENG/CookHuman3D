@@ -16,6 +16,7 @@ public class HumanView : MonoBehaviour
     public Image imgAgeNormal;
     public Image imgAgeFill;
     public Image imgOvercook;
+    public Text codeOvercook;
     public List<Color> listSpAgeBgColor = new List<Color>();
 
     [Header("Info")]
@@ -104,6 +105,7 @@ public class HumanView : MonoBehaviour
         canvasGroupInfo.alpha = 0;
         rtAge.localPosition = new Vector2(0, 55f);
         rtAge.localScale = new Vector2(0.55f, 0.55f);
+        codeOvercook.color = new Color(codeOvercook.color.r, codeOvercook.color.g, codeOvercook.color.b, 0);
     }
 
     private void ShowConst()
@@ -112,14 +114,16 @@ public class HumanView : MonoBehaviour
         canvasGroupInfo.DOFade(0, 0.25f);
         rtAge.DOLocalMove(new Vector2(0, 55f),0.25f);
         rtAge.DOScale(new Vector2(0.55f, 0.55f), 0.25f);
+        codeOvercook.DOFade(0, 0.25f);
     }
 
     private void ShowHover()
     {
-        canvasUI.sortingOrder = 1;
+        canvasUI.sortingOrder = 2;
         canvasGroupInfo.DOFade(1, 0.25f);
         rtAge.DOLocalMove(new Vector2(-131.1f, 180f), 0.25f);
         rtAge.DOScale(Vector2.one, 0.25f);
+        codeOvercook.DOFade(1f, 0.25f);
     }
     #endregion
 
@@ -157,10 +161,12 @@ public class HumanView : MonoBehaviour
                 if (parent.Age >= 28)
                 {
                     imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Delay Graduation";
                 }
                 else
                 {
                     imgOvercook.gameObject.SetActive(false);
+                    codeOvercook.text = "";
                 }
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[0];
@@ -173,13 +179,33 @@ public class HumanView : MonoBehaviour
                 imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
                 break;
             case HumanState.Marrying:
+                /*                if (parent.Age >= GameGlobal.ageStartGap && parent.Age < GameGlobal.ageEndGap)
+                                {
+                                    imgOvercook.gameObject.SetActive(true);
+                                    codeOvercook.text = "Gap Year";
+                                }
+                                else
+                                {
+                                    imgOvercook.gameObject.SetActive(false);
+                                    codeOvercook.text = "";
+                                }*/
                 imgOvercook.gameObject.SetActive(false);
+                codeOvercook.text = "";
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[2];
                 imgAgeFill.fillAmount = 1f - (parent.yearMarriage / parent.maxYearMarriage);
                 break;
             default:
-                imgOvercook.gameObject.SetActive(false);
+                if (parent.Age >= GameGlobal.ageStartGap && parent.Age < GameGlobal.ageEndGap)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Gap Year";
+                }
+                else
+                {
+                    imgOvercook.gameObject.SetActive(false);
+                    codeOvercook.text = "";
+                }
                 imgAgeNormal.gameObject.SetActive(true);
                 imgAgeFill.fillAmount = 0;
                 break;
@@ -249,7 +275,7 @@ public class HumanView : MonoBehaviour
 
     private void CheckLevelUp()
     {
-        if (parent.humanState == HumanState.Studying)
+        if (parent.humanState == HumanState.Studying || parent.humanState == HumanState.Working)
         {
             if (lastEduLevel < 0)
             {
@@ -262,9 +288,7 @@ public class HumanView : MonoBehaviour
                 EffectUIInfo info = new EffectUIInfo("LevelUpStudy", PublicTool.CalculateUICanvasPos(parent.tfHumanHead.position, GameMgr.Instance.mapCamera), parent.LevelEdu);
                 EventCenter.Instance.EventTrigger("EffectUI", info);
             }
-        }
-        else if (parent.humanState == HumanState.Working)
-        {
+
             if (lastCareerLevel < 0)
             {
                 lastCareerLevel = parent.LevelCareer;

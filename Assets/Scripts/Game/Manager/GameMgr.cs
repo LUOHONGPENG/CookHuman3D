@@ -95,7 +95,20 @@ public class GameMgr : MonoSingleton<GameMgr>
 
     public int CalculateCurPenalty()
     {
-        return numReduceMarry * -500 - 500;
+        int penalty = Mathf.FloorToInt(-500 * Mathf.Pow(2, numReduceMarry));
+
+        //500 /1000 /2000 /4000 /8000 /16000 /32000
+
+        if(penalty < -20000)
+        {
+            return -20000;
+        }
+        else
+        {
+            return penalty;
+        }
+
+        //return numReduceMarry * -500 - 500;
     }
     #endregion
 

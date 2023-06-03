@@ -57,16 +57,16 @@ MonoBehaviour:
     scoreType: 1
     keyValue: 12
     desc: Late for School!
-    init: 260
-    slope: -30
+    init: 860
+    slope: -80
     keyPointScore: -100
     remark: 
   - id: 1021
     scoreType: 2
     keyValue: 1
     desc: Delay Graduate?
-    init: -50
-    slope: -50
+    init: 0
+    slope: -100
     keyPointScore: -100
     remark: YearDelay
   - id: 2001
@@ -111,7 +111,7 @@ MonoBehaviour:
     remark: 
   - id: 3003
     scoreType: 4
-    keyValue: 30
+    keyValue: 25
     desc: Married.
     init: 200
     slope: 0
@@ -119,10 +119,10 @@ MonoBehaviour:
     remark: 
   - id: 3004
     scoreType: 4
-    keyValue: 40
+    keyValue: 35
     desc: Late Marry!
-    init: 1900
-    slope: -50
+    init: 3400
+    slope: -100
     keyPointScore: -100
     remark: 
   - id: 4001
@@ -137,7 +137,15 @@ MonoBehaviour:
     scoreType: 5
     keyValue: 65
     desc: Late Retire!
-    init: 3050
-    slope: -50
+    init: 5000
+    slope: -80
     keyPointScore: -200
+    remark: 
+  - id: 5001
+    scoreType: 6
+    keyValue: 1
+    desc: Gap {0} Year?
+    init: 50
+    slope: -150
+    keyPointScore: -100
     remark: 

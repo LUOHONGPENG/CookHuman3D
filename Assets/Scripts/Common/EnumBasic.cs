@@ -34,5 +34,6 @@ public enum RetireScoreType
     Career,
     Marriage,
     Retire,
+    GapYear,
     End
 }
