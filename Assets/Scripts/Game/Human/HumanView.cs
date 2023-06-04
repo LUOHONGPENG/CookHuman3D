@@ -163,6 +163,11 @@ public class HumanView : MonoBehaviour
                     imgOvercook.gameObject.SetActive(true);
                     codeOvercook.text = "Delay Graduation";
                 }
+                else if (parent.Age >= 65)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Delay Retirement";
+                }
                 else
                 {
                     imgOvercook.gameObject.SetActive(false);
@@ -173,7 +178,15 @@ public class HumanView : MonoBehaviour
                 imgAgeFill.fillAmount = PublicTool.CalculateEduRate(parent.humanItem.expEdu);
                 break;
             case HumanState.Working:
-                imgOvercook.gameObject.SetActive(false);
+                if (parent.Age >= 65)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Delay Retirement";
+                }
+                else
+                {
+                    imgOvercook.gameObject.SetActive(false);
+                }
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[1];
                 imgAgeFill.fillAmount = PublicTool.CalculateCareerRate(parent.humanItem.expCareer);
@@ -189,14 +202,27 @@ public class HumanView : MonoBehaviour
                                     imgOvercook.gameObject.SetActive(false);
                                     codeOvercook.text = "";
                                 }*/
-                imgOvercook.gameObject.SetActive(false);
+                if (parent.Age >= 65)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Delay Retirement";
+                }
+                else
+                {
+                    imgOvercook.gameObject.SetActive(false);
+                }
                 codeOvercook.text = "";
                 imgAgeNormal.gameObject.SetActive(false);
                 imgAgeFill.color = listSpAgeBgColor[2];
                 imgAgeFill.fillAmount = 1f - (parent.yearMarriage / parent.maxYearMarriage);
                 break;
             default:
-                if (parent.Age >= GameGlobal.ageStartGap && parent.Age < GameGlobal.ageEndGap)
+                if (parent.Age >= 65)
+                {
+                    imgOvercook.gameObject.SetActive(true);
+                    codeOvercook.text = "Delay Retirement";
+                }
+                else if (parent.Age >= GameGlobal.ageStartGap && parent.Age < GameGlobal.ageEndGap)
                 {
                     imgOvercook.gameObject.SetActive(true);
                     codeOvercook.text = "Gap Year";
@@ -209,6 +235,12 @@ public class HumanView : MonoBehaviour
                 imgAgeNormal.gameObject.SetActive(true);
                 imgAgeFill.fillAmount = 0;
                 break;
+        }
+
+        if (parent.Age >= 65)
+        {
+            imgOvercook.gameObject.SetActive(true);
+            codeOvercook.text = "Delay Retirement";
         }
     }
 
