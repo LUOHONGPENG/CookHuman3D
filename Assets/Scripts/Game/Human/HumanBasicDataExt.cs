@@ -85,7 +85,7 @@ public partial class HumanBasic
         {
             humanItem.RecordMarried();
             EventCenter.Instance.EventTrigger("CreateBaby", null);
-            PublicTool.PlaySound(SoundType.Marriage);
+            
             UnBindCookware();
         }
     }

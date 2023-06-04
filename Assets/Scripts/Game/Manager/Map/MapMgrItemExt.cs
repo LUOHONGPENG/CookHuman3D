@@ -143,10 +143,13 @@ public partial class MapMgr
             CreateHuman(true,Sex.Female);
 
             //MagicBelly!
+            PublicTool.PlaySound(SoundType.MagicBelly);
+
         }
         else
         {
             CreateHuman(false);
+            PublicTool.PlaySound(SoundType.Marriage);
         }
     }
     #endregion

@@ -17,7 +17,8 @@ public enum SoundType
     Gay,
     Lesbian,
     Hurry,
-    Please
+    Please,
+    MagicBelly
 }
 
 public class SoundMgr : MonoBehaviour
@@ -37,9 +38,13 @@ public class SoundMgr : MonoBehaviour
     public AudioSource auLesbian;
     public AudioSource auHurry;
     public AudioSource auPlease;
+    public AudioSource auMagicBelly;
 
     public Dictionary<SoundType, AudioSource> dicSoundAudio = new Dictionary<SoundType, AudioSource>();
     public Dictionary<SoundType, float> dicSoundTime = new Dictionary<SoundType, float>();
+
+    [Header("Test")]
+    public SoundType testSoundType;
 
     public void OnEnable()
     {
@@ -69,9 +74,27 @@ public class SoundMgr : MonoBehaviour
         dicSoundAudio.Add(SoundType.Lesbian, auLesbian);
         dicSoundAudio.Add(SoundType.Hurry, auHurry);
         dicSoundAudio.Add(SoundType.Please, auPlease);
+        dicSoundAudio.Add(SoundType.MagicBelly, auMagicBelly);
 
+        dicSoundTime.Clear();
 
-        dicSoundTime.Clear(); dicSoundTime.Add(SoundType.Marriage, 0.7f);
+        dicSoundTime.Add(SoundType.TooYoung, 0.5f);
+        dicSoundTime.Add(SoundType.TooOld, 0.5f);
+        dicSoundTime.Add(SoundType.MoreEdu, 0.3f);
+        dicSoundTime.Add(SoundType.MoreCareer, 0.4f);
+        dicSoundTime.Add(SoundType.Married, 0.5f);
+        dicSoundTime.Add(SoundType.NoSpace, 0.75f);
+
+        dicSoundTime.Add(SoundType.Study, 0.7f);
+        dicSoundTime.Add(SoundType.Job, 0.6f);
+        dicSoundTime.Add(SoundType.Marriage, 0.8f);
+        dicSoundTime.Add(SoundType.Retire, 0.5f);
+
+        dicSoundTime.Add(SoundType.Gay, 1.2f);
+        dicSoundTime.Add(SoundType.Lesbian, 0.7f);
+        dicSoundTime.Add(SoundType.Hurry, 0.5f);
+        dicSoundTime.Add(SoundType.Please, 0.6f);
+        dicSoundTime.Add(SoundType.MagicBelly, 0.6f);
     }
 
     public void PlaySound(object arg0)
@@ -87,6 +110,18 @@ public class SoundMgr : MonoBehaviour
             {
                 playTime = dicSoundTime[soundType];
             }
+            targetSound.time = playTime;
+            targetSound.Play();
+        }
+    }
+
+    public void PlaySoundTime(SoundType soundType,float playtime)
+    {
+        if (dicSoundAudio.ContainsKey(soundType))
+        {
+            AudioSource targetSound = dicSoundAudio[soundType];
+
+            float playTime = playtime;
             targetSound.time = playTime;
             targetSound.Play();
         }
