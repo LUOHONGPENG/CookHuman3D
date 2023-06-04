@@ -12,6 +12,8 @@ public class RetireMiniUIMgr : MonoBehaviour
     public Button btnClose;
     public Button btnPause;
     public Image imgTime;
+    public GameObject objClick;
+
 
     [Header("Score")]
     public Text codeScore;
@@ -41,6 +43,7 @@ public class RetireMiniUIMgr : MonoBehaviour
             imgTime.gameObject.SetActive(false);
             GameMgr.Instance.isRetirePageOn = true;
             objBlock.gameObject.SetActive(true);
+            objClick.SetActive(false);
         });
 
         isInit = true;
@@ -74,6 +77,7 @@ public class RetireMiniUIMgr : MonoBehaviour
         human.humanItem.vScore = vScore;
 
         rtBg.sizeDelta = new Vector2(400f, 272f + 40f * numComment);
+        objClick.SetActive(true);
 
         if (GameMgr.Instance.mapMgr.listHumanBasic.Count > 1)
         {

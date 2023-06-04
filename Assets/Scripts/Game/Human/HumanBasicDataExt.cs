@@ -111,6 +111,11 @@ public partial class HumanBasic
             float careerDelta = curCookware.GetItem().ReadGrowRate * yearDelta;
             humanItem.TimeGoGrowCareer(careerDelta);
             //Send yearDelta
+            if (PublicTool.CheckWhetherEffortGot(1009))
+            {
+                float extraEduDelta = PublicTool.GetEffortItem(1009).value1 * yearDelta;
+                humanItem.TimeGoGrowEdu(extraEduDelta);
+            }
         }
 
         if(humanState == HumanState.Rest)// || humanState == HumanState.Marrying)

@@ -170,11 +170,11 @@ public class CookwareView : MonoBehaviour
             case 1001:
                 if (PublicTool.CheckWhetherEffortGot(1001))
                 {
-                    numArrow = 2;
+                    numArrow = 3;
                 }
                 else
                 {
-                    numArrow = 1;
+                    numArrow = 2;
                 }
                 break;
             case 2001:
@@ -217,6 +217,14 @@ public class CookwareView : MonoBehaviour
                 GameObject objWS = GameObject.Instantiate(pfCondition, tfGrow);
                 RequireUIItem itemWS = objWS.GetComponent<RequireUIItem>();
                 itemWS.Init(ExpType.Career);
+                GameObject.Instantiate(pfArrow, tfGrow);
+            }
+
+            if (PublicTool.CheckWhetherEffortGot(1009) && parent.cookType == CookwareType.Job)
+            {
+                GameObject objNL = GameObject.Instantiate(pfCondition, tfGrow);
+                RequireUIItem itemNL = objNL.GetComponent<RequireUIItem>();
+                itemNL.Init(ExpType.Edu);
                 GameObject.Instantiate(pfArrow, tfGrow);
             }
         }
