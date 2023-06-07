@@ -11,6 +11,9 @@ public class UIMgr : MonoBehaviour
     public EffortUIMgr effortUIMgr;
     public EndUIMgr endUIMgr;
     public TutorialUIMgr tutorialUIMgr;
+    public StartUIMgr startUIMgr;
+
+
     public void Init()
     {
         //hoverUIMgr.Init();
@@ -20,6 +23,7 @@ public class UIMgr : MonoBehaviour
         effortUIMgr.Init();
         endUIMgr.Init();
         tutorialUIMgr.Init();
+        startUIMgr.Init();
     }
 
     public void StartGame()

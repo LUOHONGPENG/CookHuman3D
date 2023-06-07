@@ -26,4 +26,6 @@ public static class GameGlobal
 
     public static List<Vector3> listPosHumanCookware = new List<Vector3>
     {new Vector3(-0.1f,0.15f,0),new Vector3(0.1f,0.15f,0),new Vector3(0,0.15f,0.1f) };
+
+    public static bool isStart = false;
 }
