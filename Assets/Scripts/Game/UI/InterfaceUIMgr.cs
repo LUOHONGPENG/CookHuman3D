@@ -12,6 +12,7 @@ public class InterfaceUIMgr : MonoBehaviour
     public Image imgEffortFill;
     public Animator aniEffort;
     public GameObject objPurpleParticle;
+    public RectTransform rtEffort;
     [Header("Speed")]
     public Button btnNormal;
     public Button btnFast;
@@ -119,5 +120,10 @@ public class InterfaceUIMgr : MonoBehaviour
             btnEffort.interactable = false;
             aniEffort.enabled = false;
         }
+    }
+
+    private void FirstEffort()
+    {
+
     }
 }
