@@ -10,6 +10,8 @@ public class TutorialUIMgr : MonoBehaviour
     public Text txTip;
     public Button btnNext;
     public Button btnSkip;
+
+    public List<GameObject> listTutObj = new List<GameObject>();
     
     private TutorialExcelItem[] arrayTutorial;
     private int curID = 0;
@@ -67,6 +69,20 @@ public class TutorialUIMgr : MonoBehaviour
             rtHole.sizeDelta = new Vector2(thisTutorial.sizeX, thisTutorial.sizeY);
             txTip.transform.localPosition = new Vector2(thisTutorial.posXtext, thisTutorial.posYtext);
             txTip.text = thisTutorial.strTip;
+
+            ReadObj(thisTutorial.picGroup);
+        }
+    }
+
+    private void ReadObj(int index)
+    {
+        for (int i = 0; i < listTutObj.Count; i++)
+        {
+            listTutObj[i].SetActive(false);
+        }
+        if (index >= 0 && index < listTutObj.Count)
+        {
+            listTutObj[index].SetActive(true);
         }
     }
 }

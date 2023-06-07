@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 8749947024849369827}
   - {fileID: 1173997622762028229}
   - {fileID: 2766757692560141051}
-  - {fileID: 8082944721862065424}
+  - {fileID: 6874286685470163389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   retireMiniUIMgr: {fileID: 7778581005637788835}
   effortUIMgr: {fileID: 4897166426837870933}
   endUIMgr: {fileID: 3597605673169677686}
-  tutorialUIMgr: {fileID: 7239122215202049702}
+  tutorialUIMgr: {fileID: 5421414189691351563}
 --- !u!223 &3009602651385187569
 Canvas:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576433ff73336bd488fb17c65036d31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1421434686789941722
+--- !u!1001 &4392082101287585143
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -516,11 +516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e4f05ab064e5104f972443b6c6b97a2, type: 3}
---- !u!114 &7239122215202049702 stripped
+--- !u!114 &5421414189691351563 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8633246682140227452, guid: 3e4f05ab064e5104f972443b6c6b97a2,
     type: 3}
-  m_PrefabInstance: {fileID: 1421434686789941722}
+  m_PrefabInstance: {fileID: 4392082101287585143}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -528,11 +528,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d26080d850a8e944bb001a3590db3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8082944721862065424 stripped
+--- !u!224 &6874286685470163389 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7175800148192953546, guid: 3e4f05ab064e5104f972443b6c6b97a2,
     type: 3}
-  m_PrefabInstance: {fileID: 1421434686789941722}
+  m_PrefabInstance: {fileID: 4392082101287585143}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6437669873301517947
 PrefabInstance:

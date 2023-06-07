@@ -24,6 +24,7 @@ MonoBehaviour:
     sizeY: 400
     posXtext: 0
     posYtext: 350
+    picGroup: -1
   - id: 1002
     strTip: Wash your children in the <color=#fff984ff>Study Sink</color> to get
       <color=#fff984ff>Education</color>.
@@ -33,23 +34,26 @@ MonoBehaviour:
     sizeY: 400
     posXtext: 0
     posYtext: 320
+    picGroup: 0
   - id: 1003
-    strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for Career.
+    strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for <color=#fff984ff>Career</color>.
     posX: 114
     posY: -206
     sizeX: 550
     sizeY: 500
     posXtext: 0
     posYtext: 320
+    picGroup: 1
   - id: 1004
     strTip: Roast your children in the <color=#fff984ff>Marriage Toaster</color>
-      to create new food.
+      to create new child.
     posX: 679
     posY: -200
     sizeX: 420
     sizeY: 500
     posXtext: 0
     posYtext: 320
+    picGroup: -1
   - id: 1005
     strTip: 'Send your children to the <color=#fff984ff>Retire Plate</color>.
 
@@ -61,6 +65,7 @@ MonoBehaviour:
     sizeY: 300
     posXtext: 0
     posYtext: 0
+    picGroup: -1
   - id: 1006
     strTip: Obey the Social Clock and Create more babys to get more <color=#fff984ff>Score.</color>.
     posX: -456
@@ -69,3 +74,4 @@ MonoBehaviour:
     sizeY: 300
     posXtext: 0
     posYtext: 250
+    picGroup: -1
