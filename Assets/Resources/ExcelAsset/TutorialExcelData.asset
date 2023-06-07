@@ -38,13 +38,34 @@ MonoBehaviour:
   - id: 1003
     strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for <color=#fff984ff>Career</color>.
     posX: 114
-    posY: -206
+    posY: -225
     sizeX: 550
-    sizeY: 500
+    sizeY: 530
     posXtext: 0
     posYtext: 320
     picGroup: 1
   - id: 1004
+    strTip: "Different <color=#fff984ff>Working Pots</color> will have \ndifferent
+      <color=#fff984ff>age requirement</color> and <color=#fff984ff> educational
+      requirement</color>."
+    posX: 114
+    posY: -225
+    sizeX: 550
+    sizeY: 530
+    posXtext: 0
+    posYtext: 320
+    picGroup: 2
+  - id: 1005
+    strTip: "Different <color=#fff984ff>Working Pots</color> will have \ndifferent
+      <color=#fff984ff>job efficiency</color>."
+    posX: 114
+    posY: -225
+    sizeX: 550
+    sizeY: 530
+    posXtext: 0
+    posYtext: 320
+    picGroup: 3
+  - id: 1006
     strTip: Roast your children in the <color=#fff984ff>Marriage Toaster</color>
       to create new child.
     posX: 679
@@ -54,11 +75,11 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: -1
-  - id: 1005
+  - id: 1007
     strTip: 'Send your children to the <color=#fff984ff>Retire Plate</color>.
 
       Let
-      Social Clock taste them.'
+      Social Clock tastes them.'
     posX: 307
     posY: 202
     sizeX: 380
@@ -66,7 +87,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 0
     picGroup: -1
-  - id: 1006
+  - id: 1008
     strTip: Obey the Social Clock and Create more babys to get more <color=#fff984ff>Score.</color>.
     posX: -456
     posY: 517
