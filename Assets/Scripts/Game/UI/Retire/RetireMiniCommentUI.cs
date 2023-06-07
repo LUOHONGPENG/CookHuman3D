@@ -15,14 +15,14 @@ public class RetireMiniCommentUI : MonoBehaviour
         if (vScore >= 0)
         {
             txScore.text = vScore.ToString();
-            txRetireComment.color = listColor[1];
-            txScore.color = listColor[1];
+            txRetireComment.color = listColor[0];
+            txScore.color = listColor[0];
         }
         else
         {
             txScore.text = string.Format("{0}", vScore.ToString());
-            txScore.color = listColor[0];
-            txRetireComment.color = listColor[0];
+            txScore.color = listColor[1];
+            txRetireComment.color = listColor[1];
 
         }
     }

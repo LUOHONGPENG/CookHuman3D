@@ -44,7 +44,7 @@ MonoBehaviour:
   - id: 1005
     name: Internship King
     desc: Can do all jobs after {0} years old.
-    value0: 20
+    value0: 18
     value1: 0
     affect: d2070000d3070000
     remark: Career+18/27(SacrificeEdu)

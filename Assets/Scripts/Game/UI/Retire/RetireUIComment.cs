@@ -16,12 +16,12 @@ public class RetireUIComment : MonoBehaviour
         if (vScore >= 0)
         {
             txScore.text = vScore.ToString();
-            txScore.color = listColor[0];
+            txScore.color = listColor[1];
         }
         else
         {
             txScore.text = string.Format("{0}", vScore.ToString());
-            txScore.color = listColor[1];
+            txScore.color = listColor[0];
         }
     }
 }

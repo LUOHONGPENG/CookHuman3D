@@ -18,7 +18,7 @@ MonoBehaviour:
     desc: Enhance education
     cookwareType: 0
     capacity: 2
-    growRate: 3.35
+    growRate: 3.4
     ageMin_real: 6
     ageMax_real: 28
     eduMin: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     cookwareType: 1
     capacity: 2
     growRate: 3
-    ageMin_real: 22
+    ageMin_real: 21
     ageMax_real: 36
     eduMin: 2
     posxInfo: -180

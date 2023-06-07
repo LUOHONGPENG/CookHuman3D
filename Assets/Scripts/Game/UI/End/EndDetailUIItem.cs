@@ -18,15 +18,15 @@ public class EndDetailUIItem : MonoBehaviour
 
         if (scoreInfo.score >= 0)
         {
-            imgBg.sprite = listSpBg[0];
-            txComment.color = listColor[0];
-            codeScore.color = listColor[0];
-        }
-        else
-        {
             imgBg.sprite = listSpBg[1];
             txComment.color = listColor[1];
             codeScore.color = listColor[1];
+        }
+        else
+        {
+            imgBg.sprite = listSpBg[0];
+            txComment.color = listColor[0];
+            codeScore.color = listColor[0];
         }
     }
 }
