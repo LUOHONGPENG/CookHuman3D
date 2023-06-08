@@ -9,6 +9,7 @@ using System.IO;
 public partial class MarryConditionExcelItem : ExcelItemBase
 {
 	public int numMarriage;
+	public float timeOfYear;
 	public int ageMinM;
 	public int ageMaxM;
 	public int ageMinF;
@@ -62,6 +63,7 @@ public class MarryConditionAssetAssignment
 			items[i] = new MarryConditionExcelItem();
 			items[i].id = Convert.ToInt32(allItemValueRowList[i]["id"]);
 			items[i].numMarriage = Convert.ToInt32(allItemValueRowList[i]["numMarriage"]);
+			items[i].timeOfYear = Convert.ToSingle(allItemValueRowList[i]["timeOfYear"]);
 			items[i].ageMinM = Convert.ToInt32(allItemValueRowList[i]["ageMinM"]);
 			items[i].ageMaxM = Convert.ToInt32(allItemValueRowList[i]["ageMaxM"]);
 			items[i].ageMinF = Convert.ToInt32(allItemValueRowList[i]["ageMinF"]);

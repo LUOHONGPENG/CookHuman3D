@@ -77,7 +77,7 @@ public class InterfaceUIMgr : MonoBehaviour
 
     private void SetFastSpeed()
     {
-        GameMgr.Instance.globalTimeScale = 1.6f;
+        GameMgr.Instance.globalTimeScale = 1.8f;
         btnNormal.GetComponent<Image>().material = mGray;
         btnFast.GetComponent<Image>().material = null;
     }

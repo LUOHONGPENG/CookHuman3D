@@ -66,7 +66,7 @@ public partial class HumanBasic
 
     private void TimeGoYear()
     {
-        float yearDelta = Time.fixedDeltaTime / GameGlobal.timeOneYear;
+        float yearDelta = Time.fixedDeltaTime / PublicTool.GetCurrentTimeYear();
         //YearGrow
         yearGrow -= yearDelta;
         if (yearGrow < 0)
@@ -113,7 +113,7 @@ public partial class HumanBasic
             //Send yearDelta
             if (PublicTool.CheckWhetherEffortGot(1009))
             {
-                float extraEduDelta = PublicTool.GetEffortItem(1009).value1 * yearDelta;
+                float extraEduDelta = PublicTool.GetEffortItem(1009).value0 * yearDelta;
                 humanItem.TimeGoGrowEdu(extraEduDelta);
             }
         }

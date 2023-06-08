@@ -58,7 +58,7 @@ public partial class MapMgr
     public IEnumerator IE_StartHuman()
     {
         CreateHuman(false);
-        yield return new WaitForSeconds(GameGlobal.timeOneYear * 2);
+        yield return new WaitForSeconds(PublicTool.GetCurrentTimeYear() * 2);
         CreateHuman(false);
     }
 

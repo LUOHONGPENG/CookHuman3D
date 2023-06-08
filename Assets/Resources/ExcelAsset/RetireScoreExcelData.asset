@@ -143,9 +143,9 @@ MonoBehaviour:
     remark: 
   - id: 5001
     scoreType: 6
-    keyValue: 1
+    keyValue: 2
     desc: Gap {0} Year?
-    init: 50
+    init: 200
     slope: -150
     keyPointScore: -100
     remark: 

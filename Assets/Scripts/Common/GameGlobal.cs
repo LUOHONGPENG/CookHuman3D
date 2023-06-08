@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameGlobal
 {
     //Fixed Value
-    public static float timeOneYear = 1.5f;
+    public static float timeOneYear = 1.55f;
 
     //Excel Special Value
     public static int ageMinStudy = 0;

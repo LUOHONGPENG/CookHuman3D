@@ -124,12 +124,12 @@ public partial class CookwareBasic : MonoBehaviour
             {
                 if(requiredSex == Sex.Female)
                 {
-                    PublicTool.WarningTip("Not Gay", headPos);
+                    PublicTool.WarningTip("For Women", headPos);
                     PublicTool.PlaySound(SoundType.Gay);
                 }
                 else if(requiredSex == Sex.Male)
                 {
-                    PublicTool.WarningTip("Not Lesbian", headPos);
+                    PublicTool.WarningTip("For Men", headPos);
                     PublicTool.PlaySound(SoundType.Lesbian);
                 }
                 return false;

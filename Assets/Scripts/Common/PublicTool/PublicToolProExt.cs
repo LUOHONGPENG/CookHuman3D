@@ -126,5 +126,18 @@ public partial class PublicTool
     {
         return GameMgr.Instance.dataMgr.effortExcelData.GetExcelItem(ID);
     }
+
+    public static float GetCurrentTimeYear()
+    {
+        if (GameMgr.Instance.dataMgr != null)
+        {
+            if (GameMgr.Instance.dataMgr.marryConditionData != null)
+            {
+                MarryConditionExcelItem marryConditionItem = GameMgr.Instance.dataMgr.marryConditionData.GetMarryItem(GameMgr.Instance.numMarry);
+                return marryConditionItem.timeOfYear;
+            }
+        }
+        return GameGlobal.timeOneYear;
+    }
     #endregion
 }
