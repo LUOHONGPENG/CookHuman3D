@@ -15,7 +15,7 @@ MonoBehaviour:
   items:
   - id: 1001
     numMarriage: 0
-    timeOfYear: 1.6
+    timeOfYear: 1.7
     ageMinM: 18
     ageMaxM: 50
     ageMinF: 18
