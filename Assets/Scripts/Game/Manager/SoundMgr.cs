@@ -90,8 +90,8 @@ public class SoundMgr : MonoBehaviour
         dicSoundTime.Add(SoundType.Marriage, 0.8f);
         dicSoundTime.Add(SoundType.Retire, 0.5f);
 
-        dicSoundTime.Add(SoundType.Gay, 1.2f);
-        dicSoundTime.Add(SoundType.Lesbian, 0.7f);
+        dicSoundTime.Add(SoundType.Gay, 1.1f);
+        dicSoundTime.Add(SoundType.Lesbian, 0.8f);
         dicSoundTime.Add(SoundType.Hurry, 0.5f);
         dicSoundTime.Add(SoundType.Please, 0.6f);
         dicSoundTime.Add(SoundType.MagicBelly, 0.6f);
