@@ -292,5 +292,14 @@ public partial class MapMgr
         return targetPos;
     }
 
+    public void DefaultRelease()
+    {
+        if (!isDragging || draggingHuman == null)
+        {
+            draggingHuman = null;
+            isDragging = false;
+        }
+    }
+
     #endregion
 }

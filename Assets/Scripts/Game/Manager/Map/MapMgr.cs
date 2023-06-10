@@ -50,6 +50,7 @@ public partial class MapMgr : MonoBehaviour
         CheckRayHover();
         //Dragging
         CheckRayDrag();
+        DefaultRelease();
     }
 }
 
