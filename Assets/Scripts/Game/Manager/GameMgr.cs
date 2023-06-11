@@ -39,7 +39,8 @@ public class GameMgr : MonoSingleton<GameMgr>
     public bool isTutorialPageOn = false;
     public bool isRetirePageOn = false;
     public bool isEndPageOn = false;
-    public float globalTimeScale = 1f;
+    private float globalTimeScale = 1f;
+    public SpeedState curSpeedState = SpeedState.Normal;
 
     #region GameData
 
@@ -61,8 +62,25 @@ public class GameMgr : MonoSingleton<GameMgr>
         maxEffortLimit = 3;
         numReduceMarry = 0;
         scorePenalty = 0;
+        curSpeedState = SpeedState.Normal;
+        globalTimeScale = GameGlobal.normalSpeed;
         listEffortGot.Clear();
         listEffortPrepared.Clear();
+    }
+
+    public void ModifySpeedState(SpeedState speedState)
+    {
+        curSpeedState = speedState;
+
+        switch (curSpeedState)
+        {
+            case SpeedState.Normal:
+                globalTimeScale = GameGlobal.normalSpeed;
+                break;
+            case SpeedState.Fast:
+                globalTimeScale = GameGlobal.fastSpeed;
+                break;
+        }
     }
 
     public void ChargeEffort()

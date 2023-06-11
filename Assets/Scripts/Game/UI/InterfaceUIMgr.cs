@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+public enum SpeedState
+{
+    Normal,
+    Fast
+}
+
+
 public class InterfaceUIMgr : MonoBehaviour
 {
     [Header("Score")]
@@ -20,6 +27,12 @@ public class InterfaceUIMgr : MonoBehaviour
     [Header("Speed")]
     public Button btnNormal;
     public Button btnFast;
+    public Button btnSpeed;
+    public Image imgBtnSpeed;
+    public Text txBtnSpeed;
+    public List<Sprite> listBtn = new List<Sprite>();
+    public List<Color> listColor = new List<Color>();
+
     public Material mGray;
 
     private bool isInit = false;
@@ -46,6 +59,12 @@ public class InterfaceUIMgr : MonoBehaviour
             SetFastSpeed();
         });
 
+        btnSpeed.onClick.RemoveAllListeners();
+        btnSpeed.onClick.AddListener(delegate ()
+        {
+            ChangeSpeed();
+        });
+
         isInit = true;
     }
 
@@ -55,6 +74,7 @@ public class InterfaceUIMgr : MonoBehaviour
         RefreshScore(null);
         RefreshEffort(null);
         isFirstEffortDone = false;
+        CheckSpeedUI();
 
         objEffort.gameObject.SetActive(false);
         rtEffortFake.gameObject.SetActive(false);
@@ -79,16 +99,45 @@ public class InterfaceUIMgr : MonoBehaviour
 
     private void SetNormalSpeed()
     {
-        GameMgr.Instance.globalTimeScale = 1f;
+        GameMgr.Instance.ModifySpeedState(SpeedState.Normal);
         btnNormal.GetComponent<Image>().material = null;
         btnFast.GetComponent<Image>().material = mGray;
     }
 
     private void SetFastSpeed()
     {
-        GameMgr.Instance.globalTimeScale = 1.7f;
+        GameMgr.Instance.ModifySpeedState(SpeedState.Fast);
         btnNormal.GetComponent<Image>().material = mGray;
         btnFast.GetComponent<Image>().material = null;
+    }
+
+    private void ChangeSpeed()
+    {
+        if (GameMgr.Instance.curSpeedState == SpeedState.Normal)
+        {
+            GameMgr.Instance.ModifySpeedState(SpeedState.Fast);
+        }
+        else
+        {
+            GameMgr.Instance.ModifySpeedState(SpeedState.Normal);
+        }
+        CheckSpeedUI();
+    }
+
+    private void CheckSpeedUI()
+    {
+        if (GameMgr.Instance.curSpeedState == SpeedState.Normal)
+        {
+            txBtnSpeed.text = string.Format("Speed: {0}X", 1);
+            imgBtnSpeed.sprite = listBtn[0];
+            txBtnSpeed.color = listColor[0];
+        }
+        else
+        {
+            txBtnSpeed.text = string.Format("Speed: {0}X", 2);
+            imgBtnSpeed.sprite = listBtn[1];
+            txBtnSpeed.color = listColor[1];
+        }
     }
     #endregion
 

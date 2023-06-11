@@ -6,6 +6,8 @@ public static class GameGlobal
 {
     //Fixed Value
     public static float timeOneYear = 1.55f;
+    public static float normalSpeed = 1f;
+    public static float fastSpeed = 1.8f;
 
     //Excel Special Value
     public static int ageMinStudy = 0;
