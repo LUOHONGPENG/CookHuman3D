@@ -69,6 +69,7 @@ public class TutorialUIMgr : MonoBehaviour
             rtHole.sizeDelta = new Vector2(thisTutorial.sizeX, thisTutorial.sizeY);
             txTip.transform.localPosition = new Vector2(thisTutorial.posXtext, thisTutorial.posYtext);
             txTip.text = thisTutorial.strTip;
+            txTip.fontSize = thisTutorial.fontSize;
 
             ReadObj(thisTutorial.picGroup);
         }
