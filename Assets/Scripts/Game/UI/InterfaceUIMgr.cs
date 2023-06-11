@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class InterfaceUIMgr : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class InterfaceUIMgr : MonoBehaviour
     public Image imgEffortFill;
     public Animator aniEffort;
     public GameObject objPurpleParticle;
+    [Header("EffortStartAni")]
     public RectTransform rtEffort;
+    public Image imgEffortShine;
     [Header("Speed")]
     public Button btnNormal;
     public Button btnFast;
     public Material mGray;
 
     private bool isInit = false;
+    private bool isFirstEffortDone = false;
 
     #region Basic
     public void Init()
@@ -49,6 +53,7 @@ public class InterfaceUIMgr : MonoBehaviour
         SetNormalSpeed();
         RefreshScore(null);
         RefreshEffort(null);
+        isFirstEffortDone = false;
     }
 
     public void OnEnable()
@@ -113,6 +118,8 @@ public class InterfaceUIMgr : MonoBehaviour
             }
             btnEffort.interactable = true;
             aniEffort.enabled = true;
+
+            CheckFirstEffort();
         }
         else
         {
@@ -122,8 +129,36 @@ public class InterfaceUIMgr : MonoBehaviour
         }
     }
 
-    private void FirstEffort()
+    private void CheckFirstEffort()
     {
+        if (!isFirstEffortDone)
+        {
+            StartCoroutine(IE_FirstEffort());
+            isFirstEffortDone = true;
+        }
+    }
 
+    private IEnumerator IE_FirstEffort()
+    {
+        //Start Animation
+        //rtEffort.DOLocalMove(new Vector2(0, 0), 0.3f);
+        DOTween.To(() => rtEffort.anchoredPosition, x => rtEffort.anchoredPosition = x, new Vector2(700f, -25f), 0.3f);
+        rtEffort.DOScale(2.2f, 0.3f);
+        btnEffort.interactable = false;
+        yield return new WaitForSeconds(0.3f);
+        imgEffortShine.DOFade(1f, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        imgEffortShine.DOFade(0, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        PublicTool.PlaySound(SoundType.ParentEffort);
+        imgEffortShine.DOFade(1f, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        imgEffortShine.DOFade(0, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        //Back Animation
+        DOTween.To(() => rtEffort.anchoredPosition, x => rtEffort.anchoredPosition = x, new Vector2(660f, -25f), 0.3f);
+        rtEffort.DOScale(1f, 0.3f);
+        yield return new WaitForSeconds(0.3f);
+        btnEffort.interactable = true;
     }
 }

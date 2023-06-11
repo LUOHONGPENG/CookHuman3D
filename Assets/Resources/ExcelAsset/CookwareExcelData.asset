@@ -24,6 +24,8 @@ MonoBehaviour:
     eduMin: 0
     posxInfo: -172
     posyInfo: -122
+    posxHuman: 0
+    poszHuman: -0.1
   - id: 2001
     name: Work1
     desc: Enhance career +
@@ -35,6 +37,8 @@ MonoBehaviour:
     eduMin: 0
     posxInfo: 0
     posyInfo: -150
+    posxHuman: 0
+    poszHuman: 0
   - id: 2002
     name: Work2
     desc: Enhance career ++
@@ -46,6 +50,8 @@ MonoBehaviour:
     eduMin: 2
     posxInfo: -180
     posyInfo: 60
+    posxHuman: 0
+    poszHuman: 0
   - id: 2003
     name: Work3
     desc: Enhance career +++
@@ -57,6 +63,8 @@ MonoBehaviour:
     eduMin: 4
     posxInfo: 0
     posyInfo: -150
+    posxHuman: 0.1
+    poszHuman: 0
   - id: 3001
     name: MarryF
     desc: 
@@ -68,6 +76,8 @@ MonoBehaviour:
     eduMin: 0
     posxInfo: -232
     posyInfo: -43
+    posxHuman: 0
+    poszHuman: 0
   - id: 3002
     name: MarryM
     desc: 
@@ -79,6 +89,8 @@ MonoBehaviour:
     eduMin: 0
     posxInfo: -10
     posyInfo: 150
+    posxHuman: 0.1
+    poszHuman: -0.05
   - id: 4001
     name: Retire
     desc: Finish this human
@@ -90,3 +102,5 @@ MonoBehaviour:
     eduMin: 0
     posxInfo: 0
     posyInfo: 120
+    posxHuman: 0
+    poszHuman: 0

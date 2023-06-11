@@ -63,7 +63,8 @@ public class CookwareView : MonoBehaviour
     public void Init(CookwareBasic parent)
     {
         this.parent = parent;
-
+        CookwareExcelItem item = parent.GetItem();
+        tfHumanGroup.transform.localPosition = new Vector3(item.posxHuman, 0, item.poszHuman);
         isInit = true;
     }
 

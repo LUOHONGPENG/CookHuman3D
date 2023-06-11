@@ -136,7 +136,7 @@ public partial class CookwareBasic : MonoBehaviour
             }
             else if (GameMgr.Instance.mapMgr.listHumanBasic.Count >= 6)
             {
-                PublicTool.WarningTip("Baby Full", headPos);
+                PublicTool.WarningTip("No more than 6 humans", headPos);
                 PublicTool.PlaySound(SoundType.NoSpace);
                 return false;
             }

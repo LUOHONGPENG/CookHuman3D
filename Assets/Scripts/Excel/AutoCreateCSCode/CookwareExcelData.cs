@@ -18,6 +18,8 @@ public partial class CookwareExcelItem : ExcelItemBase
 	public int eduMin;
 	public float posxInfo;
 	public float posyInfo;
+	public float posxHuman;
+	public float poszHuman;
 }
 
 [CreateAssetMenu(fileName = "CookwareExcelData", menuName = "Excel To ScriptableObject/Create CookwareExcelData", order = 1)]
@@ -48,6 +50,8 @@ public class CookwareAssetAssignment
 			items[i].eduMin = Convert.ToInt32(allItemValueRowList[i]["eduMin"]);
 			items[i].posxInfo = Convert.ToSingle(allItemValueRowList[i]["posxInfo"]);
 			items[i].posyInfo = Convert.ToSingle(allItemValueRowList[i]["posyInfo"]);
+			items[i].posxHuman = Convert.ToSingle(allItemValueRowList[i]["posxHuman"]);
+			items[i].poszHuman = Convert.ToSingle(allItemValueRowList[i]["poszHuman"]);
 		}
 		CookwareExcelData excelDataAsset = ScriptableObject.CreateInstance<CookwareExcelData>();
 		excelDataAsset.items = items;

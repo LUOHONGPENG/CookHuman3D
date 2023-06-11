@@ -18,7 +18,8 @@ public enum SoundType
     Lesbian,
     Hurry,
     Please,
-    MagicBelly
+    MagicBelly,
+    ParentEffort
 }
 
 public class SoundMgr : MonoBehaviour
@@ -39,6 +40,8 @@ public class SoundMgr : MonoBehaviour
     public AudioSource auHurry;
     public AudioSource auPlease;
     public AudioSource auMagicBelly;
+    public AudioSource auParentEffort;
+
 
     public Dictionary<SoundType, AudioSource> dicSoundAudio = new Dictionary<SoundType, AudioSource>();
     public Dictionary<SoundType, float> dicSoundTime = new Dictionary<SoundType, float>();
@@ -75,6 +78,7 @@ public class SoundMgr : MonoBehaviour
         dicSoundAudio.Add(SoundType.Hurry, auHurry);
         dicSoundAudio.Add(SoundType.Please, auPlease);
         dicSoundAudio.Add(SoundType.MagicBelly, auMagicBelly);
+        dicSoundAudio.Add(SoundType.ParentEffort, auParentEffort);
 
         dicSoundTime.Clear();
 
@@ -95,6 +99,8 @@ public class SoundMgr : MonoBehaviour
         dicSoundTime.Add(SoundType.Hurry, 0.5f);
         dicSoundTime.Add(SoundType.Please, 0.6f);
         dicSoundTime.Add(SoundType.MagicBelly, 0.6f);
+        dicSoundTime.Add(SoundType.ParentEffort, 1.6f);
+
     }
 
     public void PlaySound(object arg0)
