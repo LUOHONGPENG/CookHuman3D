@@ -52,11 +52,15 @@ public class SoundMgr : MonoBehaviour
     public void OnEnable()
     {
         EventCenter.Instance.AddEventListener("PlaySound", PlaySound);
+        EventCenter.Instance.AddEventListener("StopSound", StopSound);
+
     }
 
     public void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener("PlaySound", PlaySound);
+        EventCenter.Instance.RemoveEventListener("StopSound", StopSound);
+
     }
 
     public void Init()
@@ -120,6 +124,19 @@ public class SoundMgr : MonoBehaviour
             targetSound.Play();
         }
     }
+
+    public void StopSound(object arg0)
+    {
+        SoundType soundType = (SoundType)arg0;
+
+        if (dicSoundAudio.ContainsKey(soundType))
+        {
+            AudioSource targetSound = dicSoundAudio[soundType];
+
+            targetSound.Stop();
+        }
+    }
+
 
     public void PlaySoundTime(SoundType soundType,float playtime)
     {

@@ -9,12 +9,13 @@ public class InterfaceUIMgr : MonoBehaviour
     [Header("Score")]
     public Text codeScore;
     [Header("Effort")]
+    public GameObject objEffort;
     public Button btnEffort;
     public Image imgEffortFill;
     public Animator aniEffort;
     public GameObject objPurpleParticle;
     [Header("EffortStartAni")]
-    public RectTransform rtEffort;
+    public RectTransform rtEffortFake;
     public Image imgEffortShine;
     [Header("Speed")]
     public Button btnNormal;
@@ -54,6 +55,9 @@ public class InterfaceUIMgr : MonoBehaviour
         RefreshScore(null);
         RefreshEffort(null);
         isFirstEffortDone = false;
+
+        objEffort.gameObject.SetActive(false);
+        rtEffortFake.gameObject.SetActive(false);
     }
 
     public void OnEnable()
@@ -116,10 +120,12 @@ public class InterfaceUIMgr : MonoBehaviour
             {
                 objPurpleParticle.SetActive(true);
             }
+
+            CheckFirstEffort();
+
             btnEffort.interactable = true;
             aniEffort.enabled = true;
 
-            CheckFirstEffort();
         }
         else
         {
@@ -140,25 +146,33 @@ public class InterfaceUIMgr : MonoBehaviour
 
     private IEnumerator IE_FirstEffort()
     {
+        rtEffortFake.localPosition = Vector2.zero;
+        rtEffortFake.localScale = Vector2.zero;
+        rtEffortFake.gameObject.SetActive(true);
         //Start Animation
-        //rtEffort.DOLocalMove(new Vector2(0, 0), 0.3f);
-        DOTween.To(() => rtEffort.anchoredPosition, x => rtEffort.anchoredPosition = x, new Vector2(700f, -25f), 0.3f);
-        rtEffort.DOScale(2.2f, 0.3f);
+        rtEffortFake.DOScale(3f, 0.3f);
         btnEffort.interactable = false;
         yield return new WaitForSeconds(0.3f);
-        imgEffortShine.DOFade(1f, 0.25f);
-        yield return new WaitForSeconds(0.25f);
-        imgEffortShine.DOFade(0, 0.25f);
-        yield return new WaitForSeconds(0.25f);
         PublicTool.PlaySound(SoundType.ParentEffort);
+        PublicTool.StopSound(SoundType.Retire);
         imgEffortShine.DOFade(1f, 0.25f);
+        rtEffortFake.DOScale(4f, 0.3f);
         yield return new WaitForSeconds(0.25f);
         imgEffortShine.DOFade(0, 0.25f);
+        rtEffortFake.DOScale(3f, 0.3f);
+        yield return new WaitForSeconds(0.25f);
+        imgEffortShine.DOFade(1f, 0.25f);
+        rtEffortFake.DOScale(4f, 0.3f);
+        yield return new WaitForSeconds(0.25f);
+        imgEffortShine.DOFade(0, 0.25f);
+        rtEffortFake.DOScale(3f, 0.3f);
         yield return new WaitForSeconds(0.25f);
         //Back Animation
-        DOTween.To(() => rtEffort.anchoredPosition, x => rtEffort.anchoredPosition = x, new Vector2(660f, -25f), 0.3f);
-        rtEffort.DOScale(1f, 0.3f);
+        rtEffortFake.DOMove(objEffort.transform.position, 0.3f);
+        rtEffortFake.DOScale(1f, 0.3f);
         yield return new WaitForSeconds(0.3f);
+        rtEffortFake.gameObject.SetActive(false);
+        objEffort.gameObject.SetActive(true);
         btnEffort.interactable = true;
     }
 }

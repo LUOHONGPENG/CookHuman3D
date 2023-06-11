@@ -85,6 +85,11 @@ public partial class PublicTool
         EventCenter.Instance.EventTrigger("PlaySound", soundType);
     }
 
+    public static void StopSound(SoundType soundType)
+    {
+        EventCenter.Instance.EventTrigger("StopSound", soundType);
+    }
+
     public static void WarningTip(string strWarning,Vector3 headPos)
     {
         EffectUIInfo info = new EffectUIInfo("Warning", PublicTool.CalculateUICanvasPos(headPos, GameMgr.Instance.mapCamera), 0,strWarning);
