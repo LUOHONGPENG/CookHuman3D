@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - id: 1001
+    strTip: This is a game discussing about <color=#fff984ff>Social Clock</color>,
+      especially in <color=#fff984ff>East Asia</color>.
+    posX: 0
+    posY: 0
+    sizeX: 0
+    sizeY: 0
+    posXtext: 0
+    posYtext: 0
+    picGroup: -1
+  - id: 1002
     strTip: 'You are a great parent.
 
       You need to cook your children on time
@@ -25,7 +35,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 350
     picGroup: -1
-  - id: 1002
+  - id: 1003
     strTip: Wash your children in the <color=#fff984ff>Study Sink</color> to get
       <color=#fff984ff>Education</color>.
     posX: -496
@@ -35,7 +45,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: 0
-  - id: 1003
+  - id: 1004
     strTip: Cook your children in the <color=#fff984ff>Working Pot</color> for <color=#fff984ff>Career</color>.
     posX: 114
     posY: -225
@@ -44,7 +54,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: 1
-  - id: 1004
+  - id: 1005
     strTip: "Different <color=#fff984ff>Working Pots</color> will have \ndifferent
       <color=#fff984ff>age requirement</color> and <color=#fff984ff> educational
       requirement</color>."
@@ -55,7 +65,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: 2
-  - id: 1005
+  - id: 1006
     strTip: "Different <color=#fff984ff>Working Pots</color> will have \ndifferent
       <color=#fff984ff>job efficiency</color>."
     posX: 114
@@ -65,7 +75,7 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: 3
-  - id: 1006
+  - id: 1007
     strTip: Roast your children in the <color=#fff984ff>Marriage Toaster</color>
       to create new child.
     posX: 679
@@ -75,7 +85,19 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 320
     picGroup: -1
-  - id: 1007
+  - id: 1008
+    strTip: "For example, this means a <color=#fff984ff>man</color> \nwho is from
+      <color=#fff984ff>20</color> to <color=#fff984ff>48</color> years old,\nand
+      <color=#fff984ff>Education Level</color> is at least <color=#fff984ff>1</color>,\n<color=#fff984ff>Career
+      Level</color> is at least <color=#fff984ff>2</color>,\nis needed."
+    posX: 0
+    posY: 0
+    sizeX: 0
+    sizeY: 0
+    posXtext: 0
+    posYtext: 0
+    picGroup: 4
+  - id: 1009
     strTip: 'Send your children to the <color=#fff984ff>Retire Plate</color>.
 
       Let
@@ -87,12 +109,14 @@ MonoBehaviour:
     posXtext: 0
     posYtext: 0
     picGroup: -1
-  - id: 1008
-    strTip: Obey the Social Clock and Create more babys to get more <color=#fff984ff>Score.</color>.
+  - id: 1010
+    strTip: "Obey the Social Clock and Create more babys to get more <color=#fff984ff>Score</color>.\n\nAnd
+      you can click the button \nto adjust <color=#fff984ff>Speed</color> if you
+      want."
     posX: -456
     posY: 517
     sizeX: 1000
     sizeY: 300
     posXtext: 0
-    posYtext: 250
+    posYtext: 180
     picGroup: -1
