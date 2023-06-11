@@ -181,6 +181,7 @@ public class InterfaceUIMgr : MonoBehaviour
             objPurpleParticle.SetActive(false);
             btnEffort.interactable = false;
             aniEffort.enabled = false;
+            objEffort.transform.localScale = Vector2.one;
         }
     }
 
