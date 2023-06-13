@@ -22,7 +22,7 @@ MonoBehaviour:
     remark: Edu+15.4/19.6
   - id: 1002
     name: Early Bird
-    desc: Nowborn baby can go to school.
+    desc: A newborn baby can go to school.
     value0: 0
     value1: 0
     affect: e9030000
@@ -36,28 +36,28 @@ MonoBehaviour:
     remark: Survival
   - id: 1004
     name: Working Student
-    desc: Can gain work experience in school after {0} years old.
+    desc: Can gain work experience in school after the age of {0}.
     value0: 16
     value1: 1
     affect: e9030000
     remark: Career+12
   - id: 1005
     name: Internship King
-    desc: Can do all jobs after {0} years old.
+    desc: Can do all jobs after the age of {0}.
     value0: 18
     value1: 0
     affect: d2070000d3070000
     remark: Career+18/27(SacrificeEdu)
   - id: 1006
     name: Fetal Education
-    desc: Nowborn baby get initial Education.
+    desc: A newborn baby gets initial Education.
     value0: 10
     value1: 20
     affect: 00000000
     remark: Edu+15
   - id: 1007
     name: Network
-    desc: Reduce educational requirement of all job.
+    desc: Reduce educational requirements of all jobs.
     value0: 0
     value1: 0
     affect: d2070000d3070000
@@ -78,7 +78,7 @@ MonoBehaviour:
     remark: Edu+9.6/Score
   - id: 9999
     name: Bribe
-    desc: Reduce marriage requirements temporarily
+    desc: Reduce marriage requirements temporarily.
     value0: 1
     value1: 6
     affect: b90b0000ba0b0000
